@@ -23,9 +23,3 @@ theme_override_constants/separation = 20
 layout_mode = 2
 text = "Current Wave: 1"
 label_settings = SubResource("LabelSettings_rlops")
-
-[node name="NextWaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "NEXT WAVE"
-
-[connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

@@ -20,8 +20,6 @@ class_name MapParent
 @export var min_loops: int = 3
 @export var max_loops: int = 5
 
-var _wave_number: int = 1
-var _wave_size: int = 5
 var _path_generator: PathGenerator
 
 func _ready():
@@ -87,13 +85,3 @@ func _display_path():
 		add_child(tile)
 		tile.global_position = Vector3(_path_generator.get_path_tile(i).x, 0, _path_generator.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
-
-func _spawn_enemies(wave_size: int):
-	print("Spawning enemies up to wave size of: " + str(wave_size))
-
-func _on_ui_next_wave_button_pressed():
-	var _wave_number_text = $UI/MarginContainer/HBoxContainer/WaveNumber
-	_wave_number += 1
-	_wave_size += 5
-	_wave_number_text.text = "Current Wave: " + str(_wave_number)
-	_spawn_enemies(_wave_size)
