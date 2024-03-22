@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4eqpapt5832a"]
+
+[ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_pj7ih"]
+[ext_resource type="Script" path="res://Scenes/Maps/medium_map.gd" id="2_o80mu"]
+
+[node name="MediumMap" instance=ExtResource("1_pj7ih")]
+script = ExtResource("2_o80mu")

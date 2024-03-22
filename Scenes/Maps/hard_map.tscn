@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6pnp6kaqtu1j"]
+
+[ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_df7us"]
+[ext_resource type="Script" path="res://Scenes/Maps/hard_map.gd" id="2_4dvlh"]
+
+[node name="HardMap" instance=ExtResource("1_df7us")]
+script = ExtResource("2_4dvlh")

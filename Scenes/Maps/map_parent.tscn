@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://8mey7y7vf3ol"]
+
+[ext_resource type="Script" path="res://Scenes/Maps/map_parent.gd" id="1_j0lmf"]
+[ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
+
+[node name="MapParentNode" type="Node3D"]
+script = ExtResource("1_j0lmf")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.455545, 0.890213, 0, -0.890213, 0.455545, 7.398, 8.351, 10)
+fov = 60.0
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 480.217, 10)
+
+[node name="UI" parent="." instance=ExtResource("2_eqpxx")]
+
+[connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
