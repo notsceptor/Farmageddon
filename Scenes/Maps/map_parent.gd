@@ -24,8 +24,9 @@ var _path_generator: PathGenerator
 
 func _ready():
 	_path_generator = PathGenerator.new(map_length, map_height)
-	_display_path()
-	_complete_grid()
+	# Two below functions wont be in _ready : They will happen when wave starts / needs to be re-generated
+	#_display_path()
+	#_complete_grid()
 
 func _complete_grid():
 	for x in range(map_length):
