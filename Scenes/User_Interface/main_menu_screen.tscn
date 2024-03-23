@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://bue1piatwa0o"]
+
+[node name="MainMenuScreen" type="CanvasLayer"]
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameTitle" type="Label" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PlayButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
