@@ -19,3 +19,5 @@ tile_straight = ExtResource("4_5gmyq")
 tile_corner = ExtResource("5_42d38")
 tile_crossroads = ExtResource("6_u4mnd")
 tile_empty = Array[PackedScene]([ExtResource("7_bfxin"), ExtResource("8_a2lla"), ExtResource("9_2p15a"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d"), ExtResource("10_30k0d")])
+
+[connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
