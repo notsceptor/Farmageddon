@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="Farmageddon_Alpha"
-run/main_scene="res://Scenes/Maps/easy_map.tscn"
+run/main_scene="res://Scenes/User_Interface/main_menu_screen.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
+
+[autoload]
+
+TransitionLayer="*res://Scenes/Globals/transition_layer.tscn"
 
 [rendering]
 

@@ -1,23 +1,53 @@
-[gd_scene format=3 uid="uid://bue1piatwa0o"]
+[gd_scene load_steps=3 format=3 uid="uid://bue1piatwa0o"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
+
+[sub_resource type="AudioStream" id="AudioStream_bka5k"]
 
 [node name="MainMenuScreen" type="CanvasLayer"]
+script = ExtResource("1_fa3bd")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -246.5
+offset_right = 197.0
+offset_bottom = 246.5
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="GameTitle" type="Label" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 75
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="PlayButton" type="Button" parent="VBoxContainer"]
+[node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+text = "FARMAGEDDON 
+(PLACEHOLDER)
+(WOULD BE EXPORTED IMAGE OF OUR GAME TITLE)"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
+[node name="PlayGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "PLAY GAME"
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+text = "SETTINGS
+"
+
+[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "EXIT GAME"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStream_bka5k")
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
