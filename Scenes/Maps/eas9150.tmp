@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2bejqrlcaqoi"]
+
+[ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_djqk1"]
+[ext_resource type="Script" path="res://Scenes/Maps/easy_map.gd" id="2_gcxxa"]
+
+[node name="EasyMap" instance=ExtResource("1_djqk1")]
+script = ExtResource("2_gcxxa")
+
+[connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]

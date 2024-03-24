@@ -8,9 +8,7 @@ class_name MapParent
 @export var tile_straight:PackedScene
 @export var tile_corner:PackedScene
 @export var tile_crossroads:PackedScene
-@export var tile_enemy:PackedScene
 @export var tile_empty:Array[PackedScene]
-
 
 @export var map_length:int = 16
 @export var map_height:int = 10
@@ -20,12 +18,15 @@ class_name MapParent
 @export var min_loops: int = 3
 @export var max_loops: int = 5
 
-var _path_generator: PathGenerator
+@onready var _path_generator = PathGenerator.new(map_length, map_height)
+
+@onready var enemies_on_map: int = 0
+var temp_enemy_size: int
+
+signal no_enemies_left_on_map
 
 func _ready():
-	_path_generator = PathGenerator.new(map_length, map_height)
-	_display_path()
-	_complete_grid()
+	print("Parent loaded map")
 
 func _complete_grid():
 	for x in range(map_length):
@@ -46,7 +47,6 @@ func _display_path():
 
 	print("Generated a path of %d tiles after %d iterations" % [_path_generator.get_path().size(), iteration_count])
 	print(_path_generator.get_path())
-	
 	
 	for i in range(_path_generator.get_path().size()):
 		var tile_score:int = _path_generator.get_tile_score(i)
@@ -85,3 +85,51 @@ func _display_path():
 		add_child(tile)
 		tile.global_position = Vector3(_path_generator.get_path_tile(i).x, 0, _path_generator.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
+		
+func _add_curve_point(c3d:Curve3D, v3:Vector3) ->bool:
+	c3d.add_point(v3)
+	return true
+	
+func _spawn_enemy(chosen_enemy: PackedScene):
+	enemies_on_map += 1
+	var enemy_to_spawn = chosen_enemy.instantiate()
+	
+	var c3d:Curve3D = Curve3D.new()
+	
+	for element in _path_generator.get_path():
+		c3d.add_point(Vector3(element.x, 0.4, element.y))
+
+	var p3d:Path3D = Path3D.new()
+	add_child(p3d)
+	p3d.curve = c3d
+	
+	var pf3d:PathFollow3D = PathFollow3D.new()
+	p3d.add_child(pf3d)
+	pf3d.add_child(enemy_to_spawn)
+	
+	temp_enemy_size = enemy_to_spawn.get_size()
+	
+	var curr_distance:float = 0.0
+	
+	while curr_distance < c3d.point_count-1:
+		curr_distance += enemy_to_spawn.get_speed()
+		pf3d.progress = clamp(curr_distance, 0, c3d.point_count-1.00001)
+		await get_tree().create_timer(0.01).timeout
+		
+	p3d.queue_free() # To remove enemies at end of path
+	enemies_on_map -= 1
+	if enemies_on_map <= 0:
+		no_enemies_left_on_map.emit()
+		
+func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
+	var chosen_enemy_scene: PackedScene
+	var random_chosen_enemy: String = enemy_array[randi() % enemy_array.size()]
+	if wave_size > 1:
+		match random_chosen_enemy:
+			"Scumbug":
+				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
+			"Giant Zombie Snail":
+				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail.tscn")
+	else:
+		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
+	return chosen_enemy_scene
