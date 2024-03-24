@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6ahkbnygx2g2"
-path.s3tc="res://.godot/imported/Giant Zombie Snail_0.png-b4adc9f3f71915e2f3b8c194ca67a781.s3tc.ctex"
+path="res://.godot/imported/Giant Zombie Snail_0.png-b4adc9f3f71915e2f3b8c194ca67a781.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Enemies/Giant Zombie Snail_0.png"
-dest_files=["res://.godot/imported/Giant Zombie Snail_0.png-b4adc9f3f71915e2f3b8c194ca67a781.s3tc.ctex"]
+dest_files=["res://.godot/imported/Giant Zombie Snail_0.png-b4adc9f3f71915e2f3b8c194ca67a781.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

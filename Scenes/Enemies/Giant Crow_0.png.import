@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://7cjck0efdohp"
-path.s3tc="res://.godot/imported/Giant Crow_0.png-4917f00af1ca8a78b7d687df6ad715ad.s3tc.ctex"
+path="res://.godot/imported/Giant Crow_0.png-4917f00af1ca8a78b7d687df6ad715ad.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Scenes/Enemies/Giant Crow_0.png"
-dest_files=["res://.godot/imported/Giant Crow_0.png-4917f00af1ca8a78b7d687df6ad715ad.s3tc.ctex"]
+dest_files=["res://.godot/imported/Giant Crow_0.png-4917f00af1ca8a78b7d687df6ad715ad.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
