@@ -5,9 +5,11 @@
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
+tile_empty = Array[PackedScene]([null])
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.455545, 0.890213, 0, -0.890213, 0.455545, 7.398, 8.351, 10)
+current = true
 fov = 60.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]

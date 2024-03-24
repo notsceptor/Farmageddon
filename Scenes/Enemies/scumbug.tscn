@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cutwtalr4uad7"]
+
+[ext_resource type="PackedScene" uid="uid://u1foh2li2ttu" path="res://Models/Enemies/Aphid.gltf" id="1_b6odv"]
+[ext_resource type="Script" path="res://Scenes/Enemies/scumbug.gd" id="2_ts2h0"]
+
+[node name="Scumbug" instance=ExtResource("1_b6odv")]
+script = ExtResource("2_ts2h0")
+
+[node name="RightLegs" parent="Node/ScumBug/ScumBug2/Legs" index="0"]
+transform = Transform3D(0.857167, 0, -0.515038, 0, 1, 0, 0.515038, 0, 0.857167, -0.191819, -0.232559, -0.16875)
+
+[node name="LeftLegs" parent="Node/ScumBug/ScumBug2/Legs" index="1"]
+transform = Transform3D(0.857167, 0, 0.515038, 0, 1, 0, -0.515038, 0, 0.857167, -0.35, -0.378722, -0.24375)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Gatling Fire"
