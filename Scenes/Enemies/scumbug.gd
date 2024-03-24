@@ -5,4 +5,4 @@ func _ready():
 	_name = "Scumbug"
 	_health = 10
 	_size = 1
-	_speed = 2
+	_speed = 0.15
