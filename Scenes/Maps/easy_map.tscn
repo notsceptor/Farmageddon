@@ -21,11 +21,10 @@ tile_straight = ExtResource("4_wahs0")
 tile_corner = ExtResource("5_ed7bm")
 tile_crossroads = ExtResource("6_acbme")
 tile_empty = Array[PackedScene]([ExtResource("7_oqcm6"), ExtResource("8_mgvxy"), ExtResource("9_tdbs6"), ExtResource("10_5sklo"), ExtResource("11_iua08"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18")])
-map_length = null
-map_height = null
 min_path_size = 40
 max_path_size = 50
 min_loops = 2
 max_loops = 3
 
+[connection signal="no_enemies_left_on_map" from="." to="." method="_on_no_enemies_left_on_map"]
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]

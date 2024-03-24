@@ -23,6 +23,8 @@ class_name MapParent
 @onready var enemies_on_map: int = 0
 var temp_enemy_size: int
 
+signal no_enemies_left_on_map
+
 func _ready():
 	print("Parent loaded map")
 
@@ -116,6 +118,8 @@ func _spawn_enemy(chosen_enemy: PackedScene):
 		
 	p3d.queue_free() # To remove enemies at end of path
 	enemies_on_map -= 1
+	if enemies_on_map <= 0:
+		no_enemies_left_on_map.emit()
 		
 func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 	var chosen_enemy_scene: PackedScene
