@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dookj1hp0rk5m"]
+
+[ext_resource type="PackedScene" uid="uid://dyehusq4e4x2p" path="res://Scenes/Enemies/Giant Crow.gltf" id="1_4re56"]
+[ext_resource type="Script" path="res://Scenes/Enemies/giant_crow.gd" id="2_n1a3q"]
+
+[node name="GiantCrow" instance=ExtResource("1_4re56")]
+script = ExtResource("2_n1a3q")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Flap"

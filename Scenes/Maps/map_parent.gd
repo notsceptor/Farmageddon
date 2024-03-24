@@ -130,6 +130,8 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
 			"Giant Zombie Snail":
 				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail.tscn")
+			"Crow":
+				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_crow.tscn")
 	else:
 		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
 	return chosen_enemy_scene

@@ -1,6 +1,6 @@
 extends MapParent
 
-var enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
+var enemy_array: Array = ["Scumbug", "Giant Zombie Snail", "Crow"]
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
 
 func _ready():
@@ -16,7 +16,7 @@ func _on_ui_next_wave_button_pressed(wave_number, wave_size):
 		var chosen_enemy = _choose_random_enemy(enemy_array, wave_size)
 		_spawn_enemy(chosen_enemy)
 		wave_size -= temp_enemy_size
-		await get_tree().create_timer(0.2).timeout
+		await get_tree().create_timer(1).timeout
 		
 func _regenerate_new_map_layout():
 	$UI/ReloadSceneText.visible = true
