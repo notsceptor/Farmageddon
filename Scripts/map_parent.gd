@@ -9,6 +9,7 @@ class_name MapParent
 @export var tile_corner:PackedScene
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
+@export var debug_enemy:PackedScene
 
 @onready var enemies_on_map: int = 0
 var temp_enemy_size: int
@@ -69,33 +70,34 @@ func _complete_grid():
 func _spawn_enemy(chosen_enemy: PackedScene):
 	enemies_on_map += 1
 	var enemy_to_spawn = chosen_enemy.instantiate()
+	add_child(enemy_to_spawn)
 	
-	var c3d:Curve3D = Curve3D.new()
-	
-	for element in PathGenInstance.get_path_route():
-		c3d.add_point(Vector3(element.x, 0.4, element.y))
-
-	var p3d:Path3D = Path3D.new()
-	add_child(p3d)
-	p3d.curve = c3d
-	
-	var pf3d:PathFollow3D = PathFollow3D.new()
-	p3d.add_child(pf3d)
-	pf3d.add_child(enemy_to_spawn)
-	
-	temp_enemy_size = enemy_to_spawn.get_size()
-	
-	var curr_distance:float = 0.0
-	
-	while curr_distance < c3d.point_count-1:
-		curr_distance += enemy_to_spawn.get_speed()
-		pf3d.progress = clamp(curr_distance, 0, c3d.point_count-1.00001)
-		await get_tree().create_timer(0.01).timeout
-		
-	p3d.queue_free() # To remove enemies at end of path
-	enemies_on_map -= 1
-	if enemies_on_map <= 0:
-		no_enemies_left_on_map.emit()
+	#var c3d:Curve3D = Curve3D.new()
+	#
+	#for element in PathGenInstance.get_path_route():
+		#c3d.add_point(Vector3(element.x, 0.4, element.y))
+#
+	#var p3d:Path3D = Path3D.new()
+	#add_child(p3d)
+	#p3d.curve = c3d
+	#
+	#var pf3d:PathFollow3D = PathFollow3D.new()
+	#p3d.add_child(pf3d)
+	#pf3d.add_child(enemy_to_spawn)
+	#
+	#temp_enemy_size = enemy_to_spawn.get_size()
+	#
+	#var curr_distance:float = 0.0
+	#
+	#while curr_distance < c3d.point_count-1:
+		#curr_distance += enemy_to_spawn.get_speed()
+		#pf3d.progress = clamp(curr_distance, 0, c3d.point_count-1.00001)
+		#await get_tree().create_timer(0.01).timeout
+		#
+	#p3d.queue_free() # To remove enemies at end of path
+	#enemies_on_map -= 1
+	#if enemies_on_map <= 0:
+		#no_enemies_left_on_map.emit()
 		
 func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 	var chosen_enemy_scene: PackedScene
@@ -103,9 +105,9 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 	if wave_size > 1:
 		match random_chosen_enemy:
 			"Scumbug":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
+				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_model.tscn")
 			"Giant Zombie Snail":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail.tscn")
+				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail_model.tscn")
 	else:
-		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug.tscn")
+		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_model.tscn")
 	return chosen_enemy_scene

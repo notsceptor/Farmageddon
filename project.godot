@@ -21,6 +21,10 @@ TransitionLayer="*res://Scenes/Globals/transition_layer.tscn"
 Globals="*res://Scenes/Globals/globals.gd"
 PathGenInstance="*res://Scripts/path_generator.gd"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="mobile"

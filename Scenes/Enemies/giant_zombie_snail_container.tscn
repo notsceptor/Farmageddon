@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://buprytn1t6umg"]
+
+[ext_resource type="PackedScene" uid="uid://ko5i3cu7gfcj" path="res://Scenes/Enemies/enemy_container_template.tscn" id="1_i51ia"]
+[ext_resource type="PackedScene" uid="uid://d3ohf77tno414" path="res://Scenes/Enemies/giant_zombie_snail_model.tscn" id="2_tud33"]
+
+[node name="GiantZombieSnailContainer" instance=ExtResource("1_i51ia")]
+
+[node name="GiantZombieSnail" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_tud33")]

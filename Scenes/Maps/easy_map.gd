@@ -14,15 +14,17 @@ func _ready():
 	
 # Placeholder wave spawner -> Probably be its own global script always available
 func _on_ui_next_wave_button_pressed(wave_number, wave_size):
-	Globals.wave_ongoing = true
-	print("Starting wave: " + str(wave_number))
-	print("Wave size of: " + str(wave_size))
-	
-	while wave_size > 0:
-		var chosen_enemy = _choose_random_enemy(enemy_array, wave_size)
-		_spawn_enemy(chosen_enemy)
-		wave_size -= temp_enemy_size
-		await get_tree().create_timer(0.2).timeout
+	#Globals.wave_ongoing = true
+	#print("Starting wave: " + str(wave_number))
+	#print("Wave size of: " + str(wave_size))
+	#
+	#while wave_size > 0:
+		#var chosen_enemy = _choose_random_enemy(enemy_array, wave_size)
+		#_spawn_enemy(chosen_enemy)
+		#wave_size -= temp_enemy_size
+		#await get_tree().create_timer(0.2).timeout
+		
+	_spawn_enemy(debug_enemy)
 		
 # Placeholder regeneration of map/path layout after 5 waves (boss) for now
 func _regenerate_new_map_layout():
@@ -36,3 +38,6 @@ func _on_no_enemies_left_on_map():
 	if Globals.easy_map_current_level % 5 == 0:
 		_regenerate_new_map_layout()
 		next_wave_button.visible = false
+
+func _on_ui_refresh_map_button_presesd():
+	_regenerate_new_map_layout()

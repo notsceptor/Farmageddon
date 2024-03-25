@@ -4,8 +4,10 @@ extends CanvasLayer
 @onready var current_easy_level: int = Globals.easy_map_current_level
 
 @onready var next_wave_button: Button = $MarginContainer/HBoxContainer/NextWaveButton
+@onready var refresh_wave_button: Button = $MarginContainer2/TestRefreshMapButton
 
 signal next_wave_button_pressed(wave_number: int, wave_size: int)
+signal refresh_map_button_presesd
 
 func _ready():
 	next_wave_button.visible = false
@@ -22,3 +24,6 @@ func _on_next_wave_button_pressed():
 	wave_number_label.text = str(Globals.easy_map_current_level)
 	next_wave_button_pressed.emit(next_easy_level, next_easy_wave_size)
 	next_wave_button.visible = false
+	
+func _on_test_refresh_map_button_pressed():
+	refresh_map_button_presesd.emit()

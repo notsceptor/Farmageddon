@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ko5i3cu7gfcj"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_parent.gd" id="1_i7ht2"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_v6muk"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_lr8o8"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_lsabk"]
+
+[sub_resource type="Curve3D" id="Curve3D_eea3p"]
+
+[node name="EnemyContainer" type="Node3D"]
+script = ExtResource("1_i7ht2")
+
+[node name="EnemyStateChart" type="Node" parent="."]
+script = ExtResource("2_v6muk")
+
+[node name="CompoundState" type="Node" parent="EnemyStateChart"]
+script = ExtResource("3_lr8o8")
+initial_state = NodePath("Spawning")
+
+[node name="Spawning" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("4_lsabk")
+
+[node name="Moving" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("4_lsabk")
+
+[node name="Defeated" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("4_lsabk")
+
+[node name="Despawning" type="Node" parent="EnemyStateChart/CompoundState"]
+script = ExtResource("4_lsabk")
+
+[node name="Path3D" type="Path3D" parent="."]
+curve = SubResource("Curve3D_eea3p")
+
+[node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
+
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Spawning" to="." method="_on_spawning_state_entered"]

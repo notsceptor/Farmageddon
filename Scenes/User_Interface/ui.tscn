@@ -49,4 +49,22 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
 
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -185.0
+offset_top = -40.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TestRefreshMapButton" type="Button" parent="MarginContainer2"]
+layout_mode = 2
+text = "REFRESH MAP (DEBUG)"
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
