@@ -1,8 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://bue1piatwa0o"]
+[gd_scene load_steps=2 format=3 uid="uid://bue1piatwa0o"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
-
-[sub_resource type="AudioStream" id="AudioStream_bka5k"]
 
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
@@ -45,9 +43,6 @@ text = "SETTINGS
 [node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "EXIT GAME"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStream_bka5k")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
