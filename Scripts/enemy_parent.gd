@@ -1,10 +1,10 @@
 extends Node3D
 class_name EnemyParent
 
-@onready var _name: String = "default_name"
-@onready var _health: int = 0
-@onready var _size: int = 0
-@onready var _speed: float = 0.0
+@onready var _name: String
+@onready var _health: int
+@onready var _size: int
+@onready var _speed: float
 
 var curve_3d: Curve3D
 
@@ -18,6 +18,12 @@ func _ready():
 
 func _on_spawning_state_entered():
 	print("Enemy Spawned")
+	# Maybe a spawn animation to delay movement -> For now it's an await as placeholder
+	await get_tree().create_timer(1).timeout
+	$EnemyStateChart.send_event("to_moving")
+	
+func _on_moving_state_entered():
+	print("Enemy Moving")
 	
 func get_enemy_name() -> String:
 	return _name
@@ -30,3 +36,5 @@ func get_size() -> int:
 	
 func get_speed() -> float:
 	return _speed
+
+

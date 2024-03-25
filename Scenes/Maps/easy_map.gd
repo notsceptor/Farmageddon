@@ -13,7 +13,7 @@ func _ready():
 	_complete_grid()
 	
 # Placeholder wave spawner -> Probably be its own global script always available
-func _on_ui_next_wave_button_pressed(wave_number, wave_size):
+func _on_ui_next_wave_button_pressed(_wave_number, _wave_size):
 	#Globals.wave_ongoing = true
 	#print("Starting wave: " + str(wave_number))
 	#print("Wave size of: " + str(wave_size))

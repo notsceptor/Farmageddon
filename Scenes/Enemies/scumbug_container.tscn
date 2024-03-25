@@ -6,3 +6,5 @@
 [node name="ScumbugContainer" instance=ExtResource("1_pyfrd")]
 
 [node name="Scumbug" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_cf7mv")]
+
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Scumbug" method="_on_moving_state_processing"]
