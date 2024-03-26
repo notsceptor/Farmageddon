@@ -1,6 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=6 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
+[ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
+[ext_resource type="Texture2D" uid="uid://b55vd6geoc4jf" path="res://Models/Turrets/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="4_hdmtv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -48,5 +51,11 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
+
+[node name="ActivityButton" parent="." instance=ExtResource("2_niyf1")]
+offset_top = -104.0
+offset_bottom = -8.0
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]

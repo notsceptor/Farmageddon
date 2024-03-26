@@ -3,6 +3,9 @@ extends MapParent
 var enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
 
+@onready var cam = $Camera3D
+var RAYCAST_LENGTH:float = 100
+
 func _ready():
 	_display_path()
 	_complete_grid()
