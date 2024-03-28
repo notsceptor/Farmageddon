@@ -1,34 +1,35 @@
 extends MapParent
 
-var enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
-@onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
+var easy_map_config = preload("res://Resources/easy_map_config.res")
 
+func _init():
+	PathGenInstance.path_config = easy_map_config
+	
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
 func _ready():
-	_display_path()
+	current_level_difficulty = "easy"
+	current_level_wave_number = Globals.easy_map_current_level
+	current_level_wave_number_label.text = str(current_level_wave_number)
+	current_level_wave_size = Globals.easy_map_spawn_size
+	PathGenInstance.generate_new_path()
 	_complete_grid()
-	
-func _on_ui_next_wave_button_pressed(wave_number, wave_size):
-	Globals.wave_ongoing = true
-	print("Starting wave: " + str(wave_number))
-	print("Wave size of: " + str(wave_size))
-	
-	while wave_size > 0:
-		var chosen_enemy = _choose_random_enemy(enemy_array, wave_size)
-		_spawn_enemy(chosen_enemy)
-		wave_size -= temp_enemy_size
-		await get_tree().create_timer(0.2).timeout
-		
-func _regenerate_new_map_layout():
-	$UI/ReloadSceneText.visible = true
-	$UI/MarginContainer/HBoxContainer/NextWaveButton.visible = false
-	TransitionLayer.reload_level("res://Scenes/Maps/easy_map.tscn")
 
-
-func _on_no_enemies_left_on_map():
-	next_wave_button.visible = true
-	if Globals.easy_map_current_level % 5 == 0:
-		_regenerate_new_map_layout()
-		next_wave_button.visible = false
+func _on_end_of_wave():
+	if Globals.wave_won:
+		# If boss wave was won (every 5 for now) - Regenerates new map
+		if current_level_wave_number % 5 == 0:
+			_regenerate_new_map_layout(current_level_difficulty)
+		print("Wave won! Moving up")
+		Globals.easy_map_current_level += 1
+		Globals.easy_map_spawn_size += 2
+	else:
+		print("Wave lost! Staying same")
+	current_level_wave_number = Globals.easy_map_current_level
+	current_level_wave_number_label.text = str(current_level_wave_number)
+	current_level_wave_size = Globals.easy_map_spawn_size
+	
+	if current_level_wave_number % 5 != 1:
+		next_wave_button.visible = true
+	
