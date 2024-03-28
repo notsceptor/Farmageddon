@@ -4,7 +4,7 @@ class_name EnemyParent
 @onready var _name: String
 @onready var _health: int
 @onready var _size: int
-@onready var _speed: float
+@onready var _speed: int
 
 var curve_3d: Curve3D
 
@@ -31,15 +31,3 @@ func _on_despawning_state_entered():
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	Globals.enemies_on_map -= 1
-	
-func get_enemy_name() -> String:
-	return _name
-	
-func get_health() -> int:
-	return _health
-	
-func get_size() -> int:
-	return _size
-	
-func get_speed() -> float:
-	return _speed
