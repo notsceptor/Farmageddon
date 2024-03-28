@@ -9,7 +9,7 @@ func _ready():
 	_name = "Scumbug"
 	_health = 10
 	_size = 1
-	_speed = 2
+	_speed = 10 # Sped up to allow for easier debugging
 	_path_follow_3d = get_node("../")
 
 func _on_moving_state_processing(delta):
