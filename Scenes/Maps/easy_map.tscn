@@ -2,24 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_djqk1"]
 [ext_resource type="Script" path="res://Scenes/Maps/easy_map.gd" id="2_gcxxa"]
-[ext_resource type="PackedScene" uid="uid://dq5s6ectayygr" path="res://Models/Environment/Tiles/tile_endRoundSpawn.glb" id="3_71s6l"]
-[ext_resource type="PackedScene" uid="uid://bm22dlg2fhxxx" path="res://Models/Environment/Tiles/tile_straight.glb" id="4_wahs0"]
-[ext_resource type="PackedScene" uid="uid://dqatq7oo05r2a" path="res://Models/Environment/Tiles/tile_cornerRound.glb" id="5_ed7bm"]
-[ext_resource type="PackedScene" uid="uid://bibro3bpbeusd" path="res://Models/Environment/Tiles/tile_crossing.glb" id="6_acbme"]
-[ext_resource type="PackedScene" uid="uid://d03q7xvahfcn0" path="res://Models/Environment/Tiles/tile_crystal.glb" id="7_oqcm6"]
-[ext_resource type="PackedScene" uid="uid://cctsrxulcoluu" path="res://Models/Environment/Tiles/tile_rock.glb" id="8_mgvxy"]
-[ext_resource type="PackedScene" uid="uid://c1u1nk2spiba1" path="res://Models/Environment/Tiles/tile_tree.glb" id="9_tdbs6"]
-[ext_resource type="PackedScene" uid="uid://b7dvuk1pn8qpd" path="res://Models/Environment/Tiles/tile_treeDouble.glb" id="10_5sklo"]
-[ext_resource type="PackedScene" uid="uid://3tucngdg8a7r" path="res://Models/Environment/Tiles/tile_treeQuad.glb" id="11_iua08"]
-[ext_resource type="PackedScene" uid="uid://djp8ssthuonrc" path="res://Models/Environment/Tiles/tile.glb" id="12_3tl18"]
+[ext_resource type="PackedScene" uid="uid://c0ab4qbt03shw" path="res://Scenes/Collision/tile_endRoundSpawn.tscn" id="3_6e56y"]
+[ext_resource type="PackedScene" uid="uid://banuitrej734r" path="res://Scenes/Collision/tile_straight.tscn" id="4_qnf03"]
+[ext_resource type="PackedScene" uid="uid://b4gm2u78r1dfh" path="res://Scenes/Collision/tile_cornerRound.tscn" id="5_tknxr"]
+[ext_resource type="PackedScene" uid="uid://hprtrhkajkuf" path="res://Scenes/Collision/tile_crossing.tscn" id="6_ehnn7"]
+[ext_resource type="PackedScene" uid="uid://bsrjjbajulsja" path="res://Scenes/Collision/tile_crystal.tscn" id="7_5vnec"]
+[ext_resource type="PackedScene" uid="uid://c2qc7bcn85yc2" path="res://Scenes/Collision/tile_rock.tscn" id="8_7cwvg"]
+[ext_resource type="PackedScene" uid="uid://buchxa7j8e2r2" path="res://Scenes/Collision/tile_tree.tscn" id="9_a41s8"]
+[ext_resource type="PackedScene" uid="uid://c3a5b50srja4r" path="res://Scenes/Collision/tile_treeDouble.tscn" id="10_o4ekg"]
+[ext_resource type="PackedScene" uid="uid://bow4etauftivg" path="res://Scenes/Collision/tile_treeQuad.tscn" id="11_o2pq0"]
+[ext_resource type="PackedScene" uid="uid://bbovwcedxnqit" path="res://Scenes/Collision/tile.tscn" id="12_tph1g"]
 
 [node name="EasyMap" instance=ExtResource("1_djqk1")]
 script = ExtResource("2_gcxxa")
-tile_start = ExtResource("3_71s6l")
-tile_end = ExtResource("3_71s6l")
-tile_straight = ExtResource("4_wahs0")
-tile_corner = ExtResource("5_ed7bm")
-tile_crossroads = ExtResource("6_acbme")
-tile_empty = Array[PackedScene]([ExtResource("8_mgvxy"), ExtResource("9_tdbs6"), ExtResource("10_5sklo"), ExtResource("11_iua08"), ExtResource("7_oqcm6"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18")])
+tile_start = ExtResource("3_6e56y")
+tile_end = ExtResource("3_6e56y")
+tile_straight = ExtResource("4_qnf03")
+tile_corner = ExtResource("5_tknxr")
+tile_crossroads = ExtResource("6_ehnn7")
+tile_empty = Array[PackedScene]([ExtResource("7_5vnec"), ExtResource("8_7cwvg"), ExtResource("9_a41s8"), ExtResource("10_o4ekg"), ExtResource("11_o2pq0"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g")])
+min_path_size = 40
+max_path_size = 50
+min_loops = 2
+max_loops = 3
 
 [connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]

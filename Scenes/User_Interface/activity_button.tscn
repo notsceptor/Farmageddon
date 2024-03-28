@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcl252xvwdn8s"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/activity_button.gd" id="1_jal1f"]
+
+[node name="ActivityButton" type="Button"]
+custom_minimum_size = Vector2(96, 96)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("1_jal1f")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
