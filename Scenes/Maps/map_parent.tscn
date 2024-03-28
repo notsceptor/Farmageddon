@@ -15,3 +15,6 @@ fov = 60.0
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 480.217, 10)
 
 [node name="UI" parent="." instance=ExtResource("2_eqpxx")]
+
+[connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
+[connection signal="refresh_map_button_pressed" from="UI" to="." method="_on_ui_refresh_map_button_pressed"]

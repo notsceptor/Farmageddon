@@ -26,7 +26,7 @@ label_settings = SubResource("LabelSettings_rlops")
 
 [node name="WaveNumber" type="Label" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "0
+text = "[wave number here]
 "
 label_settings = SubResource("LabelSettings_rlops")
 

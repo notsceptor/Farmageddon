@@ -17,13 +17,20 @@ func _ready():
 	$Path3D/PathFollow3D.progress_ratio = 0
 
 func _on_spawning_state_entered():
-	print("Enemy Spawned")
+	Globals.enemies_on_map += 1
 	# Maybe a spawn animation to delay movement -> For now it's an await as placeholder
-	await get_tree().create_timer(1).timeout
+	await get_tree().create_timer(0.5).timeout
 	$EnemyStateChart.send_event("to_moving")
 	
-func _on_moving_state_entered():
-	print("Enemy Moving")
+func _on_moving_state_processing(_delta):
+	if $Path3D/PathFollow3D.progress_ratio >= 1:
+		$EnemyStateChart.send_event("to_despawning")
+	
+func _on_despawning_state_entered():
+	# Maybe a despawn animation to delay despawning -> For now it's an await as placeholder
+	await get_tree().create_timer(0.5).timeout
+	queue_free()
+	Globals.enemies_on_map -= 1
 	
 func get_enemy_name() -> String:
 	return _name
@@ -36,5 +43,3 @@ func get_size() -> int:
 	
 func get_speed() -> float:
 	return _speed
-
-
