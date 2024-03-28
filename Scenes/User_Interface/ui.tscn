@@ -32,7 +32,7 @@ label_settings = SubResource("LabelSettings_rlops")
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
-text = "START NEXT WAVE"
+text = "START  WAVE"
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -41,9 +41,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
+offset_left = -246.0
 offset_top = -11.5
-offset_right = 20.0
+offset_right = 246.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
@@ -67,4 +67,3 @@ layout_mode = 2
 text = "REFRESH MAP (DEBUG)"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]

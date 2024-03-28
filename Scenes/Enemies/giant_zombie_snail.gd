@@ -9,7 +9,8 @@ func _ready():
 	_name = "Giant Zombie Snail"
 	_health = 10
 	_size = 2
-	_speed = 8 # Sped up to allow for easier debugging
+	Globals.temp_enemy_size = _size
+	_speed = 9 # Sped up to allow for easier debugging
 	_path_follow_3d = get_node("../")
 
 func _on_moving_state_processing(delta):

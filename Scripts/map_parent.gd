@@ -21,11 +21,13 @@ var current_level_wave_size: int
 @export var tile_empty:Array[PackedScene]
 @export var debug_enemy:PackedScene
 
+signal end_of_wave
+
 func _process(_delta):
-	if Globals.wave_ongoing:
-		next_wave_button.visible = false
-	else:
-		next_wave_button.visible = true
+	if !Globals.wave_idle:
+		if Globals.enemies_on_map == 0 and Globals.wave_ongoing == false:
+			end_of_wave.emit()
+			Globals.wave_idle = true
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -76,13 +78,22 @@ func _complete_grid():
 		
 func _on_ui_next_wave_button_pressed():
 	print("Next wave button pressed")
+	print("Starting wave level: " + str(current_level_wave_number))
+	print("Total wave size for this level: " + str(current_level_wave_size))
+	next_wave_button.visible = false
+	Globals.wave_idle = false
 	Globals.wave_ongoing = true
+	Globals.wave_won = false
 	
 	while current_level_wave_size > 0:
-		print("Wave size: " + str(current_level_wave_size))
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(0.1).timeout
 		var randomly_chosen_enemy = _choose_random_enemy(full_enemy_array, current_level_wave_size)
 		_spawn_enemy(randomly_chosen_enemy)
+		current_level_wave_size -= Globals.temp_enemy_size
+		print("After spawn wave size: " + str(current_level_wave_size))
+	
+	Globals.wave_ongoing = false
+	Globals.wave_won = true
 
 func _on_ui_refresh_map_button_pressed():
 	print("Map refresh button pressed")
@@ -101,23 +112,19 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_container.tscn")
 			"Giant Zombie Snail":
 				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail_container.tscn")
-	else:
+	else: # Since size is 1
 		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_container.tscn")
 	return chosen_enemy_scene
 	
 func _regenerate_new_map_layout(map_difficulty: String):
 	var scene_to_load: String
 	$UI/ReloadSceneText.visible = true
-	$UI/MarginContainer/HBoxContainer/NextWaveButton.visible = false
-	if map_difficulty == "easy":
-		scene_to_load = ("res://Scenes/Maps/easy_map.tscn")
+	next_wave_button.visible = false
+	match map_difficulty:
+		"easy":
+			scene_to_load = "res://Scenes/Maps/easy_map.tscn"
+		"medium":
+			scene_to_load = "res://Scenes/Maps/medium_map.tscn"
+		"hard":
+			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
-
-func no_enemies_left_on_map():
-	$UI/MarginContainer/HBoxContainer/NextWaveButton.visible = true
-	if current_level_wave_number % 5 == 0:
-		_regenerate_new_map_layout(current_level_difficulty)
-		$UI/MarginContainer/HBoxContainer/NextWaveButton.visible = false
-
-
-

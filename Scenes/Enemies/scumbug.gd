@@ -9,6 +9,7 @@ func _ready():
 	_name = "Scumbug"
 	_health = 10
 	_size = 1
+	Globals.temp_enemy_size = _size
 	_speed = 10 # Sped up to allow for easier debugging
 	_path_follow_3d = get_node("../")
 
