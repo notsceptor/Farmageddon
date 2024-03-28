@@ -67,3 +67,4 @@ layout_mode = 2
 text = "REFRESH MAP (DEBUG)"
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]

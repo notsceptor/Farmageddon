@@ -1,7 +1,25 @@
-[gd_scene load_steps=3 format=3 uid="uid://c6pnp6kaqtu1j"]
+[gd_scene load_steps=13 format=3 uid="uid://c6pnp6kaqtu1j"]
 
 [ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_df7us"]
 [ext_resource type="Script" path="res://Scenes/Maps/hard_map.gd" id="2_4dvlh"]
+[ext_resource type="PackedScene" uid="uid://bsw4ysyqyyxih" path="res://Models/Environment/Tiles/snow_tile_endRoundSpawn.glb" id="3_tmx0f"]
+[ext_resource type="PackedScene" uid="uid://ddq60aax5qc8o" path="res://Models/Environment/Tiles/snow_tile_straight.glb" id="4_10ecw"]
+[ext_resource type="PackedScene" uid="uid://bfcb1ha5kllv8" path="res://Models/Environment/Tiles/snow_tile_cornerRound.glb" id="5_dpjqa"]
+[ext_resource type="PackedScene" uid="uid://bi7heota8p8oo" path="res://Models/Environment/Tiles/snow_tile_crossing.glb" id="6_n8ppf"]
+[ext_resource type="PackedScene" uid="uid://ckyf34ijiyt87" path="res://Models/Environment/Tiles/snow_tile_tree.glb" id="7_qfwd3"]
+[ext_resource type="PackedScene" uid="uid://pnh4jeik5gtd" path="res://Models/Environment/Tiles/snow_tile_treeDouble.glb" id="8_yq222"]
+[ext_resource type="PackedScene" uid="uid://bipfapkgx23rs" path="res://Models/Environment/Tiles/snow_tile_treeQuad.glb" id="9_l1kvj"]
+[ext_resource type="PackedScene" uid="uid://drc6tisseuyo" path="res://Models/Environment/Tiles/snow_tile_rock.glb" id="10_uy7rb"]
+[ext_resource type="PackedScene" uid="uid://byhbs0sfbqy2t" path="res://Models/Environment/Tiles/snow_tile_crystal.glb" id="11_nd378"]
+[ext_resource type="PackedScene" uid="uid://hm1mxmn2ptcx" path="res://Models/Environment/Tiles/snow_tile.glb" id="12_o3dk4"]
 
 [node name="HardMap" instance=ExtResource("1_df7us")]
 script = ExtResource("2_4dvlh")
+tile_start = ExtResource("3_tmx0f")
+tile_end = ExtResource("3_tmx0f")
+tile_straight = ExtResource("4_10ecw")
+tile_corner = ExtResource("5_dpjqa")
+tile_crossroads = ExtResource("6_n8ppf")
+tile_empty = Array[PackedScene]([ExtResource("7_qfwd3"), ExtResource("8_yq222"), ExtResource("9_l1kvj"), ExtResource("10_uy7rb"), ExtResource("11_nd378"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4"), ExtResource("12_o3dk4")])
+
+[connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]

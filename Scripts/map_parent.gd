@@ -19,7 +19,6 @@ var current_level_wave_size: int
 @export var tile_corner:PackedScene
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
-@export var debug_enemy:PackedScene
 
 signal end_of_wave
 

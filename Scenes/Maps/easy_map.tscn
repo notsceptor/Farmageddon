@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://d2bejqrlcaqoi"]
+[gd_scene load_steps=13 format=3 uid="uid://d2bejqrlcaqoi"]
 
 [ext_resource type="PackedScene" uid="uid://8mey7y7vf3ol" path="res://Scenes/Maps/map_parent.tscn" id="1_djqk1"]
 [ext_resource type="Script" path="res://Scenes/Maps/easy_map.gd" id="2_gcxxa"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://b7dvuk1pn8qpd" path="res://Models/Environment/Tiles/tile_treeDouble.glb" id="10_5sklo"]
 [ext_resource type="PackedScene" uid="uid://3tucngdg8a7r" path="res://Models/Environment/Tiles/tile_treeQuad.glb" id="11_iua08"]
 [ext_resource type="PackedScene" uid="uid://djp8ssthuonrc" path="res://Models/Environment/Tiles/tile.glb" id="12_3tl18"]
-[ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="13_cx4yk"]
 
 [node name="EasyMap" instance=ExtResource("1_djqk1")]
 script = ExtResource("2_gcxxa")
@@ -22,6 +21,5 @@ tile_straight = ExtResource("4_wahs0")
 tile_corner = ExtResource("5_ed7bm")
 tile_crossroads = ExtResource("6_acbme")
 tile_empty = Array[PackedScene]([ExtResource("8_mgvxy"), ExtResource("9_tdbs6"), ExtResource("10_5sklo"), ExtResource("11_iua08"), ExtResource("7_oqcm6"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18"), ExtResource("12_3tl18")])
-debug_enemy = ExtResource("13_cx4yk")
 
 [connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]
