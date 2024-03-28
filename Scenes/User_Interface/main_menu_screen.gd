@@ -11,7 +11,7 @@ func _ready():
 
 func _on_play_game_button_pressed():
 	$MarginContainer.visible = false
-	TransitionLayer.change_scene("res://Scenes/Maps/hard_map.tscn")
+	TransitionLayer.change_scene("res://Scenes/Maps/easy_map.tscn")
 
 func _on_exit_game_button_pressed():
 	get_tree().quit()
