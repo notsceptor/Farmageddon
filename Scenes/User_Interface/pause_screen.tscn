@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://fsuade0xgdev"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/pause_screen.gd" id="1_nfd7k"]
+
+[node name="PauseScreen" type="CanvasLayer"]
+script = ExtResource("1_nfd7k")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -246.5
+offset_right = 197.0
+offset_bottom = 246.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PauseText" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 52
+text = "GAME PAUSED"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="ContinueGameButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+text = "CONTINUE"
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+text = "SETTINGS
+"
+
+[node name="MainMenuButton" type="Button" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+text = "QUIT TO MAIN MENU"
+
+[connection signal="pressed" from="MarginContainer/ButtonContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/ButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

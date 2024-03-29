@@ -27,6 +27,10 @@ func _process(_delta):
 		if Globals.enemies_on_map == 0 and Globals.wave_ongoing == false:
 			end_of_wave.emit()
 			Globals.wave_idle = true
+			
+	if Input.is_action_just_pressed("Pause"):
+		$PauseScreen.visible = !$PauseScreen.visible
+		$UI.visible = !$UI.visible
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -127,3 +131,7 @@ func _regenerate_new_map_layout(map_difficulty: String):
 		"hard":
 			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
+
+func _on_pause_screen_continue_game_button_pressed():
+	$PauseScreen.visible = !$PauseScreen.visible
+	$UI.visible = !$UI.visible
