@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=4 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
+[ext_resource type="PackedScene" uid="uid://fsuade0xgdev" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
@@ -16,5 +17,9 @@ transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 4
 
 [node name="UI" parent="." instance=ExtResource("2_eqpxx")]
 
+[node name="PauseScreen" parent="." instance=ExtResource("3_tla3e")]
+visible = false
+
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
 [connection signal="refresh_map_button_pressed" from="UI" to="." method="_on_ui_refresh_map_button_pressed"]
+[connection signal="continue_game_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_continue_game_button_pressed"]
