@@ -5,6 +5,18 @@
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
 
+[node name="BackButtonContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 100
+
+[node name="BackButton" type="Button" parent="BackButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 30
+text = "BACK"
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
@@ -18,31 +30,55 @@ offset_bottom = 246.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
-layout_mode = 2
-theme_override_constants/separation = 75
-
-[node name="GameTitle" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="GameTitle" type="Label" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+size_flags_vertical = 0
 text = "FARMAGEDDON 
 (PLACEHOLDER)
 (WOULD BE EXPORTED IMAGE OF OUR GAME TITLE)"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="PlayGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="PlayGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
 text = "PLAY GAME"
 
-[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
 text = "SETTINGS
 "
 
-[node name="ExitGameButton" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="ExitGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
 text = "EXIT GAME"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[node name="LevelSelectContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 75
+
+[node name="EasyLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+text = "EASY MAP"
+
+[node name="MediumLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+text = "MEDIUM MAP
+"
+
+[node name="HardLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+text = "HARD MAP"
+
+[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainScreenContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainScreenContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/EasyLevelButton" to="." method="_on_easy_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/MediumLevelButton" to="." method="_on_medium_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/HardLevelButton" to="." method="_on_hard_level_button_pressed"]
