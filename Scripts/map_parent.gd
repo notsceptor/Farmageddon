@@ -5,6 +5,9 @@ var current_level_difficulty: String
 var current_level_wave_number: int
 var current_level_wave_size: int
 
+@onready var cam = $Camera3D
+var RAYCAST_LENGTH:float = 100
+
 @onready var full_enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
