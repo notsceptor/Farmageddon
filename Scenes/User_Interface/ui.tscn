@@ -1,14 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=14 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
-[ext_resource type="Texture2D" uid="uid://b55vd6geoc4jf" path="res://Models/Turrets/Pea_Shooter_Cover.png" id="3_yypli"]
-[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="4_hdmtv"]
-[ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/pea_shooter_container.tscn" id="6_v143u"]
-[ext_resource type="Texture2D" uid="uid://bhntheiy74wb8" path="res://Models/Turrets/Carrot_Cannon_0.png" id="7_min7m"]
-[ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot_Cannon.gltf" id="8_3rowj"]
-[ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/carrot_cannon_container.tscn" id="9_rkm73"]
+[ext_resource type="Texture2D" uid="uid://b55vd6geoc4jf" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
+[ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
+[ext_resource type="Texture2D" uid="uid://bhntheiy74wb8" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_0.png" id="7_min7m"]
+[ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
+[ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
+[ext_resource type="Texture2D" uid="uid://bg4irsd8nhl3f" path="res://Models/Turrets/Chiligun/Chilligun_0.png" id="10_h4xcf"]
+[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
+[ext_resource type="PackedScene" uid="uid://6b4oxkon5mjt" path="res://Scenes/Turrets/Chiligun/chili_gun_container.tscn" id="12_m2bfi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -63,17 +66,14 @@ grow_vertical = 2
 text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
-anchors_preset = 3
+anchors_preset = 1
 anchor_left = 1.0
-anchor_top = 1.0
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -185.0
-offset_top = -40.0
+offset_left = -205.0
+offset_bottom = 51.0
 grow_horizontal = 0
-grow_vertical = 0
-theme_override_constants/margin_right = 20
-theme_override_constants/margin_bottom = 20
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
 
 [node name="TestRefreshMapButton" type="Button" parent="MarginContainer2"]
 layout_mode = 2
@@ -92,13 +92,49 @@ grow_horizontal = 2
 grow_vertical = 0
 theme_override_constants/separation = 10
 
-[node name="Turret1" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+[node name="pea" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
 activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("4_hdmtv")
 turret_to_instantiate = ExtResource("6_v143u")
 
-[node name="Turret2" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+[node name="carrot" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("7_min7m")
+activity_draggable = ExtResource("8_3rowj")
+turret_to_instantiate = ExtResource("9_rkm73")
+
+[node name="chili" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("10_h4xcf")
+activity_draggable = ExtResource("11_h0i5u")
+turret_to_instantiate = ExtResource("12_m2bfi")
+
+[node name="Turret4" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("7_min7m")
+activity_draggable = ExtResource("8_3rowj")
+turret_to_instantiate = ExtResource("9_rkm73")
+
+[node name="Turret5" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("7_min7m")
+activity_draggable = ExtResource("8_3rowj")
+turret_to_instantiate = ExtResource("9_rkm73")
+
+[node name="Turret6" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("7_min7m")
+activity_draggable = ExtResource("8_3rowj")
+turret_to_instantiate = ExtResource("9_rkm73")
+
+[node name="Turret7" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("7_min7m")
+activity_draggable = ExtResource("8_3rowj")
+turret_to_instantiate = ExtResource("9_rkm73")
+
+[node name="Turret8" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
 activity_button_icon = ExtResource("7_min7m")
 activity_draggable = ExtResource("8_3rowj")
@@ -107,5 +143,11 @@ turret_to_instantiate = ExtResource("9_rkm73")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
-[connection signal="place_turret" from="HBoxContainer/Turret1" to="." method="_on_activity_button_place_turret"]
-[connection signal="place_turret" from="HBoxContainer/Turret2" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/Turret4" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/Turret5" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/Turret6" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/Turret7" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/Turret8" to="." method="_on_activity_button_place_turret"]

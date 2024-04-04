@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dt1y8aj3utqpa"
-path="res://.godot/imported/Pea_Shooter.gltf-77770bcb2ee37484b7ec3c0a33419c63.scn"
+path="res://.godot/imported/Pea_Shooter.gltf-2353c6a8a810bc26b1f134a7f47c2e5f.scn"
 
 [deps]
 
-source_file="res://Models/Turrets/Pea_Shooter.gltf"
-dest_files=["res://.godot/imported/Pea_Shooter.gltf-77770bcb2ee37484b7ec3c0a33419c63.scn"]
+source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf"
+dest_files=["res://.godot/imported/Pea_Shooter.gltf-2353c6a8a810bc26b1f134a7f47c2e5f.scn"]
 
 [params]
 

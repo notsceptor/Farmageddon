@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://r4rtkqn6nxjq"]
 
 [ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_8414r"]
-[ext_resource type="Script" path="res://Scenes/Turrets/carrot_cannon_container.gd" id="2_x24q5"]
-[ext_resource type="PackedScene" uid="uid://m1mxmj1rfahc" path="res://Models/Turrets/carrot_cannon.tscn" id="3_upbmi"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.gd" id="2_x24q5"]
+[ext_resource type="PackedScene" uid="uid://m1mxmj1rfahc" path="res://Models/Turrets/Carrot Cannon/carrot_cannon.tscn" id="3_upbmi"]
 
 [node name="CarrotCannonContainer" instance=ExtResource("1_8414r")]
 script = ExtResource("2_x24q5")

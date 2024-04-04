@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dvs6f4tkjfx7v"
-path="res://.godot/imported/Carrot_Cannon.gltf-34c20a22e8d2ff5e2231fcc52237c83d.scn"
+uid="uid://dv3a284eeams8"
+path="res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"
 
 [deps]
 
-source_file="res://Models/Turrets/Carrot_Cannon.gltf"
-dest_files=["res://.godot/imported/Carrot_Cannon.gltf-34c20a22e8d2ff5e2231fcc52237c83d.scn"]
+source_file="res://Models/Turrets/Chiligun/Chilligun.gltf"
+dest_files=["res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"]
 
 [params]
 

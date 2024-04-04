@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhpp4ww5mkjqs"]
 
-[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="1_tammx"]
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="1_tammx"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_83bym"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dh4e7"]
