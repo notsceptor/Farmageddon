@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://dt1y8aj3utqpa"
-path="res://.godot/imported/Pea_Shooter.gltf-77770bcb2ee37484b7ec3c0a33419c63.scn"
+uid="uid://dv3a284eeams8"
+path="res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"
 
 [deps]
 
-source_file="res://Models/Turrets/Pea_Shooter.gltf"
-dest_files=["res://.godot/imported/Pea_Shooter.gltf-77770bcb2ee37484b7ec3c0a33419c63.scn"]
+source_file="res://Models/Turrets/Chiligun/Chilligun.gltf"
+dest_files=["res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"]
 
 [params]
 

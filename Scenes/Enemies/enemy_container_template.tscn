@@ -51,6 +51,12 @@ curve = SubResource("Curve3D_eea3p")
 [node name="PathFollow3D" type="PathFollow3D" parent="Path3D"]
 loop = false
 
+[node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D"]
+
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/Spawning" to="." method="_on_spawning_state_entered"]
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="." method="_on_moving_state_processing"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/Despawning" to="." method="_on_despawning_state_entered"]

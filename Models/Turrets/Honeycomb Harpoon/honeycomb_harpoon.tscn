@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://y5qsxrgbwaun"]
+
+[ext_resource type="PackedScene" uid="uid://fq82522w7ugd" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf" id="1_t08bl"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_3wajl"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vabjm"]
+height = 1.0
+radius = 7.0
+
+[node name="HoneycombHarpoon" instance=ExtResource("1_t08bl")]
+script = ExtResource("2_3wajl")
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_vabjm")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]

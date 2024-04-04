@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://br5kr5h0352ku"]
+
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_o6ng3"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_mhdlo"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="3_1u54i"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_ertvo"]
+
+[node name="TurretContainer" type="Node3D"]
+
+[node name="StateChart" type="Node" parent="."]
+script = ExtResource("1_o6ng3")
+
+[node name="CompoundState" type="Node" parent="StateChart"]
+script = ExtResource("2_mhdlo")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("3_1u54i")
+
+[node name="ToAcquiring" type="Node" parent="StateChart/CompoundState/Idle"]
+script = ExtResource("4_ertvo")
+to = NodePath("../../Acquiring")
+event = &"to_acquiring"
+
+[node name="Acquiring" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("3_1u54i")
+
+[node name="ToAttacking" type="Node" parent="StateChart/CompoundState/Acquiring"]
+script = ExtResource("4_ertvo")
+to = NodePath("../../Attacking")
+event = &"to_attacking"
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Acquiring"]
+script = ExtResource("4_ertvo")
+to = NodePath("../../Idle")
+event = &"to_idle"
+
+[node name="Attacking" type="Node" parent="StateChart/CompoundState"]
+script = ExtResource("3_1u54i")
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Attacking"]
+script = ExtResource("4_ertvo")
+to = NodePath("../../Idle")
+event = &"to_idle"

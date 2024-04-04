@@ -9,6 +9,10 @@ var temp_enemy_size: int # I have no idea how else to access this it's driving m
 
 var enemies_on_map: int = 0
 
+# Turret RID area to exclude from raycasting
+var turret_rid_list: Array = []
+var turret_locations_list: Array = []
+
 #region Easy Map Section
 var easy_map_current_level: int = 1
 var easy_map_spawn_size: int = 10

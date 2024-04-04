@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://m1mxmj1rfahc"]
+
+[ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="1_yheqf"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_8t685"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ah35d"]
+height = 1.0
+radius = 5.0
+
+[node name="CarrotCannon" instance=ExtResource("1_yheqf")]
+script = ExtResource("2_8t685")
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_ah35d")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]

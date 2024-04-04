@@ -33,6 +33,12 @@ Pause={
 ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Path"
+3d_physics/layer_2="Enemy"
+
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.254902, 0.470588, 0.470588, 0.678431)

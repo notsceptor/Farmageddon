@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://chfva1g11a8mp"]
+
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="1_r6qao"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rnavh"]
+radius = 8.0
+
+[node name="Pea Shooter" groups=["Turret"] instance=ExtResource("1_r6qao")]
+
+[node name="RadiusArea" type="Area3D" parent="." index="2"]
+
+[node name="RadiusShape" type="CollisionShape3D" parent="RadiusArea" index="0"]
+shape = SubResource("CylinderShape3D_rnavh")

@@ -5,6 +5,9 @@ var current_level_difficulty: String
 var current_level_wave_number: int
 var current_level_wave_size: int
 
+@onready var cam = $Camera3D
+var RAYCAST_LENGTH:float = 100
+
 @onready var full_enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
@@ -135,3 +138,9 @@ func _regenerate_new_map_layout(map_difficulty: String):
 func _on_pause_screen_continue_game_button_pressed():
 	$PauseScreen.visible = !$PauseScreen.visible
 	$UI.visible = !$UI.visible
+
+func _on_ui_place_turret(turret_scene, location):
+	var turret_to_add = turret_scene.instantiate()
+	$Turrets.add_child(turret_to_add)
+	turret_to_add.global_position = location
+	
