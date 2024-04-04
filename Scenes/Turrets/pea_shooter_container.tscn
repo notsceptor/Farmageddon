@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://7sb3lkv4e57x"]
+
+[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_1h0m8"]
+[ext_resource type="PackedScene" uid="uid://dhpp4ww5mkjqs" path="res://Models/Turrets/pea_shooter.tscn" id="2_i0qg1"]
+[ext_resource type="Script" path="res://Scenes/Turrets/pea_shooter.gd" id="2_y0xhy"]
+
+[node name="PeaShooterContainer" instance=ExtResource("1_1h0m8")]
+script = ExtResource("2_y0xhy")
+
+[node name="PeaShooter" parent="." index="0" instance=ExtResource("2_i0qg1")]
+
+[connection signal="area_entered" from="RadiusArea" to="." method="_on_radius_area_area_entered"]
+[connection signal="area_exited" from="RadiusArea" to="." method="_on_radius_area_area_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]

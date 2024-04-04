@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://r4rtkqn6nxjq"]
+
+[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_8414r"]
+[ext_resource type="Script" path="res://Scenes/Turrets/carrot_cannon_container.gd" id="2_x24q5"]
+[ext_resource type="PackedScene" uid="uid://m1mxmj1rfahc" path="res://Models/Turrets/carrot_cannon.tscn" id="3_upbmi"]
+
+[node name="CarrotCannonContainer" instance=ExtResource("1_8414r")]
+script = ExtResource("2_x24q5")
+
+[node name="CarrotCannon" parent="." index="0" instance=ExtResource("3_upbmi")]
+
+[connection signal="area_entered" from="RadiusArea" to="." method="_on_radius_area_area_entered"]
+[connection signal="area_exited" from="RadiusArea" to="." method="_on_radius_area_area_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]

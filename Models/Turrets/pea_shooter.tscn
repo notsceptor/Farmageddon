@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dhpp4ww5mkjqs"]
+
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="1_tammx"]
+
+[node name="PeaShooter" instance=ExtResource("1_tammx")]
