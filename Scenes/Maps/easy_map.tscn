@@ -22,11 +22,4 @@ tile_corner = ExtResource("5_tknxr")
 tile_crossroads = ExtResource("6_ehnn7")
 tile_empty = Array[PackedScene]([ExtResource("7_5vnec"), ExtResource("8_7cwvg"), ExtResource("9_a41s8"), ExtResource("10_o4ekg"), ExtResource("11_o2pq0"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g")])
 
-[node name="DirectionalLight3D" parent="." index="1"]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 148.217, -363)
-light_color = Color(0.858824, 0.768627, 0.631373, 1)
-light_energy = 2.0
-shadow_enabled = true
-shadow_opacity = 0.75
-
 [connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]

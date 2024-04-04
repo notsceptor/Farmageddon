@@ -6,6 +6,8 @@ func _init():
 	PathGenInstance.path_config = hard_map_config
 	
 func _ready():
+	Globals.turret_locations_list = []
+	Globals.turret_rid_list = []
 	current_level_difficulty = "hard"
 	current_level_wave_number = Globals.hard_map_current_level
 	current_level_wave_number_label.text = str(current_level_wave_number)
