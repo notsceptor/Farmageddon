@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6b4oxkon5mjt"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_yrnfg"]
+[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_yrnfg"]
 [ext_resource type="PackedScene" uid="uid://vv7y1y00eumv" path="res://Models/Turrets/Chiligun/chiligun.tscn" id="2_icqu4"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Chiligun/chili_gun_container.gd" id="2_lqarx"]
 

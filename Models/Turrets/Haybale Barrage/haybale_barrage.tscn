@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bebwr3qxdmajf"]
+
+[ext_resource type="PackedScene" uid="uid://bdqe8akgb3gmk" path="res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf" id="1_vfp0b"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_lcivi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_b7jus"]
+height = 1.0
+radius = 5.0
+
+[node name="HaybaleBarrage" instance=ExtResource("1_vfp0b")]
+script = ExtResource("2_lcivi")
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_b7jus")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]

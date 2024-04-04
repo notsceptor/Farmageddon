@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=19 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
 [ext_resource type="PackedScene" uid="uid://fq82522w7ugd" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf" id="12_2341g"]
+[ext_resource type="PackedScene" uid="uid://c1jg1al7s5a2p" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn" id="12_ejap6"]
 [ext_resource type="PackedScene" uid="uid://6b4oxkon5mjt" path="res://Scenes/Turrets/Chiligun/chili_gun_container.tscn" id="12_m2bfi"]
 [ext_resource type="PackedScene" uid="uid://bb5oedvupwpal" path="res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn" id="13_5hi8t"]
 [ext_resource type="PackedScene" uid="uid://dahclpp30r8v6" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="13_8hgbd"]
@@ -118,7 +119,7 @@ turret_to_instantiate = ExtResource("12_m2bfi")
 layout_mode = 2
 activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("14_palcd")
-turret_to_instantiate = ExtResource("9_rkm73")
+turret_to_instantiate = ExtResource("12_ejap6")
 
 [node name="honeycomb" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
