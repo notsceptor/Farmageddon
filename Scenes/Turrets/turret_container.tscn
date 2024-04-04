@@ -1,23 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://br5kr5h0352ku"]
+[gd_scene load_steps=5 format=3 uid="uid://br5kr5h0352ku"]
 
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_o6ng3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_mhdlo"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="3_1u54i"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_ertvo"]
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_qqpc4"]
-height = 0.950672
-radius = 3.0
-
 [node name="TurretContainer" type="Node3D"]
-
-[node name="RadiusArea" type="Area3D" parent="."]
-collision_layer = 0
-collision_mask = 2
-
-[node name="RadiusShape" type="CollisionShape3D" parent="RadiusArea"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470553, 0)
-shape = SubResource("CylinderShape3D_qqpc4")
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("1_o6ng3")

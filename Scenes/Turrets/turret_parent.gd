@@ -13,22 +13,6 @@ var last_enemy_index: int       # Potentially use them to enable target first/la
 var turret_model: Node3D        # Reference to the turret model node
 var shooter_node: Node3D        # Reference to the shooter node (e.g., PeaShooter)
 
-func _ready():
-	var turret_area_rid = $RadiusArea.get_rid()
-	Globals.turret_rid_list.append(turret_area_rid)
-
-func _on_radius_area_area_entered(area):
-	print(area, " entered")
-	if current_enemy == null:
-		current_enemy = area
-	enemies_in_range.append(area)
-	print(enemies_in_range.size())
-
-func _on_radius_area_area_exited(area):
-	print(area, " exited")
-	enemies_in_range.erase(area)
-	print(enemies_in_range.size())
-
 func rotate_towards_target(rtarget, delta):
 	var target_vector = shooter_node.global_position.direction_to(Vector3(rtarget.global_position.x, global_position.y, rtarget.global_position.z))
 	var target_basis: Basis = Basis.looking_at(target_vector)

@@ -1,5 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://dhpp4ww5mkjqs"]
+[gd_scene load_steps=4 format=3 uid="uid://dhpp4ww5mkjqs"]
 
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="1_tammx"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_83bym"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_dh4e7"]
+height = 1.0
+radius = 3.0
 
 [node name="PeaShooter" instance=ExtResource("1_tammx")]
+script = ExtResource("2_83bym")
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_dh4e7")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]

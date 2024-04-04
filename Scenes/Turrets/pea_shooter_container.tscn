@@ -9,8 +9,8 @@ script = ExtResource("2_y0xhy")
 
 [node name="PeaShooter" parent="." index="0" instance=ExtResource("2_i0qg1")]
 
-[connection signal="area_entered" from="RadiusArea" to="." method="_on_radius_area_area_entered"]
-[connection signal="area_exited" from="RadiusArea" to="." method="_on_radius_area_area_exited"]
+[connection signal="area_entered" from="PeaShooter" to="." method="_on_pea_shooter_area_entered"]
+[connection signal="area_exited" from="PeaShooter" to="." method="_on_pea_shooter_area_exited"]
 [connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
 [connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]

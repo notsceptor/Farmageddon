@@ -31,3 +31,6 @@ func _on_despawning_state_entered():
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	Globals.enemies_on_map -= 1
+
+func get_stats():
+	return [_name, _health, _size, _speed]
