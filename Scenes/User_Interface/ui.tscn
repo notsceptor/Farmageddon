@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=22 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://8db7mg70wbg8" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf" id="15_lwbbn"]
 [ext_resource type="PackedScene" uid="uid://ckjmpri7uvrlk" path="res://Scenes/Turrets/Potato Launcher/potato_launcher_container.tscn" id="16_7nhbv"]
 [ext_resource type="PackedScene" uid="uid://c6wsw3mx0cbyi" path="res://Scenes/Turrets/Seed Sniper/seed_sniper_container.tscn" id="17_rx832"]
+[ext_resource type="PackedScene" uid="uid://ci6or47dto3m5" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn" id="20_oqxk1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -145,7 +146,7 @@ turret_to_instantiate = ExtResource("17_rx832")
 layout_mode = 2
 activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("15_lwbbn")
-turret_to_instantiate = ExtResource("9_rkm73")
+turret_to_instantiate = ExtResource("20_oqxk1")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
