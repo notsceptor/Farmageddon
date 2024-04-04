@@ -11,8 +11,7 @@ func generate_new_path():
 	generate_path(path_config.add_loops)
 
 	while(_path_route.size() < path_config.min_path_size or _path_route.size() > path_config.max_path_size
-		or _loop_count < path_config.min_loops or _loop_count > path_config.max_loops
-	):
+		or _loop_count < path_config.min_loops or _loop_count > path_config.max_loops):
 			generate_path(path_config.add_loops)
 
 ## Function that does the main amount of work! Generates a random path going left to right, up or
