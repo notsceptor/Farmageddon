@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://flcvrufmej3y"]
+
+[ext_resource type="PackedScene" uid="uid://ddrr27lnbal7b" path="res://Models/Turrets/Seed Sniper/Seed_Sniper.gltf" id="1_rw1gp"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_md38u"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4ylmh"]
+height = 1.0
+radius = 15.0
+
+[node name="SeedSniper" instance=ExtResource("1_rw1gp")]
+script = ExtResource("2_md38u")
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_4ylmh")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]
