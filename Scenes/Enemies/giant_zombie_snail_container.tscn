@@ -1,10 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://buprytn1t6umg"]
+[gd_scene load_steps=4 format=3 uid="uid://buprytn1t6umg"]
 
 [ext_resource type="PackedScene" uid="uid://ko5i3cu7gfcj" path="res://Scenes/Enemies/enemy_container_template.tscn" id="1_i51ia"]
 [ext_resource type="PackedScene" uid="uid://d3ohf77tno414" path="res://Scenes/Enemies/giant_zombie_snail_model.tscn" id="2_tud33"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_lvsle"]
+size = Vector3(0.486572, 0.534668, 0.928833)
+
 [node name="GiantZombieSnailContainer" instance=ExtResource("1_i51ia")]
 
 [node name="GiantZombieSnail" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_tud33")]
+
+[node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.267334, 0.144836)
+shape = SubResource("BoxShape3D_lvsle")
 
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/GiantZombieSnail" method="_on_moving_state_processing"]

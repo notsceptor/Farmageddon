@@ -2,6 +2,9 @@ extends Button
 
 @export var activity_button_icon:Texture2D
 @export var activity_draggable:PackedScene
+@export var turret_to_instantiate:PackedScene
+
+signal place_turret(turret_scene, location)
 
 var _is_dragging:bool = false
 var _draggable:Node
@@ -28,12 +31,13 @@ func _physics_process(_delta):
 		var end:Vector3 = origin + _cam.project_ray_normal(mouse_pos) * RAYCAST_LENGTH
 		var query = PhysicsRayQueryParameters3D.create(origin, end)
 		query.collide_with_areas = true
+		query.exclude = Globals.turret_rid_list # Exclude placed turret Area3Ds on dragging new turret
 		var rayResult:Dictionary = space_state.intersect_ray(query)
 		if rayResult.size() > 0:
 			var co:CollisionObject3D = rayResult.get("collider")
 			_draggable.visible = true
 			_draggable.global_position = Vector3(co.global_position.x, 0.2, co.global_position.z)
-			if co.get_groups()[0] != "tile":
+			if co.get_groups()[0] != "tile" or _last_valid_location in Globals.turret_locations_list:
 				configure_child_mesh(_draggable, _error_mat)
 				_last_valid_location = Vector3.ZERO
 				return
@@ -60,7 +64,17 @@ func _on_button_up():
 	_is_dragging = false
 	_draggable.visible = false
 	
-	if _last_valid_location != Vector3.ZERO:
-		var activity = activity_draggable.instantiate()
-		add_child(activity)
-		activity.global_position = _last_valid_location
+	if _last_valid_location != Vector3.ZERO and _last_valid_location not in Globals.turret_locations_list:
+		print("Placing turret")
+		#var activity = activity_draggable.instantiate()
+		#add_child(activity)
+		#activity.global_position = _last_valid_location
+		place_turret.emit(turret_to_instantiate, _last_valid_location)
+		Globals.turret_locations_list.append(_last_valid_location)
+		
+	else:
+		print("Cannot place turret")
+		
+		
+		
+		

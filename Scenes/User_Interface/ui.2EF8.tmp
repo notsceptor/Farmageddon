@@ -1,18 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=6 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
-[ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
 [ext_resource type="Texture2D" uid="uid://b55vd6geoc4jf" path="res://Models/Turrets/Pea_Shooter_Cover.png" id="3_yypli"]
 [ext_resource type="PackedScene" uid="uid://chfva1g11a8mp" path="res://Scenes/Turrets/pea_shooter.tscn" id="4_e2uw1"]
-[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="4_hdmtv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
-debug_enemy = ExtResource("2_44omx")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
@@ -39,10 +36,6 @@ label_settings = SubResource("LabelSettings_rlops")
 [node name="NextWaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "START  WAVE"
-
-[node name="DebugEnemyButton" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "DEBUG SPAWN ENEMY"
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -76,14 +69,11 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 text = "REFRESH MAP (DEBUG)"
 
-[node name="PeaShooterButton" parent="." instance=ExtResource("2_niyf1")]
+[node name="ActivityButton" parent="." instance=ExtResource("2_niyf1")]
 offset_top = -104.0
 offset_bottom = -8.0
 activity_button_icon = ExtResource("3_yypli")
-activity_draggable = ExtResource("4_hdmtv")
-turret_to_instantiate = ExtResource("4_e2uw1")
+activity_draggable = ExtResource("4_e2uw1")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
-[connection signal="place_turret" from="PeaShooterButton" to="." method="_on_activity_button_place_turret"]

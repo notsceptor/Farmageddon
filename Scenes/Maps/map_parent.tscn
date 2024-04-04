@@ -15,11 +15,14 @@ fov = 60.0
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 480.217, 10)
 
+[node name="Turrets" type="Node3D" parent="."]
+
 [node name="UI" parent="." instance=ExtResource("2_eqpxx")]
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tla3e")]
 visible = false
 
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
+[connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]
 [connection signal="refresh_map_button_pressed" from="UI" to="." method="_on_ui_refresh_map_button_pressed"]
 [connection signal="continue_game_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_continue_game_button_pressed"]

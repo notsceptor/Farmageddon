@@ -138,3 +138,9 @@ func _regenerate_new_map_layout(map_difficulty: String):
 func _on_pause_screen_continue_game_button_pressed():
 	$PauseScreen.visible = !$PauseScreen.visible
 	$UI.visible = !$UI.visible
+
+func _on_ui_place_turret(turret_scene, location):
+	var turret_to_add = turret_scene.instantiate()
+	$Turrets.add_child(turret_to_add)
+	turret_to_add.global_position = location
+	

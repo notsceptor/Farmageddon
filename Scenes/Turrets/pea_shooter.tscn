@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=3 uid="uid://chfva1g11a8mp"]
+
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea_Shooter.gltf" id="1_r6qao"]
+[ext_resource type="Script" path="res://Scenes/Turrets/pea_shooter.gd" id="2_xbe3e"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_rmabi"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_qkeyw"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_7ppgb"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_tqdbo"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_rnavh"]
+height = 0.950672
+radius = 3.0
+
+[node name="Pea Shooter" groups=["Turret"] instance=ExtResource("1_r6qao")]
+script = ExtResource("2_xbe3e")
+
+[node name="RadiusArea" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="RadiusShape" type="CollisionShape3D" parent="RadiusArea" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.966852, 0, 0, 0, 1, 0, 0.470553, 0)
+shape = SubResource("CylinderShape3D_rnavh")
+
+[node name="StateChart" type="Node" parent="." index="3"]
+script = ExtResource("3_rmabi")
+
+[node name="CompoundState" type="Node" parent="StateChart" index="0"]
+script = ExtResource("4_qkeyw")
+initial_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateChart/CompoundState" index="0"]
+script = ExtResource("5_7ppgb")
+
+[node name="ToAcquiring" type="Node" parent="StateChart/CompoundState/Idle" index="0"]
+script = ExtResource("6_tqdbo")
+to = NodePath("../../Acquiring")
+event = &"to_acquiring"
+
+[node name="Acquiring" type="Node" parent="StateChart/CompoundState" index="1"]
+script = ExtResource("5_7ppgb")
+
+[node name="ToAttacking" type="Node" parent="StateChart/CompoundState/Acquiring" index="0"]
+script = ExtResource("6_tqdbo")
+to = NodePath("../../Attacking")
+event = &"to_attacking"
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Acquiring" index="1"]
+script = ExtResource("6_tqdbo")
+to = NodePath("../../Idle")
+event = &"to_idle"
+
+[node name="Attacking" type="Node" parent="StateChart/CompoundState" index="2"]
+script = ExtResource("5_7ppgb")
+
+[node name="ToIdle" type="Node" parent="StateChart/CompoundState/Attacking" index="0"]
+script = ExtResource("6_tqdbo")
+to = NodePath("../../Idle")
+event = &"to_idle"
+
+[connection signal="area_entered" from="RadiusArea" to="." method="_on_radius_area_area_entered"]
+[connection signal="area_exited" from="RadiusArea" to="." method="_on_radius_area_area_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]
