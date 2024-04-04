@@ -19,7 +19,7 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="RadiusShape" type="CollisionShape3D" parent="RadiusArea" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.966852, 0, 0, 0, 1, 0, 0.470553, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470553, 0)
 shape = SubResource("CylinderShape3D_rnavh")
 
 [node name="StateChart" type="Node" parent="." index="3"]
