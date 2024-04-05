@@ -7,6 +7,7 @@
 
 [node name="PeaShooterContainer" instance=ExtResource("1_1h0m8")]
 script = ExtResource("2_y0xhy")
+projectile_speed = 2
 projectile_type = ExtResource("3_sccfl")
 
 [node name="PeaShooter" parent="." index="0" instance=ExtResource("2_i0qg1")]

@@ -2,7 +2,8 @@ extends Turret
 
 var last_fire_time: int
 @export var fire_rate_ms: int = 2000
-@export var peas_to_shoot_at_a_time: int = 4
+@export var projectiles_to_shoot_at_a_time: int = 4
+@export var projectile_speed: int = 1
 @export var projectile_type: PackedScene
 
 func _ready():
@@ -14,7 +15,6 @@ func _ready():
 func _on_attacking_state_entered():
 	print("Pea shooter attacking")
 	last_fire_time = 0
-	peas_to_shoot_at_a_time = 4
 	
 func _on_pea_shooter_area_entered(area):
 	print(area, " entered")
@@ -32,7 +32,7 @@ func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		print("FIRE PEA SHOOTER")
 		$PeaShooter/AnimationPlayer.play("Shoot")
-		_spawn_projectiles(peas_to_shoot_at_a_time)
+		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
 		
 func _spawn_projectiles(num: int):
