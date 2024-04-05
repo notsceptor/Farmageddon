@@ -1,9 +1,10 @@
 extends Turret
 
+# Unique for every turret
 var last_fire_time: int
-@export var fire_rate_ms: int = 2000
-@export var projectiles_to_shoot_at_a_time: int = 4
-@export var projectile_speed: int = 1
+@export var fire_rate_ms: int
+@export var projectiles_to_shoot_at_a_time: int
+@export var projectile_speed: float
 @export var projectile_type: PackedScene
 
 func _ready():
@@ -37,8 +38,9 @@ func _maybe_fire_turret_projectile():
 		
 func _spawn_projectiles(num: int):
 	for n in num:
-		var projectile: DebugProjectile = projectile_type.instantiate()
+		var projectile: Projectile = projectile_type.instantiate()
 		projectile.starting_position = $PeaShooter/Node/PeaShooter/ShooterTop/ProjectileSpawnMarker.global_position
 		projectile.target = current_enemy
+		projectile.speed = projectile_speed
 		add_child(projectile)
-		await get_tree().create_timer(0.25).timeout
+		await get_tree().create_timer(0.2).timeout

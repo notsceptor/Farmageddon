@@ -3,11 +3,13 @@
 [ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_1h0m8"]
 [ext_resource type="PackedScene" uid="uid://dhpp4ww5mkjqs" path="res://Models/Turrets/Pea Shooter/pea_shooter.tscn" id="2_i0qg1"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.gd" id="2_y0xhy"]
-[ext_resource type="PackedScene" uid="uid://47mqpfarhb5q" path="res://Scenes/Turrets/Pea Shooter/pea_projectile.tscn" id="3_sccfl"]
+[ext_resource type="PackedScene" uid="uid://de65ief6lf17a" path="res://Scenes/Turrets/Pea Shooter/pea_projectile.tscn" id="3_sccfl"]
 
 [node name="PeaShooterContainer" instance=ExtResource("1_1h0m8")]
 script = ExtResource("2_y0xhy")
-projectile_speed = 2
+fire_rate_ms = 2000
+projectiles_to_shoot_at_a_time = 4
+projectile_speed = 4.0
 projectile_type = ExtResource("3_sccfl")
 
 [node name="PeaShooter" parent="." index="0" instance=ExtResource("2_i0qg1")]
