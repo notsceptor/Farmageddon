@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbgvdvwqkk88m"]
 
-[ext_resource type="PackedScene" uid="uid://dahclpp30r8v6" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="1_yijdg"]
+[ext_resource type="PackedScene" uid="uid://0t2n7ycnb7xg" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="1_yijdg"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_hrrj8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kco0k"]

@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://4ndtqfrs8ddi"
-path.s3tc="res://.godot/imported/Seed_Sniper_0.png-2787142fa77b1b337bca6733e1158438.s3tc.ctex"
+path="res://.godot/imported/Seed_Sniper_0.png-2787142fa77b1b337bca6733e1158438.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Turrets/Seed Sniper/Seed_Sniper_0.png"
-dest_files=["res://.godot/imported/Seed_Sniper_0.png-2787142fa77b1b337bca6733e1158438.s3tc.ctex"]
+dest_files=["res://.godot/imported/Seed_Sniper_0.png-2787142fa77b1b337bca6733e1158438.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

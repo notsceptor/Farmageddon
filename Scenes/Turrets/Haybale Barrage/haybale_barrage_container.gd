@@ -2,12 +2,13 @@ extends Turret
 
 func _ready():
 	turret_model = $HaybaleBarrage/Node  # Assign the turret model node
-	shooter_node = $HaybaleBarrage/Node/CarrotCannon/CannonTop # Assign the shooter node
+	shooter_node = $HaybaleBarrage/Node/HaybaleBarrage/Aim # Assign the shooter node
 	var turret_area_rid = $HaybaleBarrage/AreaRadius.get_rid()
 	Globals.turret_rid_list.append(turret_area_rid)
 
 func _on_attacking_state_entered():
 	print("Haybale barrage attacking")
+	$HaybaleBarrage/AnimationPlayer.play("Shoot") #broken
 
 func _on_haybale_barrage_area_entered(area):
 	print(area, " entered")
