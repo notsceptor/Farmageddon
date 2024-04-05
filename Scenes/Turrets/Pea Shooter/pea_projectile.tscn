@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://47mqpfarhb5q"]
+
+[ext_resource type="Script" path="res://Scenes/Turrets/debug_projectile.gd" id="1_hxv8b"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_qkyq3"]
+radius = 0.1
+
+[sub_resource type="SphereMesh" id="SphereMesh_b62ds"]
+radius = 0.1
+height = 0.2
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nwpmg"]
+albedo_color = Color(0.109804, 0.27451, 0.156863, 0.760784)
+
+[node name="PeaProjectile" type="Area3D"]
+script = ExtResource("1_hxv8b")
+speed = 4.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_qkyq3")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("SphereMesh_b62ds")
+material = SubResource("StandardMaterial3D_nwpmg")
