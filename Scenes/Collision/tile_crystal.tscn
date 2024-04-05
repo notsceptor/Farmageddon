@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://bsrjjbajulsja"]
 
-[ext_resource type="PackedScene" uid="uid://d03q7xvahfcn0" path="res://Models/Environment/Tiles/tile_crystal.glb" id="1_og4bh"]
+[ext_resource type="PackedScene" uid="uid://bbollh5js7cf4" path="res://Models/Environment/Tiles/tile_crystal.gltf" id="1_vh47o"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5g7x"]
 size = Vector3(1, 0.8, 1)
 
 [node name="tile_crystal" type="Area3D" groups=["tile_crystal"]]
 
-[node name="tile_crystal" parent="." instance=ExtResource("1_og4bh")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("BoxShape3D_x5g7x")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_vh47o")]

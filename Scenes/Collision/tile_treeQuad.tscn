@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bow4etauftivg"]
 
-[ext_resource type="PackedScene" uid="uid://3tucngdg8a7r" path="res://Models/Environment/Tiles/tile_treeQuad.glb" id="1_48rb7"]
+[ext_resource type="PackedScene" uid="uid://d2njdbf21ki1k" path="res://Models/Environment/Tiles/tile_tree_triple.gltf" id="1_umnlf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ouv8w"]
 
 [node name="tile_treeQuad" type="Area3D" groups=["tile_treeQuad"]]
 
-[node name="tile_treeQuad" parent="." instance=ExtResource("1_48rb7")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("BoxShape3D_ouv8w")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_umnlf")]
