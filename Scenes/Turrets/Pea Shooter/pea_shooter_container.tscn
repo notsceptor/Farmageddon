@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7sb3lkv4e57x"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_1h0m8"]
+[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_1h0m8"]
 [ext_resource type="PackedScene" uid="uid://dhpp4ww5mkjqs" path="res://Models/Turrets/Pea Shooter/pea_shooter.tscn" id="2_i0qg1"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.gd" id="2_y0xhy"]
 [ext_resource type="PackedScene" uid="uid://de65ief6lf17a" path="res://Scenes/Turrets/Pea Shooter/pea_projectile.tscn" id="3_sccfl"]

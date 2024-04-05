@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bb5oedvupwpal"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_i0mur"]
+[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_i0mur"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.gd" id="2_fydke"]
 [ext_resource type="PackedScene" uid="uid://y5qsxrgbwaun" path="res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon.tscn" id="2_mpubw"]
 [ext_resource type="PackedScene" uid="uid://50iiecubqj2t" path="res://Scenes/Turrets/Honeycomb Harpoon/harpoon_projectile.tscn" id="3_3kmnc"]
