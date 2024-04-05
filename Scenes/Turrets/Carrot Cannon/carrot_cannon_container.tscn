@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://r4rtkqn6nxjq"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_8414r"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_8414r"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.gd" id="2_x24q5"]
 [ext_resource type="PackedScene" uid="uid://cut8ux148v1xa" path="res://Scenes/Turrets/Carrot Cannon/carrot_projectile.tscn" id="3_pw72c"]
 [ext_resource type="PackedScene" uid="uid://m1mxmj1rfahc" path="res://Models/Turrets/Carrot Cannon/carrot_cannon.tscn" id="3_upbmi"]
