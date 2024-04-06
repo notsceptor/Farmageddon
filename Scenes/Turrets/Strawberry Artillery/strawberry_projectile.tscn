@@ -176,7 +176,3 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000183105, 0.00395203, 0.00775146)
 shape = SubResource("BoxShape3D_pu533")
-
-[node name="LaunchTimer" type="Timer" parent="."]
-one_shot = true
-autostart = true

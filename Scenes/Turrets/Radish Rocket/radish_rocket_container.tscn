@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyk22hrckddty"]
+
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_yds07"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Radish Rocket/radish_rocket_container.gd" id="2_1rxpe"]
+[ext_resource type="PackedScene" uid="uid://bxpticid6roe3" path="res://Models/Turrets/Radish Rocket/radish_rocket.tscn" id="2_l2i2l"]
+[ext_resource type="PackedScene" uid="uid://d0sptuh4f72xo" path="res://Scenes/Turrets/Radish Rocket/radish_projectile.tscn" id="3_exqnj"]
+
+[node name="RadishRocketContainer" instance=ExtResource("1_yds07")]
+script = ExtResource("2_1rxpe")
+fire_rate_ms = 4000
+projectiles_to_shoot_at_a_time = 6
+projectile_speed = 3.0
+projectile_type = ExtResource("3_exqnj")
+
+[node name="RadishRocket" parent="." index="0" instance=ExtResource("2_l2i2l")]
+
+[connection signal="area_entered" from="RadishRocket" to="." method="_on_radish_rocket_area_entered"]
+[connection signal="area_exited" from="RadishRocket" to="." method="_on_radish_rocket_area_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]

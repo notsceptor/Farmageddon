@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=24 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
@@ -19,7 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://8db7mg70wbg8" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf" id="15_lwbbn"]
 [ext_resource type="PackedScene" uid="uid://ckjmpri7uvrlk" path="res://Scenes/Turrets/Potato Launcher/potato_launcher_container.tscn" id="16_7nhbv"]
 [ext_resource type="PackedScene" uid="uid://c6wsw3mx0cbyi" path="res://Scenes/Turrets/Seed Sniper/seed_sniper_container.tscn" id="17_rx832"]
-[ext_resource type="PackedScene" uid="uid://ci6or47dto3m5" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn" id="20_oqxk1"]
+[ext_resource type="PackedScene" uid="uid://dh45axfj4xh0o" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn" id="20_oqxk1"]
+[ext_resource type="PackedScene" uid="uid://14p4y3jsm7aa" path="res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf" id="21_r4j4d"]
+[ext_resource type="PackedScene" uid="uid://dyk22hrckddty" path="res://Scenes/Turrets/Radish Rocket/radish_rocket_container.tscn" id="22_jg1ju"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -148,6 +150,12 @@ activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("15_lwbbn")
 turret_to_instantiate = ExtResource("20_oqxk1")
 
+[node name="radish" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("21_r4j4d")
+turret_to_instantiate = ExtResource("22_jg1ju")
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
@@ -159,3 +167,4 @@ turret_to_instantiate = ExtResource("20_oqxk1")
 [connection signal="place_turret" from="HBoxContainer/potato" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/sniper" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/strawberry" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]

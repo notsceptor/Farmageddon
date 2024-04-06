@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ckjmpri7uvrlk"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_0b4fk"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_0b4fk"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Potato Launcher/potato_launcher_container.gd" id="2_mu8mr"]
 [ext_resource type="PackedScene" uid="uid://dbgvdvwqkk88m" path="res://Models/Turrets/Potato Launcher/potato_launcher.tscn" id="2_o75se"]
 [ext_resource type="PackedScene" uid="uid://bq70ynl0kopyg" path="res://Scenes/Turrets/Potato Launcher/potato_projectile.tscn" id="3_wy8qk"]
