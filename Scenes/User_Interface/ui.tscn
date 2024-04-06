@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=26 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/giant_zombie_snail_container.tscn" id="2_44omx"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://dh45axfj4xh0o" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn" id="20_oqxk1"]
 [ext_resource type="PackedScene" uid="uid://14p4y3jsm7aa" path="res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf" id="21_r4j4d"]
 [ext_resource type="PackedScene" uid="uid://dyk22hrckddty" path="res://Scenes/Turrets/Radish Rocket/radish_rocket_container.tscn" id="22_jg1ju"]
+[ext_resource type="PackedScene" uid="uid://c0gmse4slfiae" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer.gltf" id="23_oi44k"]
+[ext_resource type="PackedScene" uid="uid://c8x8pupk2jfer" path="res://Scenes/Turrets/Spore Sprayer/spore_sprayer_container.tscn" id="24_57wyc"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -156,6 +158,12 @@ activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("21_r4j4d")
 turret_to_instantiate = ExtResource("22_jg1ju")
 
+[node name="spore" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("23_oi44k")
+turret_to_instantiate = ExtResource("24_57wyc")
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
@@ -168,3 +176,4 @@ turret_to_instantiate = ExtResource("22_jg1ju")
 [connection signal="place_turret" from="HBoxContainer/sniper" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/strawberry" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/spore" to="." method="_on_activity_button_place_turret"]
