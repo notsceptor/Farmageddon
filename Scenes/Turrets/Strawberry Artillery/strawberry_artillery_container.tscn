@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://ci6or47dto3m5"]
+[gd_scene load_steps=5 format=3 uid="uid://dh45axfj4xh0o"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_arrrv"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_arrrv"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.gd" id="2_krrmc"]
 [ext_resource type="PackedScene" uid="uid://d1vn7hvgt5eh" path="res://Models/Turrets/Strawberry Artillery/strawberry_artillery.tscn" id="3_n0lgv"]
+[ext_resource type="PackedScene" uid="uid://50ktbmyjtmin" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_projectile.tscn" id="3_q12g4"]
 
 [node name="StrawberryArtilleryContainer" instance=ExtResource("1_arrrv")]
 script = ExtResource("2_krrmc")
+fire_rate_ms = 4000
+projectiles_to_shoot_at_a_time = 1
+projectile_speed = 1.0
+projectile_type = ExtResource("3_q12g4")
 
 [node name="StrawberryArtillery" parent="." index="0" instance=ExtResource("3_n0lgv")]
 

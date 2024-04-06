@@ -10,6 +10,9 @@ radius = 5.0
 [node name="HaybaleBarrage" instance=ExtResource("1_vfp0b")]
 script = ExtResource("2_lcivi")
 
+[node name="ProjectileSpawnMarker" type="Marker3D" parent="Node/HaybaleBarrage/Aim" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.509465, -0.45838)
+
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2

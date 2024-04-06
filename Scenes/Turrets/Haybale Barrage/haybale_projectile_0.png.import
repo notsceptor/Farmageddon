@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dq0aukmssi53k"
-path="res://.godot/imported/seed_projectile_0.png-d592d3eb29aa36149c14d4201ac1074e.ctex"
+uid="uid://dpomplw7tt5x1"
+path="res://.godot/imported/haybale_projectile_0.png-747d48a167e98c1b0455ba7f2d63b962.ctex"
 metadata={
 "vram_texture": false
 }
@@ -11,8 +11,8 @@ generator_parameters={}
 
 [deps]
 
-source_file="res://Scenes/Turrets/Seed Sniper/seed_projectile_0.png"
-dest_files=["res://.godot/imported/seed_projectile_0.png-d592d3eb29aa36149c14d4201ac1074e.ctex"]
+source_file="res://Scenes/Turrets/Haybale Barrage/haybale_projectile_0.png"
+dest_files=["res://.godot/imported/haybale_projectile_0.png-747d48a167e98c1b0455ba7f2d63b962.ctex"]
 
 [params]
 

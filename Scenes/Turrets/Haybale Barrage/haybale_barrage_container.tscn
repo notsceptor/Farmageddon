@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1jg1al7s5a2p"]
+[gd_scene load_steps=5 format=3 uid="uid://c1jg1al7s5a2p"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_facdm"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_facdm"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.gd" id="2_m24nx"]
+[ext_resource type="PackedScene" uid="uid://00x1mu38qat6" path="res://Scenes/Turrets/Haybale Barrage/haybale_projectile.tscn" id="3_oijqu"]
 [ext_resource type="PackedScene" uid="uid://bebwr3qxdmajf" path="res://Models/Turrets/Haybale Barrage/haybale_barrage.tscn" id="3_xetic"]
 
 [node name="HaybaleBarrageContainer" instance=ExtResource("1_facdm")]
 script = ExtResource("2_m24nx")
+fire_rate_ms = 3500
+projectiles_to_shoot_at_a_time = 1
+projectile_speed = 5.0
+projectile_type = ExtResource("3_oijqu")
 
 [node name="HaybaleBarrage" parent="." index="0" instance=ExtResource("3_xetic")]
 

@@ -1,11 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://c6wsw3mx0cbyi"]
+[gd_scene load_steps=5 format=3 uid="uid://c6wsw3mx0cbyi"]
 
-[ext_resource type="PackedScene" path="res://Scenes/Turrets/turret_container.tscn" id="1_7te4q"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_7te4q"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Seed Sniper/seed_sniper_container.gd" id="2_1jcgb"]
 [ext_resource type="PackedScene" uid="uid://flcvrufmej3y" path="res://Models/Turrets/Seed Sniper/Seed_Sniper.tscn" id="3_cud3u"]
+[ext_resource type="PackedScene" uid="uid://s7tq1dmm3k8t" path="res://Scenes/Turrets/Seed Sniper/seed_projectile.tscn" id="3_pkxan"]
 
 [node name="SeedSniperContainer" instance=ExtResource("1_7te4q")]
 script = ExtResource("2_1jcgb")
+fire_rate_ms = 2500
+projectiles_to_shoot_at_a_time = 1
+projectile_speed = 9.0
+projectile_type = ExtResource("3_pkxan")
 
 [node name="SeedSniper" parent="." index="0" instance=ExtResource("3_cud3u")]
 
