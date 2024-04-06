@@ -249,7 +249,7 @@ script = ExtResource("1_yojsa")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116318, 0)
 
 [node name="Radish_Rocket" type="Node3D" parent="Node"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.0844314, -0.119714)
 
 [node name="cube" type="MeshInstance3D" parent="Node/Radish_Rocket"]
 mesh = SubResource("ArrayMesh_3cbq8")
@@ -284,5 +284,5 @@ mesh = SubResource("ArrayMesh_cd12v")
 skeleton = NodePath("")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.00378723, 0.0353027)
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.00378723, 0.0353027)
 shape = SubResource("BoxShape3D_c81bb")

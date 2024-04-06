@@ -7,9 +7,9 @@ enum ProjectileState {
 }
 
 var state := ProjectileState.MOVING_UP
-var peak_height: float = 4.0 # Adjust this value to control how high the projectile goes
+var peak_height: float = 10.0 # Adjust this value to control how high the projectile goes
 var time_elapsed: float = 0.0
-var time_to_reach_peak: float = 1.0 # Time in seconds to reach the peak height
+var time_to_reach_peak: float = 1.5 # Time in seconds to reach the peak height
 var initial_position: Vector3
 
 func _ready():

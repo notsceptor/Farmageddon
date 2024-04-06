@@ -5,7 +5,7 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dh4e7"]
 height = 1.0
-radius = 3.0
+radius = 6.0
 
 [node name="PeaShooter" instance=ExtResource("1_tammx")]
 script = ExtResource("2_83bym")

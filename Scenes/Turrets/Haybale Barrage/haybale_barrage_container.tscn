@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_facdm"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.gd" id="2_m24nx"]
-[ext_resource type="PackedScene" uid="uid://00x1mu38qat6" path="res://Scenes/Turrets/Haybale Barrage/haybale_projectile.tscn" id="3_oijqu"]
+[ext_resource type="PackedScene" path="res://Scenes/Turrets/Haybale Barrage/haybale_projectile.tscn" id="3_oijqu"]
 [ext_resource type="PackedScene" uid="uid://bebwr3qxdmajf" path="res://Models/Turrets/Haybale Barrage/haybale_barrage.tscn" id="3_xetic"]
 
 [node name="HaybaleBarrageContainer" instance=ExtResource("1_facdm")]
