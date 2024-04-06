@@ -1,0 +1,66 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqq361rv5pvup"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdm4g"]
+transparency = 2
+alpha_scissor_threshold = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.713726, 0, 1)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_kgsi4"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+spread = 40.0
+flatness = 1.0
+initial_velocity_min = 2.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+turbulence_noise_strength = 6.9
+turbulence_noise_scale = 2.855
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ppqbg"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_ejotp"]
+material = SubResource("StandardMaterial3D_ppqbg")
+radius = 0.02
+height = 0.04
+radial_segments = 16
+rings = 8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g1r6e"]
+transparency = 2
+alpha_scissor_threshold = 1.0
+alpha_antialiasing_mode = 0
+cull_mode = 2
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.568627, 0.443137, 0.345098, 1)
+
+[node name="SporeSprayEffect" type="Node3D"]
+
+[node name="SporeSpray" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+material_override = SubResource("StandardMaterial3D_cdm4g")
+emitting = false
+amount = 100
+lifetime = 0.35
+speed_scale = 1.2
+fixed_fps = 60
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_kgsi4")
+draw_pass_1 = SubResource("SphereMesh_ejotp")
+
+[node name="SporeSpray2" type="GPUParticles3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.00857663, 0)
+material_override = SubResource("StandardMaterial3D_g1r6e")
+emitting = false
+amount = 100
+lifetime = 0.35
+speed_scale = 1.2
+fixed_fps = 60
+trail_lifetime = 10.0
+process_material = SubResource("ParticleProcessMaterial_kgsi4")
+draw_pass_1 = SubResource("SphereMesh_ejotp")

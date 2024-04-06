@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://6b4oxkon5mjt"]
 
-[ext_resource type="PackedScene" uid="uid://br5kr5h0352ku" path="res://Scenes/Turrets/turret_container.tscn" id="1_yrnfg"]
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_yrnfg"]
 [ext_resource type="PackedScene" uid="uid://vv7y1y00eumv" path="res://Models/Turrets/Chiligun/chiligun.tscn" id="2_icqu4"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Chiligun/chili_gun_container.gd" id="2_lqarx"]
 
@@ -15,4 +15,5 @@ script = ExtResource("2_lqarx")
 [connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
 [connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
 [connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_exited" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_exited"]
 [connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]
