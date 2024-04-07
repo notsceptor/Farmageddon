@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cutwtalr4uad7"]
 
 [ext_resource type="PackedScene" uid="uid://u1foh2li2ttu" path="res://Models/Enemies/Aphid.gltf" id="1_pxy2g"]
-[ext_resource type="Script" path="res://Scenes/Enemies/scumbug.gd" id="2_h3mid"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Scumbug/scumbug.gd" id="2_h3mid"]
 
 [node name="Scumbug" instance=ExtResource("1_pxy2g")]
 script = ExtResource("2_h3mid")

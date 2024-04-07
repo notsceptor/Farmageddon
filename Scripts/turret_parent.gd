@@ -17,7 +17,7 @@ func rotate_towards_target(rtarget, delta):
 	var target_vector = shooter_node.global_position.direction_to(Vector3(rtarget.global_position.x, global_position.y, rtarget.global_position.z))
 	var target_basis: Basis = Basis.looking_at(target_vector)
 	shooter_node.basis = shooter_node.basis.slerp(target_basis, acquire_slerp_progress)
-	acquire_slerp_progress += delta
+	acquire_slerp_progress += delta * 5
 
 	if acquire_slerp_progress > 1:
 		$StateChart.send_event("to_attacking")

@@ -3,6 +3,7 @@ class_name Projectile
 
 @export var speed := 10.0
 @export var acceleration := 2.0
+var damage: int
 
 var starting_position: Vector3
 var target: Node3D

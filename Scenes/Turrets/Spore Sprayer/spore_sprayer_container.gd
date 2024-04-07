@@ -30,6 +30,9 @@ func _maybe_fire_turret_projectile():
 	spray_node_two.emitting = true
 	spray_node_one.rotation.y += 5
 	spray_node_two.rotation.y += 5
+	if spray_node_one.rotation.y >= 360:
+		spray_node_one.rotation.y = 0
+		spray_node_two.rotation.y = 0
 
 func _on_attacking_state_exited():
 	spray_node_one.emitting = false

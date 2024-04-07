@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bq70ynl0kopyg"]
 
-[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_wps08"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Potato Launcher/potato_projectile.gd" id="1_88yc4"]
 [ext_resource type="Texture2D" uid="uid://bifwcwec3b4b1" path="res://Scenes/Turrets/Potato Launcher/potato_projectile_0.png" id="2_detkv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p031e"]
@@ -81,7 +81,9 @@ shadow_mesh = SubResource("ArrayMesh_68b84")
 size = Vector3(0.142578, 0.140625, 0.168945)
 
 [node name="PotatoProjectile" type="Area3D"]
-script = ExtResource("1_wps08")
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_88yc4")
 
 [node name="Node" type="Node3D" parent="."]
 

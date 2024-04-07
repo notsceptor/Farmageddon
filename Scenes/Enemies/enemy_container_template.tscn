@@ -53,7 +53,7 @@ loop = false
 
 [node name="Area3D" type="Area3D" parent="Path3D/PathFollow3D"]
 collision_layer = 2
-collision_mask = 0
+collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D"]
 
