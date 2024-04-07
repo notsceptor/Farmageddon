@@ -6,8 +6,6 @@ var _path_progress: float = 0.0
 
 @onready var health_bar = $SubViewport/HealthBar3D
 
-signal died
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_name = "Giant Zombie Snail"
