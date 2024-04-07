@@ -2,7 +2,7 @@ extends Projectile
 
 var initial_direction: Vector3
 var projectile_range: int = 15
-var height_of_projectile: float = 0.4
+var height_of_projectile: float = 0.7
 
 func _ready():
 	# Calculate initial direction towards the target
@@ -22,6 +22,9 @@ func _ready():
 func _process(delta):
 	global_position += initial_direction * speed * delta
 	
+	# So projectile spawns in the spawn location and falls to floor slowly then rolls
+	if height_of_projectile > 0.4:
+		height_of_projectile -= 0.005
 	# Maintain constant height of projectile when shot
 	global_position.y = height_of_projectile
 	
