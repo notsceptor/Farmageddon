@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://d2hy41i8uole7"]
+
+[ext_resource type="PackedScene" uid="uid://c0gmse4slfiae" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer.gltf" id="1_weor0"]
+[ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_5eq2x"]
+[ext_resource type="PackedScene" uid="uid://dqq361rv5pvup" path="res://Scenes/Turrets/Spore Sprayer/spore_spray_effect.tscn" id="3_wa7gv"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_qhgyl"]
+height = 1.0
+radius = 2.5
+
+[node name="SporeSprayer" instance=ExtResource("1_weor0")]
+script = ExtResource("2_5eq2x")
+
+[node name="SprayEffect" parent="Node/Spore/Aim" index="0" instance=ExtResource("3_wa7gv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574073, 0.0310994)
+
+[node name="AreaRadius" type="Area3D" parent="." index="2"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="AreaShape" type="CollisionShape3D" parent="AreaRadius" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+shape = SubResource("CylinderShape3D_qhgyl")
+
+[connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
+[connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]

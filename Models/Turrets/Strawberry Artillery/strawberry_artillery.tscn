@@ -10,6 +10,9 @@ radius = 8.0
 [node name="StrawberryArtillery" instance=ExtResource("1_udn4l")]
 script = ExtResource("2_8f7qe")
 
+[node name="ProjectileSpawnMarker" type="Marker3D" parent="Node/StrawberryArtillery/Aim" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.682693, 0)
+
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2

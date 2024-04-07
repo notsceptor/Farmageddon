@@ -5,10 +5,13 @@
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_dh4e7"]
 height = 1.0
-radius = 3.0
+radius = 6.0
 
 [node name="PeaShooter" instance=ExtResource("1_tammx")]
 script = ExtResource("2_83bym")
+
+[node name="ProjectileSpawnMarker" type="Marker3D" parent="Node/PeaShooter/ShooterTop" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515454, -0.6375)
 
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0

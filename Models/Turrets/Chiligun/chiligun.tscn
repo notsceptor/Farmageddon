@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://vv7y1y00eumv"]
+[gd_scene load_steps=5 format=3 uid="uid://vv7y1y00eumv"]
 
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="1_expio"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_v2an6"]
+[ext_resource type="PackedScene" uid="uid://dryd7m5w1qaht" path="res://Scenes/Turrets/Chiligun/chiligun_spray_effect.tscn" id="3_iyvca"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hpi10"]
 height = 1.0
@@ -9,6 +10,9 @@ radius = 2.5
 
 [node name="Chiligun" instance=ExtResource("1_expio")]
 script = ExtResource("2_v2an6")
+
+[node name="ChiligunSprayEffect" parent="Node/Chilligun/Aim" index="0" instance=ExtResource("3_iyvca")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.595836, -0.77654)
 
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0

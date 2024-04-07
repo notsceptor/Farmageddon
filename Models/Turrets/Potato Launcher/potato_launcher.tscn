@@ -1,14 +1,26 @@
 [gd_scene load_steps=4 format=3 uid="uid://dbgvdvwqkk88m"]
 
-[ext_resource type="PackedScene" uid="uid://dahclpp30r8v6" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="1_yijdg"]
+[ext_resource type="PackedScene" uid="uid://0t2n7ycnb7xg" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="1_yijdg"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_hrrj8"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_kco0k"]
 height = 1.0
-radius = 5.0
+radius = 3.5
 
 [node name="PotatoLauncher" instance=ExtResource("1_yijdg")]
 script = ExtResource("2_hrrj8")
+
+[node name="ProjectileSpawnMarker1" type="Marker3D" parent="Node/CarrotCannon/Aim" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.117424, 0.667213, -0.657806)
+
+[node name="ProjectileSpawnMarker2" type="Marker3D" parent="Node/CarrotCannon/Aim" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120273, 0.667213, -0.657806)
+
+[node name="ProjectileSpawnMarker3" type="Marker3D" parent="Node/CarrotCannon/Aim" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.120273, 0.475828, -0.657806)
+
+[node name="ProjectileSpawnMarker4" type="Marker3D" parent="Node/CarrotCannon/Aim" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.118142, 0.475828, -0.657806)
 
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0

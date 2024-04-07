@@ -1,0 +1,67 @@
+[gd_scene load_steps=7 format=3 uid="uid://de65ief6lf17a"]
+
+[ext_resource type="Texture2D" uid="uid://vk5b7f8teteh" path="res://Scenes/Turrets/Pea Shooter/pea_projectile_0.png" id="1_hun3k"]
+[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_hxv8b"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dcnb4"]
+resource_name = "material_0"
+transparency = 2
+alpha_scissor_threshold = 0.05
+alpha_antialiasing_mode = 0
+cull_mode = 2
+albedo_texture = ExtResource("1_hun3k")
+texture_filter = 0
+texture_repeat = false
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_8emjw"]
+_surfaces = [{
+"aabb": AABB(-0.04375, 0.01875, -0.05, 0.08751, 0.08751, 0.08751),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 4, 0, 1, 0, 5, 0, 5, 0, 1, 0, 0, 0, 7, 0, 2, 0, 6, 0, 6, 0, 2, 0, 3, 0, 5, 0, 0, 0, 7, 0, 7, 0, 0, 0, 2, 0, 1, 0, 4, 0, 3, 0, 3, 0, 4, 0, 6, 0),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(247, 255, 247, 255, 247, 255, 0, 0, 247, 255, 247, 255, 0, 0, 0, 0, 247, 255, 0, 0, 247, 255, 0, 0, 247, 255, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 0, 0, 0, 0, 0, 0, 247, 255, 247, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_dehrx"]
+resource_name = "blockbench_export_mesh"
+_surfaces = [{
+"aabb": AABB(-0.04375, 0.01875, -0.05, 0.08751, 0.08751, 0.08751),
+"attribute_data": PackedByteArray(0, 0, 255, 63, 255, 47, 255, 63, 0, 0, 255, 111, 255, 47, 255, 111, 255, 63, 255, 63, 255, 111, 255, 63, 255, 63, 255, 111, 255, 111, 255, 111, 255, 47, 255, 175, 0, 0, 255, 175, 255, 47, 255, 127, 0, 0, 255, 127, 255, 175, 0, 0, 255, 127, 0, 0, 255, 175, 255, 47, 255, 127, 255, 47, 255, 63, 0, 0, 255, 111, 0, 0, 255, 63, 255, 47, 255, 111, 255, 47, 0, 0, 0, 0, 255, 47, 0, 0, 0, 0, 255, 47, 255, 47, 255, 47),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 1, 0, 2, 0, 2, 0, 1, 0, 3, 0, 4, 0, 5, 0, 6, 0, 6, 0, 5, 0, 7, 0, 8, 0, 9, 0, 10, 0, 10, 0, 9, 0, 11, 0, 12, 0, 13, 0, 14, 0, 14, 0, 13, 0, 15, 0, 16, 0, 17, 0, 18, 0, 18, 0, 17, 0, 19, 0, 20, 0, 21, 0, 22, 0, 22, 0, 21, 0, 23, 0),
+"material": SubResource("StandardMaterial3D_dcnb4"),
+"name": "material_0",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(247, 255, 247, 255, 247, 255, 255, 191, 247, 255, 247, 255, 0, 0, 255, 191, 247, 255, 0, 0, 247, 255, 255, 191, 247, 255, 0, 0, 0, 0, 255, 191, 0, 0, 247, 255, 0, 0, 255, 191, 0, 0, 247, 255, 247, 255, 255, 191, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 247, 255, 255, 191, 0, 0, 247, 255, 0, 0, 255, 255, 247, 255, 247, 255, 0, 0, 255, 255, 0, 0, 247, 255, 247, 255, 255, 255, 247, 255, 247, 255, 247, 255, 255, 255, 0, 0, 0, 0, 247, 255, 0, 0, 247, 255, 0, 0, 247, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 0, 0, 0, 0, 0, 0, 0, 0, 247, 255, 247, 255, 255, 127, 247, 255, 247, 255, 247, 255, 255, 127, 0, 0, 0, 0, 247, 255, 255, 127, 247, 255, 0, 0, 247, 255, 255, 127, 247, 255, 247, 255, 0, 0, 255, 255, 0, 0, 247, 255, 0, 0, 255, 255, 247, 255, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 0, 0, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 191, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 63, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255, 255, 127, 255, 255)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_8emjw")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dr6um"]
+size = Vector3(0.0878906, 0.0873047, 0.0879272)
+
+[node name="PeaProjectile" type="Area3D"]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_hxv8b")
+
+[node name="Node" type="Node3D" parent="."]
+
+[node name="Pea" type="Node3D" parent="Node"]
+
+[node name="cube" type="MeshInstance3D" parent="Node/Pea"]
+mesh = SubResource("ArrayMesh_dehrx")
+skeleton = NodePath("")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0627344, -0.00603638)
+shape = SubResource("BoxShape3D_dr6um")

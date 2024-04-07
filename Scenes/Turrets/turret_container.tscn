@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://br5kr5h0352ku"]
+[gd_scene load_steps=5 format=3 uid="uid://ctj8a1spf6tn8"]
 
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_o6ng3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_mhdlo"]

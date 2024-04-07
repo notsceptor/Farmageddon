@@ -10,6 +10,9 @@ radius = 5.0
 [node name="CarrotCannon" instance=ExtResource("1_yheqf")]
 script = ExtResource("2_8t685")
 
+[node name="ProjectileSpawnMarker" type="Marker3D" parent="Node/CarrotCannon/Aim" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.591859, -0.647935)
+
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2

@@ -10,6 +10,9 @@ radius = 15.0
 [node name="SeedSniper" instance=ExtResource("1_rw1gp")]
 script = ExtResource("2_md38u")
 
+[node name="ProjectileSpawnMarker" type="Marker3D" parent="Node/SeedSniper/Aim" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.515734, -0.735827)
+
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0
 collision_mask = 2

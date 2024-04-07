@@ -22,4 +22,7 @@ tile_corner = ExtResource("5_tknxr")
 tile_crossroads = ExtResource("6_ehnn7")
 tile_empty = Array[PackedScene]([ExtResource("7_5vnec"), ExtResource("8_7cwvg"), ExtResource("9_a41s8"), ExtResource("10_o4ekg"), ExtResource("11_o2pq0"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g"), ExtResource("12_tph1g")])
 
+[node name="Camera3D" parent="." index="1"]
+fov = 72.0
+
 [connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]
