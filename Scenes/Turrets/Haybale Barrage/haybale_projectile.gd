@@ -5,6 +5,8 @@ var projectile_range: int = 15
 var height_of_projectile: float = 0.7
 
 func _ready():
+	super._ready()
+	damage = 10
 	# Calculate initial direction towards the target
 	if target != null:
 		initial_direction = (target.global_position - global_position).normalized()

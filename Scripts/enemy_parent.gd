@@ -18,8 +18,6 @@ func _ready():
 
 func _on_spawning_state_entered():
 	Globals.enemies_on_map += 1
-	# Maybe a spawn animation to delay movement -> For now it's an await as placeholder
-	await get_tree().create_timer(0.5).timeout
 	$EnemyStateChart.send_event("to_moving")
 	
 func _on_moving_state_processing(_delta):
@@ -27,8 +25,6 @@ func _on_moving_state_processing(_delta):
 		$EnemyStateChart.send_event("to_despawning")
 	
 func _on_despawning_state_entered():
-	# Maybe a despawn animation to delay despawning -> For now it's an await as placeholder
-	await get_tree().create_timer(0.5).timeout
 	queue_free()
 	Globals.enemies_on_map -= 1
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://50iiecubqj2t"]
 
-[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_g0gsf"]
 [ext_resource type="Texture2D" uid="uid://bus7dirrtkdns" path="res://Scenes/Turrets/Honeycomb Harpoon/harpoon_projectile_0.png" id="1_lg1ip"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Honeycomb Harpoon/harpoon_projectile.gd" id="1_ml8ei"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vdt6i"]
 resource_name = "material_0"
@@ -209,7 +209,9 @@ shadow_mesh = SubResource("ArrayMesh_bst5b")
 size = Vector3(0.0810547, 0.100586, 0.519043)
 
 [node name="HarpoonProjectile" type="Area3D"]
-script = ExtResource("1_g0gsf")
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_ml8ei")
 
 [node name="Node" type="Node3D" parent="."]
 

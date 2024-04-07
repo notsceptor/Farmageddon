@@ -13,6 +13,8 @@ var time_to_reach_peak: float = 1.5 # Time in seconds to reach the peak height
 var initial_position: Vector3
 
 func _ready():
+	super._ready()
+	damage = 10
 	initial_position = global_position
 	if target != null:
 		update_direction()

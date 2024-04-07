@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://s7tq1dmm3k8t"]
 
-[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_n0t4a"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Seed Sniper/seed_projectile.gd" id="1_iepa8"]
 [ext_resource type="Texture2D" uid="uid://dq0aukmssi53k" path="res://Scenes/Turrets/Seed Sniper/seed_projectile_0.png" id="1_ngef0"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mvxv8"]
@@ -83,7 +83,7 @@ size = Vector3(0.0878906, 0.0880859, 0.21759)
 [node name="SeedProjectile" type="Area3D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_n0t4a")
+script = ExtResource("1_iepa8")
 
 [node name="Node" type="Node3D" parent="."]
 

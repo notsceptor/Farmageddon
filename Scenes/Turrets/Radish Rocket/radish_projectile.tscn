@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://d0sptuh4f72xo"]
 
+[ext_resource type="Script" path="res://Scenes/Turrets/Radish Rocket/radish_projectile.gd" id="1_5lqjp"]
 [ext_resource type="Texture2D" uid="uid://bc3kd1anea0tk" path="res://Scenes/Turrets/Radish Rocket/radish_projectile_0.png" id="1_spqec"]
-[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_yojsa"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ccxn"]
 resource_name = "material_0"
@@ -243,7 +243,7 @@ size = Vector3(0.121094, 0.125641, 0.232715)
 [node name="RadishProjectile" type="Area3D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_yojsa")
+script = ExtResource("1_5lqjp")
 
 [node name="Node" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.116318, 0)

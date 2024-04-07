@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cut8ux148v1xa"]
 
-[ext_resource type="Script" path="res://Scripts/projectile_script.gd" id="1_ln42e"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/carrot_projectile.gd" id="1_kt0xu"]
 [ext_resource type="Texture2D" uid="uid://bnoa4uk3yjnik" path="res://Scenes/Turrets/Carrot Cannon/carrot_projectile_0.png" id="1_qiwh1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ru7fy"]
@@ -115,7 +115,7 @@ size = Vector3(0.124756, 0.125189, 0.335382)
 [node name="CarrotProjectile" type="Area3D"]
 collision_layer = 4
 collision_mask = 0
-script = ExtResource("1_ln42e")
+script = ExtResource("1_kt0xu")
 
 [node name="Node" type="Node3D" parent="."]
 

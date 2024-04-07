@@ -92,7 +92,7 @@ func _on_ui_next_wave_button_pressed():
 	Globals.wave_won = false
 	
 	while current_level_wave_size > 0:
-		await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(1).timeout
 		var randomly_chosen_enemy = _choose_random_enemy(full_enemy_array, current_level_wave_size)
 		_spawn_enemy(randomly_chosen_enemy)
 		current_level_wave_size -= Globals.temp_enemy_size
@@ -115,11 +115,11 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
 	if wave_size > 1:
 		match random_chosen_enemy:
 			"Scumbug":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_container.tscn")
+				chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
 			"Giant Zombie Snail":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/giant_zombie_snail_container.tscn")
+				chosen_enemy_scene = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn")
 	else: # Since size is 1
-		chosen_enemy_scene = preload("res://Scenes/Enemies/scumbug_container.tscn")
+		chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
 	return chosen_enemy_scene
 	
 func _regenerate_new_map_layout(map_difficulty: String):
