@@ -4,6 +4,8 @@ extends Turret
 @onready var spray_node_two = $Chiligun/Node/Chilligun/Aim/ChiligunSprayEffect/ChiliSpray2
 @onready var spray_node_three = $Chiligun/Node/Chilligun/Aim/ChiligunSprayEffect/ChiliSpray3
 
+var enemy_list: Array[Area3D]
+
 func _ready():
 	turret_model = $Chiligun/Node # Assign the turret model node
 	shooter_node = $Chiligun/Node/Chilligun/Aim # Assign the shooter node
@@ -30,8 +32,16 @@ func _maybe_fire_turret_projectile():
 	spray_node_one.emitting = true
 	spray_node_two.emitting = true
 	spray_node_three.emitting = true
+	for enemy in enemy_list:
+		pass # Need to find out how to damage enemy here
 
 func _on_attacking_state_exited():
 	spray_node_one.emitting = false
 	spray_node_two.emitting = false
 	spray_node_three.emitting = false
+
+func _on_chiligun_damage_area_entered(area):
+	enemy_list.append(area)
+
+func _on_chiligun_damage_area_exited(area):
+	enemy_list.erase(area)

@@ -1,4 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dryd7m5w1qaht"]
+[gd_scene load_steps=8 format=3 uid="uid://dryd7m5w1qaht"]
+
+[ext_resource type="Script" path="res://Scenes/Turrets/Chiligun/chiligun_spray_effect.gd" id="1_vnbk1"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdm4g"]
 transparency = 2
@@ -49,12 +51,13 @@ vertex_color_use_as_albedo = true
 albedo_color = Color(0.682353, 0.317647, 0, 1)
 
 [node name="ChiligunSprayEffect" type="Node3D"]
+script = ExtResource("1_vnbk1")
 
 [node name="ChiliSpray" type="GPUParticles3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 material_override = SubResource("StandardMaterial3D_cdm4g")
 emitting = false
-amount = 150
+amount = 75
 lifetime = 0.35
 speed_scale = 1.2
 fixed_fps = 60
@@ -85,3 +88,14 @@ fixed_fps = 60
 trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_kgsi4")
 draw_pass_1 = SubResource("SphereMesh_ejotp")
+
+[node name="DamageRadius" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="DamageRadius"]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -0.110581, 0)
+polygon = PackedVector2Array(-0.141195, -0.147387, -0.148946, 0.172823, 1.55309, 1.31475, 1.9644, -0.00459607, 1.55057, -1.28302)
+
+[connection signal="area_entered" from="DamageRadius" to="." method="_on_damage_radius_area_entered"]
+[connection signal="area_exited" from="DamageRadius" to="." method="_on_damage_radius_area_exited"]

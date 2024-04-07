@@ -22,5 +22,7 @@ collision_mask = 2
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
 shape = SubResource("CylinderShape3D_hpi10")
 
+[connection signal="enemy_entered_damage_cone" from="Node/Chilligun/Aim/ChiligunSprayEffect" to="." method="_on_chiligun_spray_effect_enemy_entered_damage_cone"]
+[connection signal="enemy_exited_damage_cone" from="Node/Chilligun/Aim/ChiligunSprayEffect" to="." method="_on_chiligun_spray_effect_enemy_exited_damage_cone"]
 [connection signal="area_entered" from="AreaRadius" to="." method="_on_area_radius_area_entered"]
 [connection signal="area_exited" from="AreaRadius" to="." method="_on_area_radius_area_exited"]
