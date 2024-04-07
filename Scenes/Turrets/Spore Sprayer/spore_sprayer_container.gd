@@ -28,6 +28,8 @@ func _maybe_fire_turret_projectile():
 	$SporeSprayer/AnimationPlayer.play("animation")
 	spray_node_one.emitting = true
 	spray_node_two.emitting = true
+	spray_node_one.rotation.y += 5
+	spray_node_two.rotation.y += 5
 
 func _on_attacking_state_exited():
 	spray_node_one.emitting = false

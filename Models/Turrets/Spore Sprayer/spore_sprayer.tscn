@@ -12,7 +12,7 @@ radius = 2.5
 script = ExtResource("2_5eq2x")
 
 [node name="SprayEffect" parent="Node/Spore/Aim" index="0" instance=ExtResource("3_wa7gv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574073, -0.798315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.574073, 0.0310994)
 
 [node name="AreaRadius" type="Area3D" parent="." index="2"]
 collision_layer = 0
