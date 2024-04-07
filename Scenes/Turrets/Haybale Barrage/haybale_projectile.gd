@@ -1,8 +1,8 @@
 extends Projectile
 
 var initial_direction: Vector3
-var projectile_range: int = 5
-var height_of_projectile: float = 0.7
+var projectile_range: int = 15
+var height_of_projectile: float = 0.4
 
 func _ready():
 	# Calculate initial direction towards the target
