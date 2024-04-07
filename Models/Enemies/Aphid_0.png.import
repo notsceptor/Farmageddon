@@ -3,21 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cws18reb4hxln"
-path.s3tc="res://.godot/imported/Aphid_0.png-978fc3b1df2424601f80ae9f18747ef2.s3tc.ctex"
+path="res://.godot/imported/Aphid_0.png-978fc3b1df2424601f80ae9f18747ef2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Enemies/Aphid_0.png"
-dest_files=["res://.godot/imported/Aphid_0.png-978fc3b1df2424601f80ae9f18747ef2.s3tc.ctex"]
+dest_files=["res://.godot/imported/Aphid_0.png-978fc3b1df2424601f80ae9f18747ef2.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

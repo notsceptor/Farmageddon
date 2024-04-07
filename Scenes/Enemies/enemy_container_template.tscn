@@ -57,6 +57,9 @@ collision_mask = 4
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D"]
 
+[node name="AreaDamageTimer" type="Timer" parent="."]
+wait_time = 0.25
+
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/Spawning" to="." method="_on_spawning_state_entered"]
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="." method="_on_moving_state_processing"]
 [connection signal="state_entered" from="EnemyStateChart/CompoundState/Despawning" to="." method="_on_despawning_state_entered"]

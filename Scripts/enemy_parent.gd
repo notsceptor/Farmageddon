@@ -6,6 +6,9 @@ class_name EnemyParent
 @onready var _size: int
 @onready var _speed: int
 
+var in_constant_aoe_damage_zone: bool = false
+var area_damage_to_take: float
+
 var curve_3d: Curve3D
 
 func _ready():
@@ -28,5 +31,5 @@ func _on_despawning_state_entered():
 	queue_free()
 	Globals.enemies_on_map -= 1
 
-func get_stats():
+func get_stats(): # Remove yellow errors since never used (just for child class)
 	return [_name, _health, _size, _speed]
