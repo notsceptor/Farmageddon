@@ -50,7 +50,7 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.682353, 0.317647, 0, 1)
 
-[node name="ChiligunProjectileArea" type="Area3D"]
+[node name="ChiligunProjectileArea" type="Area3D" groups=["AOE"]]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_e41ex")
