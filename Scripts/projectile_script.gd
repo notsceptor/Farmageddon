@@ -32,3 +32,6 @@ func _process(delta):
 func update_direction():
 	direction = (target.global_position - global_position).normalized()
 	look_at(target.global_position, Vector3.UP)
+
+func _on_area_entered(area):
+	queue_free()

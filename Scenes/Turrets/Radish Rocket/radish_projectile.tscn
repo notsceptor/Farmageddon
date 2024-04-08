@@ -242,7 +242,7 @@ size = Vector3(0.121094, 0.125641, 0.232715)
 
 [node name="RadishProjectile" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_5lqjp")
 
 [node name="Node" type="Node3D" parent="."]
@@ -286,3 +286,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.00378723, 0.0353027)
 shape = SubResource("BoxShape3D_c81bb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -114,7 +114,7 @@ size = Vector3(0.124756, 0.125189, 0.335382)
 
 [node name="CarrotProjectile" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_kt0xu")
 
 [node name="Node" type="Node3D" parent="."]
@@ -136,3 +136,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0625946, -0.00490417)
 shape = SubResource("BoxShape3D_ll0bt")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
