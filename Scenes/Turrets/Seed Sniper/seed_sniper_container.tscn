@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6wsw3mx0cbyi"]
+[gd_scene load_steps=6 format=3 uid="uid://c6wsw3mx0cbyi"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_7te4q"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Seed Sniper/seed_sniper_container.gd" id="2_1jcgb"]
 [ext_resource type="PackedScene" uid="uid://flcvrufmej3y" path="res://Models/Turrets/Seed Sniper/Seed_Sniper.tscn" id="3_cud3u"]
 [ext_resource type="PackedScene" uid="uid://s7tq1dmm3k8t" path="res://Scenes/Turrets/Seed Sniper/seed_projectile.tscn" id="3_pkxan"]
 [ext_resource type="AudioStream" uid="uid://b37dkiyrh56in" path="res://audio/Gunshot 3.mp3" id="5_xu40e"]
-[ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/gunshot.gd" id="6_o5pdf"]
 
 [node name="SeedSniperContainer" instance=ExtResource("1_7te4q")]
 script = ExtResource("2_1jcgb")
@@ -20,7 +19,6 @@ projectile_type = ExtResource("3_pkxan")
 stream = ExtResource("5_xu40e")
 volume_db = -9.371
 pitch_scale = 1.47
-script = ExtResource("6_o5pdf")
 
 [connection signal="area_entered" from="SeedSniper" to="." method="_on_seed_sniper_area_entered"]
 [connection signal="area_exited" from="SeedSniper" to="." method="_on_seed_sniper_area_exited"]
