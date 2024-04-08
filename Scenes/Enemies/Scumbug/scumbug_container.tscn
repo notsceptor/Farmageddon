@@ -17,6 +17,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202299, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0214201, 0.099)
 shape = SubResource("BoxShape3D_3ljck")
 
+[node name="AreaDamageTimer" parent="." index="2"]
+wait_time = 0.75
+
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Scumbug" method="_on_moving_state_processing"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Scumbug" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Scumbug" method="_on_area_3d_area_exited"]
