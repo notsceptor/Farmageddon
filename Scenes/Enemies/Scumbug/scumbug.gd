@@ -29,7 +29,7 @@ func _on_moving_state_processing(delta):
 func _on_area_3d_area_entered(area):
 	if area.is_in_group("AOE"):
 		in_constant_aoe_damage_zone = true
-		area_damage_to_take = area.damage
+		area_damage_to_take += area.damage
 	else:
 		if area.damage:
 			_health -= area.damage
@@ -40,7 +40,7 @@ func _on_area_3d_area_entered(area):
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
 		in_constant_aoe_damage_zone = false
-		area_damage_to_take = 0
+		area_damage_to_take -= area.damage
 
 func _on_area_damage_timer_timeout():
 	_health -= area_damage_to_take
