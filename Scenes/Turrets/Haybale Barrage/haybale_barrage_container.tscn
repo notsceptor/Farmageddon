@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1jg1al7s5a2p"]
+[gd_scene load_steps=6 format=3 uid="uid://c1jg1al7s5a2p"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_facdm"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.gd" id="2_m24nx"]
 [ext_resource type="PackedScene" uid="uid://00x1mu38qat6" path="res://Scenes/Turrets/Haybale Barrage/haybale_projectile.tscn" id="3_oijqu"]
 [ext_resource type="PackedScene" uid="uid://bebwr3qxdmajf" path="res://Models/Turrets/Haybale Barrage/haybale_barrage.tscn" id="3_xetic"]
+[ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="5_7npoh"]
 
 [node name="HaybaleBarrageContainer" instance=ExtResource("1_facdm")]
 script = ExtResource("2_m24nx")
@@ -13,6 +14,11 @@ projectile_speed = 5.0
 projectile_type = ExtResource("3_oijqu")
 
 [node name="HaybaleBarrage" parent="." index="0" instance=ExtResource("3_xetic")]
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("5_7npoh")
+volume_db = -11.323
+pitch_scale = 0.97
 
 [connection signal="area_entered" from="HaybaleBarrage" to="." method="_on_haybale_barrage_area_entered"]
 [connection signal="area_exited" from="HaybaleBarrage" to="." method="_on_haybale_barrage_area_exited"]

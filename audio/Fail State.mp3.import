@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bklxed7ea7g8y"
+path="res://.godot/imported/Fail State.mp3-6458be8913b855d8f700a18b450571bc.mp3str"
+
+[deps]
+
+source_file="res://audio/Fail State.mp3"
+dest_files=["res://.godot/imported/Fail State.mp3-6458be8913b855d8f700a18b450571bc.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://8rx20qk6fob3"
+path="res://.godot/imported/Shotgun Rack.mp3-f2b3761cb8edfd52a9ccdedc4b073370.mp3str"
+
+[deps]
+
+source_file="res://audio/Shotgun Rack.mp3"
+dest_files=["res://.godot/imported/Shotgun Rack.mp3-f2b3761cb8edfd52a9ccdedc4b073370.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

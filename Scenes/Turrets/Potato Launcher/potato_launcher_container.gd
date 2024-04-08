@@ -7,9 +7,13 @@ var last_fire_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
 
+@onready var gunshot = $gunshot
+@onready var turret_placement = $placement
+
 var modified_projectile_speed: float
 
 func _ready():
+	turret_placement.play()
 	turret_model = $PotatoLauncher/Node # Assign the turret model node
 	shooter_node = $PotatoLauncher/Node/CarrotCannon/Aim # Assign the turret shooter node
 	var turret_area_rid = $PotatoLauncher/AreaRadius.get_rid()
@@ -29,6 +33,8 @@ func _on_potato_launcher_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$PotatoLauncher/AnimationPlayer.play("Gatling Fire")
+		gunshot.pitch_scale = randf_range(1.3, 1.5)
+		gunshot.play()
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
 

@@ -7,9 +7,13 @@ var last_fire_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
 
+@onready var gunshot = $gunshot
+@onready var turret_placement = $placement
+
 var modified_projectile_speed: float
 
 func _ready():
+	turret_placement.play()
 	turret_model = $HoneycombHarpoon/Node # Assign the turret model node
 	shooter_node = $HoneycombHarpoon/Node/HoneycombHarpoon/Aim # Assign the shooter node
 	var turret_area_rid = $HoneycombHarpoon/AreaRadius.get_rid()
@@ -29,6 +33,8 @@ func _on_honeycomb_harpoon_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$HoneycombHarpoon/AnimationPlayer.play("Shoot")
+		gunshot.pitch_scale = randf_range(1.3, 1.5)
+		gunshot.play()
 		var projectile: Projectile = projectile_type.instantiate()
 		projectile.starting_position = $HoneycombHarpoon/Node/HoneycombHarpoon/Aim/ProjectileSpawnMarker.global_position
 		projectile.target = current_enemy

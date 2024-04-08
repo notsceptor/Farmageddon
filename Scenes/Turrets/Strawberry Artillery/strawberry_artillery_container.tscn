@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh45axfj4xh0o"]
+[gd_scene load_steps=6 format=3 uid="uid://dh45axfj4xh0o"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_arrrv"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.gd" id="2_krrmc"]
 [ext_resource type="PackedScene" uid="uid://d1vn7hvgt5eh" path="res://Models/Turrets/Strawberry Artillery/strawberry_artillery.tscn" id="3_n0lgv"]
 [ext_resource type="PackedScene" uid="uid://50ktbmyjtmin" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_projectile.tscn" id="3_q12g4"]
+[ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="5_phgn1"]
 
 [node name="StrawberryArtilleryContainer" instance=ExtResource("1_arrrv")]
 script = ExtResource("2_krrmc")
@@ -13,6 +14,14 @@ projectile_speed = 1.0
 projectile_type = ExtResource("3_q12g4")
 
 [node name="StrawberryArtillery" parent="." index="0" instance=ExtResource("3_n0lgv")]
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("5_phgn1")
+volume_db = -3.827
+pitch_scale = 0.97
+
+[node name="placement" parent="." index="2"]
+volume_db = 6.478
 
 [connection signal="area_entered" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_entered"]
 [connection signal="area_exited" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_exited"]
