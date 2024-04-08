@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dc24knybdqa6u"
+path="res://.godot/imported/Place Turret.mp3-24bdbc211c6e5d53d4962597121e3bf5.mp3str"
+
+[deps]
+
+source_file="res://audio/Place Turret.mp3"
+dest_files=["res://.godot/imported/Place Turret.mp3-24bdbc211c6e5d53d4962597121e3bf5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dybxielxhr8jv"
+path="res://.godot/imported/Destroy Turret.mp3-92640a51106b92db99eac71aec309aee.mp3str"
+
+[deps]
+
+source_file="res://audio/Destroy Turret.mp3"
+dest_files=["res://.godot/imported/Destroy Turret.mp3-92640a51106b92db99eac71aec309aee.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
