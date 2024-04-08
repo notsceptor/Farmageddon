@@ -33,3 +33,7 @@ func _on_despawning_state_entered():
 
 func get_stats(): # Remove yellow errors since never used (just for child class)
 	return [_name, _health, _size, _speed]
+	
+func remove_enemy():
+	get_node("../../../").queue_free()
+	# Death sound / animation here etc

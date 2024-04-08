@@ -35,7 +35,7 @@ func _on_area_3d_area_entered(area):
 			_health -= area.damage
 			health_bar.value -= area.damage
 			if _health <= 0:
-				get_node("../../../").queue_free() # Fetches root node (container) and removes it
+				remove_enemy()
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
@@ -46,4 +46,4 @@ func _on_area_damage_timer_timeout():
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
 	if _health <= 0:
-		get_node("../../../").queue_free() # Fetches root node (container) and removes it
+		remove_enemy()
