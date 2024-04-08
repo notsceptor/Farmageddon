@@ -210,7 +210,7 @@ size = Vector3(0.0810547, 0.100586, 0.519043)
 
 [node name="HarpoonProjectile" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_ml8ei")
 
 [node name="Node" type="Node3D" parent="."]
@@ -251,3 +251,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.133485, 0.0427246)
 shape = SubResource("BoxShape3D_uxniw")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

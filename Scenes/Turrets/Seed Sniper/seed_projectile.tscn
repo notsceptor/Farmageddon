@@ -82,7 +82,7 @@ size = Vector3(0.0878906, 0.0880859, 0.21759)
 
 [node name="SeedProjectile" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_iepa8")
 
 [node name="Node" type="Node3D" parent="."]
@@ -101,3 +101,5 @@ skeleton = NodePath("")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0681792, -0.0276184)
 shape = SubResource("BoxShape3D_3b8wq")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
