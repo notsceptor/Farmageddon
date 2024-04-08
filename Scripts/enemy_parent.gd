@@ -7,7 +7,7 @@ class_name EnemyParent
 @onready var _speed: int
 
 var in_constant_aoe_damage_zone: bool = false
-var area_damage_to_take: float
+var area_damage_to_take: int
 
 var curve_3d: Curve3D
 

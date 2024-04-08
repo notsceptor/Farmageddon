@@ -5,7 +5,6 @@ extends Area3D
 var enemy_list: Array[Area3D]
 
 func _process(_delta):
-	print(enemy_list)
 	if enemy_list.size() > 0:
 		$SporeSpray.emitting = true
 		$SporeSpray2.emitting = true

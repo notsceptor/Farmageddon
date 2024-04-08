@@ -36,7 +36,6 @@ func _on_acquiring_state_processing(delta):
 	if current_enemy != null and enemies_in_range.has(current_enemy):
 		rotate_towards_target(current_enemy, delta)
 	else:
-		print("Enemy disappeared while acquiring")
 		$StateChart.send_event("to_idle")
 
 func _on_attacking_state_physics_processing(_delta):
@@ -44,11 +43,7 @@ func _on_attacking_state_physics_processing(_delta):
 		shooter_node.look_at(current_enemy.global_position)
 		_maybe_fire_turret_projectile()
 	else:
-		print("Enemy disappeared")
 		$StateChart.send_event("to_idle")
-
-func _on_attacking_state_entered():
-	print("Turret attacking")
 
 func _maybe_fire_turret_projectile():
 	# Override in child class -> Here to be able to use in function for all classes however so you do not
