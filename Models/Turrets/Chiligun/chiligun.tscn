@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="1_expio"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_v2an6"]
-[ext_resource type="PackedScene" uid="uid://dryd7m5w1qaht" path="res://Scenes/Turrets/Chiligun/chiligun_projectile.tscn" id="3_iyvca"]
+[ext_resource type="PackedScene" uid="uid://befumbu5bw0kn" path="res://Scenes/Turrets/Chiligun/chiligun_projectile.tscn" id="3_iyvca"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hpi10"]
 height = 1.0

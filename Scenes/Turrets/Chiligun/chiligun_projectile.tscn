@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dryd7m5w1qaht"]
+[gd_scene load_steps=8 format=3 uid="uid://befumbu5bw0kn"]
 
 [ext_resource type="Script" path="res://Scenes/Turrets/Chiligun/chiligun_projectile.gd" id="1_e41ex"]
 
@@ -52,7 +52,7 @@ albedo_color = Color(0.682353, 0.317647, 0, 1)
 
 [node name="ChiligunProjectileArea" type="Area3D"]
 collision_layer = 4
-collision_mask = 0
+collision_mask = 2
 script = ExtResource("1_e41ex")
 
 [node name="ChiliSpray" type="GPUParticles3D" parent="."]
