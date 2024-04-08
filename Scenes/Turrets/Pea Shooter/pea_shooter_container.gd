@@ -17,26 +17,17 @@ func _ready():
 	
 	#set the individual projectile speed
 	modified_projectile_speed = 10
-
-func _on_attacking_state_entered():
-	print("Pea shooter attacking")
-	last_fire_time = 0
 	
 func _on_pea_shooter_area_entered(area):
-	print(area, " entered")
 	if current_enemy == null:
 		current_enemy = area
 	enemies_in_range.append(area)
-	print(enemies_in_range.size())
 
 func _on_pea_shooter_area_exited(area):
-	print(area, " exited")
 	enemies_in_range.erase(area)
-	print(enemies_in_range.size())
 
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
-		print("FIRE PEA SHOOTER")
 		$PeaShooter/AnimationPlayer.play("Shoot")
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()

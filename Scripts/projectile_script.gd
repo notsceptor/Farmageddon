@@ -1,5 +1,6 @@
 extends Area3D
 class_name Projectile
+var projectile_type: String = "projectile"
 
 @export var speed := 10.0
 @export var acceleration := 2.0

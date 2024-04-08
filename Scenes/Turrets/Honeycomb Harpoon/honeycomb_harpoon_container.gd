@@ -17,25 +17,17 @@ func _ready():
 
 	#set the individual projectile speed
 	modified_projectile_speed = 8
-	
-func _on_attacking_state_entered():
-	print("Honeycomb Harpoon attacking")
 
 func _on_honeycomb_harpoon_area_entered(area):
-	print(area, " entered")
 	if current_enemy == null:
 		current_enemy = area
 	enemies_in_range.append(area)
-	print(enemies_in_range.size())
 
 func _on_honeycomb_harpoon_area_exited(area):
-	print(area, " exited")
 	enemies_in_range.erase(area)
-	print(enemies_in_range.size())
 	
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
-		print("FIRE HONEYCOMB HARPOON")
 		$HoneycombHarpoon/AnimationPlayer.play("Shoot")
 		var projectile: Projectile = projectile_type.instantiate()
 		projectile.starting_position = $HoneycombHarpoon/Node/HoneycombHarpoon/Aim/ProjectileSpawnMarker.global_position

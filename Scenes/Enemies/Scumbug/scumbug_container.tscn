@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cutwtalr4uad7" path="res://Scenes/Enemies/Scumbug/scumbug_model.tscn" id="2_6kqqt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ljck"]
-size = Vector3(0.459961, 0.346606, 0.950623)
+size = Vector3(0.873291, 0.439905, 1.09009)
 
 [node name="ScumbugContainer" instance=ExtResource("1_u2lgf")]
 
@@ -14,8 +14,13 @@ size = Vector3(0.459961, 0.346606, 0.950623)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202299, 0)
 
 [node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0252291, 0.099)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0214201, 0.099)
 shape = SubResource("BoxShape3D_3ljck")
+
+[node name="AreaDamageTimer" parent="." index="2"]
+wait_time = 0.75
 
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Scumbug" method="_on_moving_state_processing"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Scumbug" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Scumbug" method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Scumbug" method="_on_area_damage_timer_timeout"]

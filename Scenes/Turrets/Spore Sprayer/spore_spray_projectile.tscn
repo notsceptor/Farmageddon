@@ -1,4 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://dqq361rv5pvup"]
+[gd_scene load_steps=8 format=3 uid="uid://dqq361rv5pvup"]
+
+[ext_resource type="Script" path="res://Scenes/Turrets/Spore Sprayer/spore_spray_projectile.gd" id="1_np8po"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdm4g"]
 transparency = 2
@@ -39,7 +41,14 @@ shading_mode = 0
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.568627, 0.443137, 0.345098, 1)
 
-[node name="SporeSprayEffect" type="Node3D"]
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_l812j"]
+height = 1.0
+radius = 2.3
+
+[node name="SporeSprayerProjectile" type="Area3D" groups=["AOE"]]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("1_np8po")
 
 [node name="SporeSpray" type="GPUParticles3D" parent="."]
 material_override = SubResource("StandardMaterial3D_cdm4g")
@@ -63,3 +72,10 @@ fixed_fps = 60
 trail_lifetime = 10.0
 process_material = SubResource("ParticleProcessMaterial_kgsi4")
 draw_pass_1 = SubResource("SphereMesh_ejotp")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("CylinderShape3D_l812j")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
