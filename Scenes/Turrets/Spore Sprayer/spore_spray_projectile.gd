@@ -4,6 +4,9 @@ extends Area3D
 
 var enemy_list: Array[Area3D]
 
+func _ready():
+	Globals.turret_rid_list.append(get_rid())
+
 func _process(_delta):
 	if enemy_list.size() > 0:
 		$SporeSpray.emitting = true
