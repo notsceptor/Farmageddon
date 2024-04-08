@@ -9,7 +9,11 @@ var last_fire_time: int
 
 var modified_projectile_speed: float
 
+@onready var turret_placement = $placement
+
+
 func _ready():
+	turret_placement.play()
 	turret_model = $RadishRocket/Node # Assign the turret model node
 	shooter_node = $RadishRocket/Node/RadishRocket/Aim # Assign the turret shooter node
 	var turret_area_rid = $RadishRocket/AreaRadius.get_rid()

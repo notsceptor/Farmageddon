@@ -18,7 +18,7 @@ projectile_type = ExtResource("3_pkxan")
 
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("5_xu40e")
-volume_db = -18.74
+volume_db = -9.371
 pitch_scale = 1.47
 script = ExtResource("6_o5pdf")
 

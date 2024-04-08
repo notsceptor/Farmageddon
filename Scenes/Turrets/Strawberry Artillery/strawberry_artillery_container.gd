@@ -7,9 +7,13 @@ var last_fire_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
 
+@onready var gunShot = $gunshot
+@onready var turret_placement = $placement
+
 var modified_projectile_speed: float
 
 func _ready():
+	turret_placement.play()
 	turret_model = $StrawberryArtillery/Node # Assign the turret model node
 	shooter_node = $StrawberryArtillery/Node/StrawberryArtillery/Aim # Assign the shooter node
 	var turret_area_rid = $StrawberryArtillery/AreaRadius.get_rid()
@@ -29,6 +33,7 @@ func _on_strawberry_artillery_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$StrawberryArtillery/AnimationPlayer.play("Fire In The Hole")
+		gunShot.play()
 		var projectile: Projectile = projectile_type.instantiate()
 		projectile.starting_position = $StrawberryArtillery/Node/StrawberryArtillery/Aim/ProjectileSpawnMarker.global_position
 		projectile.target = current_enemy

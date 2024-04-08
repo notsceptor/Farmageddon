@@ -8,10 +8,12 @@ var last_fire_time: int
 @export var projectile_type: PackedScene
 
 @onready var gunShot = $gunshot
+@onready var turret_placement = $placement
 
 var modified_projectile_speed: float
 
 func _ready():
+	turret_placement.play()
 	turret_model = $PeaShooter/Node  # Assign the turret model node
 	shooter_node = $PeaShooter/Node/PeaShooter/ShooterTop  # Assign the shooter node
 	var turret_area_rid = $PeaShooter/AreaRadius.get_rid()

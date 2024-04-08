@@ -8,7 +8,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pitch_scale = randf_range(1.3, 1.6)
+	pitch_scale = randf_range(1.3, 1.5)
 	pass
 
 

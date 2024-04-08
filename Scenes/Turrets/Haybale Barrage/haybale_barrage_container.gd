@@ -7,9 +7,13 @@ var last_fire_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
 
+@onready var gunShot = $gunshot
+@onready var turret_placement = $placement
+
 var modified_projectile_speed: float
 
 func _ready():
+	turret_placement.play()
 	turret_model = $HaybaleBarrage/Node  # Assign the turret model node
 	shooter_node = $HaybaleBarrage/Node/HaybaleBarrage/Aim # Assign the shooter node
 	var turret_area_rid = $HaybaleBarrage/AreaRadius.get_rid()
@@ -30,6 +34,7 @@ func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		print("FIRE HAYBALE BARRAGE")
 		$HaybaleBarrage/AnimationPlayer.play("Shoot")
+		gunShot.play()
 		var projectile: Projectile = projectile_type.instantiate()
 		projectile.starting_position = $HaybaleBarrage/Node/HaybaleBarrage/Aim/ProjectileSpawnMarker.global_position
 		projectile.target = current_enemy

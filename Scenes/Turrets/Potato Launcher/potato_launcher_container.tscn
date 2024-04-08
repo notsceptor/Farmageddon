@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ckjmpri7uvrlk"]
+[gd_scene load_steps=7 format=3 uid="uid://ckjmpri7uvrlk"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_0b4fk"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Potato Launcher/potato_launcher_container.gd" id="2_mu8mr"]
 [ext_resource type="PackedScene" uid="uid://dbgvdvwqkk88m" path="res://Models/Turrets/Potato Launcher/potato_launcher.tscn" id="2_o75se"]
 [ext_resource type="PackedScene" uid="uid://bq70ynl0kopyg" path="res://Scenes/Turrets/Potato Launcher/potato_projectile.tscn" id="3_wy8qk"]
+[ext_resource type="AudioStream" uid="uid://dbkkxamuiskd7" path="res://audio/Gunshot 5.mp3" id="5_m2y0g"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/gunshot.gd" id="6_ludjh"]
 
 [node name="PotatoLauncherContainer" instance=ExtResource("1_0b4fk")]
 script = ExtResource("2_mu8mr")
@@ -13,6 +15,11 @@ projectile_speed = 6.0
 projectile_type = ExtResource("3_wy8qk")
 
 [node name="PotatoLauncher" parent="." index="0" instance=ExtResource("2_o75se")]
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("5_m2y0g")
+volume_db = -6.559
+script = ExtResource("6_ludjh")
 
 [connection signal="area_entered" from="PotatoLauncher" to="." method="_on_potato_launcher_area_entered"]
 [connection signal="area_exited" from="PotatoLauncher" to="." method="_on_potato_launcher_area_exited"]
