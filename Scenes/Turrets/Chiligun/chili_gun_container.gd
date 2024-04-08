@@ -29,19 +29,3 @@ func _on_chiligun_area_exited(area):
 	
 func _maybe_fire_turret_projectile():
 	$Chiligun/AnimationPlayer.play("Spray")
-	spray_node_one.emitting = true
-	spray_node_two.emitting = true
-	spray_node_three.emitting = true
-	for enemy in enemy_list:
-		pass # Need to find out how to damage enemy here
-
-func _on_attacking_state_exited():
-	spray_node_one.emitting = false
-	spray_node_two.emitting = false
-	spray_node_three.emitting = false
-
-func _on_chiligun_damage_area_entered(area):
-	enemy_list.append(area)
-
-func _on_chiligun_damage_area_exited(area):
-	enemy_list.erase(area)
