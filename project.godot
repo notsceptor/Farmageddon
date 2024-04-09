@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 TransitionLayer="*res://Scenes/Globals/transition_layer.tscn"
 Globals="*res://Scenes/Globals/globals.gd"
 PathGenInstance="*res://Scripts/path_generator.gd"
+WaveManager="*res://Scenes/Globals/wave_manager.gd"
 
 [editor_plugins]
 

@@ -21,5 +21,3 @@ tile_straight = ExtResource("4_e66yx")
 tile_corner = ExtResource("5_lou06")
 tile_crossroads = ExtResource("6_nuypj")
 tile_empty = Array[PackedScene]([ExtResource("7_kc5jb"), ExtResource("8_8jdyv"), ExtResource("9_rtdyr"), ExtResource("10_rflnb"), ExtResource("11_ejd8p"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4"), ExtResource("12_yvnn4")])
-
-[connection signal="end_of_wave" from="." to="." method="_on_end_of_wave"]

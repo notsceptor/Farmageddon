@@ -1,14 +1,10 @@
 extends Node3D
 class_name MapParent
 
-var current_level_difficulty: String
-var current_level_wave_number: int
-var current_level_wave_size: int
-
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
-@onready var full_enemy_array: Array = ["Scumbug", "Giant Zombie Snail"]
+var current_level_difficulty: String
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
@@ -23,14 +19,7 @@ var RAYCAST_LENGTH:float = 100
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
 
-signal end_of_wave
-
-func _process(_delta):
-	if !Globals.wave_idle:
-		if Globals.enemies_on_map == 0 and Globals.wave_ongoing == false:
-			end_of_wave.emit()
-			Globals.wave_idle = true
-			
+func _process(delta):
 	if Input.is_action_just_pressed("Pause"):
 		$PauseScreen.visible = !$PauseScreen.visible
 		$UI.visible = !$UI.visible
@@ -82,45 +71,9 @@ func _complete_grid():
 		tile.global_position = Vector3(PathGenInstance.get_path_tile(i).x, 0, PathGenInstance.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
 		
-func _on_ui_next_wave_button_pressed():
-	print("Next wave button pressed")
-	print("Starting wave level: " + str(current_level_wave_number))
-	print("Total wave size for this level: " + str(current_level_wave_size))
-	next_wave_button.visible = false
-	Globals.wave_idle = false
-	Globals.wave_ongoing = true
-	Globals.wave_won = false
-	
-	while current_level_wave_size > 0:
-		await get_tree().create_timer(1).timeout
-		var randomly_chosen_enemy = _choose_random_enemy(full_enemy_array, current_level_wave_size)
-		_spawn_enemy(randomly_chosen_enemy)
-		current_level_wave_size -= Globals.temp_enemy_size
-		print("After spawn wave size: " + str(current_level_wave_size))
-	
-	Globals.wave_ongoing = false
-	Globals.wave_won = true
-
 func _on_ui_refresh_map_button_pressed():
 	print("Map refresh button pressed")
 	_regenerate_new_map_layout(current_level_difficulty)
-	
-func _spawn_enemy(chosen_enemy: PackedScene):
-	var enemy_to_spawn = chosen_enemy.instantiate()
-	add_child(enemy_to_spawn)
-		
-func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
-	var chosen_enemy_scene: PackedScene
-	var random_chosen_enemy: String = enemy_array[randi() % enemy_array.size()]
-	if wave_size > 1:
-		match random_chosen_enemy:
-			"Scumbug":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
-			"Giant Zombie Snail":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn")
-	else: # Since size is 1
-		chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
-	return chosen_enemy_scene
 	
 func _regenerate_new_map_layout(map_difficulty: String):
 	var scene_to_load: String
@@ -144,3 +97,5 @@ func _on_ui_place_turret(turret_scene, location):
 	$Turrets.add_child(turret_to_add)
 	turret_to_add.global_position = location
 	
+func _on_ui_next_wave_button_pressed():
+	WaveManager.spawn_enemy_array_slowly()
