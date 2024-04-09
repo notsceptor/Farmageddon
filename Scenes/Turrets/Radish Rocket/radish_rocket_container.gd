@@ -46,13 +46,14 @@ func _spawn_projectiles(num: int):
 		$RadishRocket/Node/RadishRocket/Aim/ProjectileSpawnMarker6]
 	var projectile_marker_index: int = 0
 	for n in num:
-		var projectile: Projectile = projectile_type.instantiate()
-		projectile.starting_position = projectile_markers[projectile_marker_index].global_position
-		projectile.target = current_enemy
-		projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
-		add_child(projectile)
-		projectile_marker_index += 1
-		await get_tree().create_timer(0.275).timeout
+		if current_enemy != null:
+			var projectile: Projectile = projectile_type.instantiate()
+			projectile.starting_position = projectile_markers[projectile_marker_index].global_position
+			projectile.target = current_enemy
+			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+			add_child(projectile)
+			projectile_marker_index += 1
+			await get_tree().create_timer(0.275).timeout
 
 
 

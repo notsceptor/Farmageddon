@@ -164,6 +164,10 @@ activity_button_icon = ExtResource("3_yypli")
 activity_draggable = ExtResource("23_oi44k")
 turret_to_instantiate = ExtResource("24_57wyc")
 
+[node name="Workshop" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
