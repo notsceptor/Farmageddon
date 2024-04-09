@@ -8,7 +8,7 @@ enum ProjectileState {
 }
 
 var state := ProjectileState.MOVING_UP
-var peak_height: float = 4.0
+var peak_height: float = 10.0
 var time_elapsed: float = 0.0
 var time_to_reach_peak: float = 1.5
 var initial_position: Vector3
