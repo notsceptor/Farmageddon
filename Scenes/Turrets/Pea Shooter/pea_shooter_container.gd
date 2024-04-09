@@ -33,7 +33,7 @@ func _on_pea_shooter_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$PeaShooter/AnimationPlayer.play("Shoot")
-		gunshot.pitch_scale = randf_range(1.3, 1.5)
+		gunshot.pitch_scale = randf_range(0.8, 0.9)
 		gunshot.play()
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
