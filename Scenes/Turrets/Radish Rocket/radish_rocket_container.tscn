@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dyk22hrckddty"]
+[gd_scene load_steps=6 format=3 uid="uid://dyk22hrckddty"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_yds07"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Radish Rocket/radish_rocket_container.gd" id="2_1rxpe"]
 [ext_resource type="PackedScene" uid="uid://bxpticid6roe3" path="res://Models/Turrets/Radish Rocket/radish_rocket.tscn" id="2_l2i2l"]
 [ext_resource type="PackedScene" uid="uid://d0sptuh4f72xo" path="res://Scenes/Turrets/Radish Rocket/radish_projectile.tscn" id="3_exqnj"]
+[ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="5_jor3w"]
 
 [node name="RadishRocketContainer" instance=ExtResource("1_yds07")]
 script = ExtResource("2_1rxpe")
@@ -13,6 +14,11 @@ projectile_speed = 3.0
 projectile_type = ExtResource("3_exqnj")
 
 [node name="RadishRocket" parent="." index="0" instance=ExtResource("2_l2i2l")]
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("5_jor3w")
+volume_db = -11.323
+pitch_scale = 0.97
 
 [connection signal="area_entered" from="RadishRocket" to="." method="_on_radish_rocket_area_entered"]
 [connection signal="area_exited" from="RadishRocket" to="." method="_on_radish_rocket_area_exited"]
