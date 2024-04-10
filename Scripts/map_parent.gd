@@ -41,7 +41,7 @@ func _process(_delta):
 					if Globals.hard_map_current_level != 1 and (Globals.hard_map_current_level - 1) % 5 == 0:
 						new_map_layout_required = true
 					current_level_wave_number_label.text = str(Globals.hard_map_current_level)
-			if new_map_layout_required:
+			if new_map_layout_required and WaveManager.wave_won:
 				_regenerate_new_map_layout()
 
 func _complete_grid():
