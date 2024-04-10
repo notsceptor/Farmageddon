@@ -9,6 +9,11 @@ size = Vector3(0.873291, 0.439905, 1.09009)
 
 [node name="ScumbugContainer" instance=ExtResource("1_u2lgf")]
 
+[node name="death" type="AudioStreamPlayer" parent="." index="0"]
+stream = ExtResource("3_p6flj")
+volume_db = -16.865
+pitch_scale = 2.83
+
 [node name="Scumbug" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_6kqqt")]
 
 [node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
@@ -17,11 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.202299, 0)
 [node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0214201, 0.099)
 shape = SubResource("BoxShape3D_3ljck")
-
-[node name="death" type="AudioStreamPlayer" parent="." index="3"]
-stream = ExtResource("3_p6flj")
-volume_db = -16.865
-pitch_scale = 2.83
 
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Scumbug" method="_on_moving_state_processing"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Scumbug" method="_on_area_3d_area_entered"]

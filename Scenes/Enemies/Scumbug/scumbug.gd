@@ -8,6 +8,8 @@ var _path_progress: float = 0.0
 
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
 
+@onready var death = $death
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_name = "Scumbug"
@@ -38,6 +40,7 @@ func _on_area_3d_area_entered(area):
 			_health -= area.damage
 			health_bar.value -= area.damage
 			if _health <= 0:
+				death.play()
 				remove_enemy()
 
 func _on_area_3d_area_exited(area):
@@ -49,4 +52,5 @@ func _on_area_damage_timer_timeout():
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
 	if _health <= 0:
+		death.play()
 		remove_enemy()
