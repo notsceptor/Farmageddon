@@ -33,16 +33,17 @@ func _on_pea_shooter_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$PeaShooter/AnimationPlayer.play("Shoot")
-		gunshot.pitch_scale = randf_range(1.3, 1.5)
+		gunshot.pitch_scale = randf_range(0.8, 0.9)
 		gunshot.play()
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
 		
 func _spawn_projectiles(num: int):
 	for n in num:
-		var projectile: Projectile = projectile_type.instantiate()
-		projectile.starting_position = $PeaShooter/Node/PeaShooter/ShooterTop/ProjectileSpawnMarker.global_position
-		projectile.target = current_enemy
-		projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
-		add_child(projectile)
-		await get_tree().create_timer(0.2).timeout
+		if current_enemy != null:
+			var projectile: Projectile = projectile_type.instantiate()
+			projectile.starting_position = $PeaShooter/Node/PeaShooter/ShooterTop/ProjectileSpawnMarker.global_position
+			projectile.target = current_enemy
+			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+			add_child(projectile)
+			await get_tree().create_timer(0.2).timeout

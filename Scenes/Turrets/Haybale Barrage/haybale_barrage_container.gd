@@ -33,7 +33,7 @@ func _on_haybale_barrage_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		print("FIRE HAYBALE BARRAGE")
-		$HaybaleBarrage/AnimationPlayer.play("Shoot")
+		$HaybaleBarrage/AnimationPlayer.play("Shoot", -1, 1.5)
 		gunshot.pitch_scale = randf_range(1.3, 1.5)
 		gunshot.play()
 		var projectile: Projectile = projectile_type.instantiate()

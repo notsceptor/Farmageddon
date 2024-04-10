@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://bbf3k6nvq4eqj"
+path="res://.godot/imported/Honeycomb_Harpoon_Cover.png-1394d001564b7abad3f96458ccd6f6ea.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png"
+dest_files=["res://.godot/imported/Honeycomb_Harpoon_Cover.png-1394d001564b7abad3f96458ccd6f6ea.ctex"]
 
 [params]
 

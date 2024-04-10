@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://df2vyfdq7yk2e"
+path="res://.godot/imported/Radish_Rocket_Cover.png-d608b3d33095379e2e136a30f4a5827f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Radish Rocket/Radish_Rocket_Cover.png"
+dest_files=["res://.godot/imported/Radish_Rocket_Cover.png-d608b3d33095379e2e136a30f4a5827f.ctex"]
 
 [params]
 

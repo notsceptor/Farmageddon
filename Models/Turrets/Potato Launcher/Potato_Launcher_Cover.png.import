@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://bc2qtqi8ig2ch"
+path="res://.godot/imported/Potato_Launcher_Cover.png-6d62fe21b18a372248f8367c9face139.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Potato Launcher/Potato_Launcher_Cover.png"
+dest_files=["res://.godot/imported/Potato_Launcher_Cover.png-6d62fe21b18a372248f8367c9face139.ctex"]
 
 [params]
 
