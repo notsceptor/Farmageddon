@@ -48,6 +48,7 @@ func _on_area_3d_area_exited(area):
 		area_damage_to_take -= area.damage
 
 func _on_area_damage_timer_timeout():
+	health_bar.visible = true
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
 
