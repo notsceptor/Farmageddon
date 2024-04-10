@@ -24,6 +24,7 @@ func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
+		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
 
 func _on_moving_state_processing(delta):
