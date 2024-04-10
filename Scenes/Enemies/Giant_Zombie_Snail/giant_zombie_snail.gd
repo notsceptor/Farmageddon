@@ -3,10 +3,9 @@ extends EnemyParent
 var _path_progress: float = 0.0
 
 @onready var _path_follow_3d: PathFollow3D
-
 @onready var health_bar = $SubViewport/HealthBar3D
-
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
+@onready var health_bar_hide_timer = $HealthBarHideTimer
 
 var _size_to_set = 2
 
@@ -19,7 +18,8 @@ func _ready():
 	Globals.temp_enemy_size = _size
 	_speed = 2
 	_path_follow_3d = get_node("../")
-	
+	health_bar.visible = false  # Hide the health bar initially
+
 func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
@@ -37,6 +37,7 @@ func _on_area_3d_area_entered(area):
 		area_damage_to_take += area.damage
 	else:
 		if area.damage:
+			health_bar.visible = true # Show the health bar when taking damage
 			_health -= area.damage
 			health_bar.value -= area.damage
 
@@ -46,6 +47,7 @@ func _on_area_3d_area_exited(area):
 		area_damage_to_take -= area.damage
 
 func _on_area_damage_timer_timeout():
+	health_bar.visible = true
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
 

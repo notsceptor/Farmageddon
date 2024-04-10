@@ -27,3 +27,4 @@ func _on_activity_button_place_turret(turret_scene, location):
 func _on_debug_enemy_button_pressed():
 	var enemy = debug_enemy.instantiate()
 	add_child(enemy)
+	

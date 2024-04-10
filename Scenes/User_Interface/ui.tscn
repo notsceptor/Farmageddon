@@ -1,29 +1,38 @@
-[gd_scene load_steps=26 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=35 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
-[ext_resource type="Texture2D" uid="uid://b55vd6geoc4jf" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
+[ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
+[ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chilligun_Cover.png" id="10_cwaca"]
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
 [ext_resource type="PackedScene" uid="uid://fq82522w7ugd" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf" id="12_2341g"]
 [ext_resource type="PackedScene" uid="uid://c1jg1al7s5a2p" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn" id="12_ejap6"]
 [ext_resource type="PackedScene" uid="uid://6b4oxkon5mjt" path="res://Scenes/Turrets/Chiligun/chili_gun_container.tscn" id="12_m2bfi"]
 [ext_resource type="PackedScene" uid="uid://bb5oedvupwpal" path="res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn" id="13_5hi8t"]
 [ext_resource type="PackedScene" uid="uid://0t2n7ycnb7xg" path="res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf" id="13_8hgbd"]
+[ext_resource type="Texture2D" uid="uid://dbcpsquel5n74" path="res://Models/Turrets/Haybale Barrage/Haybale_Barrage_Cover.png" id="13_hk0a7"]
 [ext_resource type="PackedScene" uid="uid://ddrr27lnbal7b" path="res://Models/Turrets/Seed Sniper/Seed_Sniper.gltf" id="14_nagqt"]
 [ext_resource type="PackedScene" uid="uid://bdqe8akgb3gmk" path="res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf" id="14_palcd"]
 [ext_resource type="PackedScene" uid="uid://8db7mg70wbg8" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf" id="15_lwbbn"]
 [ext_resource type="PackedScene" uid="uid://ckjmpri7uvrlk" path="res://Scenes/Turrets/Potato Launcher/potato_launcher_container.tscn" id="16_7nhbv"]
+[ext_resource type="Texture2D" uid="uid://bbf3k6nvq4eqj" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png" id="16_hij5p"]
 [ext_resource type="PackedScene" uid="uid://c6wsw3mx0cbyi" path="res://Scenes/Turrets/Seed Sniper/seed_sniper_container.tscn" id="17_rx832"]
+[ext_resource type="Texture2D" uid="uid://bc2qtqi8ig2ch" path="res://Models/Turrets/Potato Launcher/Potato_Launcher_Cover.png" id="19_e4swl"]
 [ext_resource type="PackedScene" uid="uid://dh45axfj4xh0o" path="res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn" id="20_oqxk1"]
 [ext_resource type="PackedScene" uid="uid://14p4y3jsm7aa" path="res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf" id="21_r4j4d"]
+[ext_resource type="Texture2D" uid="uid://bpyh1jqadxfcp" path="res://Models/Turrets/Seed Sniper/Seed_Sniper_Cover.png" id="22_1u650"]
 [ext_resource type="PackedScene" uid="uid://dyk22hrckddty" path="res://Scenes/Turrets/Radish Rocket/radish_rocket_container.tscn" id="22_jg1ju"]
 [ext_resource type="PackedScene" uid="uid://c0gmse4slfiae" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer.gltf" id="23_oi44k"]
 [ext_resource type="PackedScene" uid="uid://c8x8pupk2jfer" path="res://Scenes/Turrets/Spore Sprayer/spore_sprayer_container.tscn" id="24_57wyc"]
+[ext_resource type="Texture2D" uid="uid://mpwh0nhtnaxp" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png" id="25_gnr1b"]
+[ext_resource type="Texture2D" uid="uid://df2vyfdq7yk2e" path="res://Models/Turrets/Radish Rocket/Radish_Rocket_Cover.png" id="28_pihrb"]
+[ext_resource type="Texture2D" uid="uid://djkswxafqccgc" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer_Cover.png" id="31_b3irp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -112,57 +121,61 @@ turret_to_instantiate = ExtResource("6_v143u")
 
 [node name="carrot" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("7_yww84")
 activity_draggable = ExtResource("8_3rowj")
 turret_to_instantiate = ExtResource("9_rkm73")
 
 [node name="chili" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("10_cwaca")
 activity_draggable = ExtResource("11_h0i5u")
 turret_to_instantiate = ExtResource("12_m2bfi")
 
 [node name="haybale" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("13_hk0a7")
 activity_draggable = ExtResource("14_palcd")
 turret_to_instantiate = ExtResource("12_ejap6")
 
 [node name="honeycomb" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("16_hij5p")
 activity_draggable = ExtResource("12_2341g")
 turret_to_instantiate = ExtResource("13_5hi8t")
 
 [node name="potato" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("19_e4swl")
 activity_draggable = ExtResource("13_8hgbd")
 turret_to_instantiate = ExtResource("16_7nhbv")
 
 [node name="sniper" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("22_1u650")
 activity_draggable = ExtResource("14_nagqt")
 turret_to_instantiate = ExtResource("17_rx832")
 
 [node name="strawberry" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("25_gnr1b")
 activity_draggable = ExtResource("15_lwbbn")
 turret_to_instantiate = ExtResource("20_oqxk1")
 
 [node name="radish" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("28_pihrb")
 activity_draggable = ExtResource("21_r4j4d")
 turret_to_instantiate = ExtResource("22_jg1ju")
 
 [node name="spore" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
-activity_button_icon = ExtResource("3_yypli")
+activity_button_icon = ExtResource("31_b3irp")
 activity_draggable = ExtResource("23_oi44k")
 turret_to_instantiate = ExtResource("24_57wyc")
+
+[node name="Workshop" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]

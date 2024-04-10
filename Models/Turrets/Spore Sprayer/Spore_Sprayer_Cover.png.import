@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://djkswxafqccgc"
+path="res://.godot/imported/Spore_Sprayer_Cover.png-2db073eb6b498aff55a0b195c8a06389.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Spore Sprayer/Spore_Sprayer_Cover.png"
+dest_files=["res://.godot/imported/Spore_Sprayer_Cover.png-2db073eb6b498aff55a0b195c8a06389.ctex"]
 
 [params]
 

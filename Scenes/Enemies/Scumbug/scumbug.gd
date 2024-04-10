@@ -19,6 +19,7 @@ func _ready():
 	Globals.temp_enemy_size = _size
 	_speed = 3
 	_path_follow_3d = get_node("../")
+	health_bar.visible = false
 
 func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
@@ -37,6 +38,7 @@ func _on_area_3d_area_entered(area):
 		area_damage_to_take += area.damage
 	else:
 		if area.damage:
+			health_bar.visible = true
 			_health -= area.damage
 			health_bar.value -= area.damage
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://bdhnrdr6s2kti"
+path="res://.godot/imported/Chilligun_Cover.png-78b0f06c051585701418a495416411a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Chiligun/Chilligun_Cover.png"
+dest_files=["res://.godot/imported/Chilligun_Cover.png-78b0f06c051585701418a495416411a2.ctex"]
 
 [params]
 
