@@ -6,7 +6,8 @@ func _init():
 	PathGenInstance.path_config = medium_map_config
 	
 func _ready():
-	current_level_difficulty = "medium"
+	Globals.current_selected_map = "medium"
+	WaveManager.get_map_difficulty_data()
 	Globals.turret_locations_list = []
 	Globals.turret_rid_list = []
 	PathGenInstance.generate_new_path()

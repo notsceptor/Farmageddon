@@ -23,6 +23,8 @@ func _ready():
 func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
+	if _health <= 0:
+		remove_enemy()
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
@@ -36,8 +38,6 @@ func _on_area_3d_area_entered(area):
 		if area.damage:
 			_health -= area.damage
 			health_bar.value -= area.damage
-			if _health <= 0:
-				remove_enemy()
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
@@ -47,8 +47,6 @@ func _on_area_3d_area_exited(area):
 func _on_area_damage_timer_timeout():
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
-	if _health <= 0:
-		remove_enemy()
 
 func get_size() -> int:
 	return _size_to_set

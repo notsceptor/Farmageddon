@@ -4,8 +4,6 @@ class_name MapParent
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
-var current_level_difficulty: String
-
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
 @onready var refresh_wave_button: Button = $UI/MarginContainer2/TestRefreshMapButton
@@ -19,7 +17,7 @@ var current_level_difficulty: String
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
 		$PauseScreen.visible = !$PauseScreen.visible
 		$UI.visible = !$UI.visible
@@ -73,13 +71,13 @@ func _complete_grid():
 		
 func _on_ui_refresh_map_button_pressed():
 	print("Map refresh button pressed")
-	_regenerate_new_map_layout(current_level_difficulty)
+	_regenerate_new_map_layout()
 	
-func _regenerate_new_map_layout(map_difficulty: String):
+func _regenerate_new_map_layout():
 	var scene_to_load: String
 	$UI/ReloadSceneText.visible = true
 	next_wave_button.visible = false
-	match map_difficulty:
+	match Globals.current_selected_map:
 		"easy":
 			scene_to_load = "res://Scenes/Maps/easy_map.tscn"
 		"medium":
@@ -98,4 +96,4 @@ func _on_ui_place_turret(turret_scene, location):
 	turret_to_add.global_position = location
 	
 func _on_ui_next_wave_button_pressed():
-	WaveManager.spawn_enemy_array_slowly()
+	WaveManager.start_wave()
