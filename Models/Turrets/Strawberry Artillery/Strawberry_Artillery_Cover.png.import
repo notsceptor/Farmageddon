@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://mpwh0nhtnaxp"
+path="res://.godot/imported/Strawberry_Artillery_Cover.png-56fa9b7237c9dbab15ed0a2b5b5c5417.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png"
+dest_files=["res://.godot/imported/Strawberry_Artillery_Cover.png-56fa9b7237c9dbab15ed0a2b5b5c5417.ctex"]
 
 [params]
 

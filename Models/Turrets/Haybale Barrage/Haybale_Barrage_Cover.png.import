@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://dbcpsquel5n74"
+path="res://.godot/imported/Haybale_Barrage_Cover.png-1ff98f940c0d52824acf691739fa3ac8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Haybale Barrage/Haybale_Barrage_Cover.png"
+dest_files=["res://.godot/imported/Haybale_Barrage_Cover.png-1ff98f940c0d52824acf691739fa3ac8.ctex"]
 
 [params]
 

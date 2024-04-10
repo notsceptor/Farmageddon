@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8xojsxsuwmel"
-path="res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"
+uid="uid://bpyh1jqadxfcp"
+path="res://.godot/imported/Seed_Sniper_Cover.png-2ba1103f88ab46007edd341d43d5a259.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png"
-dest_files=["res://.godot/imported/Pea_Shooter_Cover.png-2f026e9ce0b78ae50b9d54194ddea158.ctex"]
+source_file="res://Models/Turrets/Seed Sniper/Seed_Sniper_Cover.png"
+dest_files=["res://.godot/imported/Seed_Sniper_Cover.png-2ba1103f88ab46007edd341d43d5a259.ctex"]
 
 [params]
 
