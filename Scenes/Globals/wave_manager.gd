@@ -9,7 +9,6 @@ var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 2) # Defaults 
 # Enemy array for the current wave (to be populated BEFORE wave start and shown to user before pressing start wave)
 # Enemies inside the array will be populated at random however
 var current_wave_enemy_array: Array[PackedScene]
-var current_wave_enemy_array_names: Array[String]
 var remaining_enemies_to_spawn: Array[PackedScene]
 
 var current_wave_is_boss_wave: bool = false
@@ -20,9 +19,9 @@ var enemies_on_map: int = 0
 var wave_ongoing: bool = false
 var wave_won: bool
 
-func _process(_delta):
-	if wave_ongoing:
-		check_win_loss_conditions()
+#func _process(_delta):
+	#if wave_ongoing:
+		#check_win_loss_conditions()
 
 # Function that will get map difficulty data
 func get_map_difficulty_data():
@@ -46,14 +45,13 @@ func update_sliced_enemy_array(wave_number: int):
 # Function that will populate an array of enemies for the upcoming wave
 func repopulate_current_wave_enemy_array(wave_size: int):
 	current_wave_enemy_array.clear()
-	current_wave_enemy_array_names.clear()
 	update_sliced_enemy_array(current_level_wave_spawn_size)
 	while wave_size > 0:
 		var randomly_chosen_enemy_and_size: Array = _choose_random_enemy(sliced_enemy_array, wave_size)
 		current_wave_enemy_array.append(randomly_chosen_enemy_and_size[0])
 		wave_size -= randomly_chosen_enemy_and_size[1]
-	print("Full wave enemy array: ", current_wave_enemy_array)
-	print("Full wave enemy array names: ", current_wave_enemy_array_names)
+	for enemy in current_wave_enemy_array:
+		remaining_enemies_to_spawn.append(enemy)
 
 # Function that will start the wave
 func start_wave():
@@ -67,7 +65,7 @@ func start_wave():
 		"easy":
 			print("Current easy map level: ", Globals.hard_map_current_level)
 			print("Current hard map spawn size: ", Globals.hard_map_spawn_size)
-	spawn_enemy_array_slowly(current_wave_enemy_array)
+	spawn_enemy_array_slowly(remaining_enemies_to_spawn)
 
 # Function that will check win/loss conditions
 func check_win_loss_conditions():
@@ -80,7 +78,7 @@ func check_win_loss_conditions():
 			get_map_difficulty_data()
 		else:
 			print("WAVE LOST TRY AGAIN")
-			
+
 func wave_won_increase_level_and_size():
 	match Globals.current_selected_map:
 		"easy":
@@ -123,81 +121,20 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:
 		if chosen_enemy_size > wave_size:
 			enemy_array_to_choose_from.erase(random_chosen_enemy)
 		else:
-			current_wave_enemy_array_names.append(random_chosen_enemy)
 			enemy_selected = true
 
 	return [chosen_enemy_scene, chosen_enemy_size]
 
 func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene]):
-	for enemy in wave_enemy_array:
-		remaining_enemies_to_spawn.append(enemy)
-	while remaining_enemies_to_spawn.size() > 0:
+	while wave_enemy_array.size() > 0:
 		await get_tree().create_timer(1).timeout
-		var random_chosen_enemy_from_array = remaining_enemies_to_spawn[randi() % remaining_enemies_to_spawn.size()]
+		var random_chosen_enemy_from_array = wave_enemy_array[randi() % wave_enemy_array.size()]
 		add_child(random_chosen_enemy_from_array.instantiate())
-		remaining_enemies_to_spawn.erase(random_chosen_enemy_from_array)
+		wave_enemy_array.erase(random_chosen_enemy_from_array)
 		if !wave_ongoing:
 			wave_ongoing = true
 			wave_won = true
 
-
-
-
-
-
-
-
-
-
-
-# WaveManager will be responsible for:
-	# Getting map difficulty and associated size / level
-	# Generating an array of enemies to be shown to user
-	# Starting wave
-	# Handling wave logic
-	# Win / Loss condition
-
-# Old on next wave button pressed
-"""
-func _on_ui_next_wave_button_pressed():
-	print("Next wave button pressed")
-	print("Starting wave level: " + str(current_level_wave_number))
-	print("Total wave size for this level: " + str(current_level_wave_size))
-	next_wave_button.visible = false
-	Globals.wave_idle = false
-	Globals.wave_ongoing = true
-	Globals.wave_won = false
-	
-	while current_level_wave_size > 0:
-		await get_tree().create_timer(1).timeout
-		var randomly_chosen_enemy = _choose_random_enemy(full_enemy_array, current_level_wave_size)
-		_spawn_enemy(randomly_chosen_enemy)
-		current_level_wave_size -= Globals.temp_enemy_size
-		print("After spawn wave size: " + str(current_level_wave_size))
-	
-	Globals.wave_ongoing = false
-	Globals.wave_won = true
-	"""
-	
-# Old functions
-"""
-func _spawn_enemy(chosen_enemy: PackedScene):
-	var enemy_to_spawn = chosen_enemy.instantiate()
-	add_child(enemy_to_spawn)
-		
-func _choose_random_enemy(enemy_array: Array, wave_size: int) -> PackedScene:
-	var chosen_enemy_scene: PackedScene
-	var random_chosen_enemy: String = enemy_array[randi() % enemy_array.size()]
-	if wave_size > 1:
-		match random_chosen_enemy:
-			"Scumbug":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
-			"Giant Zombie Snail":
-				chosen_enemy_scene = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn")
-	else: # Since size is 1
-		chosen_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
-	return chosen_enemy_scene
-"""
 
 """
 func _on_end_of_wave():

@@ -8,6 +8,7 @@ func _init():
 func _ready():
 	Globals.current_selected_map = "hard"
 	WaveManager.get_map_difficulty_data()
+	current_level_wave_number_label.text = str(Globals.hard_map_current_level)
 	Globals.turret_locations_list = []
 	Globals.turret_rid_list = []
 	PathGenInstance.generate_new_path()
