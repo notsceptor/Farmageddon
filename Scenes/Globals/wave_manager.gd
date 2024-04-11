@@ -172,8 +172,9 @@ func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene]):
 			await get_tree().create_timer(1).timeout
 		else:
 			break
-	if current_wave_is_boss_wave:
+	if current_wave_is_boss_wave and wave_won == true and wave_ongoing:
 		print("BOSS SPAWNING")
 		await get_tree().create_timer(2).timeout
 		_choose_random_boss_enemy_and_spawn(sliced_enemy_array)
 		current_wave_is_boss_wave = false
+	current_wave_is_boss_wave = false
