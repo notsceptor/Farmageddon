@@ -8,12 +8,11 @@ var last_fire_time: int
 @export var projectile_type: PackedScene
 
 @onready var gunshot = $gunshot
-@onready var turret_placement = $placement
 
 var modified_projectile_speed: float
 
 func _ready():
-	turret_placement.play()
+	GlobalAudioPlayer.play_placement_sound()
 	turret_model = $CarrotCannon/Node # Assign the turret model node
 	shooter_node = $CarrotCannon/Node/CarrotCannon/Aim # Assign the shooter node
 	var turret_area_rid = $CarrotCannon/AreaRadius.get_rid()
