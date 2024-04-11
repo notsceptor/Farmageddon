@@ -69,78 +69,97 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Profile"
 
-[node name="TurretsContainer" type="CenterContainer" parent="CanvasLayer/Turrets"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Turrets"]
+clip_contents = false
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -176.0
-offset_right = 532.0
+offset_right = 8.0
 offset_bottom = 176.0
 grow_vertical = 2
+size_flags_horizontal = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/TurretsContainer"]
+[node name="TurretsContainer" type="CenterContainer" parent="CanvasLayer/Turrets/ScrollContainer"]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer"]
 layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_nlldh")
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
+size_flags_vertical = 4
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
 theme_override_constants/h_separation = 20
 theme_override_constants/v_separation = 20
 columns = 4
 
-[node name="CarrotCannon" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="CarrotCannon" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("2_os2na")
 flat = true
 
-[node name="Chilligun" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="Chilligun" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("3_dejcr")
 flat = true
 
-[node name="HaybaleBarrage" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="HaybaleBarrage" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("4_djtiq")
 flat = true
 
-[node name="HoneycombHarpoon" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="HoneycombHarpoon" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("5_7ii6a")
 flat = true
 
-[node name="PeaShooter" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="PeaShooter" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("6_xu06c")
 flat = true
 
-[node name="PotatoLauncher" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="PotatoLauncher" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("7_iunt2")
 flat = true
 
-[node name="RaddishRocket" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="RaddishRocket" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("8_5qlhs")
 flat = true
 
-[node name="SeedSniper" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="SeedSniper" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("9_1kno8")
 flat = true
 
-[node name="SporeSprayer" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="SporeSprayer" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("10_jfg5a")
 flat = true
 
-[node name="StrawberryArtillery" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+[node name="StrawberryArtillery" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("11_fma28")
+flat = true
+
+[node name="StrawberryArtillery2" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("11_fma28")
+flat = true
+
+[node name="StrawberryArtillery3" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("11_fma28")
+flat = true
+
+[node name="StrawberryArtillery4" type="Button" parent="CanvasLayer/Turrets/ScrollContainer/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 icon = ExtResource("11_fma28")
 flat = true
