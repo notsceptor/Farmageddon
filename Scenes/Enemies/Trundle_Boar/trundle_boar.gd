@@ -37,6 +37,7 @@ func _on_area_3d_area_entered(area):
 	else:
 		if area.damage:
 			health_bar.visible = true # Show the health bar when taking damage
+			_speed += 0.1
 			_health -= area.damage
 			health_bar.value -= area.damage
 
@@ -47,6 +48,7 @@ func _on_area_3d_area_exited(area):
 
 func _on_area_damage_timer_timeout():
 	health_bar.visible = true
+	_speed += 0.1
 	_health -= area_damage_to_take
 	health_bar.value -= area_damage_to_take
 
