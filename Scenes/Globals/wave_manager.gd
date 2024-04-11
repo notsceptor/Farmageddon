@@ -66,8 +66,6 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 
 # Function that will start the wave
 func start_wave():
-	print("Full enemy array: ", full_enemy_array)
-	print("Sliced enemy array: ", sliced_enemy_array)
 	wave_ongoing = true
 	wave_won = true
 	print("Starting wave of:")
