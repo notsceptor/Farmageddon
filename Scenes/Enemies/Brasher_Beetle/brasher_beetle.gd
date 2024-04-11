@@ -12,7 +12,7 @@ var _speed = 0.5
 var _size = 4
 
 # Charge mechanic variables
-var _charge_duration = 2.5  # Duration of the charge in seconds
+var _charge_duration = 2.5  # Duration of the charge in seconds-
 var _charge_cooldown = 6.0  # Cooldown between charges in seconds
 var _charge_speed_multiplier = 3.0  # Multiplier for the enemy's speed during the charge
 var _is_charging = false  # Flag to track if the enemy is currently charging
@@ -38,7 +38,7 @@ func _process(delta):
 		# Gradually increase the speed multiplier towards the end of the charge
 		var speed_multiplier = lerp(1.0, _charge_speed_multiplier, _charge_timer / _charge_duration)
 		_path_follow_3d.progress += delta * _speed * speed_multiplier
-		animation_player.set_speed_scale(speed_multiplier)
+		animation_player.set_speed_scale(4)
 		if _charge_timer >= _charge_duration:
 			_is_charging = false
 			_charge_timer = 0.0
