@@ -10,8 +10,11 @@ viewport_path = NodePath("SubViewport")
 [node name="Brasher_Beetle_Model" instance=ExtResource("1_jrraj")]
 script = ExtResource("2_2y1qj")
 
+[node name="Head" parent="Node/BrasherBeetle/BrasherBeetleBody" index="0"]
+transform = Transform3D(1, 0, 0, 0, 0.945519, 0.325568, 0, -0.325568, 0.945519, -0.0529624, 0.283181, -0.309977)
+
 [node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Slither"
+autoplay = "Trundle"
 
 [node name="SubViewport" type="SubViewport" parent="." index="2"]
 disable_3d = true
