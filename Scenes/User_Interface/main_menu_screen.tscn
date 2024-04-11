@@ -76,9 +76,28 @@ text = "MEDIUM MAP
 layout_mode = 2
 text = "HARD MAP"
 
+[node name="Inventroy" type="CenterContainer" parent="."]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -83.0
+offset_top = -20.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 8
+
+[node name="OpenInventory" type="Button" parent="Inventroy"]
+layout_mode = 2
+text = "Inventory
+"
+
 [connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/EasyLevelButton" to="." method="_on_easy_level_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/MediumLevelButton" to="." method="_on_medium_level_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/HardLevelButton" to="." method="_on_hard_level_button_pressed"]
+[connection signal="pressed" from="Inventroy/OpenInventory" to="." method="_on_open_inventory_pressed"]
