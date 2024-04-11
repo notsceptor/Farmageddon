@@ -17,8 +17,6 @@ var RAYCAST_LENGTH:float = 100
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
 
-var new_map_layout_required: bool = false
-
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
 		$PauseScreen.visible = !$PauseScreen.visible
@@ -28,21 +26,9 @@ func _process(_delta):
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			next_wave_button.visible = true
-			match Globals.current_selected_map:
-				"easy":
-					if Globals.easy_map_current_level != 1 and (Globals.easy_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.easy_map_current_level)
-				"medium":
-					if Globals.medium_map_current_level != 1 and (Globals.medium_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.medium_map_current_level)
-				"hard":
-					if Globals.hard_map_current_level != 1 and (Globals.hard_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.hard_map_current_level)
-			if new_map_layout_required and WaveManager.wave_won:
+			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				_regenerate_new_map_layout()
+			current_level_wave_number_label.text = str(WaveManager.current_level)
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -96,7 +82,6 @@ func _on_ui_refresh_map_button_pressed():
 	_regenerate_new_map_layout()
 	
 func _regenerate_new_map_layout():
-	new_map_layout_required = false
 	var scene_to_load: String
 	$UI/ReloadSceneText.visible = true
 	next_wave_button.visible = false

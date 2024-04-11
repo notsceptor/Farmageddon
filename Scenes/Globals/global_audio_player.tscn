@@ -9,6 +9,9 @@ script = ExtResource("1_nq8wv")
 
 [node name="SnailDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
+volume_db = -10.0
 
 [node name="ScumbugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_vorqx")
+volume_db = -20.0
+pitch_scale = 1.2
