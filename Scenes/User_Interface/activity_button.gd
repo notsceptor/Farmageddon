@@ -6,7 +6,7 @@ extends Button
 
 signal place_turret(turret_scene, location)
 
-var _is_dragging:bool = false
+@export var is_dragging:bool = false
 var _draggable:Node
 
 var _cam:Camera3D
@@ -24,7 +24,7 @@ func _ready():
 	_cam = get_viewport().get_camera_3d()
 	
 func _physics_process(_delta):
-	if _is_dragging:
+	if is_dragging:
 		var space_state = _draggable.get_world_3d().direct_space_state
 		var mouse_pos:Vector2 = get_viewport().get_mouse_position()
 		var origin:Vector3 = _cam.project_ray_origin(mouse_pos)
@@ -58,10 +58,10 @@ func configure_mesh(mesh_3d: MeshInstance3D, material_to_set: Material):
 		mesh_3d.set_surface_override_material(si, material_to_set)
 
 func _on_button_down():
-	_is_dragging = true
+	is_dragging = true
 
 func _on_button_up():
-	_is_dragging = false
+	is_dragging = false
 	_draggable.visible = false
 	
 	if _last_valid_location != Vector3.ZERO and _last_valid_location not in Globals.turret_locations_list:
