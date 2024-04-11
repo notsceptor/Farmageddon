@@ -1,10 +1,39 @@
-[gd_scene load_steps=6 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=9 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
 [ext_resource type="PackedScene" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
 [ext_resource type="Script" path="res://Scenes/Maps/Draggable.gd" id="3_6efhv"]
 [ext_resource type="PackedScene" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_twlj8"]
+sky_top_color = Color(0.478431, 0.447059, 0.360784, 1)
+sun_curve = 0.0861525
+
+[sub_resource type="Sky" id="Sky_3f6n1"]
+sky_material = SubResource("ProceduralSkyMaterial_twlj8")
+
+[sub_resource type="Environment" id="Environment_hehuo"]
+background_mode = 2
+sky = SubResource("Sky_3f6n1")
+ambient_light_energy = 1.65
+reflected_light_source = 2
+tonemap_mode = 3
+ssao_intensity = 16.0
+ssao_power = 0.675938
+sdfgi_bounce_feedback = 1.99
+sdfgi_min_cell_size = 3.7
+sdfgi_cascade0_distance = 236.8
+sdfgi_max_distance = 3788.8
+fog_light_color = Color(1, 1, 1, 1)
+fog_light_energy = 0.55
+fog_aerial_perspective = 0.713
+fog_height = -94.61
+volumetric_fog_density = 0.3601
+volumetric_fog_length = 276.91
+volumetric_fog_sky_affect = 0.265
+adjustment_enabled = true
+adjustment_contrast = 0.78
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
@@ -21,7 +50,7 @@ far = 4000.3
 script = ExtResource("3_6efhv")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 148.217, -363)
+transform = Transform3D(1, 0, 0, 0, 0.819152, 0.573576, 0, -0.573576, 0.819152, 396.766, 148.217, -363)
 light_color = Color(0.760784, 0.807843, 0.627451, 1)
 light_energy = 1.5
 light_bake_mode = 1
@@ -34,6 +63,9 @@ shadow_opacity = 0.75
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tla3e")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_hehuo")
 
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
 [connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]
