@@ -11,7 +11,7 @@ var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 3) # Defaults 
 var current_wave_enemy_array: Array[PackedScene]
 var remaining_enemies_to_spawn: Array[PackedScene]
 
-#var debug_enemy_dictionary: Dictionary
+var debug_enemy_dictionary: Dictionary
 
 var current_level: int
 
@@ -48,16 +48,15 @@ func get_map_difficulty_data():
 
 # Function that wil update sliced enemy array to add more enemies at certain wave thresholds
 func update_sliced_enemy_array(wave_number: int):
+	sliced_enemy_array = full_enemy_array.slice(0, 3)  # Include the first three enemies initially
 	if wave_number > 10:
-		sliced_enemy_array = full_enemy_array  # Include all enemies if wave number is greater than 10
-	else:
-		sliced_enemy_array = full_enemy_array.slice(0, 3)  # Include the first three enemies initially
+		pass
 
 # Function that will populate an array of enemies for the upcoming wave
 func repopulate_current_wave_enemy_array(wave_size: int):
 	current_wave_enemy_array.clear()
 	remaining_enemies_to_spawn.clear()
-	#debug_enemy_dictionary.clear()
+	debug_enemy_dictionary.clear()
 	update_sliced_enemy_array(current_level_wave_spawn_size)
 	while wave_size > 0:
 		var randomly_chosen_enemy_and_size: Array = _choose_random_enemy(sliced_enemy_array, wave_size)
@@ -67,12 +66,14 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 
 # Function that will start the wave
 func start_wave():
+	print("Full enemy array: ", full_enemy_array)
+	print("Sliced enemy array: ", sliced_enemy_array)
 	wave_ongoing = true
 	wave_won = true
-	#print("Starting wave of:")
-	#for key in debug_enemy_dictionary.keys(): # Iterate over keys
-		#var value = debug_enemy_dictionary[key] # Access value using the key
-		#print(key, ": ", value)
+	print("Starting wave of:")
+	for key in debug_enemy_dictionary.keys(): # Iterate over keys
+		var value = debug_enemy_dictionary[key] # Access value using the key
+		print(key, ": ", value)
 	spawn_enemy_array_slowly(remaining_enemies_to_spawn)
 
 # Function that will check win/loss conditions
@@ -146,10 +147,10 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:
 		if chosen_enemy_size > wave_size:
 			enemy_array_to_choose_from.erase(random_chosen_enemy)
 		else:
-			#if random_chosen_enemy not in debug_enemy_dictionary.keys():
-				#debug_enemy_dictionary[random_chosen_enemy] = 1
-			#else:
-				#debug_enemy_dictionary[random_chosen_enemy] += 1
+			if random_chosen_enemy not in debug_enemy_dictionary.keys():
+				debug_enemy_dictionary[random_chosen_enemy] = 1
+			else:
+				debug_enemy_dictionary[random_chosen_enemy] += 1
 			enemy_selected = true
 	return [chosen_enemy_scene, chosen_enemy_size]
 	
