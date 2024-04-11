@@ -1,17 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctj8a1spf6tn8"]
+[gd_scene load_steps=5 format=3 uid="uid://ctj8a1spf6tn8"]
 
-[ext_resource type="AudioStream" uid="uid://payegjc72x1l" path="res://audio/Menu Click 1.mp3" id="1_7swa4"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="1_o6ng3"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="2_mhdlo"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="3_1u54i"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="4_ertvo"]
 
 [node name="TurretContainer" type="Node3D"]
-
-[node name="placement" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("1_7swa4")
-volume_db = 9.289
-pitch_scale = 0.83
 
 [node name="StateChart" type="Node" parent="."]
 script = ExtResource("1_o6ng3")
