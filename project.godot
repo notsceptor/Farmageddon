@@ -23,6 +23,11 @@ PathGenInstance="*res://Scripts/path_generator.gd"
 WaveManager="*res://Scenes/Globals/wave_manager.gd"
 GlobalAudioPlayer="*res://Scenes/Globals/global_audio_player.tscn"
 
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
