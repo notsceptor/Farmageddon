@@ -50,6 +50,8 @@ var _debugger_remote:DebuggerRemote = null
 
 
 func _ready() -> void:
+	
+	
 	if Engine.is_editor_hint():
 		return 
 

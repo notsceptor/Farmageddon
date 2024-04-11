@@ -8,6 +8,7 @@ var curve_3d: Curve3D
 
 func _process(_delta):
 	if WaveManager.wave_ongoing and !WaveManager.wave_won:
+		GlobalAudioPlayer.play_fail_sound()
 		$EnemyStateChart.send_event("to_despawning")
 
 func _ready():
