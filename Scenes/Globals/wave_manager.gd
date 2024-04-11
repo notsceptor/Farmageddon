@@ -60,7 +60,7 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 func start_wave():
 	wave_ongoing = true
 	wave_won = true
-	print("Starting wave of:")
+	#print("Starting wave of:")
 	#for key in debug_enemy_dictionary.keys(): # Iterate over keys
 		#var value = debug_enemy_dictionary[key] # Access value using the key
 		#print(key, ": ", value)
