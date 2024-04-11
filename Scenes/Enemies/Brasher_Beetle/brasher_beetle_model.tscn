@@ -4,41 +4,14 @@
 [ext_resource type="Script" path="res://Scenes/Enemies/Brasher_Beetle/brasher_beetle.gd" id="2_2y1qj"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_4gr4s"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_1rljc"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_glrxf"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Brasher_Beetle_Model" instance=ExtResource("1_jrraj")]
 script = ExtResource("2_2y1qj")
 
-[node name="BrasherBeetleBody" parent="Node/BrasherBeetle" index="0"]
-transform = Transform3D(1.01774, 0, 0, 0, 1.01774, 0, 0, 0, 1.01774, 0, 0.010289, 0)
-
-[node name="Head" parent="Node/BrasherBeetle/BrasherBeetleBody" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.998751, 0.0499608, 0, -0.0499608, 0.998751, -0.0529624, 0.2852, -0.309977)
-
-[node name="Wings" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Shell" index="0"]
-transform = Transform3D(1, 0, 0, 0, 0.998084, 0.0618783, 0, -0.0618783, 0.998084, 0, 0.0110863, 0.0388022)
-
-[node name="R1" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228125, 0.103247, -0.126012)
-
-[node name="R2" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228125, 0.0832539, -0.126012)
-
-[node name="R3" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="2"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.228125, 0.103247, -0.126012)
-
-[node name="L3" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228125, 0.0832539, -0.126012)
-
-[node name="L2" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228125, 0.103247, -0.126012)
-
-[node name="L1" parent="Node/BrasherBeetle/BrasherBeetleBody/MainBody/Body/Legs" index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.228125, 0.0832539, -0.126012)
-
 [node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Roll"
+autoplay = "Slither"
 
 [node name="SubViewport" type="SubViewport" parent="." index="2"]
 disable_3d = true
@@ -51,7 +24,7 @@ offset_bottom = 13.5
 [node name="Sprite3D" type="Sprite3D" parent="." index="3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000438601, 0.791627, -0.0364975)
 billboard = 1
-texture = SubResource("ViewportTexture_1rljc")
+texture = SubResource("ViewportTexture_glrxf")
 
 [node name="HealthBarHideTimer" type="Timer" parent="." index="4"]
 wait_time = 3.0

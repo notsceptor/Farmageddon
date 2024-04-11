@@ -14,6 +14,7 @@ size = Vector3(0.8, 0.706, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00068593, 0.35263, -0.105575)
 shape = SubResource("BoxShape3D_hsyw4")
 
-[connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_area_entered"]
-[connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="." method="_on_area_3d_area_exited"]
-[connection signal="timeout" from="AreaDamageTimer" to="." method="_on_area_damage_timer_timeout"]
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Brasher_Beetle_Model" method="_on_moving_state_processing"]
+[connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Brasher_Beetle_Model" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Brasher_Beetle_Model" method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Brasher_Beetle_Model" method="_on_area_damage_timer_timeout"]
