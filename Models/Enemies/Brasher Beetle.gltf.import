@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cn2dpwe38kfsc"
-path="res://.godot/imported/Aphid.gltf-feddbde205a6d5d4c538e0a80480497a.scn"
+uid="uid://dltum2d3flunj"
+path="res://.godot/imported/Brasher Beetle.gltf-f5d9d6a00bbd429c06f7cf8d4344bd89.scn"
 
 [deps]
 
-source_file="res://Models/Enemies/Aphid.gltf"
-dest_files=["res://.godot/imported/Aphid.gltf-feddbde205a6d5d4c538e0a80480497a.scn"]
+source_file="res://Models/Enemies/Brasher Beetle.gltf"
+dest_files=["res://.godot/imported/Brasher Beetle.gltf-f5d9d6a00bbd429c06f7cf8d4344bd89.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "animations": {
-"Fly": {
+"Trundle": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

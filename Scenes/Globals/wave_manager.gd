@@ -3,15 +3,15 @@ extends Node
 # Each boss wave won instead increase wave size by 1.2x
 
 # General enemy array logic
-var full_enemy_array: Array[String] = ["Scumbug", "Giant Zombie Snail"]
-var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 2) # Defaults to just one enemy to begin with
+var full_enemy_array: Array[String] = ["Scumbug", "Giant Zombie Snail", "Brasher Beetle"]
+var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 3) # Defaults to just one enemy to begin with
 
 # Enemy array for the current wave (to be populated BEFORE wave start and shown to user before pressing start wave)
 # Enemies inside the array will be populated at random however
 var current_wave_enemy_array: Array[PackedScene]
 var remaining_enemies_to_spawn: Array[PackedScene]
 
-#var debug_enemy_dictionary: Dictionary
+var debug_enemy_dictionary: Dictionary
 
 var current_level: int
 
@@ -48,15 +48,15 @@ func get_map_difficulty_data():
 
 # Function that wil update sliced enemy array to add more enemies at certain wave thresholds
 func update_sliced_enemy_array(wave_number: int):
-	sliced_enemy_array = full_enemy_array.slice(0, 2) # Default slice
+	sliced_enemy_array = full_enemy_array.slice(0, 3)  # Include the first three enemies initially
 	if wave_number > 10:
-		pass # Change the slice to allow for more enemies
+		pass
 
 # Function that will populate an array of enemies for the upcoming wave
 func repopulate_current_wave_enemy_array(wave_size: int):
 	current_wave_enemy_array.clear()
 	remaining_enemies_to_spawn.clear()
-	#debug_enemy_dictionary.clear()
+	debug_enemy_dictionary.clear()
 	update_sliced_enemy_array(current_level_wave_spawn_size)
 	while wave_size > 0:
 		var randomly_chosen_enemy_and_size: Array = _choose_random_enemy(sliced_enemy_array, wave_size)
@@ -68,10 +68,10 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 func start_wave():
 	wave_ongoing = true
 	wave_won = true
-	#print("Starting wave of:")
-	#for key in debug_enemy_dictionary.keys(): # Iterate over keys
-		#var value = debug_enemy_dictionary[key] # Access value using the key
-		#print(key, ": ", value)
+	print("Starting wave of:")
+	for key in debug_enemy_dictionary.keys(): # Iterate over keys
+		var value = debug_enemy_dictionary[key] # Access value using the key
+		print(key, ": ", value)
 	spawn_enemy_array_slowly(remaining_enemies_to_spawn)
 
 # Function that will check win/loss conditions
@@ -138,15 +138,18 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:
 			"Giant Zombie Snail":
 				chosen_enemy_scene = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn")
 				chosen_enemy_size = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_model.tscn").instantiate().get_size()
+			"Brasher Beetle":
+				chosen_enemy_scene = preload("res://Scenes/Enemies/Brasher_Beetle/brasher_beetle_container.tscn")
+				chosen_enemy_size = preload("res://Scenes/Enemies/Brasher_Beetle/brasher_beetle_model.tscn").instantiate().get_size()
+
 		if chosen_enemy_size > wave_size:
 			enemy_array_to_choose_from.erase(random_chosen_enemy)
 		else:
-			#if random_chosen_enemy not in debug_enemy_dictionary.keys():
-				#debug_enemy_dictionary[random_chosen_enemy] = 1
-			#else:
-				#debug_enemy_dictionary[random_chosen_enemy] += 1
+			if random_chosen_enemy not in debug_enemy_dictionary.keys():
+				debug_enemy_dictionary[random_chosen_enemy] = 1
+			else:
+				debug_enemy_dictionary[random_chosen_enemy] += 1
 			enemy_selected = true
-
 	return [chosen_enemy_scene, chosen_enemy_size]
 	
 func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
@@ -158,6 +161,9 @@ func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
 			boss_enemy_scene = preload("res://Scenes/Enemies/Scumbug/scumbug_container.tscn")
 		"Giant Zombie Snail":
 			boss_enemy_scene = preload("res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn")
+		"Brasher Beetle":
+			boss_enemy_scene = preload("res://Scenes/Enemies/Brasher_Beetle/brasher_beetle_container.tscn")
+
 	boss_enemy_scene_instantiated = boss_enemy_scene.instantiate()
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0].scale = Vector3(2,2,2)
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health *= 5

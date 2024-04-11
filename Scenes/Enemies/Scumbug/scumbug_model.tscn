@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://cutwtalr4uad7"]
 
-[ext_resource type="PackedScene" uid="uid://u1foh2li2ttu" path="res://Models/Enemies/Aphid.gltf" id="1_pxy2g"]
+[ext_resource type="PackedScene" uid="uid://cn2dpwe38kfsc" path="res://Models/Enemies/Aphid.gltf" id="1_pxy2g"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Scumbug/scumbug.gd" id="2_h3mid"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_rawf3"]
 
@@ -10,14 +10,20 @@ viewport_path = NodePath("SubViewport")
 [node name="Scumbug" instance=ExtResource("1_pxy2g")]
 script = ExtResource("2_h3mid")
 
-[node name="RightLegs" parent="Node/ScumBug/ScumBug2/Legs" index="0"]
-transform = Transform3D(0.857167, 0, -0.515038, 0, 1, 0, 0.515038, 0, 0.857167, -0.191819, -0.232559, -0.16875)
+[node name="ScumBugBody" parent="Node/ScumBug" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16875, 0)
 
-[node name="LeftLegs" parent="Node/ScumBug/ScumBug2/Legs" index="1"]
-transform = Transform3D(0.857167, 0, 0.515038, 0, 1, 0, -0.515038, 0, 0.857167, -0.35, -0.378722, -0.24375)
+[node name="Legs" parent="Node/ScumBug/ScumBugBody/MainBody" index="4"]
+transform = Transform3D(0.82, 0, 0, 0, 0.74, 0, 0, 0, 0.74, 0.275, 0.303722, 0.0375)
+
+[node name="RightLegs" parent="Node/ScumBug/ScumBugBody/MainBody/Legs" index="2"]
+transform = Transform3D(0.422618, 0.906308, 0, -0.906308, 0.422618, 0, 0, 0, 1, -0.191819, -0.232559, -0.16875)
+
+[node name="LeftLegs" parent="Node/ScumBug/ScumBugBody/MainBody/Legs" index="3"]
+transform = Transform3D(0.422618, -0.906308, 0, 0.906308, 0.422618, 0, 0, 0, 1, -0.2875, -0.147472, -0.24375)
 
 [node name="AnimationPlayer" parent="." index="1"]
-autoplay = "Gatling Fire"
+autoplay = "Fly"
 
 [node name="SubViewport" type="SubViewport" parent="." index="2"]
 transparent_bg = true
