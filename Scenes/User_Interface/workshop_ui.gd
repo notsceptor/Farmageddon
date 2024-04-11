@@ -11,5 +11,9 @@ func _process(delta):
 	pass
 
 func _on_exit_button_pressed():
+	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(main_menu_path)
+	
+func hide_menu_screen_for_transition() -> void:
+	$CanvasLayer/Turrets.visible = false
 	

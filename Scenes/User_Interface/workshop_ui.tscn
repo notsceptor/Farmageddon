@@ -1,7 +1,7 @@
 [gd_scene load_steps=15 format=3 uid="uid://cwulolttkwmtq"]
 
-[ext_resource type="Texture2D" uid="uid://cy6pra4c4nm13" path="res://Textures/placeholder background 2.jpg" id="1_4is4q"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_ui.gd" id="1_gwo4e"]
+[ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="2_2j7m4"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="2_os2na"]
 [ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chilligun_Cover.png" id="3_dejcr"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="3_kpt66"]
@@ -25,7 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_4is4q")
+texture = ExtResource("2_2j7m4")
 expand_mode = 1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
