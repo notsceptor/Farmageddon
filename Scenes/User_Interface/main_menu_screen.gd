@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var easy_level_path: String = "res://Scenes/Maps/easy_map.tscn"
 @onready var medium_level_path: String = "res://Scenes/Maps/medium_map.tscn"
 @onready var hard_level_path: String = "res://Scenes/Maps/hard_map.tscn"
+@onready var inventory_path: String = "res://Scenes/User_Interface/workshop_ui.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -38,3 +39,8 @@ func hide_menu_screen_for_transition() -> void:
 	
 func _on_exit_game_button_pressed():
 	get_tree().quit()
+
+
+func _on_open_inventory_pressed():
+	hide_menu_screen_for_transition()
+	TransitionLayer.change_scene(inventory_path)
