@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhp2gvujonehd"]
+
+[ext_resource type="PackedScene" uid="uid://ct8mglji8exrg" path="res://Models/Enemies/Trundle Boar.gltf" id="1_k6q66"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Trundle_Boar/trundle_boar.gd" id="2_103tj"]
+[ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_ty76p"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_2e8jx"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Trundle_Boar_Model" instance=ExtResource("1_k6q66")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+script = ExtResource("2_103tj")
+
+[node name="Node" parent="." index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0502744, 0)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Trample"
+
+[node name="SubViewport" type="SubViewport" parent="." index="2"]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar3D" parent="SubViewport" index="0" instance=ExtResource("3_ty76p")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.766761, -0.0185917)
+billboard = 1
+texture = SubResource("ViewportTexture_2e8jx")

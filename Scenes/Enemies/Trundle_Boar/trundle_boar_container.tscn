@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfvu1b1u3csrc"]
+
+[ext_resource type="PackedScene" uid="uid://ko5i3cu7gfcj" path="res://Scenes/Enemies/enemy_container_template.tscn" id="1_ufdb6"]
+[ext_resource type="PackedScene" uid="uid://dhp2gvujonehd" path="res://Scenes/Enemies/Trundle_Boar/trundle_boar_model.tscn" id="2_mxkq4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_j2gpm"]
+size = Vector3(0.6, 0.706, 1.14209)
+
+[node name="Trundle_Boar_Container" instance=ExtResource("1_ufdb6")]
+
+[node name="Trundle_Boar_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_mxkq4")]
+
+[node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34019, 0)
+
+[node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.023312, -0.137163)
+shape = SubResource("BoxShape3D_j2gpm")
+
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Trundle_Boar_Model" method="_on_moving_state_processing"]
+[connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Trundle_Boar_Model" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Trundle_Boar_Model" method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Trundle_Boar_Model" method="_on_area_damage_timer_timeout"]
