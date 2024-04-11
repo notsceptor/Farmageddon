@@ -1,0 +1,209 @@
+[gd_scene load_steps=13 format=3 uid="uid://cwulolttkwmtq"]
+
+[ext_resource type="Texture2D" uid="uid://cy6pra4c4nm13" path="res://Textures/placeholder background 2.jpg" id="1_4is4q"]
+[ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="2_os2na"]
+[ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chilligun_Cover.png" id="3_dejcr"]
+[ext_resource type="Texture2D" uid="uid://dbcpsquel5n74" path="res://Models/Turrets/Haybale Barrage/Haybale_Barrage_Cover.png" id="4_djtiq"]
+[ext_resource type="Texture2D" uid="uid://bbf3k6nvq4eqj" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png" id="5_7ii6a"]
+[ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="6_xu06c"]
+[ext_resource type="Texture2D" uid="uid://bc2qtqi8ig2ch" path="res://Models/Turrets/Potato Launcher/Potato_Launcher_Cover.png" id="7_iunt2"]
+[ext_resource type="Texture2D" uid="uid://df2vyfdq7yk2e" path="res://Models/Turrets/Radish Rocket/Radish_Rocket_Cover.png" id="8_5qlhs"]
+[ext_resource type="Texture2D" uid="uid://bpyh1jqadxfcp" path="res://Models/Turrets/Seed Sniper/Seed_Sniper_Cover.png" id="9_1kno8"]
+[ext_resource type="Texture2D" uid="uid://djkswxafqccgc" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer_Cover.png" id="10_jfg5a"]
+[ext_resource type="Texture2D" uid="uid://mpwh0nhtnaxp" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png" id="11_fma28"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlldh"]
+
+[node name="Workshop UI" type="Node"]
+
+[node name="Background Texture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4is4q")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Turrets" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabsContainer" type="CenterContainer" parent="CanvasLayer/Turrets"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/TabsContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InvButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Turrets"
+
+[node name="GachaButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gacha"
+
+[node name="ProfileButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile"
+
+[node name="TurretsContainer" type="CenterContainer" parent="CanvasLayer/Turrets"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -176.0
+offset_right = 532.0
+offset_bottom = 176.0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/TurretsContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlldh")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 4
+
+[node name="CarrotCannon" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("2_os2na")
+flat = true
+
+[node name="Chilligun" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("3_dejcr")
+flat = true
+
+[node name="HaybaleBarrage" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("4_djtiq")
+flat = true
+
+[node name="HoneycombHarpoon" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("5_7ii6a")
+flat = true
+
+[node name="PeaShooter" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("6_xu06c")
+flat = true
+
+[node name="PotatoLauncher" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("7_iunt2")
+flat = true
+
+[node name="RaddishRocket" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("8_5qlhs")
+flat = true
+
+[node name="SeedSniper" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("9_1kno8")
+flat = true
+
+[node name="SporeSprayer" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("10_jfg5a")
+flat = true
+
+[node name="StrawberryArtillery" type="Button" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+icon = ExtResource("11_fma28")
+flat = true
+
+[node name="UpgradeContainer" type="CenterContainer" parent="CanvasLayer/Turrets"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -532.0
+offset_top = -176.0
+offset_bottom = 176.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/UpgradeContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_nlldh")
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Upgrade" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 36
+text = "TURRET NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("2_os2na")
+expand_mode = 4
+
+[node name="StatChange" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 21
+text = "New stats
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResourceesNeeded" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 21
+text = "Resources Required
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UpgradeButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 26
+text = "UPGRADE"
