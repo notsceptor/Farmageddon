@@ -5,18 +5,15 @@ var _path_progress: float = 0.0
 @onready var _path_follow_3d: PathFollow3D
 @onready var health_bar = $SubViewport/HealthBar3D
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
-@onready var health_bar_hide_timer = $HealthBarHideTimer
 
-var _size_to_set = 2
+var _health = 20
+var _speed = 2
+var _size = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_name = "Giant Zombie Snail"
-	_health = 20
 	health_bar.max_value = _health
-	_size = _size_to_set
-	Globals.temp_enemy_size = _size
-	_speed = 2
+	health_bar.value = _health
 	_path_follow_3d = get_node("../")
 	health_bar.visible = false  # Hide the health bar initially
 
@@ -52,4 +49,4 @@ func _on_area_damage_timer_timeout():
 	health_bar.value -= area_damage_to_take
 
 func get_size() -> int:
-	return _size_to_set
+	return _size

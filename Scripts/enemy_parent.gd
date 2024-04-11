@@ -1,11 +1,6 @@
 extends Node3D
 class_name EnemyParent
 
-@onready var _name: String
-@onready var _health: int
-@onready var _size: int
-@onready var _speed: int
-
 var in_constant_aoe_damage_zone: bool = false
 var area_damage_to_take: int
 
@@ -35,9 +30,6 @@ func _on_despawning_state_entered():
 	WaveManager.wave_won = false
 	queue_free()
 	WaveManager.enemies_on_map -= 1
-
-func get_stats(): # Remove yellow errors since never used (just for child class)
-	return [_name, _health, _size, _speed]
 
 func remove_enemy():
 	get_node("../../../").queue_free()

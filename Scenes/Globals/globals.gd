@@ -1,7 +1,5 @@
 extends Node
 
-var temp_enemy_size: int # I have no idea how else to access this it's driving me insane
-
 # Turret RID area to exclude from raycasting
 var turret_rid_list: Array = []
 var turret_locations_list: Array = []

@@ -3,23 +3,19 @@ extends EnemyParent
 var _path_progress: float = 0.0
 
 @onready var _path_follow_3d: PathFollow3D
-
 @onready var health_bar = $SubViewport/HealthBar3D
-
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
 
-var _size_to_set: int = 1
+var _health = 10
+var _speed = 3
+var _size = 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	_name = "Scumbug"
-	_health = 10
 	health_bar.max_value = _health
-	_size = _size_to_set
-	Globals.temp_enemy_size = _size
-	_speed = 3
+	health_bar.value = _health
 	_path_follow_3d = get_node("../")
-	health_bar.visible = false
+	health_bar.visible = false # Hide the health bar initially
 
 func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
@@ -53,4 +49,4 @@ func _on_area_damage_timer_timeout():
 	health_bar.value -= area_damage_to_take
 
 func get_size() -> int:
-	return _size_to_set
+	return _size

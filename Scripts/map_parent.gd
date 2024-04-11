@@ -28,21 +28,12 @@ func _process(_delta):
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			next_wave_button.visible = true
-			match Globals.current_selected_map:
-				"easy":
-					if Globals.easy_map_current_level != 1 and (Globals.easy_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.easy_map_current_level)
-				"medium":
-					if Globals.medium_map_current_level != 1 and (Globals.medium_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.medium_map_current_level)
-				"hard":
-					if Globals.hard_map_current_level != 1 and (Globals.hard_map_current_level - 1) % 5 == 0:
-						new_map_layout_required = true
-					current_level_wave_number_label.text = str(Globals.hard_map_current_level)
+			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0:
+				new_map_layout_required = true
 			if new_map_layout_required and WaveManager.wave_won:
 				_regenerate_new_map_layout()
+				new_map_layout_required = false
+			current_level_wave_number_label.text = str(WaveManager.current_level)
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
