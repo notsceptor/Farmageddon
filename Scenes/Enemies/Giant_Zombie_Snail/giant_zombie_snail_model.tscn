@@ -23,9 +23,3 @@ transparent_bg = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.695938, 0.106032)
 billboard = 1
 texture = SubResource("ViewportTexture_0a7ka")
-
-[node name="HealthBarHideTimer" type="Timer" parent="." index="4"]
-wait_time = 3.0
-one_shot = true
-
-[connection signal="timeout" from="HealthBarHideTimer" to="." method="_on_health_bar_hide_timer_timeout"]
