@@ -38,6 +38,7 @@ func _on_area_3d_area_entered(area):
 		if area.damage:
 			health_bar.visible = true # Show the health bar when taking damage
 			_speed += 0.1
+			animation_player.set_speed_scale(_speed*2.0)
 			_health -= area.damage
 			health_bar.value -= area.damage
 
