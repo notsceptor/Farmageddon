@@ -81,6 +81,7 @@ func check_win_loss_conditions():
 		enemies_on_map = 0
 		if wave_won:
 			print("WAVE WON")
+			CurrencyManager.add_gold(40)
 			wave_won_increase_level_and_size()
 			get_map_difficulty_data()
 		else:

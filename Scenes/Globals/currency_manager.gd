@@ -1,33 +1,29 @@
 extends Node
 
-var gold: int = 0
-var scrap_metal: int = 0
-var gems: int = 0
-
 func add_gold(amount: int) -> void:
-	gold += amount
+	Globals.gold += amount
 	
 func add_scrap_metal(amount: int) -> void:
-	scrap_metal += amount
+	Globals.scrap_metal += amount
 	
 func add_gems(amount: int) -> void:
-	gems += amount
+	Globals.gems += amount
 	
 func remove_gold(amount: int) -> bool:
-	if gold >= amount:
-		gold-=amount
+	if Globals.gold >= amount:
+		Globals.gold-=amount
 		return true
 	return false
 
 func remove_scrap_metal(amount: int) -> bool:
-	if scrap_metal >= amount:
-		scrap_metal-=amount
+	if Globals.scrap_metal >= amount:
+		Globals.scrap_metal-=amount
 		return true
 	return false
 
 func remove_gems(amount: int) -> bool:
-	if gold >= amount:
-		gold-=amount
+	if Globals.gold >= amount:
+		Globals.gold-=amount
 		return true
 	return false
 		
