@@ -23,3 +23,7 @@ func _get_configuration_warnings() -> PackedStringArray :
 			warnings.append("Atomic states cannot have child states. These will be ignored.")
 			break
 	return warnings
+
+
+func _on_despawning_state_entered():
+	pass # Replace with function body.

@@ -3,8 +3,8 @@ extends Node
 # Each boss wave won instead increase wave size by 1.2x
 
 # General enemy array logic
-var full_enemy_array: Array[String] = ["Scumbug", "Giant Zombie Snail", "Brasher Beetle", "Trundle Boar"]
-var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 4) # Defaults to just one enemy to begin with
+var full_enemy_array: Array[String] = ["Scumbug", "Giant Zombie Snail", "Brasher Beetle", "Trundle Boar", "Goliath Spider"]
+var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 5) # Defaults to just one enemy to begin with
 
 # Enemy array for the current wave (to be populated BEFORE wave start and shown to user before pressing start wave)
 # Enemies inside the array will be populated at random however
@@ -48,7 +48,7 @@ func get_map_difficulty_data():
 
 # Function that wil update sliced enemy array to add more enemies at certain wave thresholds
 func update_sliced_enemy_array(wave_number: int):
-	sliced_enemy_array = full_enemy_array.slice(0, 4)  # Include the first three enemies initially
+	sliced_enemy_array = full_enemy_array.slice(0, 5)  # Include the first three enemies initially
 	if wave_number > 10:
 		pass
 
@@ -144,6 +144,9 @@ func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:
 			"Trundle Boar":
 				chosen_enemy_scene = preload("res://Scenes/Enemies/Trundle_Boar/trundle_boar_container.tscn")
 				chosen_enemy_size = preload("res://Scenes/Enemies/Trundle_Boar/trundle_boar_model.tscn").instantiate().get_size()
+			"Goliath Spider":
+				chosen_enemy_scene = preload("res://Scenes/Enemies/Goliath_Spider/goliath_spider_container.tscn")
+				chosen_enemy_size = preload("res://Scenes/Enemies/Goliath_Spider/goliath_spider_model.tscn").instantiate().get_size()
 
 		if chosen_enemy_size > wave_size:
 			enemy_array_to_choose_from.erase(random_chosen_enemy)
@@ -168,6 +171,8 @@ func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
 			boss_enemy_scene = preload("res://Scenes/Enemies/Brasher_Beetle/brasher_beetle_container.tscn")
 		"Trundle Boar":
 			boss_enemy_scene = preload("res://Scenes/Enemies/Trundle_Boar/trundle_boar_container.tscn")
+		"Goliath Spider":
+			boss_enemy_scene = preload("res://Scenes/Enemies/Goliath_Spider/goliath_spider_container.tscn")
 
 	boss_enemy_scene_instantiated = boss_enemy_scene.instantiate()
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0].scale = Vector3(2,2,2)
