@@ -17,11 +17,8 @@ projectile_type = ExtResource("3_q12g4")
 
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("5_phgn1")
-volume_db = -3.827
+volume_db = -16.007
 pitch_scale = 0.97
-
-[node name="placement" parent="." index="2"]
-volume_db = 6.478
 
 [connection signal="area_entered" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_entered"]
 [connection signal="area_exited" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_exited"]

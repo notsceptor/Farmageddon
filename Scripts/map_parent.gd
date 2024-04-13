@@ -82,6 +82,7 @@ func _on_ui_refresh_map_button_pressed():
 	_regenerate_new_map_layout()
 	
 func _regenerate_new_map_layout():
+	GlobalAudioPlayer.play_earthquake_sound()
 	var scene_to_load: String
 	$UI/ReloadSceneText.visible = true
 	next_wave_button.visible = false

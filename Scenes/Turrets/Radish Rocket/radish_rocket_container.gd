@@ -10,11 +10,10 @@ var last_fire_time: int
 var modified_projectile_speed: float
 
 @onready var gunshot = $gunshot
-@onready var turret_placement = $placement
 
 
 func _ready():
-	turret_placement.play()
+	GlobalAudioPlayer.play_placement_sound()
 	turret_model = $RadishRocket/Node # Assign the turret model node
 	shooter_node = $RadishRocket/Node/RadishRocket/Aim # Assign the turret shooter node
 	var turret_area_rid = $RadishRocket/AreaRadius.get_rid()

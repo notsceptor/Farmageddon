@@ -47,6 +47,7 @@ func _process(delta):
 			if global_position.distance_to(last_known_target_position) < 0.1:
 				state = ProjectileState.ARRIVED
 		ProjectileState.ARRIVED:
+			GlobalAudioPlayer.play_strawberry_projectile_sound()
 			queue_free()
 
 func update_target_position():

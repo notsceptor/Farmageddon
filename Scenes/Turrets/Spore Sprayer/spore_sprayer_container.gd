@@ -4,10 +4,9 @@ extends Turret
 @onready var spray_node_two = $SporeSprayer/Node/Spore/Aim/SprayEffect/SporeSpray2
 
 
-@onready var turret_placement = $placement
 
 func _ready():
-	turret_placement.play()
+	GlobalAudioPlayer.play_placement_sound()
 	turret_model = $SporeSprayer/Node # Assign the turret model node
 	shooter_node = $SporeSprayer/Node/Spore/Aim # Assign the shooter node
 	var turret_area_rid = $SporeSprayer/AreaRadius.get_rid()
