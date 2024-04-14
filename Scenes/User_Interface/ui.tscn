@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=42 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -33,12 +33,24 @@
 [ext_resource type="Texture2D" uid="uid://mpwh0nhtnaxp" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png" id="25_gnr1b"]
 [ext_resource type="Texture2D" uid="uid://df2vyfdq7yk2e" path="res://Models/Turrets/Radish Rocket/Radish_Rocket_Cover.png" id="28_pihrb"]
 [ext_resource type="Texture2D" uid="uid://djkswxafqccgc" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer_Cover.png" id="31_b3irp"]
-[ext_resource type="Texture2D" uid="uid://c2v6qvcn67m44" path="res://Textures/gold.png" id="34_2jyu0"]
-[ext_resource type="Texture2D" uid="uid://dwhag0rytby7f" path="res://Textures/scrap_metal.png" id="35_o3w2b"]
-[ext_resource type="Texture2D" uid="uid://bi7tqm8kjr1mi" path="res://Textures/gems.png" id="36_c66dl"]
+[ext_resource type="Texture2D" uid="uid://c4lxlu456xdjv" path="res://gem.png" id="34_1egwb"]
+[ext_resource type="Texture2D" uid="uid://d2wilh1kthy5e" path="res://gold_piece.png" id="35_uqmol"]
+[ext_resource type="Texture2D" uid="uid://dvfe57grn5kdv" path="res://scrap_piece.png" id="36_2cnia"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
+
+[sub_resource type="SystemFont" id="SystemFont_r4oxg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksora"]
+font = SubResource("SystemFont_r4oxg")
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv35d"]
+font_size = 27
+
+[sub_resource type="LabelSettings" id="LabelSettings_kuwui"]
+font_size = 27
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
@@ -182,56 +194,56 @@ turret_to_instantiate = ExtResource("24_57wyc")
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="GoldIcon" type="TextureRect" parent="."]
-offset_left = 875.0
-offset_top = 2.0
-offset_right = 5125.0
-offset_bottom = 4252.0
-scale = Vector2(0.0126826, 0.0137475)
-texture = ExtResource("34_2jyu0")
-
-[node name="ScrapMetalIcon" type="TextureRect" parent="."]
-offset_left = 958.0
-offset_top = -9.0
-offset_right = 5208.0
-offset_bottom = 4241.0
-scale = Vector2(0.0155385, 0.0178135)
-texture = ExtResource("35_o3w2b")
-
-[node name="GemsImage" type="TextureRect" parent="."]
-offset_left = 1047.0
-offset_top = -5.0
-offset_right = 5297.0
-offset_bottom = 4245.0
-scale = Vector2(0.012971, 0.0169101)
-texture = ExtResource("36_c66dl")
-stretch_mode = 3
-
 [node name="ResourcesContainer" type="HBoxContainer" parent="."]
-offset_left = 917.0
-offset_top = 10.0
-offset_right = 1147.0
-offset_bottom = 50.0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -209.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 56.0
+grow_horizontal = 0
 theme_override_constants/separation = 80
 alignment = 1
 
 [node name="GoldLabel" type="Label" parent="ResourcesContainer"]
 layout_mode = 2
+auto_translate = false
 theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "10"
+label_settings = SubResource("LabelSettings_ksora")
+
+[node name="GoldPiece" type="Sprite2D" parent="ResourcesContainer/GoldLabel"]
+show_behind_parent = true
+position = Vector2(17, 18)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("35_uqmol")
 
 [node name="ScrapMetalLabel" type="Label" parent="ResourcesContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
+text = "10"
+label_settings = SubResource("LabelSettings_cv35d")
 vertical_alignment = 1
+
+[node name="ScrapPiece" type="Sprite2D" parent="ResourcesContainer/ScrapMetalLabel"]
+show_behind_parent = true
+position = Vector2(18, 19)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("36_2cnia")
 
 [node name="GemsLabel" type="Label" parent="ResourcesContainer"]
 layout_mode = 2
 theme_type_variation = &"HeaderLarge"
-horizontal_alignment = 1
-vertical_alignment = 1
+text = "10"
+label_settings = SubResource("LabelSettings_kuwui")
+vertical_alignment = 2
+
+[node name="Gem" type="Sprite2D" parent="ResourcesContainer/GemsLabel"]
+show_behind_parent = true
+position = Vector2(16, 18)
+scale = Vector2(0.06, 0.06)
+texture = ExtResource("34_1egwb")
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]

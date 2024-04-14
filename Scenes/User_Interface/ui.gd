@@ -13,9 +13,6 @@ extends CanvasLayer
 #debugs scene implementation
 @export var debug_enemy: PackedScene
 
-
-
-
 signal next_wave_button_pressed
 signal refresh_map_button_pressed
 signal place_turret(turret_scene, location)
@@ -24,6 +21,7 @@ func _ready():
 	next_wave_button.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
+	CurrencyManager.ui_node = self
 	update_UI()
 
 func update_UI():

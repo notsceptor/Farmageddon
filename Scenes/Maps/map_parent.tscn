@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
-[ext_resource type="PackedScene" uid="uid://c5kwk52a3thh2" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
+[ext_resource type="PackedScene" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
-[ext_resource type="PackedScene" uid="uid://fsuade0xgdev" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
+[ext_resource type="PackedScene" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
