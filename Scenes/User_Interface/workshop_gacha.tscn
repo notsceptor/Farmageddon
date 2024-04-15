@@ -1,0 +1,235 @@
+[gd_scene load_steps=15 format=3 uid="uid://c77jhwpiobh81"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/workshop_gacha.gd" id="1_srsva"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="2_x5de5"]
+[ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="3_16tpx"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/GachaManager.gd" id="4_236cy"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/gems_progress.gd" id="5_hhlj1"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/scrap_progress.gd" id="6_v10pc"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/gold_progress.gd" id="7_c1snp"]
+[ext_resource type="Texture2D" uid="uid://c4lxlu456xdjv" path="res://Textures/gem.png" id="8_xxexp"]
+[ext_resource type="Texture2D" uid="uid://dvfe57grn5kdv" path="res://Textures/scrap_piece.png" id="9_p3cmu"]
+[ext_resource type="Texture2D" uid="uid://d2wilh1kthy5e" path="res://Textures/gold_piece.png" id="10_2gagb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ga3of"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1k1dg"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_r4oxg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mm7ud"]
+font = SubResource("SystemFont_r4oxg")
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="WorkshopGacha" type="Node"]
+script = ExtResource("1_srsva")
+
+[node name="Background Texture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_16tpx")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_236cy")
+
+[node name="Header" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabsContainer" type="CenterContainer" parent="CanvasLayer/Header"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Header/TabsContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InvButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Turrets"
+
+[node name="GachaButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gacha"
+
+[node name="ProfileButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit
+"
+script = ExtResource("2_x5de5")
+
+[node name="GachaRoll" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 399.0
+offset_top = 144.0
+offset_right = 730.0
+offset_bottom = 472.0
+
+[node name="HBoxContainer" type="Control" parent="CanvasLayer/GachaRoll"]
+anchors_preset = 0
+offset_right = 336.0
+offset_bottom = 310.0
+
+[node name="RollButton" type="Button" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 2
+offset_left = 71.0
+offset_top = 250.0
+offset_right = 284.0
+offset_bottom = 292.0
+text = "Roll"
+
+[node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 187.0
+offset_right = 350.0
+offset_bottom = 220.0
+
+[node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 187.0
+offset_right = 350.0
+offset_bottom = 220.0
+
+[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = -37.0
+offset_right = 303.0
+offset_bottom = 213.0
+
+[node name="ResourcesContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -209.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 56.0
+grow_horizontal = 0
+
+[node name="GemsLabel" type="Label" parent="CanvasLayer/ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 230.0
+offset_right = 126.0
+offset_bottom = 267.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_ga3of")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="ScrapMetalLabel" type="Label" parent="CanvasLayer/ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 160.0
+offset_right = 126.0
+offset_bottom = 197.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_1k1dg")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="GoldLabel" type="Label" parent="CanvasLayer/ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -94.0
+offset_top = 91.0
+offset_right = 126.0
+offset_bottom = 128.0
+auto_translate = false
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_mm7ud")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="GemsProgress" type="ProgressBar" parent="CanvasLayer/ResourcesContainer"]
+layout_mode = 2
+offset_left = -106.0
+offset_top = 233.0
+offset_right = 164.0
+offset_bottom = 266.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("5_hhlj1")
+
+[node name="ScrapProgress" type="ProgressBar" parent="CanvasLayer/ResourcesContainer"]
+layout_mode = 2
+offset_left = -107.0
+offset_top = 163.0
+offset_right = 163.0
+offset_bottom = 197.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("6_v10pc")
+
+[node name="GoldProgress" type="ProgressBar" parent="CanvasLayer/ResourcesContainer"]
+layout_mode = 2
+offset_left = -106.0
+offset_top = 93.0
+offset_right = 164.0
+offset_bottom = 127.0
+fill_mode = 1
+show_percentage = false
+script = ExtResource("7_c1snp")
+
+[node name="Gem" type="Sprite2D" parent="CanvasLayer/ResourcesContainer"]
+position = Vector2(161, 251)
+scale = Vector2(0.0798489, 0.0799244)
+texture = ExtResource("8_xxexp")
+
+[node name="ScrapPiece" type="Sprite2D" parent="CanvasLayer/ResourcesContainer"]
+position = Vector2(159, 182)
+scale = Vector2(0.1, 0.101)
+texture = ExtResource("9_p3cmu")
+
+[node name="GoldPiece" type="Sprite2D" parent="CanvasLayer/ResourcesContainer"]
+position = Vector2(160, 112)
+scale = Vector2(0.129, 0.13)
+texture = ExtResource("10_2gagb")

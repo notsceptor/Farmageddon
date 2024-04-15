@@ -27,6 +27,7 @@ func _ready():
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
 	CurrencyManager.ui_node = self
+	
 	update_UI()
 
 func update_UI():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cwulolttkwmtq"]
+[gd_scene load_steps=15 format=3 uid="uid://8lfscy1ep4v1"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_ui.gd" id="1_gwo4e"]
 [ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="2_2j7m4"]
@@ -239,4 +239,5 @@ size_flags_vertical = 3
 theme_override_font_sizes/font_size = 26
 text = "UPGRADE"
 
+[connection signal="pressed" from="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/GachaButton" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
