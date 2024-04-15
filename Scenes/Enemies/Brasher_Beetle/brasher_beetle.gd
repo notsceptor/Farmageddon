@@ -10,6 +10,8 @@ var _path_progress: float = 0.0
 var _health = 60
 var _speed = 0.5
 var _size = 4
+var _deathsound = false
+
 
 # Charge mechanic variables
 var _charge_duration = 2.5  # Duration of the charge in seconds-
@@ -29,8 +31,10 @@ func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		GlobalAudioPlayer.play_beetle_death_sound()
 		remove_enemy()
+		if _deathsound == false:
+			_deathsound = true
+			GlobalAudioPlayer.play_beetle_death_sound()
 
 	# Handle charging
 	if _is_charging:

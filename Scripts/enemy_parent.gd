@@ -33,6 +33,9 @@ func _on_despawning_state_entered():
 	WaveManager.enemies_on_map -= 1
 
 func remove_enemy():
-	get_node("../../../").queue_free()
 	WaveManager.enemies_on_map -= 1
-	# Death sound / animation here etc
+	var tween = create_tween()
+	tween.tween_property(self,"scale",Vector3(0, 0, 0),randf_range(0.2, 0.3)).set_trans(Tween.TRANS_LINEAR)
+	tween.tween_callback(get_node("../../../").queue_free)
+	
+
