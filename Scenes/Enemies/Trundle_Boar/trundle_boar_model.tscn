@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhp2gvujonehd"]
 
-[ext_resource type="PackedScene" uid="uid://ct8mglji8exrg" path="res://Models/Enemies/Trundle Boar.gltf" id="1_k6q66"]
+[ext_resource type="PackedScene" uid="uid://dw8celketq8bv" path="res://Models/Enemies/Trundle Boar.gltf" id="1_k6q66"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Trundle_Boar/trundle_boar.gd" id="2_103tj"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_ty76p"]
 

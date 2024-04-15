@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ck5828pjcipio"]
 
-[ext_resource type="PackedScene" uid="uid://cikfs205ke2f7" path="res://Models/Enemies/Goliath Spider.gltf" id="1_oaku1"]
+[ext_resource type="PackedScene" uid="uid://8r8hcy7bo0qw" path="res://Models/Enemies/Goliath Spider.gltf" id="1_oaku1"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Goliath_Spider/goliath_spider.gd" id="2_8fyui"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_awcnf"]
 

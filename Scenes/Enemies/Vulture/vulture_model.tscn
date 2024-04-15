@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtpqupsrhj1la"]
+
+[ext_resource type="PackedScene" uid="uid://cuh0bpfln0vny" path="res://Models/Enemies/Vulture.gltf" id="1_ph7mb"]
+[ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_hci8s"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Vulture/vulture.gd" id="2_ka332"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_eos7e"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Vulture_Model" instance=ExtResource("1_ph7mb")]
+script = ExtResource("2_ka332")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Flap"
+
+[node name="SubViewport" type="SubViewport" parent="." index="2"]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar3D" parent="SubViewport" index="0" instance=ExtResource("2_hci8s")]
+offset_top = -13.5
+offset_bottom = 13.5
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000438601, 1.26103, 0.236843)
+billboard = 1
+texture = SubResource("ViewportTexture_eos7e")
+
+[node name="HealthBarHideTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="enemy_died" from="." to="." method="_on_enemy_died"]
