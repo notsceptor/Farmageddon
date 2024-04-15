@@ -10,6 +10,11 @@ extends CanvasLayer
 @onready var scrap_metal_label: Label = $ResourcesContainer/ScrapMetalLabel
 @onready var gems_label: Label = $ResourcesContainer/GemsLabel
 
+#currency progress bars
+@onready var gold_progress_bar: ProgressBar = $ResourcesContainer/GoldProgress
+@onready var scrap_metal_progress_bar: ProgressBar = $ResourcesContainer/ScrapProgress
+@onready var gems_progress_bar: ProgressBar = $ResourcesContainer/GemsProgress
+
 #debugs scene implementation
 @export var debug_enemy: PackedScene
 
@@ -28,6 +33,17 @@ func update_UI():
 	gold_label.text = str(Globals.gold)
 	scrap_metal_label.text = str(Globals.scrap_metal)
 	gems_label.text = str(Globals.gems)
+	update_progress_bars()
+	
+func update_progress_bars():
+	gold_progress_bar.max_value = 1000
+	gold_progress_bar.value = Globals.gold
+	
+	scrap_metal_progress_bar.max_value = 1000
+	scrap_metal_progress_bar.value = Globals.scrap_metal
+	
+	gems_progress_bar.max_value = 1000
+	gems_progress_bar.value = Globals.gems
 	
 func _on_next_wave_button_pressed():
 	update_UI()
