@@ -25,6 +25,7 @@ func _process(_delta):
 		remove_enemy()
 		if _deathsound == false:
 			_deathsound = true
+			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_scumbug_death_sound()
 
 func _on_moving_state_processing(delta):

@@ -34,6 +34,7 @@ func _process(delta):
 		remove_enemy()
 		if _deathsound == false:
 			_deathsound = true
+			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_beetle_death_sound()
 
 	# Handle charging
