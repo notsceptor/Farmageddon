@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://dty7go6f8bor5"]
+[gd_scene load_steps=9 format=3 uid="uid://dty7go6f8bor5"]
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
+[ext_resource type="AudioStream" uid="uid://dt1k8m5t0pl2h" path="res://audio/Menu Click 2.mp3" id="2_upd2m"]
 [ext_resource type="AudioStream" uid="uid://bb452c0n8tn2c" path="res://audio/Monster Death 1.mp3" id="3_e5ug2"]
 [ext_resource type="AudioStream" uid="uid://cndhtqp2qv3su" path="res://audio/Earthquake.mp3" id="4_qipc3"]
 [ext_resource type="AudioStream" uid="uid://bklxed7ea7g8y" path="res://audio/Fail State.mp3" id="5_haoe5"]
@@ -11,15 +12,25 @@
 [node name="GlobalAudioPlayer" type="Node"]
 script = ExtResource("1_nq8wv")
 
+[node name="MenuClick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_upd2m")
+volume_db = -9.369
+pitch_scale = 1.27
+
 [node name="SnailDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
-volume_db = -7.188
-pitch_scale = 0.57
+volume_db = 0.307
+pitch_scale = 1.32
 
 [node name="ScumbugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e5ug2")
-volume_db = -21.874
-pitch_scale = 3.03
+volume_db = -16.252
+pitch_scale = 4.0
+
+[node name="BeetleDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_w34n4")
+volume_db = -4.76
+pitch_scale = 0.5
 
 [node name="EarthquakeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qipc3")
