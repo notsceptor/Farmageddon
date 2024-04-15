@@ -93,47 +93,54 @@ text = "Exit
 "
 script = ExtResource("2_x5de5")
 
-[node name="GachaRoll" type="Control" parent="CanvasLayer"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 399.0
-offset_top = 144.0
-offset_right = 730.0
-offset_bottom = 472.0
+[node name="GachaRoll" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -164.0
+offset_right = 165.5
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="HBoxContainer" type="Control" parent="CanvasLayer/GachaRoll"]
-anchors_preset = 0
-offset_right = 336.0
-offset_bottom = 310.0
+layout_mode = 2
 
 [node name="RollButton" type="Button" parent="CanvasLayer/GachaRoll/HBoxContainer"]
 layout_mode = 2
-offset_left = 71.0
-offset_top = 250.0
-offset_right = 284.0
-offset_bottom = 292.0
+offset_left = -105.5
+offset_top = 139.0
+offset_right = 107.5
+offset_bottom = 181.0
 text = "Roll"
 
 [node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 187.0
-offset_right = 350.0
-offset_bottom = 220.0
+offset_left = -166.0
+offset_top = 88.0
+offset_right = 174.0
+offset_bottom = 121.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 187.0
-offset_right = 350.0
-offset_bottom = 220.0
+offset_left = -167.0
+offset_top = 97.0
+offset_right = 173.0
+offset_bottom = 130.0
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/HBoxContainer"]
 layout_mode = 0
-offset_left = 53.0
-offset_top = -37.0
-offset_right = 303.0
-offset_bottom = 213.0
+offset_left = -124.5
+offset_top = -171.0
+offset_right = 125.5
+offset_bottom = 79.0
 
 [node name="ResourcesContainer" type="Control" parent="CanvasLayer"]
 layout_mode = 3
