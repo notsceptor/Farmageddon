@@ -12,28 +12,23 @@ func _ready():
 	$BackButtonContainer.visible = false
 
 func _on_play_game_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	$MarginContainer/MainScreenContainer.visible = false
 	$MarginContainer/LevelSelectContainer.visible = true
 	$BackButtonContainer.visible = true
 
 func _on_easy_level_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(easy_level_path)
 
 func _on_medium_level_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(medium_level_path)
 	
 func _on_hard_level_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(hard_level_path)
 
 func _on_back_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	$MarginContainer/MainScreenContainer.visible = true
 	$MarginContainer/LevelSelectContainer.visible = false
 	$BackButtonContainer.visible = false
@@ -43,11 +38,9 @@ func hide_menu_screen_for_transition() -> void:
 	$MarginContainer.visible = false
 	
 func _on_exit_game_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().quit()
 
 
 func _on_open_inventory_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(inventory_path)
