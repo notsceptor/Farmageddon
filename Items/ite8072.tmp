@@ -1,0 +1,7 @@
+"pea_shooter": {
+	"name": "Pea Shooter",
+	"icon": "res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png",
+	"quantity": 1,
+	"damage": 1,
+	"IV": "50%"
+}

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bei3ipvwuvgxp"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/InventoryMenu.gd" id="1_7f823"]
+
+[node name="InventoryMenu" type="GridContainer"]
+script = ExtResource("1_7f823")
