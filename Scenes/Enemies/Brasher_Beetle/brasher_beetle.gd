@@ -10,6 +10,8 @@ var _path_progress: float = 0.0
 var _health = 60
 var _speed = 0.5
 var _size = 4
+var _deathsound = false
+
 
 # Charge mechanic variables
 var _charge_duration = 2.5  # Duration of the charge in seconds-
@@ -18,8 +20,6 @@ var _charge_speed_multiplier = 3.0  # Multiplier for the enemy's speed during th
 var _is_charging = false  # Flag to track if the enemy is currently charging
 var _charge_timer = 0.0  # Timer to track the charge duration
 var _charge_cooldown_timer = 0.0  # Timer to track the charge cooldown
-
-signal enemy_died
 
 func _ready():
 	health_bar.max_value = _health
@@ -31,9 +31,11 @@ func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		enemy_died.emit()
-		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
+		if _deathsound == false:
+			_deathsound = true
+			WaveManager.enemies_on_map -= 1
+			GlobalAudioPlayer.play_beetle_death_sound()
 
 	# Handle charging
 	if _is_charging:
