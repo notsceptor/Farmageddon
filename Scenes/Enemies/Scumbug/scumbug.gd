@@ -9,7 +9,6 @@ var _path_progress: float = 0.0
 var _health = 10
 var _speed = 3
 var _size = 1
-var _deathsound = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,11 +21,8 @@ func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
+		GlobalAudioPlayer.play_scumbug_death_sound()
 		remove_enemy()
-		if _deathsound == false:
-			_deathsound = true
-			WaveManager.enemies_on_map -= 1
-			GlobalAudioPlayer.play_scumbug_death_sound()
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
