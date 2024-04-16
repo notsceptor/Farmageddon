@@ -10,8 +10,6 @@ var _health = 20
 var _speed = 2
 var _size = 2
 
-signal enemy_died
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.max_value = _health
@@ -23,7 +21,6 @@ func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		enemy_died.emit()
 		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
 

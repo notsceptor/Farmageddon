@@ -1,10 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dtpqupsrhj1la"]
+[gd_scene load_steps=5 format=3 uid="uid://cai561451init"]
 
-[ext_resource type="PackedScene" uid="uid://cuh0bpfln0vny" path="res://Models/Enemies/Vulture.gltf" id="1_ph7mb"]
+[ext_resource type="PackedScene" uid="uid://j30ceaincsr6" path="res://Models/Enemies/Vulture.gltf" id="1_ph7mb"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_hci8s"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Vulture/vulture.gd" id="2_ka332"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_eos7e"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_rjjtx"]
 viewport_path = NodePath("SubViewport")
 
 [node name="Vulture_Model" instance=ExtResource("1_ph7mb")]
@@ -22,12 +22,10 @@ offset_top = -13.5
 offset_bottom = 13.5
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000438601, 1.26103, 0.236843)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000438601, 0.791627, -0.0364975)
 billboard = 1
-texture = SubResource("ViewportTexture_eos7e")
+texture = SubResource("ViewportTexture_rjjtx")
 
 [node name="HealthBarHideTimer" type="Timer" parent="." index="4"]
 wait_time = 3.0
 one_shot = true
-
-[connection signal="enemy_died" from="." to="." method="_on_enemy_died"]

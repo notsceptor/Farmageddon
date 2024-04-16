@@ -18,8 +18,6 @@ var spawn_cooldown_timer = 0.0
 # Spiderling scene path
 var spiderling_scene = preload("res://Scenes/Enemies/Goliath_Spider/goliath_spider_container.tscn")
 
-signal enemy_died
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.set_speed_scale(1.5)
@@ -36,7 +34,6 @@ func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		enemy_died.emit()
 		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
 

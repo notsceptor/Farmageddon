@@ -11,7 +11,6 @@ var _health = 45
 var _speed = 0.8
 var _size = 3
 
-signal enemy_died
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,7 +24,6 @@ func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		enemy_died.emit()
 		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
 

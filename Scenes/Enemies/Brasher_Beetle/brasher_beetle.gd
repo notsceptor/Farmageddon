@@ -19,7 +19,6 @@ var _is_charging = false  # Flag to track if the enemy is currently charging
 var _charge_timer = 0.0  # Timer to track the charge duration
 var _charge_cooldown_timer = 0.0  # Timer to track the charge cooldown
 
-signal enemy_died
 
 func _ready():
 	health_bar.max_value = _health
@@ -31,7 +30,6 @@ func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
-		enemy_died.emit()
 		GlobalAudioPlayer.play_snail_death_sound()
 		remove_enemy()
 
