@@ -26,6 +26,9 @@ var wave_won: bool
 func _process(_delta):
 	if wave_ongoing and !wave_won:
 		remaining_enemies_to_spawn.clear()
+	if !wave_ongoing:
+		GlobalAudioPlayer.stop_battle_music()
+		
 
 # Function that will get map difficulty data
 func get_map_difficulty_data():
@@ -66,6 +69,7 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 
 # Function that will start the wave
 func start_wave():
+	GlobalAudioPlayer.play_battle_music()
 	wave_ongoing = true
 	wave_won = true
 	print("Starting wave of:")
@@ -184,3 +188,5 @@ func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene]):
 		_choose_random_boss_enemy_and_spawn(sliced_enemy_array)
 		current_wave_is_boss_wave = false
 	current_wave_is_boss_wave = false
+	
+

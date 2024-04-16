@@ -1,5 +1,11 @@
 extends Node
 
+func play_battle_music():
+	$BattleThemeMusic.play()
+	
+func stop_battle_music():
+	$BattleThemeMusic.stop()
+
 func play_menu_click_sound():
 	$MenuClick.pitch_scale = randf_range(1.2, 1.6)
 	$MenuClick.play()
