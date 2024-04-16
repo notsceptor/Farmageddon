@@ -9,15 +9,16 @@ size = Vector3(1, 0.706177, 1.12222)
 [node name="Vulture_Container" instance=ExtResource("1_r3j77")]
 
 [node name="Vulture_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_pv8aj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.263807, 0)
 
 [node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.507682, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.705745, 0)
 
 [node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.260469, 0.139733)
 shape = SubResource("BoxShape3D_u1djb")
 
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Vulture_Model" method="_on_moving_state_processing"]
+[connection signal="state_entered" from="EnemyStateChart/CompoundState/Despawning" to="Path3D/PathFollow3D/Vulture_Model" method="_on_despawning_state_entered"]
 [connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Vulture_Model" method="_on_area_3d_area_entered"]
 [connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Vulture_Model" method="_on_area_3d_area_exited"]
-[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Vulture_Model" method="_on_area_damage_timer_timeout"]
