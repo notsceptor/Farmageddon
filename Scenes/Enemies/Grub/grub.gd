@@ -12,9 +12,10 @@ var _health = 25
 var _speed = 1
 var _size = 1
 var _deathsound = false
-var _can_burrow = 2 # Number of times the grub can burrow
-var _burrow_cooldown = 10.0 # 15 second cooldown between burrows
+var _can_burrow = 3 # Number of times the grub can burrow
+var _burrow_cooldown = 15.0 # 15 second cooldown between burrows
 var _last_burrow_time = 0.0 # Tracks the time of the last burrow
+var _is_burrowed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +35,10 @@ func _process(delta):
 			GlobalAudioPlayer.play_snail_death_sound()
 	if _can_burrow > 0 and Time.get_ticks_msec() - _last_burrow_time >= _burrow_cooldown * 1000:
 		burrow()
+	if _is_burrowed:
+		health_bar.visible = false
+	elif _health != 25 and !_is_burrowed:
+		health_bar.visible = true
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
@@ -63,20 +68,18 @@ func get_size() -> int:
 	return _size
 
 func burrow():
-	if health_bar.visible:
-		health_bar.visible = false
+	_is_burrowed = true
 	_can_burrow -= 1
 	_last_burrow_time = Time.get_ticks_msec()
 	animation_player.stop()
 	animation_player.play("Burrow")
 	await get_tree().create_timer(1.5).timeout
-	grub_container.global_position.y -= 100
+	grub_container.global_position.y -= 2
 	await get_tree().create_timer(3.0).timeout
-	grub_container.global_position.y += 100
 	animation_player.stop()
 	animation_player.play("Unburrow")
 	await get_tree().create_timer(1.5).timeout
+	grub_container.global_position.y += 2
 	animation_player.stop()
+	_is_burrowed = false
 	animation_player.play("Slither")
-	if _health != 25:
-		health_bar.visible = true
