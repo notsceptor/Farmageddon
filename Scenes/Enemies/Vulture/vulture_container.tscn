@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://m6yr53fb4uwd"]
+
+[ext_resource type="PackedScene" uid="uid://ko5i3cu7gfcj" path="res://Scenes/Enemies/enemy_container_template.tscn" id="1_01tvt"]
+[ext_resource type="PackedScene" uid="uid://scnpskeiqxbe" path="res://Scenes/Enemies/Vulture/vulture_model.tscn" id="2_36dsa"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_mfhti"]
+size = Vector3(0.8, 0.991211, 1)
+
+[node name="Vulture_Container" instance=ExtResource("1_01tvt")]
+
+[node name="Vulture_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_36dsa")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.218838, 0)
+
+[node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878679, 0.135785)
+
+[node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
+shape = SubResource("BoxShape3D_mfhti")
+
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Vulture_Model" method="_on_moving_state_processing"]
+[connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Vulture_Model" method="_on_area_3d_area_entered"]
+[connection signal="visibility_changed" from="Path3D/PathFollow3D/Area3D/CollisionShape3D" to="Path3D/PathFollow3D/Vulture_Model" method="_on_collision_shape_3d_visibility_changed"]
+[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Vulture_Model" method="_on_area_damage_timer_timeout"]
