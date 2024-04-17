@@ -5,20 +5,25 @@ var _path_progress: float = 0.0
 @onready var _path_follow_3d: PathFollow3D
 @onready var health_bar = $SubViewport/HealthBar3D
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var grub_container = get_node("../Area3D")
 
-var _health = 10
-var _speed = 3
+var _health = 25
+var _speed = 1
 var _size = 1
 var _deathsound = false
+var _burrow_cooldown = 15.0 # 15 second cooldown between burrows
+var _last_burrow_time = 0.0 # Tracks the time of the last burrow
+var _is_burrowed = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.max_value = _health
 	health_bar.value = _health
 	_path_follow_3d = get_node("../")
-	health_bar.visible = false # Hide the health bar initially
+	health_bar.visible = false  # Hide the health bar initially
 
-func _process(_delta):
+func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
@@ -27,7 +32,13 @@ func _process(_delta):
 		if _deathsound == false:
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
-			GlobalAudioPlayer.play_scumbug_death_sound()
+			GlobalAudioPlayer.play_snail_death_sound()
+	if Time.get_ticks_msec() - _last_burrow_time >= _burrow_cooldown * 1000:
+		burrow()
+	if _is_burrowed:
+		health_bar.visible = false
+	elif _health != 25 and !_is_burrowed:
+		health_bar.visible = true
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
@@ -39,7 +50,7 @@ func _on_area_3d_area_entered(area):
 		area_damage_to_take += area.damage
 	else:
 		if area.damage:
-			health_bar.visible = true
+			health_bar.visible = true # Show the health bar when taking damage
 			_health -= area.damage
 			health_bar.value -= area.damage
 
@@ -55,3 +66,18 @@ func _on_area_damage_timer_timeout():
 
 func get_size() -> int:
 	return _size
+
+func burrow():
+	_last_burrow_time = Time.get_ticks_msec()
+	animation_player.stop()
+	animation_player.play("Burrow")
+	await get_tree().create_timer(1.5).timeout
+	_is_burrowed = true
+	grub_container.global_position.y -= 2
+	await get_tree().create_timer(3.0).timeout
+	animation_player.play("Unburrow")
+	await get_tree().create_timer(1.5).timeout
+	animation_player.stop()
+	_is_burrowed = false
+	grub_container.global_position.y += 2
+	animation_player.play("Slither")

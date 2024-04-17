@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://b0erbxd88sjv1"]
+
+[ext_resource type="PackedScene" uid="uid://m67vi54tsdao" path="res://Models/Enemies/Grub.gltf" id="1_7soef"]
+[ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_isf54"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Grub/grub.gd" id="2_nprdf"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5nhse"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Grub_Model" instance=ExtResource("1_7soef")]
+script = ExtResource("2_nprdf")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Slither"
+
+[node name="SubViewport" type="SubViewport" parent="." index="2"]
+transparent_bg = true
+
+[node name="HealthBar3D" parent="SubViewport" index="0" instance=ExtResource("2_isf54")]
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519172, 0.1)
+billboard = 1
+texture = SubResource("ViewportTexture_5nhse")

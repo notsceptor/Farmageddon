@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://butd0l83cg3u6"]
+
+[ext_resource type="PackedScene" uid="uid://cehuk6oxx4qix" path="res://Models/Enemies/Trundle Boar.gltf" id="1_i47vx"]
+[ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_wtxsp"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Trundle_Boar/trundle_boar.gd" id="2_wwto7"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lnc7h"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Trundle_Boar_Model" instance=ExtResource("1_i47vx")]
+script = ExtResource("2_wwto7")
+
+[node name="R3" parent="Node/TrundleBoar/TrundleBoarBody/MainBody/Body/Legs" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.303125, 0.0942602, -0.126012)
+
+[node name="L1" parent="Node/TrundleBoar/TrundleBoarBody/MainBody/Body/Legs" index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.153125, 0.0942602, -0.126012)
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Trample"
+
+[node name="SubViewport" type="SubViewport" parent="." index="2"]
+disable_3d = true
+transparent_bg = true
+
+[node name="HealthBar3D" parent="SubViewport" index="0" instance=ExtResource("2_wtxsp")]
+offset_top = -13.5
+offset_bottom = 13.5
+
+[node name="Sprite3D" type="Sprite3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.000438601, 0.791627, -0.0364975)
+billboard = 1
+texture = SubResource("ViewportTexture_lnc7h")
+
+[node name="HealthBarHideTimer" type="Timer" parent="." index="4"]
+wait_time = 3.0
+one_shot = true

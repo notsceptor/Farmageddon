@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://cses8882l0cw2"]
+
+[ext_resource type="PackedScene" uid="uid://ko5i3cu7gfcj" path="res://Scenes/Enemies/enemy_container_template.tscn" id="1_7pvuf"]
+[ext_resource type="PackedScene" uid="uid://b0erbxd88sjv1" path="res://Scenes/Enemies/Grub/grub_model.tscn" id="2_ag251"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2dss4"]
+size = Vector3(0.386719, 0.439905, 1.09009)
+
+[node name="Grub_Container" instance=ExtResource("1_7pvuf")]
+
+[node name="Grub_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_ag251")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.10914, 0)
+
+[node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.292121, 0)
+
+[node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.0667204)
+shape = SubResource("BoxShape3D_2dss4")
+
+[connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Grub_Model" method="_on_moving_state_processing"]
+[connection signal="area_entered" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Grub_Model" method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Path3D/PathFollow3D/Area3D" to="Path3D/PathFollow3D/Grub_Model" method="_on_area_3d_area_exited"]
+[connection signal="timeout" from="AreaDamageTimer" to="Path3D/PathFollow3D/Grub_Model" method="_on_area_damage_timer_timeout"]
