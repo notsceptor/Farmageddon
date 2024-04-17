@@ -6,6 +6,7 @@ var _path_progress: float = 0.0
 @onready var health_bar = $SubViewport/HealthBar3D
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
 @onready var vulture_model: AnimationPlayer = $AnimationPlayer # Reference to the vulture's model and animation player
+@onready var vulture_container = get_node("../Area3D")
 
 var _health = 35
 var _max_health = 35
@@ -30,11 +31,16 @@ func _process(delta):
 		if _can_revive:
 			_start_revive()
 		if !_can_revive and !_is_reviving:
+			_speed = 0
 			remove_enemy()
 			if _deathsound == false:
 				_deathsound = true
 				WaveManager.enemies_on_map -= 1
 				GlobalAudioPlayer.play_scumbug_death_sound()
+	if _is_reviving:
+		health_bar.visible = false
+	elif _health != 25 and !_is_reviving:
+		health_bar.visible = true
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
@@ -66,10 +72,12 @@ func get_size() -> int:
 func _start_revive():
 	_can_revive = false
 	_is_reviving = true
+	vulture_container.global_position.y -= 2
 	vulture_model.stop()  # Pause the "Flap" animation
 	_speed = 0
 	vulture_model.play("Revival")  # Resume the "Flap" animation
 	await get_tree().create_timer(_revive_duration).timeout
+	vulture_container.global_position.y += 2
 	_health = _max_health
 	health_bar.value = _health
 	vulture_model.play("Flap")  # Resume the "Flap" animation

@@ -25,7 +25,7 @@ func rotate_towards_target(rtarget, delta):
 	
 	# Slerp the shooter node's basis towards the target basis
 	shooter_node.basis = shooter_node.basis.slerp(target_basis, acquire_slerp_progress)
-	acquire_slerp_progress += delta * 5
+	acquire_slerp_progress += delta * 3
 	
 	if acquire_slerp_progress > 1:
 		$StateChart.send_event("to_attacking")

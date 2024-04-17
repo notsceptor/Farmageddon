@@ -12,7 +12,6 @@ var _health = 25
 var _speed = 1
 var _size = 1
 var _deathsound = false
-var _can_burrow = 3 # Number of times the grub can burrow
 var _burrow_cooldown = 15.0 # 15 second cooldown between burrows
 var _last_burrow_time = 0.0 # Tracks the time of the last burrow
 var _is_burrowed = false
@@ -28,12 +27,13 @@ func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:
+		_speed = 0
 		remove_enemy()
 		if _deathsound == false:
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_snail_death_sound()
-	if _can_burrow > 0 and Time.get_ticks_msec() - _last_burrow_time >= _burrow_cooldown * 1000:
+	if Time.get_ticks_msec() - _last_burrow_time >= _burrow_cooldown * 1000:
 		burrow()
 	if _is_burrowed:
 		health_bar.visible = false
@@ -69,17 +69,14 @@ func get_size() -> int:
 
 func burrow():
 	_is_burrowed = true
-	_can_burrow -= 1
+	grub_container.global_position.y -= 2
 	_last_burrow_time = Time.get_ticks_msec()
 	animation_player.stop()
 	animation_player.play("Burrow")
-	await get_tree().create_timer(1.5).timeout
-	grub_container.global_position.y -= 2
 	await get_tree().create_timer(3.0).timeout
-	animation_player.stop()
 	animation_player.play("Unburrow")
 	await get_tree().create_timer(1.5).timeout
-	grub_container.global_position.y += 2
 	animation_player.stop()
 	_is_burrowed = false
+	grub_container.global_position.y += 2
 	animation_player.play("Slither")
