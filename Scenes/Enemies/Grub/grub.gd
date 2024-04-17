@@ -68,11 +68,12 @@ func get_size() -> int:
 	return _size
 
 func burrow():
-	_is_burrowed = true
-	grub_container.global_position.y -= 2
 	_last_burrow_time = Time.get_ticks_msec()
 	animation_player.stop()
 	animation_player.play("Burrow")
+	await get_tree().create_timer(1.5).timeout
+	_is_burrowed = true
+	grub_container.global_position.y -= 2
 	await get_tree().create_timer(3.0).timeout
 	animation_player.play("Unburrow")
 	await get_tree().create_timer(1.5).timeout
