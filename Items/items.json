@@ -16,7 +16,7 @@
   "honeycomb_harpoon": {
 	"name": "Honeycomb Harpoon",
 	"icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
-	"quantity": 2,
+	"quantity": 5,
 	"damage": 3,
 	"IV": "90%"
   }

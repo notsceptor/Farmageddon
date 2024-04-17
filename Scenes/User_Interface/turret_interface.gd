@@ -17,6 +17,12 @@ func _ready():
 
 		var texture = load(turret_info["icon"])
 		turret_texture.texture = texture
+		
+		var quantity_label = Label.new()
+		quantity_label.text = str(turret_info["quantity"])
+		quantity_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+		quantity_label.add_theme_constant_override("font_size", 16)
+		quantity_label.position = Vector2(turret_texture.texture.get_width() - 20, 5)
 
 		var delete_button = Button.new()
 		delete_button.text = "Delete"
@@ -28,6 +34,7 @@ func _ready():
 
 		var container = VBoxContainer.new()
 		container.add_child(turret_texture)
+		container.add_child(quantity_label)
 		container.add_child(delete_button)
 		container.add_child(place_button)
 
