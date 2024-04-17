@@ -99,12 +99,7 @@ text = "DEBUG SPAWN ENEMY"
 layout_mode = 2
 text = "REFRESH MAP (DEBUG)"
 
-[node name="Inventory" type="Button" parent="MarginContainer/HBoxContainer"]
-layout_mode = 2
-text = "Inventory"
-
 [node name="ReloadSceneText" type="Label" parent="."]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -305,7 +300,6 @@ texture = ExtResource("37_6yre0")
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]

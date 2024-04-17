@@ -1,6 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://byw5iptfhuaml"]
-
-[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/Hotbar.gd" id="1_dsf70"]
-
-[node name="Hotbar" type="GridContainer"]
-script = ExtResource("1_dsf70")

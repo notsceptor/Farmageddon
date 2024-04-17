@@ -23,7 +23,6 @@ PathGenInstance="*res://Scripts/path_generator.gd"
 WaveManager="*res://Scenes/Globals/wave_manager.gd"
 GlobalAudioPlayer="*res://Scenes/Globals/global_audio_player.tscn"
 CurrencyManager="*res://Scenes/Globals/currency_manager.gd"
-Inventory="*res://Scenes/Globals/inventory.gd"
 
 [editor]
 
