@@ -39,7 +39,7 @@ func _process(delta):
 				GlobalAudioPlayer.play_scumbug_death_sound()
 	if _is_reviving:
 		health_bar.visible = false
-	elif _health != 25 and !_is_reviving:
+	elif !_can_revive and !_is_reviving:
 		health_bar.visible = true
 
 func _on_moving_state_processing(delta):
