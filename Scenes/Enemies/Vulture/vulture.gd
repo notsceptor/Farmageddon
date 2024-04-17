@@ -9,7 +9,7 @@ var _path_progress: float = 0.0
 @onready var vulture_container = get_node("../Area3D")
 
 var _health = 35
-var _max_health = 35
+var _max_health: int
 var _speed = 1.5
 var _size = 4
 var _can_revive = true  # Flag to track if the vulture can revive
@@ -19,6 +19,7 @@ var _deathsound = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_max_health = _health
 	health_bar.max_value = _max_health
 	health_bar.value = _health
 	_path_follow_3d = get_node("../")
