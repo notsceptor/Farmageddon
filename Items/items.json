@@ -1,31 +1,23 @@
 {
-	"pea_shooter": {
-		"name": "Pea Shooter",
-		"icon": "res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png",
-		"quantity": 1,
-		"damage": 1,
-		"IV": "50%"
-	},
-	"carrot_cannon": {
-		"name": "Carrot Cannon",
-		"icon": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png",
-		"scene": "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn",
-		"quantity": 1,
-		"damage": 2,
-		"IV": "75%"
-	},
-	"honeycomb_harpoon": {
-		"name": "Honeycomb Harpoon",
-		"icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
-		"quantity": 5,
-		"damage": 3,
-		"IV": "90%"
-	},
-	"honeycomb_harpoon": {
-		"name": "Honeycomb Harpoon",
-		"icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
-		"quantity": 5,
-		"damage": 3,
-		"IV": "90%"
-	 }
+  "pea_shooter": {
+	"name": "Pea Shooter",
+	"icon": "res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png",
+	"quantity": 1,
+	"damage": 1,
+	"IV": "50%"
+  },
+  "carrot_cannon": {
+	"name": "Carrot Cannon",
+	"icon": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png",
+	"quantity": 1,
+	"damage": 2,
+	"IV": "75%"
+  },
+  "honeycomb_harpoon": {
+	"name": "Honeycomb Harpoon",
+	"icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	"quantity": 5,
+	"damage": 3,
+	"IV": "90%"
+  }
 }
