@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=45 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -39,7 +39,6 @@
 [ext_resource type="Texture2D" uid="uid://c4lxlu456xdjv" path="res://Textures/gem.png" id="35_xo4ej"]
 [ext_resource type="Texture2D" uid="uid://dvfe57grn5kdv" path="res://Textures/scrap_piece.png" id="36_si6co"]
 [ext_resource type="Texture2D" uid="uid://d2wilh1kthy5e" path="res://Textures/gold_piece.png" id="37_6yre0"]
-[ext_resource type="PackedScene" uid="uid://di55xnv6ob341" path="res://Scenes/User_Interface/turret_interface.tscn" id="40_xo24y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -100,6 +99,10 @@ text = "DEBUG SPAWN ENEMY"
 [node name="TestRefreshMapButton" type="Button" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
 text = "REFRESH MAP (DEBUG)"
+
+[node name="Inventory" type="Button" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+text = "Inventory"
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -300,17 +303,10 @@ position = Vector2(160, 112)
 scale = Vector2(0.129, 0.13)
 texture = ExtResource("37_6yre0")
 
-[node name="TurretInterface" parent="." instance=ExtResource("40_xo24y")]
-visible = false
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
+[connection signal="pressed" from="MarginContainer/HBoxContainer/Inventory" to="." method="_on_inventory_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]

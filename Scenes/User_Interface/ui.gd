@@ -15,9 +15,6 @@ extends CanvasLayer
 @onready var scrap_metal_progress_bar: ProgressBar = $ResourcesContainer/ScrapProgress
 @onready var gems_progress_bar: ProgressBar = $ResourcesContainer/GemsProgress
 
-#turret interface
-@onready var turret_interface: ColorRect = $TurretInterface
-
 #debugs scene implementation
 @export var debug_enemy: PackedScene
 
@@ -32,10 +29,6 @@ func _ready():
 	CurrencyManager.ui_node = self
 	
 	update_UI()
-	
-func _input(ev):
-	if ev is InputEventKey and ev.keycode == KEY_E and ev.pressed:
-		turret_interface.visible = !turret_interface.visible
 
 func update_UI():
 	gold_label.text = str(Globals.gold)
@@ -66,3 +59,6 @@ func _on_activity_button_place_turret(turret_scene, location):
 func _on_debug_enemy_button_pressed():
 	var enemy = debug_enemy.instantiate()
 	add_child(enemy)
+	
+func _on_inventory_pressed():
+	TransitionLayer.change_scene("res://Scenes/User_Interface/turret_interface.tscn")
