@@ -10,6 +10,7 @@
 		"name": "Carrot Cannon",
 		"icon": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png",
 		"scene": "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn",
+		"draggable": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf",
 		"quantity": 1,
 		"damage": 2,
 		"IV": "75%"
