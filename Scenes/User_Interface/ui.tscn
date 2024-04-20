@@ -55,6 +55,7 @@ outline_size = 2
 outline_color = Color(0, 0, 0, 1)
 
 [sub_resource type="SystemFont" id="SystemFont_610fn"]
+subpixel_positioning = 0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ksora"]
 font = SubResource("SystemFont_610fn")
