@@ -308,7 +308,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[connection signal="place_turret" from="." to="TurretInterface" method="_on_ui_place_turret"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]

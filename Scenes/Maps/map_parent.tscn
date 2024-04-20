@@ -1,21 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=5 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
 [ext_resource type="PackedScene" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
 [ext_resource type="PackedScene" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
-[ext_resource type="Shader" path="res://Scenes/Maps/post_effect.gdshader" id="3_wh8o1"]
-
-[sub_resource type="QuadMesh" id="QuadMesh_viny5"]
-flip_faces = true
-size = Vector2(2, 2)
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8d20l"]
-render_priority = 0
-shader = ExtResource("3_wh8o1")
-shader_parameter/_thickness = 0.5
-shader_parameter/_detail = 30.0
-shader_parameter/_depth_threshold = 0.0
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
@@ -27,14 +15,6 @@ transform = Transform3D(-7.16867e-07, 0, -16.4, 0, 16.4, 0, 16.4, 0, -7.16867e-0
 transform = Transform3D(1, 0, 0, 0, 0.455545, 0.890213, 0, -0.890213, 0.455545, 7.398, 8.351, 10)
 current = true
 fov = 70.0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(1, 0, 0, 0, 1, -1.49012e-07, 0, -2.98023e-08, 1, 0, -0.0787001, -1.0387)
-visible = false
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_viny5")
-skeleton = NodePath("../..")
-surface_material_override/0 = SubResource("ShaderMaterial_8d20l")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 148.217, -363)
@@ -52,6 +32,6 @@ shadow_opacity = 0.75
 visible = false
 
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
-[connection signal="place_turret" from="UI" to="UI" method="_on_place_turret"]
+[connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]
 [connection signal="refresh_map_button_pressed" from="UI" to="." method="_on_ui_refresh_map_button_pressed"]
 [connection signal="continue_game_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_continue_game_button_pressed"]

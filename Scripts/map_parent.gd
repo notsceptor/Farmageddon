@@ -19,7 +19,6 @@ var RAYCAST_LENGTH:float = 100
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
-		print("Script path: ", get_script().resource_path)
 		$PauseScreen.visible = !$PauseScreen.visible
 		$UI.visible = !$UI.visible
 	
@@ -101,11 +100,10 @@ func _on_pause_screen_continue_game_button_pressed():
 	$UI.visible = !$UI.visible
 
 func _on_ui_place_turret(turret_scene, location):
-	turret_scene = load(turret_scene)
 	var turret_to_add = turret_scene.instantiate()
 	$Turrets.add_child(turret_to_add)
 	turret_to_add.global_position = location
-
+	
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false
 	WaveManager.start_wave()
