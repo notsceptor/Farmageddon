@@ -204,6 +204,10 @@ activity_button_icon = ExtResource("31_b3irp")
 activity_draggable = ExtResource("23_oi44k")
 turret_to_instantiate = ExtResource("24_57wyc")
 
+[node name="Workshop" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+
 [node name="ResourcesContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 1

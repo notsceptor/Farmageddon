@@ -27,7 +27,3 @@ var gold: int = 10000
 var scrap_metal: int = 0
 var gems: int = 0
 #endregion
-
-#region Inventory Section
-var player_inventory: Array = []
-#endregion
