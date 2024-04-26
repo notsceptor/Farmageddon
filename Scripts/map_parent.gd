@@ -6,7 +6,7 @@ var RAYCAST_LENGTH:float = 100
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
-@onready var refresh_wave_button: Button = $UI/MarginContainer2/TestRefreshMapButton
+@onready var refresh_wave_button: Button = $UI/MarginContainer/HBoxContainer/TestRefreshMapButton
 
 # THESE VARIABLES NEED TO BE ASSIGNED WHENEVER LEVELS
 # ARE ADDED IN CODE ON THE MAIN NODE RIGHT SIDE

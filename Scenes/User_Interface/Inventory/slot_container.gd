@@ -19,4 +19,5 @@ func display_item_slots(cols: int, rows: int):
 func _on_Inventory_items_changed(indexes: Array[int]):
 	for index in indexes:
 		if index < len(slots):
-			slots[index].display_item(Inventory.items[index])
+			var item_slot = slots[index]
+			item_slot.display_item(Inventory.items[index])

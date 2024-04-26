@@ -3,7 +3,7 @@ extends CanvasLayer
 #wave number info
 @onready var wave_number_label: Label = $MarginContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $MarginContainer/HBoxContainer/NextWaveButton
-@onready var refresh_wave_button: Button = $MarginContainer2/TestRefreshMapButton
+@onready var refresh_wave_button: Button = $MarginContainer/HBoxContainer/TestRefreshMapButton
 
 #inventory management
 @onready var hotbar = $Hotbar
@@ -25,7 +25,6 @@ extends CanvasLayer
 
 signal next_wave_button_pressed
 signal refresh_map_button_pressed
-signal place_turret(turret_scene, location)
 
 func _ready():
 	for item_slot in get_tree().get_nodes_in_group("item_slot"):
@@ -65,6 +64,7 @@ func drag_item(index):
 		print("pick item")
 	elif !inventory_item and dragged_item:
 		drag_preview.dragged_item = Inventory.set_item(index, dragged_item)
+		print(dragged_item)
 		print("drop item")
 	elif inventory_item and dragged_item:
 		drag_preview.dragged_item = Inventory.set_item(index, dragged_item)
@@ -87,10 +87,6 @@ func _on_next_wave_button_pressed():
 func _on_test_refresh_map_button_pressed():
 	refresh_map_button_pressed.emit()
 
-func _on_activity_button_place_turret(turret_scene, location):
-	place_turret.emit(turret_scene, location)
-
 func _on_debug_enemy_button_pressed():
 	var enemy = debug_enemy.instantiate()
 	add_child(enemy)
-	

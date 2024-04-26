@@ -1,16 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://bymt15mhlfxlr"]
+[gd_scene load_steps=5 format=3 uid="uid://bymt15mhlfxlr"]
 
 [ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="1_pc84t"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/ItemSlot.gd" id="1_ribrh"]
+[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="2_p2jlc"]
+[ext_resource type="PackedScene" uid="uid://14p4y3jsm7aa" path="res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf" id="3_qw62k"]
 
 [node name="ItemSlot" type="ColorRect" groups=["item_slot"]]
 custom_minimum_size = Vector2(96, 96)
 color = Color(0.2, 0.2, 0.2, 1)
 script = ExtResource("1_ribrh")
+activity_draggable = ExtResource("2_p2jlc")
+turret_to_instantiate = ExtResource("3_qw62k")
 
 [node name="ItemQuantity" type="Label" parent="."]
+layout_mode = 0
 text = "1"
 horizontal_alignment = 2
 
 [node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 0
 texture = ExtResource("1_pc84t")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

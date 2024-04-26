@@ -14,16 +14,17 @@ func _ready():
 		items.append({})
 
 func set_item(index, item):
-	var previous_item = items[index].duplicate()
-	print(items)
+	var previous_item = items[index]
 	items[index] = item
-	emit_signal("items_changed", [index])
+	var test : Array[int] = [index]
+	emit_signal("items_changed", test)
 	return previous_item
 
 func remove_item(index):
 	var previous_item = items[index].duplicate()
 	items[index].clear()
-	emit_signal("items_changed", [index])
+	var test : Array[int] = [index]
+	emit_signal("items_changed", test)
 	return previous_item
 
 func set_item_quantity(index, amount):
@@ -31,7 +32,8 @@ func set_item_quantity(index, amount):
 	if items[index].quantity <= 0:
 		remove_item(index)
 	else:
-		emit_signal("items_changed", [index])
+		var test : Array[int] = [index]
+		emit_signal("items_changed", test)
 
 func _load_items():
 	var file = FileAccess.open("res://Items/items.json", FileAccess.READ)
@@ -40,6 +42,7 @@ func _load_items():
 		var items_data = JSON.parse_string(json_content)
 		for item_data in items_data.values():
 			items.append(item_data)
+		print(items)
 	else:
 		printerr("Failed to open items.json file")
 
