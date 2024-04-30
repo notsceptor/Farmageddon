@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://chplx2vtmkqtn"
-path="res://.godot/imported/Grub.gltf-8ee368e8c1326e916c144f0d9615e1a5.scn"
+uid="uid://c4nejwvrhmj3"
+path="res://.godot/imported/background.gltf-7cf747df08cdcda271fd7d47617c19fe.scn"
 
 [deps]
 
-source_file="res://Models/Enemies/Grub.gltf"
-dest_files=["res://.godot/imported/Grub.gltf-8ee368e8c1326e916c144f0d9615e1a5.scn"]
+source_file="res://Models/Environment/background.gltf"
+dest_files=["res://.godot/imported/background.gltf-7cf747df08cdcda271fd7d47617c19fe.scn"]
 
 [params]
 
@@ -31,7 +31,7 @@ animation/remove_immutable_tracks=true
 import_script/path=""
 _subresources={
 "animations": {
-"Slither": {
+"idle": {
 "save_to_file/enabled": false,
 "save_to_file/keep_custom_tracks": "",
 "save_to_file/path": "",

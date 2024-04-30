@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i5qdo3jxnwc8"
-path.s3tc="res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"
+uid="uid://dnteyk5c3r4ln"
+path="res://.godot/imported/tile_large_rock_0.png-6f8c726c6695f06659360e8d3e34caa3.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "8115aa33abb666d0be32645a8b74d2f1"
+"md5": "fe36802e5281340c26ef3efdc138a633"
 }
 
 [deps]
 
-source_file="res://Models/Enemies/Grub_0.png"
-dest_files=["res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"]
+source_file="res://Models/Environment/Tileset/tile_large_rock_0.png"
+dest_files=["res://.godot/imported/tile_large_rock_0.png-6f8c726c6695f06659360e8d3e34caa3.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

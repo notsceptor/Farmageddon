@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ab4qbt03shw"]
 
-[ext_resource type="PackedScene" uid="uid://dq5s6ectayygr" path="res://Models/Environment/Tiles/tile_endRoundSpawn.glb" id="1_khps8"]
+[ext_resource type="PackedScene" uid="uid://dtpp8p5orhwbu" path="res://Models/Environment/Tileset/tile_endPath.gltf" id="1_15q7a"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4eccx"]
 size = Vector3(1, 0.2, 1)
 
 [node name="tile_endRoundSpawn" type="Area3D" groups=["path"]]
 
-[node name="tile_endRoundSpawn" parent="." instance=ExtResource("1_khps8")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_4eccx")
+
+[node name="blockbench_export" parent="." instance=ExtResource("1_15q7a")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

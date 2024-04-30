@@ -1,11 +1,19 @@
-[gd_scene load_steps=5 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=6 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
 [ext_resource type="PackedScene" uid="uid://c5kwk52a3thh2" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
 [ext_resource type="PackedScene" uid="uid://fsuade0xgdev" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
 
+[sub_resource type="Environment" id="Environment_5fkbk"]
+background_energy_multiplier = 2.0
+ambient_light_color = Color(0.899582, 0.730358, 0.430487, 1)
+ssil_enabled = true
+sdfgi_energy = 3.0
+volumetric_fog_density = 0.0
+
 [node name="MapParentNode" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0297012, 0, 0.000464439)
 script = ExtResource("1_j0lmf")
 
 [node name="FarmBackground" parent="." instance=ExtResource("2_a2b5f")]
@@ -17,12 +25,14 @@ current = true
 fov = 70.0
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 148.217, -363)
-light_color = Color(0.858824, 0.768627, 0.631373, 1)
-light_energy = 2.0
-light_bake_mode = 1
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 396.766, 5.11073, -200.538)
+light_color = Color(0.887032, 0.757245, 0.616513, 1)
+light_energy = 1.384
+light_volumetric_fog_energy = 16.0
 shadow_enabled = true
+shadow_normal_bias = 0.0
 shadow_opacity = 0.75
+sky_mode = 1
 
 [node name="Turrets" type="Node3D" parent="."]
 
@@ -30,6 +40,9 @@ shadow_opacity = 0.75
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tla3e")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_5fkbk")
 
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
 [connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5kwk52a3thh2"]
+[gd_scene load_steps=3 format=3 uid="uid://c5kwk52a3thh2"]
 
 [ext_resource type="PackedScene" uid="uid://df1dso124gg70" path="res://Models/Environment/farm_landscape_background.gltf" id="1_tmdj4"]
+[ext_resource type="PackedScene" uid="uid://c4nejwvrhmj3" path="res://Models/Environment/background.gltf" id="2_kp3mn"]
 
 [node name="FarmBackground" instance=ExtResource("1_tmdj4")]
 
@@ -9,3 +10,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.726472, 0.0891994, 0.83305
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle_drive"
+
+[node name="background" parent="." index="2" instance=ExtResource("2_kp3mn")]
+transform = Transform3D(-3.25385e-08, 0, 0.573158, 0, 0.7, 0, -0.744393, 0, -2.50535e-08, -0.005, -0.02, 0.01)
+visible = false

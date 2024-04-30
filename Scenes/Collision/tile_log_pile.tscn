@@ -1,14 +1,14 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2qc7bcn85yc2"]
 
-[ext_resource type="PackedScene" uid="uid://cctsrxulcoluu" path="res://Models/Environment/Tiles/tile_rock.glb" id="1_hdjlo"]
+[ext_resource type="PackedScene" uid="uid://c6jbfu5ak2dqi" path="res://Models/Environment/Tileset/tile_wood_pile.gltf" id="1_ni7kg"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0icxs"]
 size = Vector3(1, 0.8, 1)
 
-[node name="tile_rock" type="Area3D" groups=["tile_rock"]]
-
-[node name="tile_rock" parent="." instance=ExtResource("1_hdjlo")]
+[node name="tile_log_pile" type="Area3D" groups=["tile_rock"]]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.4, 0)
 shape = SubResource("BoxShape3D_0icxs")
+
+[node name="tile_log_pile" parent="." instance=ExtResource("1_ni7kg")]

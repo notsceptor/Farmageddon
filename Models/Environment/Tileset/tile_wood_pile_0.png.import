@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i5qdo3jxnwc8"
-path.s3tc="res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"
+uid="uid://d2uuu400sk1cy"
+path="res://.godot/imported/tile_wood_pile_0.png-8914327b06ad3c05610878fa7e3b73d0.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "8115aa33abb666d0be32645a8b74d2f1"
+"md5": "04904faa58edac615796ea46aadc2058"
 }
 
 [deps]
 
-source_file="res://Models/Enemies/Grub_0.png"
-dest_files=["res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"]
+source_file="res://Models/Environment/Tileset/tile_wood_pile_0.png"
+dest_files=["res://.godot/imported/tile_wood_pile_0.png-8914327b06ad3c05610878fa7e3b73d0.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
