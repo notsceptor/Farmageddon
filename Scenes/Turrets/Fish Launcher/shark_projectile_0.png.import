@@ -2,23 +2,24 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvf1bbi5b7jfb"
-path="res://.godot/imported/Fish Launcher_0.png-105ecfeeaaf9f128dcf3aec0f03b61b0.ctex"
+uid="uid://1plp0m1frj5e"
+path.s3tc="res://.godot/imported/shark_projectile_0.png-f1f9137936807bb9de8849eaa149c6e9.s3tc.ctex"
 metadata={
-"vram_texture": false
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
 }
 generator_parameters={
-"md5": "569acce1ea3005e5f01fea043b846b01"
+"md5": "f7d1797d71107295001168f580e49a90"
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Fish Launcher/Fish Launcher_0.png"
-dest_files=["res://.godot/imported/Fish Launcher_0.png-105ecfeeaaf9f128dcf3aec0f03b61b0.ctex"]
+source_file="res://Scenes/Turrets/Fish Launcher/shark_projectile_0.png"
+dest_files=["res://.godot/imported/shark_projectile_0.png-f1f9137936807bb9de8849eaa149c6e9.s3tc.ctex"]
 
 [params]
 
-compress/mode=0
+compress/mode=2
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

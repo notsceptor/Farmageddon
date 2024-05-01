@@ -6,6 +6,8 @@ var last_fire_time: int
 @export var projectiles_to_shoot_at_a_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
+@export var large_projectile_type: PackedScene
+@export var extra_large_projectile_type: PackedScene
 @onready var fish_launcher_anim: AnimationPlayer = $FishLauncher/AnimationPlayer
 
 @onready var gunshot = $gunshot
@@ -36,7 +38,15 @@ func _maybe_fire_turret_projectile():
 		if fish_launcher_anim.current_animation_position >= 0.8 && current_enemy == targeted_enemy:
 			gunshot.pitch_scale = randf_range(1.3, 1.5)
 			gunshot.play()
-			var projectile: Projectile = projectile_type.instantiate()
+			var projectile_type_to_use
+			var projectile_chance = randf()
+			if projectile_chance < 0.6:
+				projectile_type_to_use = projectile_type
+			elif projectile_chance < 0.9:
+				projectile_type_to_use = large_projectile_type
+			else:
+				projectile_type_to_use = extra_large_projectile_type
+			var projectile: Projectile = projectile_type_to_use.instantiate()
 			projectile.starting_position = $FishLauncher/Node/FishLauncher/Aim/CannonTop/BackEnd/Arm/Barrel/ProjectileSpawnMarker.global_position
 			projectile.target = current_enemy
 			projectile.speed = modified_projectile_speed

@@ -8,7 +8,11 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="Vulture_Model" instance=ExtResource("1_45xww")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.188156, 0)
 script = ExtResource("2_qiufu")
+
+[node name="cube9" parent="Node/Vulture/VultureBody/MainBody/LowerHalf/Body/Chest" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.490625, 0.10625)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "Flap"

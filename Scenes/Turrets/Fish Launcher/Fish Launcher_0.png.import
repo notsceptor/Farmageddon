@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvf1bbi5b7jfb"
-path="res://.godot/imported/Fish Launcher_0.png-105ecfeeaaf9f128dcf3aec0f03b61b0.ctex"
+uid="uid://ipulhsepc7w8"
+path="res://.godot/imported/Fish Launcher_0.png-2e77dfae7f34c84632a6cde21a97ff93.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "569acce1ea3005e5f01fea043b846b01"
+"md5": "384ee2777387760f31eb2574e14757ed"
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Fish Launcher/Fish Launcher_0.png"
-dest_files=["res://.godot/imported/Fish Launcher_0.png-105ecfeeaaf9f128dcf3aec0f03b61b0.ctex"]
+source_file="res://Scenes/Turrets/Fish Launcher/Fish Launcher_0.png"
+dest_files=["res://.godot/imported/Fish Launcher_0.png-2e77dfae7f34c84632a6cde21a97ff93.ctex"]
 
 [params]
 

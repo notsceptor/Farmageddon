@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://d4cmhd0n6ie37"
+path="res://.godot/imported/Shark Chomp.mp3-c1879b0f4e189d1f82bdead2606fa87e.mp3str"
+
+[deps]
+
+source_file="res://audio/Shark Chomp.mp3"
+dest_files=["res://.godot/imported/Shark Chomp.mp3-c1879b0f4e189d1f82bdead2606fa87e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
