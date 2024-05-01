@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=37 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -33,6 +33,8 @@
 [ext_resource type="Texture2D" uid="uid://mpwh0nhtnaxp" path="res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png" id="25_gnr1b"]
 [ext_resource type="Texture2D" uid="uid://df2vyfdq7yk2e" path="res://Models/Turrets/Radish Rocket/Radish_Rocket_Cover.png" id="28_pihrb"]
 [ext_resource type="Texture2D" uid="uid://djkswxafqccgc" path="res://Models/Turrets/Spore Sprayer/Spore_Sprayer_Cover.png" id="31_b3irp"]
+[ext_resource type="PackedScene" uid="uid://23bx8ewael2v" path="res://Models/Turrets/Fish Launcher/Fish Launcher.gltf" id="34_wfgoc"]
+[ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -173,6 +175,12 @@ activity_button_icon = ExtResource("31_b3irp")
 activity_draggable = ExtResource("23_oi44k")
 turret_to_instantiate = ExtResource("24_57wyc")
 
+[node name="fish" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("34_wfgoc")
+turret_to_instantiate = ExtResource("35_nmxdp")
+
 [node name="Workshop" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
@@ -190,3 +198,4 @@ offset_bottom = 8.0
 [connection signal="place_turret" from="HBoxContainer/strawberry" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/spore" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/fish" to="." method="_on_activity_button_place_turret"]
