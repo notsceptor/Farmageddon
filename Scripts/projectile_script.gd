@@ -20,6 +20,9 @@ func _ready():
 		update_direction()
 
 func _process(delta):
+	# if at any point the projectile would "hit" underneath the map floor, delete it
+	if global_position.y < -1:
+		queue_free()
 	if target != null:
 		# Accelerate the projectile towards the end
 		modified_projectile_speed = min(modified_projectile_speed + acceleration * delta, speed * 2)

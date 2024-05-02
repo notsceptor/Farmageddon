@@ -210,7 +210,7 @@ _bundled = {
 
 [node name="FishLauncherContainer" instance=ExtResource("1_mncut")]
 script = ExtResource("2_240dc")
-fire_rate_ms = 2000
+fire_rate_ms = 2500
 projectiles_to_shoot_at_a_time = 1
 projectile_speed = 3.0
 projectile_type = SubResource("PackedScene_o8v0b")

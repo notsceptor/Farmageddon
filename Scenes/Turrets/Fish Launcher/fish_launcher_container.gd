@@ -34,21 +34,22 @@ func _on_fish_launcher_area_exited(area):
 func _maybe_fire_turret_projectile():
 	var targeted_enemy = current_enemy
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
-		fish_launcher_anim.play("Toss")
-		if fish_launcher_anim.current_animation_position >= 0.8 && current_enemy == targeted_enemy:
-			gunshot.pitch_scale = randf_range(1.3, 1.5)
-			gunshot.play()
-			var projectile_type_to_use
-			var projectile_chance = randf()
-			if projectile_chance < 0.6:
-				projectile_type_to_use = projectile_type
-			elif projectile_chance < 0.9:
-				projectile_type_to_use = large_projectile_type
-			else:
-				projectile_type_to_use = extra_large_projectile_type
-			var projectile: Projectile = projectile_type_to_use.instantiate()
-			projectile.starting_position = $FishLauncher/Node/FishLauncher/Aim/CannonTop/BackEnd/Arm/Barrel/ProjectileSpawnMarker.global_position
-			projectile.target = current_enemy
-			projectile.speed = modified_projectile_speed
-			add_child(projectile)
-			last_fire_time = Time.get_ticks_msec()
+		if current_enemy:
+			fish_launcher_anim.play("Toss")
+			if fish_launcher_anim.current_animation_position >= 0.8 && current_enemy == targeted_enemy:
+				gunshot.pitch_scale = randf_range(1.3, 1.5)
+				gunshot.play()
+				var projectile_type_to_use
+				var projectile_chance = randf()
+				if projectile_chance < 0.6:
+					projectile_type_to_use = projectile_type
+				elif projectile_chance < 0.9:
+					projectile_type_to_use = large_projectile_type
+				else:
+					projectile_type_to_use = extra_large_projectile_type
+				var projectile: Projectile = projectile_type_to_use.instantiate()
+				projectile.starting_position = $FishLauncher/Node/FishLauncher/Aim/CannonTop/BackEnd/Arm/Barrel/ProjectileSpawnMarker.global_position
+				projectile.target = current_enemy
+				projectile.speed = modified_projectile_speed
+				add_child(projectile)
+				last_fire_time = Time.get_ticks_msec()
