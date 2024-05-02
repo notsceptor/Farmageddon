@@ -1,11 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5kwk52a3thh2"]
+[gd_scene load_steps=2 format=3 uid="uid://baspdyae0jowr"]
 
-[ext_resource type="PackedScene" uid="uid://df1dso124gg70" path="res://Models/Environment/farm_landscape_background.gltf" id="1_tmdj4"]
+[ext_resource type="PackedScene" uid="uid://tcap4f6fx0tl" path="res://Models/Environment/farm_landscape_background.gltf" id="1_tmdj4"]
 
 [node name="FarmBackground" instance=ExtResource("1_tmdj4")]
 
-[node name="truck" parent="Node" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.726472, 0.0891994, 0.83305)
+[node name="truck" parent="Node/background" index="7"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7375, 0, 0)
 
 [node name="AnimationPlayer" parent="." index="1"]
 autoplay = "idle_drive"

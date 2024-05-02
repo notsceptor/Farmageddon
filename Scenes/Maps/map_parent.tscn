@@ -1,9 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=6 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
-[ext_resource type="PackedScene" uid="uid://c5kwk52a3thh2" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
+[ext_resource type="PackedScene" uid="uid://baspdyae0jowr" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
 [ext_resource type="PackedScene" uid="uid://fsuade0xgdev" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
+
+[sub_resource type="Environment" id="Environment_n2iyb"]
+background_mode = 2
+background_energy_multiplier = 0.0
+ambient_light_source = 2
+ambient_light_color = Color(0.999732, 0.840678, 0.755571, 1)
+ambient_light_energy = 0.6
+reflected_light_source = 2
+tonemap_mode = 3
+tonemap_exposure = 0.8
+fog_enabled = true
+fog_light_color = Color(0.679718, 0.511955, 0.357617, 1)
+fog_light_energy = 0.83
+fog_aerial_perspective = 0.305
+volumetric_fog_density = 0.3868
+volumetric_fog_albedo = Color(0.913164, 0.588917, 0.489397, 1)
+volumetric_fog_length = 74.78
+volumetric_fog_temporal_reprojection_amount = 0.85
 
 [node name="MapParentNode" type="Node3D"]
 script = ExtResource("1_j0lmf")
@@ -30,6 +48,9 @@ shadow_opacity = 0.75
 
 [node name="PauseScreen" parent="." instance=ExtResource("3_tla3e")]
 visible = false
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_n2iyb")
 
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
 [connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]
