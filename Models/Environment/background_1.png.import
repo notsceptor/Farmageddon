@@ -2,24 +2,23 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://i5qdo3jxnwc8"
-path.s3tc="res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"
+uid="uid://dyebyfbjcvbs6"
+path="res://.godot/imported/background_1.png-9d03866c73f1b736a3a4e57ddc5be1bf.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "8115aa33abb666d0be32645a8b74d2f1"
+"md5": "0db0745a20e3fb06789d246983739a9e"
 }
 
 [deps]
 
-source_file="res://Models/Enemies/Grub_0.png"
-dest_files=["res://.godot/imported/Grub_0.png-7e2059f8436794c454be7176bf4d393b.s3tc.ctex"]
+source_file="res://Models/Environment/background_1.png"
+dest_files=["res://.godot/imported/background_1.png-9d03866c73f1b736a3a4e57ddc5be1bf.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1

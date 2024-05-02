@@ -8,9 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://hprtrhkajkuf" path="res://Scenes/Collision/tile_crossing.tscn" id="6_nuypj"]
 [ext_resource type="PackedScene" uid="uid://buchxa7j8e2r2" path="res://Scenes/Collision/tile_tree.tscn" id="7_kc5jb"]
 [ext_resource type="PackedScene" uid="uid://c3a5b50srja4r" path="res://Scenes/Collision/tile_treeDouble.tscn" id="8_8jdyv"]
-[ext_resource type="PackedScene" uid="uid://bow4etauftivg" path="res://Scenes/Collision/tile_treeQuad.tscn" id="9_rtdyr"]
-[ext_resource type="PackedScene" uid="uid://c2qc7bcn85yc2" path="res://Scenes/Collision/tile_rock.tscn" id="10_rflnb"]
-[ext_resource type="PackedScene" uid="uid://bsrjjbajulsja" path="res://Scenes/Collision/tile_crystal.tscn" id="11_ejd8p"]
+[ext_resource type="PackedScene" uid="uid://bow4etauftivg" path="res://Scenes/Collision/tile_treeTriple.tscn" id="9_rtdyr"]
+[ext_resource type="PackedScene" uid="uid://c2qc7bcn85yc2" path="res://Scenes/Collision/tile_log_pile.tscn" id="10_rflnb"]
+[ext_resource type="PackedScene" uid="uid://bsrjjbajulsja" path="res://Scenes/Collision/tile_pebble.tscn" id="11_ejd8p"]
 [ext_resource type="PackedScene" uid="uid://bbovwcedxnqit" path="res://Scenes/Collision/tile.tscn" id="12_yvnn4"]
 
 [node name="MediumMap" instance=ExtResource("1_pj7ih")]

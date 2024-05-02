@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://banuitrej734r"]
 
-[ext_resource type="PackedScene" uid="uid://bm22dlg2fhxxx" path="res://Models/Environment/Tiles/tile_straight.glb" id="1_1aojq"]
+[ext_resource type="PackedScene" uid="uid://cfr50oktpemjm" path="res://Models/Environment/Tileset/tile_straight.gltf" id="1_iqfcq"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j83s"]
 size = Vector3(1, 0.2, 1)
@@ -11,4 +11,5 @@ size = Vector3(1, 0.2, 1)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_4j83s")
 
-[node name="tile_straight" parent="." instance=ExtResource("1_1aojq")]
+[node name="tile_straight" parent="." instance=ExtResource("1_iqfcq")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)

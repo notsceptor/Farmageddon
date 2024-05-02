@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0erbxd88sjv1"]
 
-[ext_resource type="PackedScene" uid="uid://m67vi54tsdao" path="res://Models/Enemies/Grub.gltf" id="1_7soef"]
+[ext_resource type="PackedScene" uid="uid://chplx2vtmkqtn" path="res://Models/Enemies/Grub.gltf" id="1_7soef"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_isf54"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Grub/grub.gd" id="2_nprdf"]
 
