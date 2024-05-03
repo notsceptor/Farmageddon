@@ -18,7 +18,6 @@ tonemap_white = 3.0
 fog_enabled = true
 fog_light_color = Color(0.86947, 0.72731, 0.676585, 1)
 fog_light_energy = 0.83
-fog_density = 0.0247
 fog_aerial_perspective = 0.712
 volumetric_fog_density = 0.3868
 volumetric_fog_albedo = Color(0.913164, 0.588917, 0.489397, 1)

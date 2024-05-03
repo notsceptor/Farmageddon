@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://dyt2vkshkq7ip"
 path.s3tc="res://.godot/imported/Vulture_0.png-17f7ab0f513db363fab53d5ef459df45.s3tc.ctex"
+path.etc2="res://.godot/imported/Vulture_0.png-17f7ab0f513db363fab53d5ef459df45.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={}
@@ -13,7 +14,7 @@ generator_parameters={}
 [deps]
 
 source_file="res://Models/Enemies/Vulture_0.png"
-dest_files=["res://.godot/imported/Vulture_0.png-17f7ab0f513db363fab53d5ef459df45.s3tc.ctex"]
+dest_files=["res://.godot/imported/Vulture_0.png-17f7ab0f513db363fab53d5ef459df45.s3tc.ctex", "res://.godot/imported/Vulture_0.png-17f7ab0f513db363fab53d5ef459df45.etc2.ctex"]
 
 [params]
 

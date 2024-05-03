@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://b7pkg7sgwalv0"
 path.s3tc="res://.godot/imported/tile_0.png-48dab2b1be3168e8e9c3e3361f824912.s3tc.ctex"
+path.etc2="res://.godot/imported/tile_0.png-48dab2b1be3168e8e9c3e3361f824912.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://Scripts/tile_0.png"
-dest_files=["res://.godot/imported/tile_0.png-48dab2b1be3168e8e9c3e3361f824912.s3tc.ctex"]
+dest_files=["res://.godot/imported/tile_0.png-48dab2b1be3168e8e9c3e3361f824912.s3tc.ctex", "res://.godot/imported/tile_0.png-48dab2b1be3168e8e9c3e3361f824912.etc2.ctex"]
 
 [params]
 
