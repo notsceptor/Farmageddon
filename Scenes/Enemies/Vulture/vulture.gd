@@ -17,6 +17,8 @@ var _revive_duration = 3.0  # Duration of the upside-down state before reviving
 var _is_reviving = false  # Flag to track if the vulture is currently reviving
 var _deathsound = false
 
+var original_speed = _speed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_max_health = _health
@@ -56,6 +58,8 @@ func _on_area_3d_area_entered(area):
 			health_bar.visible = true # Show the health bar when taking damage
 			_health -= area.damage
 			health_bar.value -= area.damage
+			if (area.slow) and (_speed > (original_speed * area.slow)):
+				_speed = _speed * area.slow
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE") and not _is_reviving:

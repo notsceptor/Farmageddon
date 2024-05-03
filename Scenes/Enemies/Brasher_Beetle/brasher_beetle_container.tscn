@@ -10,8 +10,11 @@ size = Vector3(0.8, 0.706, 1)
 
 [node name="Brasher_Beetle_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_1mddx")]
 
+[node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.224086, 0)
+
 [node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00068593, 0.35263, -0.105575)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00068593, 0.0604192, -0.105575)
 shape = SubResource("BoxShape3D_hsyw4")
 
 [connection signal="state_processing" from="EnemyStateChart/CompoundState/Moving" to="Path3D/PathFollow3D/Brasher_Beetle_Model" method="_on_moving_state_processing"]

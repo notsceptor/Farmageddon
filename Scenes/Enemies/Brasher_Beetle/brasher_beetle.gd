@@ -21,6 +21,8 @@ var _is_charging = false  # Flag to track if the enemy is currently charging
 var _charge_timer = 0.0  # Timer to track the charge duration
 var _charge_cooldown_timer = 0.0  # Timer to track the charge cooldown
 
+var original_speed = _speed
+
 func _ready():
 	health_bar.max_value = _health
 	health_bar.value = _health
@@ -71,6 +73,8 @@ func _on_area_3d_area_entered(area):
 			health_bar.visible = true # Show the health bar when taking damage
 			_health -= area.damage
 			health_bar.value -= area.damage
+			if (area.slow) and (_speed > (original_speed * area.slow)):
+				_speed = _speed * area.slow
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):

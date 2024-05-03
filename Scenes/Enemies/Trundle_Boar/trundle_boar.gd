@@ -12,6 +12,8 @@ var _speed = 0.8
 var _size = 3
 var _deathsound = false
 
+var original_speed = _speed
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	animation_player.set_speed_scale(2.0)
@@ -47,6 +49,8 @@ func _on_area_3d_area_entered(area):
 			animation_player.set_speed_scale(_speed*2.0)
 			_health -= area.damage
 			health_bar.value -= area.damage
+			if (area.slow) and (_speed > (original_speed * area.slow)):
+				_speed = _speed * area.slow
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
