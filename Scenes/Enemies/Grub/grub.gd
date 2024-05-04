@@ -83,6 +83,5 @@ func burrow():
 	_is_burrowed = false
 	animation_player.play("Unburrow")
 	await get_tree().create_timer(1.5).timeout
-	animation_player.stop()
 	grub_container.global_position.y += 2
 	animation_player.play("Slither")

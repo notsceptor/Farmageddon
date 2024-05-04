@@ -22,27 +22,18 @@ func _ready():
 		update_direction()
 
 func _process(delta):
+	modified_projectile_speed = min(modified_projectile_speed + acceleration * delta, speed * 2)
+	global_position += direction * modified_projectile_speed * delta
 	if target != null:
-		# Accelerate the projectile towards the end
-		modified_projectile_speed = min(modified_projectile_speed + acceleration * delta, speed * 2)
-		
 		# Check if the target's y-position is below -1
 		if target.global_position.y < -1:
-			# Update the direction to the last known position, but with the y-value set to 0
 			last_known_position = Vector3(target.global_position.x, 0, target.global_position.z)
 			update_direction_lkp()
 		else:
 			update_direction()
-		
-		global_position += direction * modified_projectile_speed * delta
-		
-		if global_position.distance_to(target.global_position) < 0.05:
-			queue_free()
 	else:
-		modified_projectile_speed = min(modified_projectile_speed + acceleration * delta, speed * 2)
-		global_position += direction * modified_projectile_speed * delta
 		update_direction_lkp()
-		if global_position.distance_to(last_known_position) < 0.05:
+		if global_position.distance_to(last_known_position) < 0.5:
 			queue_free()
 
 func update_direction():
