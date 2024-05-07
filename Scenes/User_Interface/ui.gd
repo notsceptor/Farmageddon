@@ -18,6 +18,8 @@ signal next_wave_button_pressed
 signal refresh_map_button_pressed
 signal place_turret(turret_scene, location)
 
+signal wave_ended_from_map_parent
+
 func _ready():
 	next_wave_button.visible = false
 	upcoming_enemies.visible = false
@@ -85,3 +87,4 @@ func _on_reward_countdown_timer_timeout():
 
 func _on_map_parent_node_wave_ended():
 	show_rewards_screen()
+	wave_ended_from_map_parent.emit()

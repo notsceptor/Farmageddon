@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=100 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -37,6 +37,7 @@
 [ext_resource type="Texture2D" uid="uid://dvf1bbi5b7jfb" path="res://Models/Turrets/Fish Launcher/Fish Launcher_0.png" id="35_46pgh"]
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -1177,6 +1178,7 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rk3nm")
+script = ExtResource("38_xtwcu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
@@ -1203,7 +1205,7 @@ horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Metal: XXX"
+text = "Scrap: XXX"
 horizontal_alignment = 1
 
 [node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
@@ -1240,7 +1242,9 @@ text = "CONFIRM"
 wait_time = 5.0
 one_shot = true
 
+[connection signal="wave_ended_from_map_parent" from="." to="PanelContainer" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="PanelContainer" method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
