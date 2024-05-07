@@ -6,6 +6,7 @@ func _init():
 	PathGenInstance.path_config = easy_map_config
 
 func _ready():
+	GlobalAudioPlayer.play_idle_music()
 	Globals.current_selected_map = "easy"
 	WaveManager.get_map_difficulty_data()
 	current_level_wave_number_label.text = str(Globals.easy_map_current_level)

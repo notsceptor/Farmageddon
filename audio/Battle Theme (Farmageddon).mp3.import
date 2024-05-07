@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cii4dxm033rg0"
+path="res://.godot/imported/Battle Theme (Farmageddon).mp3-f3898b8f7128b03d41ab08372cb23a77.mp3str"
+
+[deps]
+
+source_file="res://audio/Battle Theme (Farmageddon).mp3"
+dest_files=["res://.godot/imported/Battle Theme (Farmageddon).mp3-f3898b8f7128b03d41ab08372cb23a77.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
