@@ -72,6 +72,7 @@ func _on_watch_advert_button_pressed():
 	advert_hint_label.text = "Enjoy double the rewards!"
 
 func _on_confirm_rewards_button_pressed():
+	GlobalAudioPlayer.play_idle_music()
 	$PanelContainer.visible = false
 	countdown_text.visible = true
 	confirm_rewards_button.visible = false

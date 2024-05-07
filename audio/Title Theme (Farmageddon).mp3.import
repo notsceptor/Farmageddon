@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dtfobtrg683gv"
+path="res://.godot/imported/Title Theme (Farmageddon).mp3-2a698c900cfc6456c0b1d7a7cb1aa233.mp3str"
+
+[deps]
+
+source_file="res://audio/Title Theme (Farmageddon).mp3"
+dest_files=["res://.godot/imported/Title Theme (Farmageddon).mp3-2a698c900cfc6456c0b1d7a7cb1aa233.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

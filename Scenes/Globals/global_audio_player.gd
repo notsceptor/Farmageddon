@@ -1,10 +1,32 @@
 extends Node
 
+# Music
+
 func play_battle_music():
 	$BattleThemeMusic.play()
 	
 func stop_battle_music():
 	$BattleThemeMusic.stop()
+	
+func play_idle_music():
+	$IdleThemeMusic.play()
+	
+func stop_idle_music():
+	$IdleThemeMusic.stop()
+
+func play_title_music():
+	$TitleThemeMusic.play()
+	
+func stop_title_music():
+	$TitleThemeMusic.stop()
+	
+func play_main_music():
+	$MainThemeMusic.play()
+	
+func stop_main_music():
+	$MainThemeMusic.stop()
+
+# Sound Effects
 
 func play_menu_click_sound():
 	$MenuClick.pitch_scale = randf_range(1.2, 1.6)

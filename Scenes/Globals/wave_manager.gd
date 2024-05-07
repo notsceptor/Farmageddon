@@ -69,6 +69,7 @@ func repopulate_current_wave_enemy_array(wave_size: int):
 
 # Function that will start the wave
 func start_wave():
+	GlobalAudioPlayer.stop_idle_music()
 	GlobalAudioPlayer.play_battle_music()
 	wave_ongoing = true
 	wave_won = true
