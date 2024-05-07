@@ -53,6 +53,7 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n2iyb")
 
+[connection signal="wave_ended" from="." to="UI" method="_on_map_parent_node_wave_ended"]
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
 [connection signal="place_turret" from="UI" to="." method="_on_ui_place_turret"]
 [connection signal="refresh_map_button_pressed" from="UI" to="." method="_on_ui_refresh_map_button_pressed"]

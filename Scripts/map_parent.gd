@@ -4,9 +4,11 @@ class_name MapParent
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
-@onready var current_level_wave_number_label: Label = $UI/MarginContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
+@onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
+@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
 @onready var refresh_wave_button: Button = $UI/MarginContainer2/TestRefreshMapButton
+
+signal wave_ended
 
 # THESE VARIABLES NEED TO BE ASSIGNED WHENEVER LEVELS
 # ARE ADDED IN CODE ON THE MAIN NODE RIGHT SIDE
@@ -25,7 +27,7 @@ func _process(_delta):
 	if WaveManager.wave_ongoing:
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
-			next_wave_button.visible = true
+			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				_regenerate_new_map_layout()
 			current_level_wave_number_label.text = str(WaveManager.current_level)
