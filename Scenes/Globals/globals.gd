@@ -4,6 +4,12 @@ extends Node
 var turret_rid_list: Array = []
 var turret_locations_list: Array = []
 
+#region Currencies
+var gold = 0
+var scrap = 0
+var gems = 0
+#endregion
+
 var current_selected_map: String
 #region Easy Map Section
 var easy_map_current_level: int = 1

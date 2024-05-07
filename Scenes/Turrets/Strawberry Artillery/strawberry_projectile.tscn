@@ -142,7 +142,7 @@ blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_fukv2")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_pu533"]
-size = Vector3(0.136963, 0.136871, 0.190308)
+size = Vector3(0.195068, 0.1875, 0.271484)
 
 [node name="StrawberryProjectile" type="Area3D"]
 transform = Transform3D(1.75, 0, 0, 0, 1.75, 0, 0, 0, 1.75, 0, 0, 0)

@@ -8,6 +8,7 @@
 viewport_path = NodePath("SubViewport")
 
 [node name="GiantZombieSnail" instance=ExtResource("1_0s77b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0774591, 0)
 script = ExtResource("2_pec8n")
 
 [node name="AnimationPlayer" parent="." index="1"]

@@ -7,6 +7,7 @@
 size = Vector3(1, 0.706177, 1.12222)
 
 [node name="GiantZombieSnailContainer" instance=ExtResource("1_ib5ot")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0761992, 0)
 
 [node name="GiantZombieSnail" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_6erqb")]
 

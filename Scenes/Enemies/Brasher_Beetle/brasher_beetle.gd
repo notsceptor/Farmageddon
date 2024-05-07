@@ -39,6 +39,7 @@ func _process(delta):
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_beetle_death_sound()
+			CurrencyDistributor.addGold(_size * 10)
 
 	# Handle charging
 	if _is_charging:

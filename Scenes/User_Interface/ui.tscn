@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=99 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -36,6 +36,7 @@
 [ext_resource type="Texture2D" uid="uid://cygq1215mt1k" path="res://Models/Turrets/Fish Launcher/Fish Launcher.png" id="34_5c844"]
 [ext_resource type="Texture2D" uid="uid://dvf1bbi5b7jfb" path="res://Models/Turrets/Fish Launcher/Fish Launcher_0.png" id="35_46pgh"]
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
+[ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -1009,6 +1010,8 @@ expand_margin_bottom = 10.0
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
 debug_enemy = ExtResource("2_t418s")
+
+[node name="CurrencyDisplay" parent="." instance=ExtResource("37_qj2va")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 10
