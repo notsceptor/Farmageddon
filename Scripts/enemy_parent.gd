@@ -13,6 +13,7 @@ func _process(_delta):
 
 func _ready():
 	curve_3d = Curve3D.new()
+	curve_3d.add_point(Vector3(18, 0, randi_range(0, 9)))
 	for i in PathGenInstance.get_path_route():
 		curve_3d.add_point(Vector3(i.x, 0, i.y))
 		
