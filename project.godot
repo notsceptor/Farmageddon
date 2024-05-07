@@ -22,7 +22,7 @@ Globals="*res://Scenes/Globals/globals.gd"
 PathGenInstance="*res://Scripts/path_generator.gd"
 WaveManager="*res://Scenes/Globals/wave_manager.gd"
 GlobalAudioPlayer="*res://Scenes/Globals/global_audio_player.tscn"
-CurrenyManager="*res://Scenes/User_Interface/curreny_manager.gd"
+CurrencyDistributor="*res://Scenes/User_Interface/currency_distributor.gd"
 
 [editor]
 

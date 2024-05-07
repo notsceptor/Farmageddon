@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
-[ext_resource type="AudioStream" path="res://audio/Battle Theme Original.mp3" id="2_8f6xs"]
+[ext_resource type="AudioStream" uid="uid://dosl5d7wdep1h" path="res://audio/Battle Theme Original.mp3" id="2_8f6xs"]
 [ext_resource type="AudioStream" uid="uid://dt1k8m5t0pl2h" path="res://audio/Menu Click 2.mp3" id="2_upd2m"]
 [ext_resource type="AudioStream" uid="uid://bb452c0n8tn2c" path="res://audio/Monster Death 1.mp3" id="3_e5ug2"]
 [ext_resource type="AudioStream" uid="uid://cndhtqp2qv3su" path="res://audio/Earthquake.mp3" id="4_qipc3"]
 [ext_resource type="AudioStream" uid="uid://bklxed7ea7g8y" path="res://audio/Fail State.mp3" id="5_haoe5"]
 [ext_resource type="AudioStream" uid="uid://payegjc72x1l" path="res://audio/Menu Click 1.mp3" id="6_i4h1g"]
 [ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="7_5ikom"]
-[ext_resource type="AudioStream" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
-[ext_resource type="AudioStream" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
+[ext_resource type="AudioStream" uid="uid://bk4mm78b7iks6" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
+[ext_resource type="AudioStream" uid="uid://d4cmhd0n6ie37" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
 
 [node name="GlobalAudioPlayer" type="Node"]
 script = ExtResource("1_nq8wv")

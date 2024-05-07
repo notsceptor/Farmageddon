@@ -36,6 +36,7 @@ func _process(delta):
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_snail_death_sound()
+			CurrencyDistributor.addGold(_size * 10)
 	if Time.get_ticks_msec() - _last_burrow_time >= _burrow_cooldown * 1000:
 		burrow()
 	if _is_burrowed:

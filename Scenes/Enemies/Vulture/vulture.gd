@@ -40,6 +40,7 @@ func _process(delta):
 				_deathsound = true
 				WaveManager.enemies_on_map -= 1
 				GlobalAudioPlayer.play_scumbug_death_sound()
+				CurrencyDistributor.addGold(_size * 10)
 	if _is_reviving:
 		health_bar.visible = false
 	elif !_can_revive and !_is_reviving:

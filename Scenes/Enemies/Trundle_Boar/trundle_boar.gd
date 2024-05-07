@@ -32,6 +32,7 @@ func _process(_delta):
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
 			GlobalAudioPlayer.play_scumbug_death_sound()
+			CurrencyDistributor.addGold(_size * 10)
 
 
 func _on_moving_state_processing(delta):

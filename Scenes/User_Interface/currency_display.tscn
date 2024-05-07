@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://b0i56pjhm2jnk"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/currency_display.gd" id="1_8rn4h"]
+[ext_resource type="Texture2D" uid="uid://s1phh2wuele1" path="res://Scenes/User_Interface/Assets/gem.png" id="2_83u4r"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/currency_distributor.gd" id="2_u3nvk"]
+[ext_resource type="Texture2D" uid="uid://ct45cs2l6j7tt" path="res://Scenes/User_Interface/Assets/scrap_piece.png" id="3_awbao"]
+[ext_resource type="Texture2D" uid="uid://c3ha77g6x6f58" path="res://Scenes/User_Interface/Assets/gold_piece.png" id="4_ywii4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_t2hk6"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_uqyo5"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_610fn"]
+subpixel_positioning = 0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ajp2t"]
+font = SubResource("SystemFont_610fn")
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="CurrencyDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8rn4h")
+
+[node name="ResourcesContainer" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = -19.0
+offset_right = 2.0
+offset_bottom = 25.0
+grow_horizontal = 0
+script = ExtResource("2_u3nvk")
+
+[node name="GemsLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 230.0
+offset_right = 126.0
+offset_bottom = 267.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_t2hk6")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="ScrapMetalLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 160.0
+offset_right = 126.0
+offset_bottom = 197.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_uqyo5")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="GoldLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -94.0
+offset_top = 91.0
+offset_right = 126.0
+offset_bottom = 128.0
+auto_translate = false
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_ajp2t")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 92.0
+offset_right = 37.0
+offset_bottom = 132.0
+scale = Vector2(4.2, 1)
+
+[node name="PanelContainer2" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 161.0
+offset_right = 37.0
+offset_bottom = 201.0
+scale = Vector2(4.2, 1)
+
+[node name="PanelContainer3" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 232.0
+offset_right = 37.0
+offset_bottom = 272.0
+scale = Vector2(4.2, 1)
+
+[node name="Gem" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(161, 251)
+scale = Vector2(0.0798489, 0.0799244)
+texture = ExtResource("2_83u4r")
+
+[node name="ScrapPiece" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(159, 182)
+scale = Vector2(0.1, 0.101)
+texture = ExtResource("3_awbao")
+
+[node name="GoldPiece" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(160, 112)
+scale = Vector2(0.129, 0.13)
+texture = ExtResource("4_ywii4")
