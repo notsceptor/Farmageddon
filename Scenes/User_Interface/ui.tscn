@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
-[ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
+[ext_resource type="PackedScene" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
 [ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
