@@ -25,7 +25,7 @@ func _ready():
 	_path_follow_3d = get_node("../")
 	health_bar.visible = false  # Hide the health bar initially
 
-func _process(delta):
+func _process(_delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:
 		area_damage_timer.start()
 	if _health <= 0:

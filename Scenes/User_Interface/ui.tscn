@@ -48,28 +48,36 @@ grow_horizontal = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="WaveText" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="WaveText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Current Wave:"
 label_settings = SubResource("LabelSettings_rlops")
 
-[node name="WaveNumber" type="Label" parent="MarginContainer/HBoxContainer"]
+[node name="WaveNumber" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "[wave number here]
 "
 label_settings = SubResource("LabelSettings_rlops")
 
-[node name="NextWaveButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "START  WAVE"
 
-[node name="DebugEnemyButton" type="Button" parent="MarginContainer/HBoxContainer"]
+[node name="DebugEnemyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "DEBUG SPAWN ENEMY"
+
+[node name="UpcomingEnemies" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Upcoming:"
+label_settings = SubResource("LabelSettings_rlops")
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -177,8 +185,8 @@ turret_to_instantiate = ExtResource("24_57wyc")
 offset_right = 8.0
 offset_bottom = 8.0
 
-[connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
