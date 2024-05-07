@@ -16,6 +16,7 @@ var _deathsound = false
 var _burrow_cooldown = 15.0 # 15 second cooldown between burrows
 var _last_burrow_time = 0.0 # Tracks the time of the last burrow
 var _is_burrowed = false
+var original_speed = _speed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -55,6 +56,8 @@ func _on_area_3d_area_entered(area):
 			health_bar.visible = true # Show the health bar when taking damage
 			_health -= area.damage
 			health_bar.value -= area.damage
+			if (area.slow) and (_speed > (original_speed * area.slow)):
+				_speed = _speed * area.slow
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
@@ -80,6 +83,5 @@ func burrow():
 	_is_burrowed = false
 	animation_player.play("Unburrow")
 	await get_tree().create_timer(1.5).timeout
-	animation_player.stop()
 	grub_container.global_position.y += 2
 	animation_player.play("Slither")

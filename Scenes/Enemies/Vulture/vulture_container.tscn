@@ -7,12 +7,13 @@
 size = Vector3(0.8, 0.991211, 1)
 
 [node name="Vulture_Container" instance=ExtResource("1_01tvt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.173363, 0)
 
 [node name="Vulture_Model" parent="Path3D/PathFollow3D" index="0" instance=ExtResource("2_36dsa")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.218838, 0)
 
 [node name="Area3D" parent="Path3D/PathFollow3D" index="1"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.878679, 0.135785)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.703379, 0.135785)
 
 [node name="CollisionShape3D" parent="Path3D/PathFollow3D/Area3D" index="0"]
 shape = SubResource("BoxShape3D_mfhti")

@@ -8,9 +8,9 @@ enum ProjectileState {
 }
 
 var state := ProjectileState.MOVING_UP
-var peak_height: float = 10.0
+var peak_height: float = 12.0
 var time_elapsed: float = 0.0
-var time_to_reach_peak: float = 1.5
+var time_to_reach_peak: float = 1.75
 var initial_position: Vector3
 var target_position: Vector3
 var last_known_target_position: Vector3
@@ -33,7 +33,7 @@ func _process(delta):
 				update_target_position()
 			else:
 				global_position.y = initial_position.y + ease_out_quad(time_elapsed, 0, peak_height, time_to_reach_peak)
-				rotate(Vector3(1, 0, 0), -delta * 10)
+				rotate(Vector3(0, 0, 1), -delta * 10)
 		ProjectileState.TELEPORTING:
 			update_last_known_target_position()
 			global_position = target_position + Vector3(0, peak_height, 0)
@@ -44,6 +44,7 @@ func _process(delta):
 				target_position = target.global_position
 				last_known_target_position = target_position
 			global_position = global_position.move_toward(last_known_target_position, delta * 15)
+			rotate(Vector3(0, 0, 1), -delta * 10)
 			if global_position.distance_to(last_known_target_position) < 0.1:
 				state = ProjectileState.ARRIVED
 		ProjectileState.ARRIVED:

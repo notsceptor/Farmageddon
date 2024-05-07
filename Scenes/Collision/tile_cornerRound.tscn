@@ -1,14 +1,15 @@
 [gd_scene load_steps=3 format=3 uid="uid://b4gm2u78r1dfh"]
 
-[ext_resource type="PackedScene" uid="uid://dqatq7oo05r2a" path="res://Models/Environment/Tiles/tile_cornerRound.glb" id="1_5wtk1"]
+[ext_resource type="PackedScene" uid="uid://dkjg4thfbquj3" path="res://Models/Environment/Tileset/tile_cornerRound.gltf" id="1_8uogy"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_fx6fd"]
 size = Vector3(1, 0.2, 1)
 
 [node name="tile_cornerRound" type="Area3D" groups=["path"]]
 
-[node name="tile_cornerRound" parent="." instance=ExtResource("1_5wtk1")]
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_fx6fd")
+
+[node name="tile_cornerRound" parent="." instance=ExtResource("1_8uogy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

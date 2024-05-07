@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dty7go6f8bor5"]
+[gd_scene load_steps=12 format=3 uid="uid://dty7go6f8bor5"]
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bklxed7ea7g8y" path="res://audio/Fail State.mp3" id="5_haoe5"]
 [ext_resource type="AudioStream" uid="uid://payegjc72x1l" path="res://audio/Menu Click 1.mp3" id="6_i4h1g"]
 [ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="7_5ikom"]
+[ext_resource type="AudioStream" uid="uid://bk4mm78b7iks6" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
+[ext_resource type="AudioStream" uid="uid://d4cmhd0n6ie37" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
 
 [node name="GlobalAudioPlayer" type="Node"]
 script = ExtResource("1_nq8wv")
@@ -55,4 +57,14 @@ pitch_scale = 1.36
 [node name="StrawberryProjectile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5ikom")
 volume_db = -10.636
+pitch_scale = 1.26
+
+[node name="FishNom" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_0tnkj")
+volume_db = -18.131
+pitch_scale = 1.26
+
+[node name="SharkChomp" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_wd53o")
+volume_db = -16.257
 pitch_scale = 1.26

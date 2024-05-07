@@ -24,6 +24,16 @@ func play_beetle_death_sound():
 	
 func play_earthquake_sound():
 	$EarthquakeSound.play()
+	
+func play_fish_nom_sound():
+	$FishNom.pitch_scale = randf_range(0.7, 1.0)
+	$FishNom.play()
+	
+func play_shark_chomp_sound():
+	$SharkChomp.pitch_scale = randf_range(0.7, 1.0)
+	play_fish_nom_sound()
+	$SharkChomp.play()
+	
 
 func play_fail_sound():
 	$FailSound.play()
