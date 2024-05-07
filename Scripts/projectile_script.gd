@@ -29,6 +29,7 @@ func _process(delta):
 		if target.global_position.y < -1:
 			last_known_position = Vector3(target.global_position.x, 0, target.global_position.z)
 			update_direction_lkp()
+			target = null
 		else:
 			update_direction()
 	else:

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cn2dpwe38kfsc" path="res://Models/Enemies/Aphid.gltf" id="1_pxy2g"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Scumbug/scumbug.gd" id="2_h3mid"]
-[ext_resource type="PackedScene" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_rawf3"]
+[ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="3_rawf3"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_0elhn"]
 viewport_path = NodePath("SubViewport")
