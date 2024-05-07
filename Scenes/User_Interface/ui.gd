@@ -11,12 +11,17 @@ extends CanvasLayer
 @onready var countdown_text: Label = $PanelContainer/VBoxContainer/RewardsCountdownLabel
 @onready var confirm_rewards_button: Button = $PanelContainer/VBoxContainer/ConfirmRewardsButton
 @onready var reward_timer: Timer = $RewardCountdownTimer
+@onready var advert_timer: Timer = $ShowAdvertTimer
 
 @export var debug_enemy: PackedScene 
 
 signal next_wave_button_pressed
 signal refresh_map_button_pressed
 signal place_turret(turret_scene, location)
+
+signal wave_ended_from_map_parent
+signal advert_finished
+signal confirmed_rewards
 
 func _ready():
 	next_wave_button.visible = false
@@ -63,13 +68,16 @@ func get_upcoming_enemies():
 	
 func show_rewards_screen():
 	advert_hint_label.text = "Watch an ad to double rewards"
-	watch_ad_button.visible = true
+	watch_ad_button.visible = false
+	advert_hint_label.visible = false
 	$PanelContainer.visible = true
-	$RewardCountdownTimer.start()
+	reward_timer.start()
+	advert_timer.start()
 	
 func _on_watch_advert_button_pressed():
 	watch_ad_button.visible = false
 	advert_hint_label.text = "Enjoy double the rewards!"
+	advert_finished.emit()
 
 func _on_confirm_rewards_button_pressed():
 	GlobalAudioPlayer.play_idle_music()
@@ -79,6 +87,7 @@ func _on_confirm_rewards_button_pressed():
 	get_upcoming_enemies()
 	next_wave_button.visible = true
 	upcoming_enemies.visible = true
+	confirmed_rewards.emit()
 	
 func _on_reward_countdown_timer_timeout():
 	countdown_text.visible = false
@@ -86,3 +95,8 @@ func _on_reward_countdown_timer_timeout():
 
 func _on_map_parent_node_wave_ended():
 	show_rewards_screen()
+	wave_ended_from_map_parent.emit()
+
+func _on_show_advert_timer_timeout():
+	watch_ad_button.visible = true
+	advert_hint_label.visible = true
