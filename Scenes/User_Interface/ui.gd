@@ -5,6 +5,9 @@ extends CanvasLayer
 @onready var refresh_wave_button: Button = $MarginContainer2/TestRefreshMapButton
 @onready var upcoming_enemies_label: Label = $MarginContainer/VBoxContainer/UpcomingEnemies
 
+@onready var claim_rewards_button: Button = $PanelContainer/VBoxContainer/ClaimRewardsButton
+@onready var claim_countdown_text: Label = $PanelContainer/VBoxContainer/RewardCountdownText
+
 @export var debug_enemy: PackedScene
 
 signal next_wave_button_pressed
@@ -18,6 +21,19 @@ func _ready():
 	next_wave_button.visible = true
 	upcoming_enemies_label.visible = true
 	get_upcoming_enemies()
+	
+func _process(_delta):
+	if $ClaimRewardsTimer.is_stopped() == false:
+		if $ClaimRewardsTimer.time_left >= 4:
+			claim_countdown_text.text = "5s"
+		elif $ClaimRewardsTimer.time_left >= 3 and $ClaimRewardsTimer.time_left < 4:
+			claim_countdown_text.text = "4s"
+		elif $ClaimRewardsTimer.time_left >= 2 and $ClaimRewardsTimer.time_left < 3:
+			claim_countdown_text.text = "3s"
+		elif $ClaimRewardsTimer.time_left >= 1 and $ClaimRewardsTimer.time_left < 2:
+			claim_countdown_text.text = "2s"
+		else:
+			claim_countdown_text.text = "1s"
 
 func _on_next_wave_button_pressed():
 	next_wave_button_pressed.emit()
@@ -33,8 +49,8 @@ func _on_debug_enemy_button_pressed():
 	add_child(enemy)
 
 func _on_map_parent_node_wave_ended():
+	rewards_popup()
 	get_upcoming_enemies()
-	upcoming_enemies_label.visible = true
 
 func get_upcoming_enemies():
 	var upcoming_text = "Upcoming:\n"
@@ -42,3 +58,18 @@ func get_upcoming_enemies():
 		var qty_str = str(WaveManager.debug_enemy_dictionary[enemy_name])
 		upcoming_text += qty_str + " " + enemy_name + "\n"
 	upcoming_enemies_label.text = upcoming_text
+	
+func rewards_popup():
+	$PanelContainer.visible = true
+	claim_countdown_text.visible = true
+	$ClaimRewardsTimer.start()
+	# While timer is ongoing (5s timer) I want to set the countdown text to be 5s 4s 3s 2s 1s in relation to time remaining how do i do it
+
+func _on_claim_rewards_timer_timeout():
+	claim_countdown_text.visible = false
+	claim_rewards_button.visible = true
+
+func _on_claim_rewards_button_pressed():
+	upcoming_enemies_label.visible = true
+	claim_rewards_button.visible = false
+	$PanelContainer.visible = false

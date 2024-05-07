@@ -202,6 +202,7 @@ offset_right = 8.0
 offset_bottom = 8.0
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -249,7 +250,7 @@ text = "Resource 3: XXX"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Button" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="WatchAdButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -257,11 +258,29 @@ theme_override_font_sizes/font_size = 23
 text = "WATCH
 AD"
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="AdHintText" type="Label" parent="PanelContainer/VBoxContainer"]
 layout_mode = 2
 text = "Watch an ad to double your rewards!"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="RewardCountdownText" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "5s"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ClaimRewardsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "CLAIM REWARDS"
+
+[node name="ClaimRewardsTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
@@ -276,3 +295,5 @@ vertical_alignment = 1
 [connection signal="place_turret" from="HBoxContainer/strawberry" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/spore" to="." method="_on_activity_button_place_turret"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/ClaimRewardsButton" to="." method="_on_claim_rewards_button_pressed"]
+[connection signal="timeout" from="ClaimRewardsTimer" to="." method="_on_claim_rewards_timer_timeout"]
