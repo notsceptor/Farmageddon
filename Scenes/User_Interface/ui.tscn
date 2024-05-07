@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=106 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -36,6 +36,10 @@
 [ext_resource type="Texture2D" uid="uid://cygq1215mt1k" path="res://Models/Turrets/Fish Launcher/Fish Launcher.png" id="34_5c844"]
 [ext_resource type="Texture2D" uid="uid://dvf1bbi5b7jfb" path="res://Models/Turrets/Fish Launcher/Fish Launcher_0.png" id="35_46pgh"]
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
+[ext_resource type="Texture2D" uid="uid://c3ha77g6x6f58" path="res://Scenes/User_Interface/Assets/gold_piece.png" id="37_1b041"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/curreny_manager.gd" id="37_a85h0"]
+[ext_resource type="Texture2D" uid="uid://s1phh2wuele1" path="res://Scenes/User_Interface/Assets/gem.png" id="38_nkf5p"]
+[ext_resource type="Texture2D" uid="uid://ct45cs2l6j7tt" path="res://Scenes/User_Interface/Assets/scrap_piece.png" id="39_jcyyi"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -1006,6 +1010,24 @@ expand_margin_top = 10.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_kuwui"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_cv35d"]
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_610fn"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ksora"]
+font = SubResource("SystemFont_610fn")
+font_size = 27
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
 debug_enemy = ExtResource("2_t418s")
@@ -1236,6 +1258,103 @@ text = "CONFIRM"
 [node name="RewardCountdownTimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="ResourcesContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -192.0
+offset_top = -19.0
+offset_right = 2.0
+offset_bottom = 25.0
+grow_horizontal = 0
+script = ExtResource("37_a85h0")
+
+[node name="GemsLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 230.0
+offset_right = 126.0
+offset_bottom = 267.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_kuwui")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="ScrapMetalLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -101.0
+offset_top = 160.0
+offset_right = 126.0
+offset_bottom = 197.0
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_cv35d")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 92.0
+offset_right = 37.0
+offset_bottom = 132.0
+scale = Vector2(4.2, 1)
+
+[node name="PanelContainer2" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 161.0
+offset_right = 37.0
+offset_bottom = 201.0
+scale = Vector2(4.2, 1)
+
+[node name="PanelContainer3" type="PanelContainer" parent="ResourcesContainer"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 232.0
+offset_right = 37.0
+offset_bottom = 272.0
+scale = Vector2(4.2, 1)
+
+[node name="GoldLabel" type="Label" parent="ResourcesContainer"]
+z_index = 1
+layout_mode = 2
+offset_left = -94.0
+offset_top = 91.0
+offset_right = 126.0
+offset_bottom = 128.0
+auto_translate = false
+theme_type_variation = &"HeaderLarge"
+text = "10"
+label_settings = SubResource("LabelSettings_ksora")
+horizontal_alignment = 2
+vertical_alignment = 1
+text_direction = 2
+
+[node name="Gem" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(161, 251)
+scale = Vector2(0.0798489, 0.0799244)
+texture = ExtResource("38_nkf5p")
+
+[node name="ScrapPiece" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(159, 182)
+scale = Vector2(0.1, 0.101)
+texture = ExtResource("39_jcyyi")
+
+[node name="GoldPiece" type="Sprite2D" parent="ResourcesContainer"]
+z_index = 5
+position = Vector2(160, 112)
+scale = Vector2(0.129, 0.13)
+texture = ExtResource("37_1b041")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]

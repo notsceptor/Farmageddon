@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://scnpskeiqxbe"]
 
-[ext_resource type="PackedScene" uid="uid://bawld0v6at5h2" path="res://Models/Enemies/Vulture.gltf" id="1_45xww"]
+[ext_resource type="PackedScene" path="res://Models/Enemies/Vulture.gltf" id="1_45xww"]
 [ext_resource type="PackedScene" uid="uid://by857xnw635c8" path="res://Scenes/Enemies/health_bar_3d.tscn" id="2_2e1xy"]
 [ext_resource type="Script" path="res://Scenes/Enemies/Vulture/vulture.gd" id="2_qiufu"]
 
