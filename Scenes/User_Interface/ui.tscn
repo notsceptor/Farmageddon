@@ -1197,6 +1197,8 @@ alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -1242,6 +1244,12 @@ text = "CONFIRM"
 wait_time = 5.0
 one_shot = true
 
+[node name="ShowAdvertTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="advert_finished" from="." to="PanelContainer" method="_on_ui_advert_finished"]
+[connection signal="confirmed_rewards" from="." to="PanelContainer" method="_on_ui_confirmed_rewards"]
 [connection signal="wave_ended_from_map_parent" from="." to="PanelContainer" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="PanelContainer" method="_on_next_wave_button_pressed"]
@@ -1261,3 +1269,4 @@ one_shot = true
 [connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton" to="." method="_on_watch_advert_button_pressed"]
 [connection signal="pressed" from="PanelContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
 [connection signal="timeout" from="RewardCountdownTimer" to="." method="_on_reward_countdown_timer_timeout"]
+[connection signal="timeout" from="ShowAdvertTimer" to="." method="_on_show_advert_timer_timeout"]
