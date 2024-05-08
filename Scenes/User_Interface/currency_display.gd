@@ -5,7 +5,6 @@ extends Node
 @onready var scrapMetalText = $ResourcesContainer/ScrapMetalLabel
 @onready var gemsText = $ResourcesContainer/GemsLabel
 
-
 func _ready():
 	# Update currency display initially
 	UpdateCurrencyDisplay()
@@ -18,3 +17,7 @@ func UpdateCurrencyDisplay():
 func _process(delta):
 	# Update currency display every frame
 	UpdateCurrencyDisplay()
+
+
+func _on_resources_container_gold_updated():
+	print("UPDATE")

@@ -9,6 +9,7 @@ signal scrap_updated
 
 func addGold(amount):
 	Globals.gold += amount
+	gold_updated.emit()
 
 func subtractGold(amount):
 	if amount > Globals.gold:

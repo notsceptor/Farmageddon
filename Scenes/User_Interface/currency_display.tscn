@@ -130,3 +130,5 @@ z_index = 5
 position = Vector2(160, 112)
 scale = Vector2(0.129, 0.13)
 texture = ExtResource("4_ywii4")
+
+[connection signal="gold_updated" from="ResourcesContainer" to="." method="_on_resources_container_gold_updated"]
