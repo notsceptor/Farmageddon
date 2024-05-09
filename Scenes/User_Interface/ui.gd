@@ -1,10 +1,11 @@
 extends CanvasLayer
 
-@onready var wave_number_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
+@onready var wave_number_label: Label = $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/WaveNumber
+@onready var next_wave_button: Button = $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton
 
 # Rewards screen section
-@onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/UpcomingEnemies
+@onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/PanelContainer2/UpcomingEnemies
+@onready var upcoming_enemies_container: PanelContainer = $MarginContainer/VBoxContainer/PanelContainer2
 @onready var watch_ad_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton
 @onready var advert_hint_label: Label = $PanelContainer/VBoxContainer/AdvertHintLabel
 @onready var countdown_text: Label = $PanelContainer/VBoxContainer/RewardsCountdownLabel
@@ -21,10 +22,10 @@ signal confirmed_rewards
 
 func _ready():
 	next_wave_button.visible = false
-	upcoming_enemies.visible = false
+	upcoming_enemies_container.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
-	upcoming_enemies.visible = true
+	upcoming_enemies_container.visible = true
 	get_upcoming_enemies()
 	
 func _process(_delta):
@@ -43,7 +44,7 @@ func _process(_delta):
 func _on_next_wave_button_pressed():
 	next_wave_button_pressed.emit()
 	next_wave_button.visible = false
-	upcoming_enemies.visible = false
+	upcoming_enemies_container.visible = false
 
 func _on_activity_button_place_turret(turret_scene, location):
 	place_turret.emit(turret_scene, location)
@@ -75,7 +76,7 @@ func _on_confirm_rewards_button_pressed():
 	confirm_rewards_button.visible = false
 	get_upcoming_enemies()
 	next_wave_button.visible = true
-	upcoming_enemies.visible = true
+	upcoming_enemies_container.visible = true
 	confirmed_rewards.emit()
 	
 func _on_reward_countdown_timer_timeout():

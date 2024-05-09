@@ -4,8 +4,8 @@ class_name MapParent
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
-@onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
+@onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/WaveNumber
+@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton
 
 signal wave_ended
 
