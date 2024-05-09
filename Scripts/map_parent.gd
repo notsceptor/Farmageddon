@@ -6,7 +6,6 @@ var RAYCAST_LENGTH:float = 100
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
-@onready var refresh_wave_button: Button = $UI/MarginContainer2/TestRefreshMapButton
 
 signal wave_ended
 
@@ -78,10 +77,6 @@ func _complete_grid():
 		add_child(tile)
 		tile.global_position = Vector3(PathGenInstance.get_path_tile(i).x, 0, PathGenInstance.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
-		
-func _on_ui_refresh_map_button_pressed():
-	print("Map refresh button pressed")
-	_regenerate_new_map_layout()
 	
 func _regenerate_new_map_layout():
 	GlobalAudioPlayer.play_earthquake_sound()

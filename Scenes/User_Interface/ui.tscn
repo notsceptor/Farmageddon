@@ -1,10 +1,13 @@
-[gd_scene load_steps=100 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=103 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
-[ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
 [ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="4_6xtmb"]
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="4_t7k0y"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
@@ -1010,7 +1013,6 @@ expand_margin_bottom = 10.0
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
-debug_enemy = ExtResource("2_t418s")
 
 [node name="CurrencyDisplay" parent="." instance=ExtResource("37_qj2va")]
 
@@ -1041,11 +1043,13 @@ label_settings = SubResource("LabelSettings_rlops")
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "START  WAVE"
-
-[node name="DebugEnemyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-text = "DEBUG SPAWN ENEMY"
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("4_6xtmb")
+theme_override_styles/hover = ExtResource("5_q4g83")
+theme_override_styles/pressed = ExtResource("6_ur5bi")
+text = "START WAVE"
 
 [node name="UpcomingEnemies" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1067,20 +1071,6 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
 
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -205.0
-offset_bottom = 51.0
-grow_horizontal = 0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-
-[node name="TestRefreshMapButton" type="Button" parent="MarginContainer2"]
-layout_mode = 2
-text = "REFRESH MAP (DEBUG)"
-
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 7
 anchor_left = 0.5
@@ -1092,7 +1082,8 @@ offset_top = -96.0
 offset_right = 48.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
+alignment = 1
 
 [node name="pea" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
@@ -1253,8 +1244,6 @@ one_shot = true
 [connection signal="wave_ended_from_map_parent" from="." to="PanelContainer" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="PanelContainer" method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]

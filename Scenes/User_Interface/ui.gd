@@ -2,7 +2,6 @@ extends CanvasLayer
 
 @onready var wave_number_label: Label = $MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
 @onready var next_wave_button: Button = $MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
-@onready var refresh_wave_button: Button = $MarginContainer2/TestRefreshMapButton
 
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/UpcomingEnemies
@@ -13,10 +12,7 @@ extends CanvasLayer
 @onready var reward_timer: Timer = $RewardCountdownTimer
 @onready var advert_timer: Timer = $ShowAdvertTimer
 
-@export var debug_enemy: PackedScene 
-
 signal next_wave_button_pressed
-signal refresh_map_button_pressed
 signal place_turret(turret_scene, location)
 
 signal wave_ended_from_map_parent
@@ -48,16 +44,9 @@ func _on_next_wave_button_pressed():
 	next_wave_button_pressed.emit()
 	next_wave_button.visible = false
 	upcoming_enemies.visible = false
-	
-func _on_test_refresh_map_button_pressed():
-	refresh_map_button_pressed.emit()
 
 func _on_activity_button_place_turret(turret_scene, location):
 	place_turret.emit(turret_scene, location)
-
-func _on_debug_enemy_button_pressed():
-	var enemy = debug_enemy.instantiate()
-	add_child(enemy)
 	
 func get_upcoming_enemies():
 	var upcoming_text = "Upcoming:\n"

@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_r825n"]
-[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/button_normal.tres" id="3_4m4fk"]
-[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/button_hover.tres" id="4_qjcwd"]
-[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/button_clicked.tres" id="5_fve6r"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_4m4fk"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_qjcwd"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_fve6r"]
 
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
@@ -27,14 +27,18 @@ theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "BACK"
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 13
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 1.0
+anchor_bottom = 0.5
 offset_left = -212.5
+offset_top = -219.5
 offset_right = 212.5
+offset_bottom = 219.5
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_top = 50
 
 [node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -44,13 +48,13 @@ theme_override_constants/separation = 75
 [node name="GameTitle" type="Label" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 64
 text = "FARMAGEDDON 
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="PlayGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
@@ -91,6 +95,17 @@ visible = false
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 75
+
+[node name="GameTitle" type="Label" parent="MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_r825n")
+theme_override_font_sizes/font_size = 64
+text = "FARMAGEDDON 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="EasyLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
 layout_mode = 2
