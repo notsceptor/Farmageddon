@@ -12,10 +12,11 @@ var _speed = 0.8
 var _size = 3
 var _deathsound = false
 
-var original_speed = _speed
+var original_speed
 var slow_timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_speed = _speed
 	animation_player.set_speed_scale(2.0)
 	health_bar.max_value = _health
 	health_bar.value = _health

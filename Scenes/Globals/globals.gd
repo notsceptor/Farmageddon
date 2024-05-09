@@ -13,12 +13,12 @@ var gems = 0
 var current_selected_map: String
 #region Easy Map Section
 var easy_map_current_level: int = 1
-var easy_map_spawn_size: int = 10
+var easy_map_spawn_size: int = 3
 #endregion
 
 #region Medium Map Section
 var medium_map_current_level: int = 1
-var medium_map_spawn_size: int = 10
+var medium_map_spawn_size: int = 6
 #endregion
 
 #region Hard Map Section

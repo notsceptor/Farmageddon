@@ -17,11 +17,12 @@ var _revive_duration = 3.0  # Duration of the upside-down state before reviving
 var _is_reviving = false  # Flag to track if the vulture is currently reviving
 var _deathsound = false
 
-var original_speed = _speed
+var original_speed
 var slow_timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_speed = _speed
 	_max_health = _health
 	health_bar.max_value = _max_health
 	health_bar.value = _health
@@ -49,7 +50,7 @@ func _process(delta):
 		health_bar.visible = true
 	if slow_timer != null:
 		slow_timer-=delta
-		if slow_timer < 0:
+		if slow_timer < 0 and !_is_reviving:
 			_speed = original_speed
 
 func _on_moving_state_processing(delta):

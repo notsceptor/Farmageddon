@@ -16,12 +16,13 @@ var _deathsound = false
 var _burrow_cooldown = 15.0 # 15 second cooldown between burrows
 var _last_burrow_time = 0.0 # Tracks the time of the last burrow
 var _is_burrowed = false
-var original_speed = _speed
+var original_speed
 
 var slow_timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_speed = _speed
 	health_bar.max_value = _health
 	_max_health = _health
 	health_bar.value = _health

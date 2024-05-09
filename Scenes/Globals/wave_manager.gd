@@ -52,9 +52,15 @@ func get_map_difficulty_data():
 
 # Function that wil update sliced enemy array to add more enemies at certain wave thresholds
 func update_sliced_enemy_array(wave_number: int):
-	sliced_enemy_array = full_enemy_array.slice(0, 6)  # Include the first three enemies initially
-	if wave_number > 10:
-		pass
+	sliced_enemy_array = full_enemy_array.slice(0, 1)  # Include the first three enemies initially
+	if wave_number > 20:
+		sliced_enemy_array = full_enemy_array.slice(0, 6)  # Include the first three enemies initially
+	elif wave_number > 12:
+		sliced_enemy_array = full_enemy_array.slice(0, 5)  # Include the first three enemies initially
+	elif wave_number > 8:
+		sliced_enemy_array = full_enemy_array.slice(0, 4)
+	elif wave_number > 3:
+		sliced_enemy_array = full_enemy_array.slice(0, 2)  # Include the first three enemies initially
 
 # Function that will populate an array of enemies for the upcoming wave
 func repopulate_current_wave_enemy_array(wave_size: int):
@@ -78,7 +84,7 @@ func start_wave():
 	for key in debug_enemy_dictionary.keys(): # Iterate over keys
 		var value = debug_enemy_dictionary[key] # Access value using the key
 		print(key, ": ", value)
-	spawn_enemy_array_slowly(remaining_enemies_to_spawn)
+	spawn_enemy_array_slowly(remaining_enemies_to_spawn, current_level)
 
 # Function that will check win/loss conditions
 func check_win_loss_conditions():
@@ -188,14 +194,18 @@ func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
 
 	boss_enemy_scene_instantiated = boss_enemy_scene.instantiate()
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0].scale = Vector3(2,2,2)
+	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._speed *= 0.75
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health *= 5
 	add_child(boss_enemy_scene_instantiated)
 
-func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene]):
+func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene],current_level):
 	while wave_enemy_array.size() > 0:
 		if wave_ongoing:
 			var random_chosen_enemy_from_array = wave_enemy_array[randi() % wave_enemy_array.size()]
-			add_child(random_chosen_enemy_from_array.instantiate())
+			var instantiated_enemy = random_chosen_enemy_from_array.instantiate()
+			var enemy_health = instantiated_enemy.get_node("Path3D/PathFollow3D").get_children()[0]._health
+			instantiated_enemy.get_node("Path3D/PathFollow3D").get_children()[0]._health = ceil(enemy_health + (enemy_health*0.07*current_level))
+			add_child(instantiated_enemy)
 			wave_enemy_array.erase(random_chosen_enemy_from_array)
 			await get_tree().create_timer(1).timeout
 		else:

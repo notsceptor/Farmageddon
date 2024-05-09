@@ -11,15 +11,17 @@ var _speed = 3
 var _size = 1
 var _deathsound = false
 
-var original_speed = _speed
+var original_speed
 var slow_timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_speed = _speed
 	health_bar.max_value = _health
 	health_bar.value = _health
 	_path_follow_3d = get_node("../")
 	health_bar.visible = false # Hide the health bar initially
+	print(_health)
 
 func _process(delta):
 	if in_constant_aoe_damage_zone and area_damage_timer.time_left == 0:

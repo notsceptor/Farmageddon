@@ -11,10 +11,11 @@ var _speed = 2
 var _size = 2
 var _deathsound = false
 
-var original_speed = _speed
+var original_speed
 var slow_timer
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	original_speed = _speed
 	health_bar.max_value = _health
 	health_bar.value = _health
 	_path_follow_3d = get_node("../")

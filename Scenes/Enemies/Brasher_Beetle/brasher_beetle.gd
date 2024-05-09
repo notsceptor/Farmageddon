@@ -21,10 +21,11 @@ var _is_charging = false  # Flag to track if the enemy is currently charging
 var _charge_timer = 0.0  # Timer to track the charge duration
 var _charge_cooldown_timer = 0.0  # Timer to track the charge cooldown
 
-var original_speed = _speed
+var original_speed
 var slow_timer
 
 func _ready():
+	original_speed = _speed
 	health_bar.max_value = _health
 	health_bar.value = _health
 	_path_follow_3d = get_node("../")
