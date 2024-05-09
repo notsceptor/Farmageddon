@@ -4,9 +4,8 @@ class_name MapParent
 @onready var cam = $Camera3D
 var RAYCAST_LENGTH:float = 100
 
-@onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton
-@onready var refresh_wave_button: Button = $UI/MarginContainer2/TestRefreshMapButton
+@onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/WaveNumber
+@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton
 
 signal wave_ended
 
@@ -29,8 +28,7 @@ func _process(_delta):
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
-				_regenerate_new_map_layout()
-			current_level_wave_number_label.text = str(WaveManager.current_level)
+				CurrencyDistributor.addGems(50)
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -78,16 +76,14 @@ func _complete_grid():
 		add_child(tile)
 		tile.global_position = Vector3(PathGenInstance.get_path_tile(i).x, 0, PathGenInstance.get_path_tile(i).y)
 		tile.global_rotation_degrees = tile_rotation
-		
-func _on_ui_refresh_map_button_pressed():
-	print("Map refresh button pressed")
-	_regenerate_new_map_layout()
 	
 func _regenerate_new_map_layout():
 	GlobalAudioPlayer.play_earthquake_sound()
 	var scene_to_load: String
+	$UI/CurrencyDisplay.visible = false
+	$UI/HBoxContainer.visible = false
+	$UI/MarginContainer.visible = false
 	$UI/ReloadSceneText.visible = true
-	next_wave_button.visible = false
 	match Globals.current_selected_map:
 		"easy":
 			scene_to_load = "res://Scenes/Maps/easy_map.tscn"
@@ -109,3 +105,8 @@ func _on_ui_place_turret(turret_scene, location):
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false
 	WaveManager.start_wave()
+
+func _on_ui_confirmed_rewards():
+	current_level_wave_number_label.text = str(WaveManager.current_level)
+	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
+		_regenerate_new_map_layout()

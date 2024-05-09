@@ -1,13 +1,19 @@
-[gd_scene load_steps=100 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=114 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
-[ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
 [ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="4_6xtmb"]
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="4_t7k0y"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/EnemiesTracker.gd" id="7_dhyih"]
+[ext_resource type="Texture2D" uid="uid://l683wkqms74d" path="res://Scenes/User_Interface/Assets/skull.png" id="7_rlnwh"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
+[ext_resource type="Texture2D" uid="uid://butmeimctoan7" path="res://Textures/GUI_Sprite_Sheet_2.png" id="8_k0ctp"]
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
 [ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chilligun_Cover.png" id="10_cwaca"]
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
@@ -39,11 +45,55 @@
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wquct"]
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 5.0
+expand_margin_bottom = 5.0
+
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
 
 [sub_resource type="LabelSettings" id="LabelSettings_jkol2"]
-font_size = 20
+font = ExtResource("4_t7k0y")
+font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy1sa"]
+content_margin_left = 60.0
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jdof"]
+font = ExtResource("4_t7k0y")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_rja7r"]
+font = ExtResource("4_t7k0y")
+font_size = 48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkl54"]
 resource_name = "material_0"
@@ -993,64 +1043,150 @@ _bundled = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk3nm"]
-bg_color = Color(0.341176, 0.694118, 0.345098, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.117647, 0.498039, 0.258824, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
 expand_margin_left = 10.0
-expand_margin_top = 10.0
+expand_margin_top = 2.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ijd30"]
+font = ExtResource("4_t7k0y")
+font_size = 64
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0m2eo"]
+content_margin_left = 20.0
+content_margin_top = 25.0
+content_margin_right = 20.0
+content_margin_bottom = 25.0
+texture = ExtResource("8_k0ctp")
+region_rect = Rect2(32, 32, 16, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljddd"]
+content_margin_left = 20.0
+content_margin_top = 25.0
+content_margin_right = 20.0
+content_margin_bottom = 25.0
+texture = ExtResource("8_k0ctp")
+region_rect = Rect2(32, 32, 16, 16)
+modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_chg7p"]
+content_margin_left = 20.0
+content_margin_top = 15.0
+content_margin_right = 20.0
+content_margin_bottom = 0.0
+texture = ExtResource("8_k0ctp")
+region_rect = Rect2(48, 32, 16, 16)
+modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
+
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
-debug_enemy = ExtResource("2_t418s")
 
 [node name="CurrencyDisplay" parent="." instance=ExtResource("37_qj2va")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
-grow_horizontal = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
+offset_right = 560.0
+offset_bottom = 105.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_wquct")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/separation = 20
 
-[node name="WaveText" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="WaveText" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
 text = "Current Wave:"
 label_settings = SubResource("LabelSettings_rlops")
 
-[node name="WaveNumber" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="WaveNumber" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
 layout_mode = 2
-text = "[wave number here]
+theme_override_fonts/font = ExtResource("4_t7k0y")
+text = "X
 "
 label_settings = SubResource("LabelSettings_rlops")
 
-[node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
-text = "START  WAVE"
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_6xtmb")
+theme_override_styles/hover = ExtResource("5_q4g83")
+theme_override_styles/pressed = ExtResource("6_ur5bi")
+text = "START WAVE"
 
-[node name="DebugEnemyButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "DEBUG SPAWN ENEMY"
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_wquct")
 
-[node name="UpcomingEnemies" type="Label" parent="MarginContainer/VBoxContainer"]
+[node name="UpcomingEnemies" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2"]
 layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
 text = "Upcoming:"
 label_settings = SubResource("LabelSettings_jkol2")
+
+[node name="EnemiesTracker" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy1sa")
+script = ExtResource("7_dhyih")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EnemiesTracker"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="EnemiesLeft" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "/"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="MaxEnemies" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+horizontal_alignment = 2
+
+[node name="SkullIcon" type="Sprite2D" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+position = Vector2(-27, 16)
+scale = Vector2(1.28125, 1.1875)
+texture = ExtResource("7_rlnwh")
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -1065,21 +1201,10 @@ offset_right = 246.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
-
-[node name="MarginContainer2" type="MarginContainer" parent="."]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -205.0
-offset_bottom = 51.0
-grow_horizontal = 0
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-
-[node name="TestRefreshMapButton" type="Button" parent="MarginContainer2"]
-layout_mode = 2
-text = "REFRESH MAP (DEBUG)"
+text = "EARTHQUAKE HAS HAPPENED...
+CHANGING SCENE (placeholder)"
+label_settings = SubResource("LabelSettings_rja7r")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 7
@@ -1092,7 +1217,8 @@ offset_top = -96.0
 offset_right = 48.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_constants/separation = 10
+theme_override_constants/separation = 5
+alignment = 1
 
 [node name="pea" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
 layout_mode = 2
@@ -1164,7 +1290,7 @@ turret_to_instantiate = ExtResource("35_nmxdp")
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="RewardsContainer" type="PanelContainer" parent="."]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1180,64 +1306,89 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rk3nm")
 script = ExtResource("38_xtwcu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="WaveOutcome" type="Label" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
-text = "REWARDS GAINED:"
-label_settings = SubResource("LabelSettings_rlops")
+text = "WAVE W/L"
+label_settings = SubResource("LabelSettings_ijd30")
 horizontal_alignment = 1
-vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="RewardsContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 40
+text = "REWARDS GAINED:"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 23
 text = "Gold: XXX"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 23
 text = "Scrap: XXX"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 23
 text = "Gems: XXX"
 horizontal_alignment = 1
 
-[node name="WatchAdvertButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="WatchAdvertButton" type="Button" parent="RewardsContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 23
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = SubResource("StyleBoxTexture_0m2eo")
+theme_override_styles/hover = SubResource("StyleBoxTexture_ljddd")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_chg7p")
 text = "WATCH
 AD"
 
-[node name="AdvertHintLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="AdvertHintLabel" type="Label" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 20
 text = "Watch an ad to double rewards"
 horizontal_alignment = 1
 
-[node name="RewardsCountdownLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="RewardsCountdownLabel" type="Label" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 30
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 50
 text = "5s"
 horizontal_alignment = 1
 
-[node name="ConfirmRewardsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ConfirmRewardsButton" type="Button" parent="RewardsContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_font_sizes/font_size = 23
+focus_mode = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_6xtmb")
+theme_override_styles/hover = ExtResource("5_q4g83")
+theme_override_styles/pressed = ExtResource("6_ur5bi")
 text = "CONFIRM"
 
 [node name="RewardCountdownTimer" type="Timer" parent="."]
@@ -1248,13 +1399,13 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[connection signal="advert_finished" from="." to="PanelContainer" method="_on_ui_advert_finished"]
-[connection signal="confirmed_rewards" from="." to="PanelContainer" method="_on_ui_confirmed_rewards"]
-[connection signal="wave_ended_from_map_parent" from="." to="PanelContainer" method="_on_ui_wave_ended_from_map_parent"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/NextWaveButton" to="PanelContainer" method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
+[connection signal="advert_finished" from="." to="RewardsContainer" method="_on_ui_advert_finished"]
+[connection signal="confirmed_rewards" from="." to="RewardsContainer" method="_on_ui_confirmed_rewards"]
+[connection signal="wave_ended_from_map_parent" from="." to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="RewardsContainer" method="_on_next_wave_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]
@@ -1266,7 +1417,7 @@ one_shot = true
 [connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/spore" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/fish" to="." method="_on_activity_button_place_turret"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton" to="." method="_on_watch_advert_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
+[connection signal="pressed" from="RewardsContainer/VBoxContainer/HBoxContainer/WatchAdvertButton" to="." method="_on_watch_advert_button_pressed"]
+[connection signal="pressed" from="RewardsContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
 [connection signal="timeout" from="RewardCountdownTimer" to="." method="_on_reward_countdown_timer_timeout"]
 [connection signal="timeout" from="ShowAdvertTimer" to="." method="_on_show_advert_timer_timeout"]

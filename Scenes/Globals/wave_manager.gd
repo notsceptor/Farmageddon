@@ -20,6 +20,7 @@ var current_level_wave_spawn_size: int
 
 # Wave win/loss logic
 var enemies_on_map: int = 0
+var enemies_killed: int = 0
 var wave_ongoing: bool = false
 var wave_won: bool
 
@@ -41,7 +42,7 @@ func get_map_difficulty_data():
 			current_level = Globals.medium_map_current_level
 		"hard":
 			current_level_wave_spawn_size = Globals.hard_map_spawn_size
-			current_level = Globals.medium_map_current_level
+			current_level = Globals.hard_map_current_level
 
 	if current_level % 5 == 0:
 		current_wave_is_boss_wave = true
@@ -84,6 +85,7 @@ func check_win_loss_conditions():
 	if current_wave_is_boss_wave == false and enemies_on_map == 0 and remaining_enemies_to_spawn.size() == 0:
 		wave_ongoing = false
 		enemies_on_map = 0
+		enemies_killed = 0
 		if wave_won:
 			print("WAVE WON")
 			wave_won_increase_level_and_size()
@@ -116,11 +118,11 @@ func wave_won_increase_level_and_size():
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
 		"hard":
-			if Globals.easy_hard_current_level % 5 == 0:
-				Globals.easy_hard_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
+			if Globals.hard_map_current_level % 5 == 0:
+				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
 			else:
-				Globals.easy_hard_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
-			Globals.easy_hard_current_level += 1
+				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
+			Globals.hard_map_current_level += 1
 			current_level = Globals.hard_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
