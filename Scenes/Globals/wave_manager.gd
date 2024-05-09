@@ -42,7 +42,7 @@ func get_map_difficulty_data():
 			current_level = Globals.medium_map_current_level
 		"hard":
 			current_level_wave_spawn_size = Globals.hard_map_spawn_size
-			current_level = Globals.medium_map_current_level
+			current_level = Globals.hard_map_current_level
 
 	if current_level % 5 == 0:
 		current_wave_is_boss_wave = true
@@ -118,11 +118,11 @@ func wave_won_increase_level_and_size():
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
 		"hard":
-			if Globals.easy_hard_current_level % 5 == 0:
-				Globals.easy_hard_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
+			if Globals.hard_map_current_level % 5 == 0:
+				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
 			else:
-				Globals.easy_hard_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
-			Globals.easy_hard_current_level += 1
+				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
+			Globals.hard_map_current_level += 1
 			current_level = Globals.hard_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true

@@ -57,6 +57,8 @@ func get_upcoming_enemies():
 	for enemy in WaveManager.debug_enemy_dictionary.keys():
 		var qty_str = str(WaveManager.debug_enemy_dictionary[enemy])
 		upcoming_text += qty_str + " " + enemy + "\n"
+	if WaveManager.current_wave_is_boss_wave:
+		upcoming_text += "1 Boss Enemy (Random)"
 	upcoming_enemies.text = upcoming_text
 	
 func show_rewards_screen():

@@ -28,6 +28,7 @@ func _process(_delta):
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
+				CurrencyDistributor.addGems(50)
 				_regenerate_new_map_layout()
 			current_level_wave_number_label.text = str(WaveManager.current_level)
 

@@ -1365,7 +1365,6 @@ text = "Watch an ad to double rewards"
 horizontal_alignment = 1
 
 [node name="RewardsCountdownLabel" type="Label" parent="RewardsContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 50
@@ -1373,6 +1372,7 @@ text = "5s"
 horizontal_alignment = 1
 
 [node name="ConfirmRewardsButton" type="Button" parent="RewardsContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
