@@ -7,10 +7,10 @@ extends CanvasLayer
 @onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/PanelContainer2/UpcomingEnemies
 @onready var upcoming_enemies_container: PanelContainer = $MarginContainer/VBoxContainer/PanelContainer2
 @onready var enemies_game_tracker: PanelContainer = $MarginContainer/VBoxContainer/EnemiesTracker
-@onready var watch_ad_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton
-@onready var advert_hint_label: Label = $PanelContainer/VBoxContainer/AdvertHintLabel
-@onready var countdown_text: Label = $PanelContainer/VBoxContainer/RewardsCountdownLabel
-@onready var confirm_rewards_button: Button = $PanelContainer/VBoxContainer/ConfirmRewardsButton
+@onready var watch_ad_button: Button = $RewardsContainer/VBoxContainer/HBoxContainer/WatchAdvertButton
+@onready var advert_hint_label: Label = $RewardsContainer/VBoxContainer/AdvertHintLabel
+@onready var countdown_text: Label = $RewardsContainer/VBoxContainer/RewardsCountdownLabel
+@onready var confirm_rewards_button: Button = $RewardsContainer/VBoxContainer/ConfirmRewardsButton
 @onready var reward_timer: Timer = $RewardCountdownTimer
 @onready var advert_timer: Timer = $ShowAdvertTimer
 
@@ -63,7 +63,7 @@ func show_rewards_screen():
 	advert_hint_label.text = "Watch an ad to double rewards"
 	watch_ad_button.visible = false
 	advert_hint_label.visible = false
-	$PanelContainer.visible = true
+	$RewardsContainer.visible = true
 	reward_timer.start()
 	advert_timer.start()
 	
@@ -74,7 +74,7 @@ func _on_watch_advert_button_pressed():
 
 func _on_confirm_rewards_button_pressed():
 	GlobalAudioPlayer.play_idle_music()
-	$PanelContainer.visible = false
+	$RewardsContainer.visible = false
 	countdown_text.visible = true
 	confirm_rewards_button.visible = false
 	enemies_game_tracker.visible = false

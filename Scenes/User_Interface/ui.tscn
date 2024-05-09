@@ -1,4 +1,4 @@
-[gd_scene load_steps=112 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=113 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -1055,6 +1055,10 @@ expand_margin_top = 2.0
 expand_margin_right = 10.0
 expand_margin_bottom = 10.0
 
+[sub_resource type="LabelSettings" id="LabelSettings_ijd30"]
+font = ExtResource("4_t7k0y")
+font_size = 64
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0m2eo"]
 content_margin_left = 20.0
 content_margin_top = 25.0
@@ -1279,7 +1283,7 @@ turret_to_instantiate = ExtResource("35_nmxdp")
 offset_right = 8.0
 offset_bottom = 8.0
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="RewardsContainer" type="PanelContainer" parent="."]
 visible = false
 anchors_preset = 8
 anchor_left = 0.5
@@ -1295,48 +1299,54 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_rk3nm")
 script = ExtResource("38_xtwcu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsContainer"]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="WaveOutcome" type="Label" parent="RewardsContainer/VBoxContainer"]
+layout_mode = 2
+text = "WAVE W/L"
+label_settings = SubResource("LabelSettings_ijd30")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 40
 text = "REWARDS GAINED:"
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/separation = 30
 alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RewardsContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 23
 text = "Gold: XXX"
 horizontal_alignment = 1
 
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 23
 text = "Scrap: XXX"
 horizontal_alignment = 1
 
-[node name="Label3" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="RewardsContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 23
 text = "Gems: XXX"
 horizontal_alignment = 1
 
-[node name="WatchAdvertButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+[node name="WatchAdvertButton" type="Button" parent="RewardsContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("4_t7k0y")
@@ -1347,14 +1357,14 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_chg7p")
 text = "WATCH
 AD"
 
-[node name="AdvertHintLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="AdvertHintLabel" type="Label" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 20
 text = "Watch an ad to double rewards"
 horizontal_alignment = 1
 
-[node name="RewardsCountdownLabel" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="RewardsCountdownLabel" type="Label" parent="RewardsContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 theme_override_fonts/font = ExtResource("4_t7k0y")
@@ -1362,7 +1372,7 @@ theme_override_font_sizes/font_size = 50
 text = "5s"
 horizontal_alignment = 1
 
-[node name="ConfirmRewardsButton" type="Button" parent="PanelContainer/VBoxContainer"]
+[node name="ConfirmRewardsButton" type="Button" parent="RewardsContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1382,11 +1392,13 @@ one_shot = true
 wait_time = 2.0
 one_shot = true
 
-[connection signal="advert_finished" from="." to="PanelContainer" method="_on_ui_advert_finished"]
-[connection signal="confirmed_rewards" from="." to="PanelContainer" method="_on_ui_confirmed_rewards"]
-[connection signal="wave_ended_from_map_parent" from="." to="PanelContainer" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="advert_finished" from="." to="RewardsContainer" method="_on_ui_advert_finished"]
+[connection signal="confirmed_rewards" from="." to="RewardsContainer" method="_on_ui_confirmed_rewards"]
+[connection signal="wave_ended_from_map_parent" from="." to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="PanelContainer" method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="RewardsContainer" method="_on_next_wave_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]
@@ -1398,7 +1410,7 @@ one_shot = true
 [connection signal="place_turret" from="HBoxContainer/radish" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/spore" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/fish" to="." method="_on_activity_button_place_turret"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton" to="." method="_on_watch_advert_button_pressed"]
-[connection signal="pressed" from="PanelContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
+[connection signal="pressed" from="RewardsContainer/VBoxContainer/HBoxContainer/WatchAdvertButton" to="." method="_on_watch_advert_button_pressed"]
+[connection signal="pressed" from="RewardsContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
 [connection signal="timeout" from="RewardCountdownTimer" to="." method="_on_reward_countdown_timer_timeout"]
 [connection signal="timeout" from="ShowAdvertTimer" to="." method="_on_show_advert_timer_timeout"]

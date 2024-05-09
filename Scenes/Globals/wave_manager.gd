@@ -20,6 +20,7 @@ var current_level_wave_spawn_size: int
 
 # Wave win/loss logic
 var enemies_on_map: int = 0
+var enemies_killed: int = 0
 var wave_ongoing: bool = false
 var wave_won: bool
 
@@ -84,6 +85,7 @@ func check_win_loss_conditions():
 	if current_wave_is_boss_wave == false and enemies_on_map == 0 and remaining_enemies_to_spawn.size() == 0:
 		wave_ongoing = false
 		enemies_on_map = 0
+		enemies_killed = 0
 		if wave_won:
 			print("WAVE WON")
 			wave_won_increase_level_and_size()

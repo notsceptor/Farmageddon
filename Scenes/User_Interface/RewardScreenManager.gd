@@ -11,6 +11,7 @@ extends PanelContainer
 @onready var gold_text: Label = $VBoxContainer/HBoxContainer/VBoxContainer/Label
 @onready var scrap_text: Label = $VBoxContainer/HBoxContainer/VBoxContainer/Label2
 @onready var gems_text: Label = $VBoxContainer/HBoxContainer/VBoxContainer/Label3
+@onready var wave_outcome_text: Label = $VBoxContainer/WaveOutcome
 
 func _ready():
 	start_gold = Globals.gold
@@ -27,6 +28,9 @@ func _on_next_wave_button_pressed():
 	start_gems = Globals.gems
 	
 func _on_ui_wave_ended_from_map_parent():
+	wave_outcome_text.text = "WAVE WON" 
+	if !WaveManager.wave_won:
+		wave_outcome_text.text = "WAVE LOST"
 	calculate_and_show_currency_gain()
 
 func calculate_and_show_currency_gain():

@@ -29,6 +29,7 @@ func _process(_delta):
 		if _deathsound == false:
 			_deathsound = true
 			WaveManager.enemies_on_map -= 1
+			WaveManager.enemies_killed += 1
 			GlobalAudioPlayer.play_snail_death_sound()
 			CurrencyDistributor.addGold(_size * 10)
 
