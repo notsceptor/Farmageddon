@@ -6,7 +6,9 @@ var projectile_type: String = "projectile"
 @export var speed := 10.0
 @export var acceleration := 2.0
 var damage: int
+
 var slow: float
+var slow_duration: float
 
 var starting_position: Vector3
 var target: Node3D

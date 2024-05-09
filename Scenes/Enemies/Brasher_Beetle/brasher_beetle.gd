@@ -22,6 +22,7 @@ var _charge_timer = 0.0  # Timer to track the charge duration
 var _charge_cooldown_timer = 0.0  # Timer to track the charge cooldown
 
 var original_speed = _speed
+var slow_timer
 
 func _ready():
 	health_bar.max_value = _health
@@ -41,7 +42,11 @@ func _process(delta):
 			WaveManager.enemies_killed += 1
 			GlobalAudioPlayer.play_beetle_death_sound()
 			CurrencyDistributor.addGold(_size * 10)
-
+	if slow_timer != null:
+		slow_timer-=delta
+		if slow_timer < 0:
+			_speed = original_speed
+		
 	# Handle charging
 	if _is_charging:
 		_charge_timer += delta
@@ -77,6 +82,9 @@ func _on_area_3d_area_entered(area):
 			health_bar.value -= area.damage
 			if (area.slow) and (_speed > (original_speed * area.slow)):
 				_speed = _speed * area.slow
+			if (area.slow_duration):
+				slow_timer = area.slow_duration
+
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):

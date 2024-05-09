@@ -18,6 +18,8 @@ var _last_burrow_time = 0.0 # Tracks the time of the last burrow
 var _is_burrowed = false
 var original_speed = _speed
 
+var slow_timer
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	health_bar.max_value = _health
@@ -44,6 +46,11 @@ func _process(delta):
 		health_bar.visible = false
 	elif _health != _max_health and !_is_burrowed:
 		health_bar.visible = true
+	if slow_timer != null:
+		slow_timer-=delta
+		if slow_timer < 0:
+			_speed = original_speed
+
 
 func _on_moving_state_processing(delta):
 	_path_progress += delta * _speed
@@ -60,6 +67,8 @@ func _on_area_3d_area_entered(area):
 			health_bar.value -= area.damage
 			if (area.slow) and (_speed > (original_speed * area.slow)):
 				_speed = _speed * area.slow
+			if (area.slow_duration):
+				slow_timer = area.slow_duration
 
 func _on_area_3d_area_exited(area):
 	if area.is_in_group("AOE"):
