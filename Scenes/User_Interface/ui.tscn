@@ -1,4 +1,4 @@
-[gd_scene load_steps=108 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=112 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -9,6 +9,8 @@
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/EnemiesTracker.gd" id="7_dhyih"]
+[ext_resource type="Texture2D" uid="uid://l683wkqms74d" path="res://Scenes/User_Interface/Assets/skull.png" id="7_rlnwh"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
 [ext_resource type="Texture2D" uid="uid://butmeimctoan7" path="res://Textures/GUI_Sprite_Sheet_2.png" id="8_k0ctp"]
@@ -44,11 +46,11 @@
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wquct"]
-bg_color = Color(0.407843, 0.196078, 0.0784314, 0.588235)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
 border_color = Color(0, 0, 0, 0.882353)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
@@ -66,6 +68,28 @@ font_size = 32
 [sub_resource type="LabelSettings" id="LabelSettings_jkol2"]
 font = ExtResource("4_t7k0y")
 font_size = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hy1sa"]
+content_margin_left = 60.0
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+expand_margin_left = 5.0
+expand_margin_top = 5.0
+expand_margin_right = 10.0
+expand_margin_bottom = 5.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1jdof"]
+font = ExtResource("4_t7k0y")
+font_size = 32
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkl54"]
 resource_name = "material_0"
@@ -1015,12 +1039,12 @@ _bundled = {
 }
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rk3nm"]
-bg_color = Color(0.407843, 0.196078, 0.0784314, 1)
-border_width_left = 10
-border_width_top = 10
-border_width_right = 10
-border_width_bottom = 10
-border_color = Color(0, 0, 0, 1)
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
@@ -1095,6 +1119,7 @@ text = "X
 label_settings = SubResource("LabelSettings_rlops")
 
 [node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 focus_mode = 0
 theme_override_fonts/font = ExtResource("4_t7k0y")
@@ -1115,6 +1140,45 @@ size_flags_horizontal = 0
 theme_override_fonts/font = ExtResource("4_t7k0y")
 text = "Upcoming:"
 label_settings = SubResource("LabelSettings_jkol2")
+
+[node name="EnemiesTracker" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hy1sa")
+script = ExtResource("7_dhyih")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/EnemiesTracker"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="EnemiesLeft" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "/"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="MaxEnemies" type="Label" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+horizontal_alignment = 2
+
+[node name="SkullIcon" type="Sprite2D" parent="MarginContainer/VBoxContainer/EnemiesTracker/HBoxContainer"]
+position = Vector2(-27, 16)
+scale = Vector2(1.28125, 1.1875)
+texture = ExtResource("7_rlnwh")
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false

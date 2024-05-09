@@ -6,6 +6,7 @@ extends CanvasLayer
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/PanelContainer2/UpcomingEnemies
 @onready var upcoming_enemies_container: PanelContainer = $MarginContainer/VBoxContainer/PanelContainer2
+@onready var enemies_game_tracker: PanelContainer = $MarginContainer/VBoxContainer/EnemiesTracker
 @onready var watch_ad_button: Button = $PanelContainer/VBoxContainer/HBoxContainer/WatchAdvertButton
 @onready var advert_hint_label: Label = $PanelContainer/VBoxContainer/AdvertHintLabel
 @onready var countdown_text: Label = $PanelContainer/VBoxContainer/RewardsCountdownLabel
@@ -23,6 +24,7 @@ signal confirmed_rewards
 func _ready():
 	next_wave_button.visible = false
 	upcoming_enemies_container.visible = false
+	enemies_game_tracker.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
 	upcoming_enemies_container.visible = true
@@ -45,6 +47,7 @@ func _on_next_wave_button_pressed():
 	next_wave_button_pressed.emit()
 	next_wave_button.visible = false
 	upcoming_enemies_container.visible = false
+	enemies_game_tracker.visible = true
 
 func _on_activity_button_place_turret(turret_scene, location):
 	place_turret.emit(turret_scene, location)
@@ -74,6 +77,7 @@ func _on_confirm_rewards_button_pressed():
 	$PanelContainer.visible = false
 	countdown_text.visible = true
 	confirm_rewards_button.visible = false
+	enemies_game_tracker.visible = false
 	get_upcoming_enemies()
 	next_wave_button.visible = true
 	upcoming_enemies_container.visible = true
