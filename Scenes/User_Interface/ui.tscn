@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://l683wkqms74d" path="res://Scenes/User_Interface/Assets/skull.png" id="7_rlnwh"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
-[ext_resource type="Texture2D" uid="uid://butmeimctoan7" path="res://Textures/GUI_Sprite_Sheet_2.png" id="8_k0ctp"]
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
 [ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chilligun_Cover.png" id="10_cwaca"]
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
@@ -44,6 +43,7 @@
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
+[ext_resource type="Texture2D" uid="uid://bpmsipabv8uqt" path="res://Textures/GUI_Sprite_Sheet_2_yellow.png" id="44_owlvf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wquct"]
 bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
@@ -1068,7 +1068,7 @@ content_margin_left = 20.0
 content_margin_top = 25.0
 content_margin_right = 20.0
 content_margin_bottom = 25.0
-texture = ExtResource("8_k0ctp")
+texture = ExtResource("44_owlvf")
 region_rect = Rect2(32, 32, 16, 16)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ljddd"]
@@ -1076,7 +1076,7 @@ content_margin_left = 20.0
 content_margin_top = 25.0
 content_margin_right = 20.0
 content_margin_bottom = 25.0
-texture = ExtResource("8_k0ctp")
+texture = ExtResource("44_owlvf")
 region_rect = Rect2(32, 32, 16, 16)
 modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
 
@@ -1085,7 +1085,7 @@ content_margin_left = 20.0
 content_margin_top = 15.0
 content_margin_right = 20.0
 content_margin_bottom = 0.0
-texture = ExtResource("8_k0ctp")
+texture = ExtResource("44_owlvf")
 region_rect = Rect2(48, 32, 16, 16)
 modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
 
@@ -1130,6 +1130,7 @@ label_settings = SubResource("LabelSettings_rlops")
 visible = false
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("4_6xtmb")
@@ -1356,6 +1357,7 @@ horizontal_alignment = 1
 [node name="WatchAdvertButton" type="Button" parent="RewardsContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = SubResource("StyleBoxTexture_0m2eo")
@@ -1384,6 +1386,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("4_t7k0y")
 theme_override_font_sizes/font_size = 25
 theme_override_styles/normal = ExtResource("4_6xtmb")
