@@ -1,6 +1,32 @@
-[gd_scene load_steps=2 format=3 uid="uid://byw5iptfhuaml"]
+[gd_scene load_steps=4 format=3 uid="uid://d4dql2me13lc4"]
 
-[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/Hotbar.gd" id="1_dsf70"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/slot_container.gd" id="1_isp5h"]
+[ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_7c4dk"]
+
+[sub_resource type="GDScript" id="GDScript_naf4s"]
 
 [node name="Hotbar" type="GridContainer"]
-script = ExtResource("1_dsf70")
+script = SubResource("GDScript_naf4s")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 10
+script = ExtResource("1_isp5h")
+
+[node name="H1" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2
+
+[node name="H2" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2
+
+[node name="H3" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2
+
+[node name="H4" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2
+
+[node name="H5" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2
+
+[node name="H6" parent="HBoxContainer" instance=ExtResource("2_7c4dk")]
+layout_mode = 2

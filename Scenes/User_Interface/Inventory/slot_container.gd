@@ -1,23 +1,20 @@
-extends GridContainer
+extends HBoxContainer
 
-class_name SlotContainer
+func _ready():
+	populate_hotbar()
 
-var item_slot_scene = load("res://Scenes/User_Interface/Inventory/item_slot.tscn")
-var item_slot = item_slot_scene.instantiate()
+func populate_hotbar():
+	for i in range(get_child_count()):
+		var child = get_child(i)
 
-var slots = []
-
-func display_item_slots(cols: int, rows: int):
-	columns = cols
-	for index in range(cols * rows):
-		var item_slot = item_slot_scene.instantiate()
-		add_child(item_slot)
-		slots.append(item_slot)
-		item_slot.display_item(Inventory.items[index])
-	Inventory.connect("items_changed", Callable(self, "_on_Inventory_items_changed"))
-
-func _on_Inventory_items_changed(indexes: Array[int]):
-	for index in indexes:
-		if index < len(slots):
-			var item_slot = slots[index]
-			item_slot.display_item(Inventory.items[index])
+		if i < Hotbar.items.size():
+			var turret_data = Hotbar.items[i]
+			print(turret_data)
+			child.activity_button_icon = load(turret_data.icon)
+			print(child.activity_button_icon)
+			child.activity_draggable = load(turret_data.activity_draggable)
+			child.turret_to_instantiate = load(turret_data.turret_to_instantiate)
+		else:
+			child.activity_button_icon = null
+			child.activity_draggable = null
+			child.turret_to_instantiate = null

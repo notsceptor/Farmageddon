@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bow4etauftivg" path="res://Scenes/Collision/tile_treeQuad.tscn" id="11_o2pq0"]
 [ext_resource type="PackedScene" uid="uid://bbovwcedxnqit" path="res://Scenes/Collision/tile.tscn" id="12_tph1g"]
 
-[node name="EasyMap" instance=ExtResource("1_djqk1")]
+[node name="EasyMap" groups=["map_parent"] instance=ExtResource("1_djqk1")]
 script = ExtResource("2_gcxxa")
 tile_start = ExtResource("3_6e56y")
 tile_end = ExtResource("3_6e56y")

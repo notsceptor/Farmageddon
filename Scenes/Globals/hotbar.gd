@@ -1,6 +1,6 @@
 extends Node
 
-signal items_changed(indexes)
+signal hotbar_changed(indexes)
 
 var cols = 9
 var rows = 3
@@ -14,14 +14,14 @@ func set_item(index, item):
 	var previous_item = items[index]
 	items[index] = item
 	var test : Array[int] = [index]
-	emit_signal("items_changed", test)
+	emit_signal("hotbar_changed", test)
 	return previous_item
 
 func remove_item(index):
 	var previous_item = items[index].duplicate()
 	items[index].clear()
 	var test : Array[int] = [index]
-	emit_signal("items_changed", test)
+	emit_signal("hotbar_changed", test)
 	return previous_item
 
 func set_item_quantity(index, amount):
@@ -33,7 +33,7 @@ func set_item_quantity(index, amount):
 		emit_signal("items_changed", test)
 
 func _load_items():
-	var file = FileAccess.open("res://Items/items.json", FileAccess.READ)
+	var file = FileAccess.open("res://Items/hotbar.json", FileAccess.READ)
 	if file != null:
 		var json_content = file.get_as_text()
 		var items_data = JSON.parse_string(json_content)
@@ -41,7 +41,7 @@ func _load_items():
 		for item_data in items_data.turrets:
 			items.append(item_data)
 	else:
-		printerr("Failed to open items.json file")
+		printerr("Failed to open hotbar.json file")
 
 func get_item_by_key(key):
 	for item in items:

@@ -6,6 +6,7 @@ func _init():
 	PathGenInstance.path_config = medium_map_config
 	
 func _ready():
+	super()
 	Globals.current_selected_map = "medium"
 	WaveManager.get_map_difficulty_data()
 	current_level_wave_number_label.text = str(Globals.medium_map_current_level)

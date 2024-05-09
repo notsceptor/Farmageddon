@@ -1,15 +1,20 @@
-[gd_scene load_steps=16 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=21 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
+[ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
 [ext_resource type="PackedScene" uid="uid://buprytn1t6umg" path="res://Scenes/Enemies/Giant_Zombie_Snail/giant_zombie_snail_container.tscn" id="2_t418s"]
-[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/slot_container.gd" id="3_4tvrl"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/SlotContainer.gd" id="3_4tvrl"]
+[ext_resource type="Texture2D" uid="uid://b8xojsxsuwmel" path="res://Models/Turrets/Pea Shooter/Pea_Shooter_Cover.png" id="3_yypli"]
+[ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
+[ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/gold_progress.gd" id="34_bisms"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/gems_progress.gd" id="34_dk7vi"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/scrap_progress.gd" id="35_k4hq4"]
 [ext_resource type="Texture2D" uid="uid://c4lxlu456xdjv" path="res://Textures/gem.png" id="35_xo4ej"]
 [ext_resource type="Texture2D" uid="uid://dvfe57grn5kdv" path="res://Textures/scrap_piece.png" id="36_si6co"]
 [ext_resource type="Texture2D" uid="uid://d2wilh1kthy5e" path="res://Textures/gold_piece.png" id="37_6yre0"]
-[ext_resource type="PackedScene" uid="uid://ckoky7s832gr0" path="res://Scenes/User_Interface/Inventory/drag_preview.tscn" id="42_g3ego"]
+[ext_resource type="PackedScene" uid="uid://dmukatb5fsj7u" path="res://Scenes/User_Interface/Inventory/hotbar.tscn" id="40_ycllh"]
+[ext_resource type="PackedScene" uid="uid://dyxr031xc5q7s" path="res://Scenes/User_Interface/Inventory/drag_preview.tscn" id="42_g3ego"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
 font_size = 32
@@ -112,6 +117,42 @@ grow_vertical = 0
 theme_override_constants/separation = 10
 script = ExtResource("3_4tvrl")
 
+[node name="H1" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
+[node name="H2" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
+[node name="H3" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
+[node name="H4" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
+[node name="H5" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
+[node name="H6" parent="HBoxContainer" instance=ExtResource("2_niyf1")]
+layout_mode = 2
+activity_button_icon = ExtResource("3_yypli")
+activity_draggable = ExtResource("4_hdmtv")
+turret_to_instantiate = ExtResource("6_v143u")
+
 [node name="ResourcesContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 1
@@ -211,8 +252,24 @@ position = Vector2(160, 112)
 scale = Vector2(0.129, 0.13)
 texture = ExtResource("37_6yre0")
 
+[node name="Hotbar" parent="." instance=ExtResource("40_ycllh")]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
 [node name="DragPreview" parent="." instance=ExtResource("42_g3ego")]
 
 [connection signal="pressed" from="MarginContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/DebugEnemyButton" to="." method="_on_debug_enemy_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/TestRefreshMapButton" to="." method="_on_test_refresh_map_button_pressed"]
+[connection signal="place_turret" from="HBoxContainer/H1" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/H2" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/H3" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/H4" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/H5" to="." method="_on_activity_button_place_turret"]
+[connection signal="place_turret" from="HBoxContainer/H6" to="." method="_on_activity_button_place_turret"]

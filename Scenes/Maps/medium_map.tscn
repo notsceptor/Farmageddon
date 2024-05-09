@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bsrjjbajulsja" path="res://Scenes/Collision/tile_crystal.tscn" id="11_ejd8p"]
 [ext_resource type="PackedScene" uid="uid://bbovwcedxnqit" path="res://Scenes/Collision/tile.tscn" id="12_yvnn4"]
 
-[node name="MediumMap" instance=ExtResource("1_pj7ih")]
+[node name="MediumMap" groups=["map_parent"] instance=ExtResource("1_pj7ih")]
 script = ExtResource("2_o80mu")
 tile_start = ExtResource("3_l4hb2")
 tile_end = ExtResource("3_l4hb2")

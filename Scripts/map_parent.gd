@@ -8,14 +8,15 @@ var RAYCAST_LENGTH:float = 100
 @onready var next_wave_button: Button = $UI/MarginContainer/HBoxContainer/NextWaveButton
 @onready var refresh_wave_button: Button = $UI/MarginContainer/HBoxContainer/TestRefreshMapButton
 
-# THESE VARIABLES NEED TO BE ASSIGNED WHENEVER LEVELS
-# ARE ADDED IN CODE ON THE MAIN NODE RIGHT SIDE
 @export var tile_start:PackedScene
 @export var tile_end:PackedScene
 @export var tile_straight:PackedScene
 @export var tile_corner:PackedScene
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
+
+func _ready():
+	EventBus.connect("place_turret", Callable(self, "place_turret"))
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
@@ -99,7 +100,8 @@ func _on_pause_screen_continue_game_button_pressed():
 	$PauseScreen.visible = !$PauseScreen.visible
 	$UI.visible = !$UI.visible
 
-func _on_ui_place_turret(turret_scene, location):
+func place_turret(turret_scene, location):
+	print("Placing turret at location: ", location)
 	var turret_to_add = turret_scene.instantiate()
 	$Turrets.add_child(turret_to_add)
 	turret_to_add.global_position = location

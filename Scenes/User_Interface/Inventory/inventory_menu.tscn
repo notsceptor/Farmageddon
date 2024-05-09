@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bei3ipvwuvgxp"]
+[gd_scene load_steps=2 format=3 uid="uid://rcy443agqg7q"]
 
-[ext_resource type="Script" path="res://Scenes/User_Interface/Inventory/InventoryMenu.gd" id="1_7f823"]
+[sub_resource type="GDScript" id="GDScript_l2r2g"]
+script/source = "extends SlotContainer
+
+func _ready():
+	display_item_slots(Inventory.cols, Inventory.rows)
+	await get_tree().process_frame
+	position = (get_viewport_rect().size - size) / 2
+	hide()
+"
 
 [node name="InventoryMenu" type="GridContainer"]
-script = ExtResource("1_7f823")
+script = SubResource("GDScript_l2r2g")
