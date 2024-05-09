@@ -6,7 +6,7 @@ var _path_progress: float = 0.0
 @onready var health_bar = $SubViewport/HealthBar3D
 @onready var area_damage_timer = get_node("../../../AreaDamageTimer")
 
-var _health = 100
+var _health = 10
 var _speed = 3
 var _size = 1
 var _deathsound = false
