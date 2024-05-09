@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scenes/User_Interface/pause_screen.gd" id="1_nfd7k"]
 
 [node name="PauseScreen" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_nfd7k")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
