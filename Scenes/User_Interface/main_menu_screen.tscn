@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_r825n"]
-[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_4m4fk"]
-[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_qjcwd"]
-[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_fve6r"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_4m4fk"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_qjcwd"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_fve6r"]
 
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
@@ -19,6 +19,7 @@ theme_override_constants/margin_top = 100
 layout_mode = 2
 size_flags_horizontal = 0
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 48
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -60,6 +61,7 @@ metadata/_edit_use_anchors_ = true
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -71,6 +73,7 @@ text = "PLAY GAME"
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -83,6 +86,7 @@ text = "SETTINGS
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -112,6 +116,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -124,6 +129,7 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -136,6 +142,7 @@ text = "MEDIUM MAP
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")
@@ -159,6 +166,7 @@ size_flags_horizontal = 8
 [node name="OpenInventory" type="Button" parent="Inventroy"]
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
 theme_override_font_sizes/font_size = 36
 theme_override_styles/normal = ExtResource("3_4m4fk")

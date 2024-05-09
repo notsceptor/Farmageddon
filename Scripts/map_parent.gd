@@ -20,6 +20,7 @@ signal wave_ended
 
 func _process(_delta):
 	if Input.is_action_just_pressed("Pause"):
+		get_tree().paused = true
 		$PauseScreen.visible = !$PauseScreen.visible
 		$UI.visible = !$UI.visible
 	
@@ -94,6 +95,7 @@ func _regenerate_new_map_layout():
 	TransitionLayer.reload_level(scene_to_load)
 
 func _on_pause_screen_continue_game_button_pressed():
+	get_tree().paused = false
 	$PauseScreen.visible = !$PauseScreen.visible
 	$UI.visible = !$UI.visible
 

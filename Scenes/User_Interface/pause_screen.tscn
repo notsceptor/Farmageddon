@@ -1,8 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://fsuade0xgdev"]
+[gd_scene load_steps=8 format=3 uid="uid://fsuade0xgdev"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/pause_screen.gd" id="1_nfd7k"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_vyxvp"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_528mf"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_u8uk2"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_lkov2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsetu"]
+bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(0, 0, 0, 0.882353)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+corner_detail = 1
+expand_margin_left = 30.0
+expand_margin_right = 30.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_ebmdy"]
+font = ExtResource("2_vyxvp")
+font_size = 72
 
 [node name="PauseScreen" type="CanvasLayer"]
+process_mode = 2
 script = ExtResource("1_nfd7k")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -18,32 +43,62 @@ offset_bottom = 246.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="PauseText" type="Label" parent="MarginContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 0
-theme_override_font_sizes/font_size = 52
-text = "GAME PAUSED"
-horizontal_alignment = 1
-vertical_alignment = 1
+theme_override_styles/panel = SubResource("StyleBoxFlat_dsetu")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_constants/separation = 75
 
+[node name="PauseText" type="Label" parent="MarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "GAME PAUSED"
+label_settings = SubResource("LabelSettings_ebmdy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="ContinueGameButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyxvp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_528mf")
+theme_override_styles/hover = ExtResource("4_u8uk2")
+theme_override_styles/pressed = ExtResource("5_lkov2")
 text = "CONTINUE"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyxvp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_528mf")
+theme_override_styles/hover = ExtResource("4_u8uk2")
+theme_override_styles/pressed = ExtResource("5_lkov2")
 text = "SETTINGS
 "
 
 [node name="MainMenuButton" type="Button" parent="MarginContainer/ButtonContainer"]
 layout_mode = 2
-text = "QUIT TO MAIN MENU"
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_vyxvp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_528mf")
+theme_override_styles/hover = ExtResource("4_u8uk2")
+theme_override_styles/pressed = ExtResource("5_lkov2")
+text = "MAIN MENU"
 
 [connection signal="pressed" from="MarginContainer/ButtonContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/ButtonContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
