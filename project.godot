@@ -55,6 +55,7 @@ Pause={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.254902, 0.470588, 0.470588, 0.678431)
