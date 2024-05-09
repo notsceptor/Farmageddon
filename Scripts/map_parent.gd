@@ -29,8 +29,6 @@ func _process(_delta):
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				CurrencyDistributor.addGems(50)
-				_regenerate_new_map_layout()
-			current_level_wave_number_label.text = str(WaveManager.current_level)
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -82,8 +80,10 @@ func _complete_grid():
 func _regenerate_new_map_layout():
 	GlobalAudioPlayer.play_earthquake_sound()
 	var scene_to_load: String
+	$UI/CurrencyDisplay.visible = false
+	$UI/HBoxContainer.visible = false
+	$UI/MarginContainer.visible = false
 	$UI/ReloadSceneText.visible = true
-	next_wave_button.visible = false
 	match Globals.current_selected_map:
 		"easy":
 			scene_to_load = "res://Scenes/Maps/easy_map.tscn"
@@ -105,3 +105,8 @@ func _on_ui_place_turret(turret_scene, location):
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false
 	WaveManager.start_wave()
+
+func _on_ui_confirmed_rewards():
+	current_level_wave_number_label.text = str(WaveManager.current_level)
+	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
+		_regenerate_new_map_layout()

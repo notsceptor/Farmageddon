@@ -17,6 +17,8 @@ func get_max_enemies() -> int:
 
 func _on_next_wave_button_pressed():
 	max_enemies = get_max_enemies()
+	if WaveManager.current_wave_is_boss_wave:
+		max_enemies += 1
 	max_enemies_label.text = str(max_enemies)
 	enemies_left_label.text = str(max_enemies)
 

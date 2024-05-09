@@ -12,7 +12,7 @@ var gems = 0
 
 var current_selected_map: String
 #region Easy Map Section
-var easy_map_current_level: int = 5
+var easy_map_current_level: int = 1
 var easy_map_spawn_size: int = 10
 #endregion
 

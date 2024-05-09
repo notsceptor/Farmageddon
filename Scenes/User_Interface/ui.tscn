@@ -1,4 +1,4 @@
-[gd_scene load_steps=113 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=114 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -90,6 +90,10 @@ expand_margin_bottom = 5.0
 [sub_resource type="LabelSettings" id="LabelSettings_1jdof"]
 font = ExtResource("4_t7k0y")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_rja7r"]
+font = ExtResource("4_t7k0y")
+font_size = 48
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wkl54"]
 resource_name = "material_0"
@@ -1197,7 +1201,10 @@ offset_right = 246.0
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
-text = "EARTHQUAKE HAS HAPPENED... CHANGING SCENE (placeholder)"
+text = "EARTHQUAKE HAS HAPPENED...
+CHANGING SCENE (placeholder)"
+label_settings = SubResource("LabelSettings_rja7r")
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchors_preset = 7
