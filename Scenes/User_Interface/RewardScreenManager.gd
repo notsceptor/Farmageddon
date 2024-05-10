@@ -21,11 +21,6 @@ func _ready():
 func _process(_delta):
 	if visible:
 		calculate_and_show_currency_gain()
-
-func _on_next_wave_button_pressed():
-	start_gold = Globals.gold
-	start_scrap = Globals.scrap
-	start_gems = Globals.gems
 	
 func _on_ui_wave_ended_from_map_parent():
 	wave_outcome_text.text = "WAVE WON" 
@@ -69,3 +64,8 @@ func _on_ui_confirmed_rewards():
 	gold_gained = 0
 	scrap_gained = 0
 	gems_gained = 0
+
+func _on_start_wave_button_pressed():
+	start_gold = Globals.gold
+	start_scrap = Globals.scrap
+	start_gems = Globals.gems

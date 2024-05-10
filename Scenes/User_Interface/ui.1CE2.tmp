@@ -1,4 +1,4 @@
-[gd_scene load_steps=120 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=119 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -1096,15 +1096,9 @@ texture = ExtResource("45_jdjb2")
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wsjrx"]
 texture = ExtResource("45_jdjb2")
-region_rect = Rect2(-32, -32, 864, 864)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bau5o"]
 texture = ExtResource("46_4l8l3")
-region_rect = Rect2(0, 0, 800, 800)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3533h"]
-texture = ExtResource("46_4l8l3")
-region_rect = Rect2(-32, -32, 864, 864)
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_1o10m")
@@ -1142,6 +1136,17 @@ theme_override_fonts/font = ExtResource("4_t7k0y")
 text = "X
 "
 label_settings = SubResource("LabelSettings_rlops")
+
+[node name="NextWaveButton" type="Button" parent="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("4_t7k0y")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/normal = ExtResource("4_6xtmb")
+theme_override_styles/hover = ExtResource("5_q4g83")
+theme_override_styles/pressed = ExtResource("6_ur5bi")
+text = "START WAVE"
 
 [node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1386,7 +1391,6 @@ text = "5s"
 horizontal_alignment = 1
 
 [node name="ConfirmRewardsButton" type="Button" parent="RewardsContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -1446,12 +1450,15 @@ layout_mode = 2
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_bau5o")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bau5o")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_3533h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bau5o")
 
 [connection signal="advert_finished" from="." to="RewardsContainer" method="_on_ui_advert_finished"]
 [connection signal="confirmed_rewards" from="." to="RewardsContainer" method="_on_ui_confirmed_rewards"]
 [connection signal="wave_ended_from_map_parent" from="." to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="." method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_next_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton" to="RewardsContainer" method="_on_next_wave_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]
@@ -1467,6 +1474,5 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_3533h")
 [connection signal="pressed" from="RewardsContainer/VBoxContainer/ConfirmRewardsButton" to="." method="_on_confirm_rewards_button_pressed"]
 [connection signal="timeout" from="RewardCountdownTimer" to="." method="_on_reward_countdown_timer_timeout"]
 [connection signal="timeout" from="ShowAdvertTimer" to="." method="_on_show_advert_timer_timeout"]
-[connection signal="pressed" from="MarginContainer2/StartWaveButton" to="." method="_on_start_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/StartWaveButton" to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_start_wave_button_pressed"]
-[connection signal="pressed" from="MarginContainer2/StartWaveButton" to="RewardsContainer" method="_on_start_wave_button_pressed"]
+[connection signal="button_down" from="MarginContainer2/StartWaveButton" to="." method="_on_start_wave_button_button_down"]
+[connection signal="button_up" from="MarginContainer2/StartWaveButton" to="." method="_on_start_wave_button_button_up"]

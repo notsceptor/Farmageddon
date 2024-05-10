@@ -5,7 +5,7 @@ class_name MapParent
 var RAYCAST_LENGTH:float = 100
 
 @onready var current_level_wave_number_label: Label = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $UI/MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton
+@onready var next_wave_button: Button = $UI/MarginContainer2/StartWaveButton
 
 signal wave_ended
 

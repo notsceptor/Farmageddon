@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 @onready var wave_number_label: Label = $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/WaveNumber
-@onready var next_wave_button: Button = $MarginContainer/VBoxContainer/PanelContainer/HBoxContainer/NextWaveButton
+@onready var next_wave_button: Button = $MarginContainer2/StartWaveButton
+@onready var inventory_button: Button = $MarginContainer3/InventoryButton
 
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer/VBoxContainer/PanelContainer2/UpcomingEnemies
@@ -23,31 +24,27 @@ signal confirmed_rewards
 
 func _ready():
 	next_wave_button.visible = false
+	inventory_button.visible = false
 	upcoming_enemies_container.visible = false
 	enemies_game_tracker.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
 	upcoming_enemies_container.visible = true
+	inventory_button.visible = true
 	get_upcoming_enemies()
 	
 func _process(_delta):
 	if !reward_timer.is_stopped():
 		if reward_timer.time_left >= 4:
-			countdown_text.text = "5s"
+			countdown_text.text = "5"
 		elif reward_timer.time_left >= 3 and reward_timer.time_left < 4:
-			countdown_text.text = "4s"
+			countdown_text.text = "4"
 		elif reward_timer.time_left >= 2 and reward_timer.time_left < 3:
-			countdown_text.text = "3s"
+			countdown_text.text = "3"
 		elif reward_timer.time_left >= 1 and reward_timer.time_left < 2:
-			countdown_text.text = "2s"
+			countdown_text.text = "2"
 		else:
-			countdown_text.text = "1s"
-
-func _on_next_wave_button_pressed():
-	next_wave_button_pressed.emit()
-	next_wave_button.visible = false
-	upcoming_enemies_container.visible = false
-	enemies_game_tracker.visible = true
+			countdown_text.text = "1"
 
 func _on_activity_button_place_turret(turret_scene, location):
 	place_turret.emit(turret_scene, location)
@@ -82,6 +79,7 @@ func _on_confirm_rewards_button_pressed():
 	enemies_game_tracker.visible = false
 	get_upcoming_enemies()
 	next_wave_button.visible = true
+	inventory_button.visible = true
 	upcoming_enemies_container.visible = true
 	confirmed_rewards.emit()
 	
@@ -96,3 +94,10 @@ func _on_map_parent_node_wave_ended():
 func _on_show_advert_timer_timeout():
 	watch_ad_button.visible = true
 	advert_hint_label.visible = true
+
+func _on_start_wave_button_pressed():
+	next_wave_button_pressed.emit()
+	next_wave_button.visible = false
+	inventory_button.visible = false
+	upcoming_enemies_container.visible = false
+	enemies_game_tracker.visible = true
