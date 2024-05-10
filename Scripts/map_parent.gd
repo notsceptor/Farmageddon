@@ -84,6 +84,8 @@ func _regenerate_new_map_layout():
 	$UI/CurrencyDisplay.visible = false
 	$UI/HBoxContainer.visible = false
 	$UI/MarginContainer.visible = false
+	$UI/MarginContainer2.visible = false
+	$UI/MarginContainer3.visible = false
 	$UI/ReloadSceneText.visible = true
 	match Globals.current_selected_map:
 		"easy":
