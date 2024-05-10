@@ -1,4 +1,5 @@
 extends Node
+
 @onready var main_menu_path: String = "res://Scenes/User_Interface/main_menu_screen.tscn"
 @onready var gacha_path: String = "res://Scenes/User_Interface/workshop_gacha.tscn"
 
@@ -17,7 +18,6 @@ func _on_exit_button_pressed():
 	
 func hide_menu_screen_for_transition() -> void:
 	$CanvasLayer/Turrets.visible = false
-	
-func _on_gacha_button_pressed():
-	hide_menu_screen_for_transition()
-	TransitionLayer.change_scene(gacha_path)
+
+func _on_inv_button_pressed():
+	TransitionLayer.change_scene(main_menu_path)

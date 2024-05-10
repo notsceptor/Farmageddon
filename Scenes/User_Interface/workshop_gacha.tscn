@@ -1,0 +1,125 @@
+[gd_scene load_steps=6 format=3 uid="uid://by3pbbocf7kdl"]
+
+[ext_resource type="Script" path="res://Scenes/User_Interface/workshop_gacha.gd" id="1_srsva"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="2_x5de5"]
+[ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="3_16tpx"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/GachaManager.gd" id="4_236cy"]
+[ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="11_xkstq"]
+
+[node name="WorkshopGacha" type="Node"]
+script = ExtResource("1_srsva")
+
+[node name="Background Texture" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_16tpx")
+expand_mode = 1
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+script = ExtResource("4_236cy")
+
+[node name="Header" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabsContainer" type="CenterContainer" parent="CanvasLayer/Header"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 31.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Header/TabsContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="InvButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Turrets"
+
+[node name="GachaButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Gacha"
+
+[node name="ProfileButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Profile"
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Exit
+"
+script = ExtResource("2_x5de5")
+
+[node name="GachaRoll" type="CenterContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -165.5
+offset_top = -164.0
+offset_right = 165.5
+offset_bottom = 164.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="Control" parent="CanvasLayer/GachaRoll"]
+layout_mode = 2
+
+[node name="RollButton" type="Button" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 2
+offset_left = -105.5
+offset_top = 139.0
+offset_right = 107.5
+offset_bottom = 181.0
+text = "Roll"
+
+[node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = -166.0
+offset_top = 88.0
+offset_right = 174.0
+offset_bottom = 121.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = -167.0
+offset_top = 97.0
+offset_right = 173.0
+offset_bottom = 130.0
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+layout_mode = 0
+offset_left = -124.5
+offset_top = -171.0
+offset_right = 125.5
+offset_bottom = 79.0
+
+[node name="CurrencyDisplay" parent="." instance=ExtResource("11_xkstq")]
+
+[connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/InvButton" to="." method="_on_inv_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
