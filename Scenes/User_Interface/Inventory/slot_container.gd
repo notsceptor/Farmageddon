@@ -53,4 +53,5 @@ func add_item_to_hotbar(item_data: Dictionary, slot_index: int):
 		print("Invalid slot index: ", slot_index)
 		
 func set_item_data(item_data: Dictionary):
+	print("HBox set_item_data")
 	set_meta("turret_data", item_data)

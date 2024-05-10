@@ -8,7 +8,7 @@
 	  "IV": "50%",
 	  "path": "pea_shooter",
 	  "activity_draggable": "res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf",
-	  "turret_to_instantiate": "res://Models/Turrets/Pea Shooter/pea_shooter.tscn"
+	  "turret_to_instantiate": "res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn"
 	},
 	{
 	  "name": "Carrot Cannon",
@@ -18,7 +18,7 @@
 	  "IV": "75%",
 	  "path": "carrot_cannon",
 	  "activity_draggable": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf",
-	  "turret_to_instantiate": "res://Models/Turrets/Carrot Cannon/carrot_cannon.tscn"
+	  "turret_to_instantiate": "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn"
 	},
 	{
 	  "name": "Honeycomb Harpoon",
@@ -28,7 +28,97 @@
 	  "IV": "90%",
 	  "path": "honeycomb_harpoon",
 	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
-	  "turret_to_instantiate": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon.tscn"
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+	},
+	{
+	  "name": "Honeycomb Harpoon",
+	  "icon": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon_Cover.png",
+	  "quantity": 2,
+	  "damage": 3,
+	  "IV": "90%",
+	  "path": "honeycomb_harpoon",
+	  "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+	  "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
 	}
   ]
 }

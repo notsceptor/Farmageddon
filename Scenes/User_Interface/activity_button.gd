@@ -36,7 +36,7 @@ func _ready():
 	_cam = get_viewport().get_camera_3d()
 	connect("gui_input", Callable(self, "_on_gui_input"))
 	
-	if not grid_container:
+	if not grid_container and !enable_drag_and_drop:
 		grid_container = get_node_or_null("root/Workshop UI/CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer/GridContainer")
 	
 	if enable_drag_and_drop:
@@ -152,4 +152,5 @@ func set_item_data(item_data: Dictionary):
 	activity_button_icon = load(item_data.icon)
 	activity_draggable = load(item_data.activity_draggable)
 	turret_to_instantiate = load(item_data.turret_to_instantiate)
+	print("Button set_item_data")
 	set_meta("turret_data", item_data)

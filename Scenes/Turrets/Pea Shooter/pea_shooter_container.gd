@@ -42,7 +42,8 @@ func _spawn_projectiles(num: int):
 		if current_enemy != null:
 			var projectile: Projectile = projectile_type.instantiate()
 			projectile.starting_position = $PeaShooter/Node/PeaShooter/ShooterTop/ProjectileSpawnMarker.global_position
+			projectile.damage = 1000000000
 			projectile.target = current_enemy
-			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+			projectile.speed = modified_projectile_speed
 			add_child(projectile)
 			await get_tree().create_timer(0.2).timeout
