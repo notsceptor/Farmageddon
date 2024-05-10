@@ -9,27 +9,48 @@ func _ready():
 	populate_grid()
 
 func populate_grid():
-	for turret_data in Inventory.items:
-		var container = Control.new()
-		container.mouse_filter = Control.MOUSE_FILTER_PASS
+	self.columns = 7
+	
+	"""for turret_data in Inventory.items:
 
 		var background = ColorRect.new()
 		background.color = Color(0, 0, 0, 0.3)
 		background.custom_minimum_size = Vector2(114, 114) 
 		background.show_behind_parent = true
-		container.add_child(background)
 
 		var square = TextureRect.new()
 		square.texture = load(turret_data.icon)
 		square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 		square.custom_minimum_size = Vector2(64, 64)
-		container.add_child(square)
+		background.add_child(square)
 
 		square.set_meta("turret_data", turret_data)
 		square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
 
-		add_child(container)
-
+		add_child(background)"""
+		
+	var index = 0
+	for row in range(7):
+		for col in range(7):
+			var background = ColorRect.new()
+			background.color = Color(0, 0, 0, 0.5)
+			background.custom_minimum_size = Vector2(114, 114) 
+			background.show_behind_parent = true
+			
+			var square = TextureRect.new()
+			if index < Inventory.items.size():
+				var item_data = Inventory.items[index]
+				if item_data:
+					square.texture = load(item_data.icon)
+					square.set_meta("turret_data", item_data)
+				
+			square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+			square.custom_minimum_size = Vector2(64, 64)
+			background.add_child(square)
+			square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
+			add_child(background)
+			
+			index += 1
 
 func _on_gui_input(event: InputEvent, node: TextureRect):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
