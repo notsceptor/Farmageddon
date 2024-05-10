@@ -9,4 +9,4 @@ content_margin_right = 30.0
 content_margin_bottom = 15.0
 texture = ExtResource("1_b8omm")
 region_rect = Rect2(0, 0, 32, 16)
-modulate_color = Color(0.691357, 0.691357, 0.691357, 1)
+modulate_color = Color(0.690196, 0.690196, 0.690196, 1)

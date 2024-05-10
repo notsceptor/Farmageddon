@@ -15,13 +15,13 @@ func get_max_enemies() -> int:
 		temp_enemy_count += WaveManager.debug_enemy_dictionary[enemy]
 	return temp_enemy_count
 
-func _on_next_wave_button_pressed():
+func _on_ui_wave_ended_from_map_parent():
+	if WaveManager.wave_won:
+		enemies_left_label.text = "0"
+
+func _on_start_wave_button_pressed():
 	max_enemies = get_max_enemies()
 	if WaveManager.current_wave_is_boss_wave:
 		max_enemies += 1
 	max_enemies_label.text = str(max_enemies)
 	enemies_left_label.text = str(max_enemies)
-
-func _on_ui_wave_ended_from_map_parent():
-	if WaveManager.wave_won:
-		enemies_left_label.text = "0"
