@@ -11,6 +11,7 @@ func _ready():
 	_load_items()
 
 func set_item(index, item):
+	index=index-1
 	var previous_item = items[index]
 	items[index] = item
 	var test : Array[int] = [index]
@@ -18,6 +19,7 @@ func set_item(index, item):
 	return previous_item
 
 func remove_item(index):
+	index=index-1
 	var previous_item = items[index].duplicate()
 	items[index].clear()
 	var test : Array[int] = [index]
