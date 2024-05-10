@@ -1,26 +1,11 @@
 [gd_scene load_steps=8 format=3 uid="uid://fsuade0xgdev"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/pause_screen.gd" id="1_nfd7k"]
+[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="2_5esqc"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_vyxvp"]
 [ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_528mf"]
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_u8uk2"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_lkov2"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dsetu"]
-bg_color = Color(0.407843, 0.196078, 0.0784314, 0.784314)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(0, 0, 0, 0.882353)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
-corner_detail = 1
-expand_margin_left = 30.0
-expand_margin_right = 30.0
-expand_margin_bottom = 10.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ebmdy"]
 font = ExtResource("2_vyxvp")
@@ -45,7 +30,7 @@ grow_vertical = 2
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_dsetu")
+theme_override_styles/panel = ExtResource("2_5esqc")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
