@@ -12,3 +12,5 @@ func _on_main_menu_button_pressed():
 	WaveManager.wave_won = false
 	visible = false
 	TransitionLayer.change_scene(main_menu_path)
+	GlobalAudioPlayer.stop_idle_music()
+	GlobalAudioPlayer.stop_battle_music()
