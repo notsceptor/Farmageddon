@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://r4rtkqn6nxjq"]
+[gd_scene load_steps=5 format=3 uid="uid://r4rtkqn6nxjq"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_8414r"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.gd" id="2_x24q5"]
 [ext_resource type="PackedScene" uid="uid://cut8ux148v1xa" path="res://Scenes/Turrets/Carrot Cannon/carrot_projectile.tscn" id="3_pw72c"]
 [ext_resource type="PackedScene" uid="uid://m1mxmj1rfahc" path="res://Models/Turrets/Carrot Cannon/carrot_cannon.tscn" id="3_upbmi"]
-[ext_resource type="AudioStream" uid="uid://b4x2fido7imqc" path="res://audio/Gunshot 2.mp3" id="5_r2t2l"]
 
 [node name="CarrotCannonContainer" instance=ExtResource("1_8414r")]
 script = ExtResource("2_x24q5")
@@ -14,10 +13,6 @@ projectile_speed = 3.0
 projectile_type = ExtResource("3_pw72c")
 
 [node name="CarrotCannon" parent="." index="0" instance=ExtResource("3_upbmi")]
-
-[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
-stream = ExtResource("5_r2t2l")
-volume_db = -19.676
 
 [connection signal="area_entered" from="CarrotCannon" to="." method="_on_carrot_cannon_area_entered"]
 [connection signal="area_exited" from="CarrotCannon" to="." method="_on_carrot_cannon_area_exited"]

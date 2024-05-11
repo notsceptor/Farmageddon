@@ -10,8 +10,6 @@ var last_fire_time: int
 @export var extra_large_projectile_type: PackedScene
 @onready var fish_launcher_anim: AnimationPlayer = $FishLauncher/AnimationPlayer
 
-@onready var gunshot = $gunshot
-
 var modified_projectile_speed: float
 
 
@@ -37,8 +35,7 @@ func _maybe_fire_turret_projectile():
 		if current_enemy:
 			fish_launcher_anim.play("Toss")
 			if fish_launcher_anim.current_animation_position >= 0.8 && current_enemy == targeted_enemy:
-				gunshot.pitch_scale = randf_range(1.3, 1.5)
-				gunshot.play()
+				GlobalAudioPlayer.play_fishlauncher_shot()
 				var projectile_type_to_use
 				var projectile_chance = randf()
 				if projectile_chance < 0.6:

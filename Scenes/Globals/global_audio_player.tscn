@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dty7go6f8bor5"]
+[gd_scene load_steps=19 format=3 uid="uid://dty7go6f8bor5"]
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
@@ -14,6 +14,10 @@
 [ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="7_5ikom"]
 [ext_resource type="AudioStream" uid="uid://bk4mm78b7iks6" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
 [ext_resource type="AudioStream" uid="uid://d4cmhd0n6ie37" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
+[ext_resource type="AudioStream" uid="uid://b4x2fido7imqc" path="res://audio/Gunshot 2.mp3" id="15_3cnqt"]
+[ext_resource type="AudioStream" uid="uid://c3utre8n8ihrk" path="res://audio/Fireball.mp3" id="16_45e1d"]
+[ext_resource type="AudioStream" uid="uid://dbkkxamuiskd7" path="res://audio/Gunshot 5.mp3" id="17_ecq5e"]
+[ext_resource type="AudioStream" uid="uid://b37dkiyrh56in" path="res://audio/Gunshot 3.mp3" id="18_7jl2c"]
 
 [node name="GlobalAudioPlayer" type="Node"]
 script = ExtResource("1_nq8wv")
@@ -83,3 +87,23 @@ pitch_scale = 1.26
 stream = ExtResource("11_wd53o")
 volume_db = -16.257
 pitch_scale = 1.26
+
+[node name="CarrotShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_3cnqt")
+volume_db = -20.613
+
+[node name="FishLauncherShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_45e1d")
+volume_db = -12.181
+
+[node name="HaybaleShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_5ikom")
+volume_db = -14.991
+
+[node name="PeaShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_ecq5e")
+volume_db = -4.685
+
+[node name="SeedShot" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_7jl2c")
+volume_db = -20.613

@@ -9,9 +9,6 @@ var last_fire_time: int
 
 var modified_projectile_speed: float
 
-@onready var gunshot = $gunshot
-
-
 func _ready():
 	GlobalAudioPlayer.play_placement_sound()
 	turret_model = $RadishRocket/Node # Assign the turret model node
@@ -48,8 +45,7 @@ func _spawn_projectiles(num: int):
 	for n in num:
 		if current_enemy != null:
 			var projectile: Projectile = projectile_type.instantiate()
-			gunshot.pitch_scale = randf_range(1.3, 1.5)
-			gunshot.play()
+			GlobalAudioPlayer.play_haybale_shot()
 			projectile.starting_position = projectile_markers[projectile_marker_index].global_position
 			projectile.target = current_enemy
 			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here

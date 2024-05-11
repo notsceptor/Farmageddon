@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://d0mhua3nh6o1"]
+[gd_scene load_steps=22 format=3 uid="uid://d0mhua3nh6o1"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_mncut"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.gd" id="2_240dc"]
@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cb71ojugl7kpb" path="res://Scenes/Turrets/Fish Launcher/fish_projectile_0.png" id="4_88a20"]
 [ext_resource type="PackedScene" uid="uid://ccwvdhcodb80v" path="res://Scenes/Turrets/Fish Launcher/shark_projectile.tscn" id="5_1ou00"]
 [ext_resource type="PackedScene" uid="uid://ccg38k0428yuk" path="res://Scenes/Turrets/Fish Launcher/salmon_projectile.tscn" id="5_p4oue"]
-[ext_resource type="AudioStream" uid="uid://c3utre8n8ihrk" path="res://audio/Fireball.mp3" id="5_r17kn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rci3o"]
 resource_name = "material_0"
@@ -218,10 +217,6 @@ large_projectile_type = ExtResource("5_p4oue")
 extra_large_projectile_type = ExtResource("5_1ou00")
 
 [node name="FishLauncher" parent="." index="0" instance=ExtResource("3_e1to8")]
-
-[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
-stream = ExtResource("5_r17kn")
-volume_db = -0.857
 
 [connection signal="area_entered" from="FishLauncher" to="." method="_on_fish_launcher_area_entered"]
 [connection signal="area_exited" from="FishLauncher" to="." method="_on_fish_launcher_area_exited"]

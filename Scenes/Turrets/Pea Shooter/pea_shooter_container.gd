@@ -7,8 +7,6 @@ var last_fire_time: int
 @export var projectile_speed: float
 @export var projectile_type: PackedScene
 
-@onready var gunshot = $gunshot
-
 var modified_projectile_speed: float
 
 func _ready():
@@ -32,8 +30,7 @@ func _on_pea_shooter_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$PeaShooter/AnimationPlayer.play("Shoot")
-		gunshot.pitch_scale = randf_range(0.8, 0.9)
-		gunshot.play()
+		GlobalAudioPlayer.play_pea_shot()
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
 		
