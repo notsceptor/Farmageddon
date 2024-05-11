@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cygq1215mt1k"
-path="res://.godot/imported/Fish Launcher.png-f38abda884b7480d28141063d2302659.ctex"
+path="res://.godot/imported/Fish_Launcher_Cover.png-793640c70099c312aeb9dd54d7adac51.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Models/Turrets/Fish Launcher/Fish Launcher.png"
-dest_files=["res://.godot/imported/Fish Launcher.png-f38abda884b7480d28141063d2302659.ctex"]
+source_file="res://Models/Turrets/Fish Launcher/Fish_Launcher_Cover.png"
+dest_files=["res://.godot/imported/Fish_Launcher_Cover.png-793640c70099c312aeb9dd54d7adac51.ctex"]
 
 [params]
 

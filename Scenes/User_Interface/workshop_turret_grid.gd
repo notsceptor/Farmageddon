@@ -3,32 +3,20 @@ extends GridContainer
 var dragged_item: Dictionary
 var dragged_node: TextureRect
 var drag_preview_node: TextureRect
+
 @onready var hotbar_container: HBoxContainer = get_node("/root/Workshop UI/CanvasLayer/Turrets/HotbarContainer/PanelContainer/MarginContainer/HBoxContainer")
+@onready var item_preview: Control = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretPreview")
+@onready var stat_change_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/StatChange")
+@onready var resources_to_upgrade_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded")
+@onready var turret_name_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName")
+@onready var upgrade_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton")
 
 func _ready():
 	populate_grid()
 
 func populate_grid():
 	self.columns = 7
-	
-	"""for turret_data in Inventory.items:
 
-		var background = ColorRect.new()
-		background.color = Color(0, 0, 0, 0.3)
-		background.custom_minimum_size = Vector2(114, 114) 
-		background.show_behind_parent = true
-
-		var square = TextureRect.new()
-		square.texture = load(turret_data.icon)
-		square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-		square.custom_minimum_size = Vector2(64, 64)
-		background.add_child(square)
-
-		square.set_meta("turret_data", turret_data)
-		square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
-
-		add_child(background)"""
-		
 	var index = 0
 	for row in range(7):
 		for col in range(7):
@@ -45,7 +33,7 @@ func populate_grid():
 					square.set_meta("turret_data", item_data)
 				
 			square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
-			square.custom_minimum_size = Vector2(64, 64)
+			square.custom_minimum_size = Vector2(114, 114)
 			background.add_child(square)
 			square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
 			add_child(background)
@@ -58,6 +46,10 @@ func _on_gui_input(event: InputEvent, node: TextureRect):
 			return
 			
 		if event.is_pressed():
+			var item_data = node.get_meta("turret_data")
+			display_item_preview(item_data)
+			
+		"""if event.is_pressed():
 			dragged_node = node
 			dragged_item = node.get_meta("turret_data")
 			create_drag_preview(dragged_item.icon)
@@ -71,9 +63,45 @@ func _on_gui_input(event: InputEvent, node: TextureRect):
 				clear_item_from_grid(dragged_node)
 			
 			dragged_node = null
-			dragged_item = {}
+			dragged_item = {}"""
 			
-func clear_item_from_grid(node: TextureRect):
+func display_item_preview(item_data: Dictionary):
+	for child in item_preview.get_children():
+		child.queue_free()
+
+	var enlarged_icon = TextureRect.new()
+	enlarged_icon.texture = load(item_data.icon)
+	enlarged_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
+	enlarged_icon.custom_minimum_size = Vector2(256, 256)
+
+	item_preview.add_child(enlarged_icon)
+
+	turret_name_label.text = item_data.name
+
+	stat_change_label.text = "Damage: +%d" % item_data.damage
+
+	var upgrade_cost = calculate_upgrade_cost(item_data.rarity)
+	resources_to_upgrade_label.text = "Upgrade Cost: %d Gems" % upgrade_cost
+
+	upgrade_button.text = "Upgrade"
+	upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(item_data))
+	
+func calculate_upgrade_cost(rarity: String) -> int:
+	match rarity:
+		"common":
+			return 100
+		"uncommon":
+			return 200
+		"rare":
+			return 300
+		"epic":
+			return 400
+		"legendary":
+			return 500
+		_:
+			return 0
+
+"""func clear_item_from_grid(node: TextureRect):
 	node.texture = null
 	node.set_meta("turret_data", null)
 
@@ -108,4 +136,4 @@ func get_drop_target(mouse_position: Vector2) -> Control:
 	return drop_target
 
 func add_item_to_hotbar(item_data: Dictionary, index: int):
-	pass
+	pass"""

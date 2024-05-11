@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwulolttkwmtq"]
+[gd_scene load_steps=6 format=3 uid="uid://cwulolttkwmtq"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_ui.gd" id="1_gwo4e"]
 [ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="2_2j7m4"]
-[ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="2_os2na"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="3_kpt66"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_turret_grid.gd" id="4_bcs8p"]
 
@@ -126,7 +125,7 @@ layout_mode = 2
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="Upgrade" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TurretName" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
@@ -134,10 +133,10 @@ text = "TURRET NAME"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
 size_flags_vertical = 3
-texture = ExtResource("2_os2na")
 expand_mode = 4
 
 [node name="StatChange" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
@@ -149,7 +148,7 @@ text = "New stats
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ResourceesNeeded" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ResourcesNeeded" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 21
