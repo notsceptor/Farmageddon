@@ -4,7 +4,6 @@ extends CanvasLayer
 @onready var medium_level_path: String = "res://Scenes/Maps/medium_map.tscn"
 @onready var hard_level_path: String = "res://Scenes/Maps/hard_map.tscn"
 @onready var inventory_path: String = "res://Scenes/User_Interface/workshop_ui.tscn"
-@onready var settings_path: String = "res://Scenes/User_Interface/settings_screen.tscn"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -58,8 +57,3 @@ func _on_open_inventory_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(inventory_path)
-
-func _on_settings_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
-	$MarginContainer/MainScreenContainer.visible = false
-	$SettingsScreen.visible = true
