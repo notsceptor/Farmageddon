@@ -20,7 +20,6 @@ grow_horizontal = 2
 grow_vertical = 2
 stream = ExtResource("2_s8nlc")
 volume_db = -30.0
-autoplay = true
 expand = true
 
 [node name="TextureRect" type="TextureRect" parent="."]

@@ -26,6 +26,8 @@ var hard_map_current_level: int = 1
 var hard_map_spawn_size: int = 10
 #endregion
 
+var intro_played: bool = false
+
 #region Music Decibals ranges
 const MUSIC_MIN_VALUE = -80
 const MUSIC_MAX_VALUE = -22
