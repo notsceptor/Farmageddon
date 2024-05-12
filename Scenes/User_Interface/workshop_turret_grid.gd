@@ -4,7 +4,6 @@ var dragged_item: Dictionary
 var dragged_node: TextureRect
 var drag_preview_node: TextureRect
 
-@onready var hotbar_container: HBoxContainer = get_node("/root/Workshop UI/CanvasLayer/Turrets/HotbarContainer/PanelContainer/MarginContainer/HBoxContainer")
 @onready var item_preview: Control = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretPreview")
 @onready var stat_change_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/StatChange")
 @onready var resources_to_upgrade_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded")
@@ -17,28 +16,26 @@ func _ready():
 func populate_grid():
 	self.columns = 7
 
-	var index = 0
 	for row in range(7):
 		for col in range(7):
 			var background = ColorRect.new()
 			background.color = Color(0, 0, 0, 0.5)
-			background.custom_minimum_size = Vector2(114, 114) 
+			background.custom_minimum_size = Vector2(114, 114)
 			background.show_behind_parent = true
-			
+
 			var square = TextureRect.new()
+			var index = row * 7 + col
 			if index < Inventory.items.size():
 				var item_data = Inventory.items[index]
-				if item_data:
+				if item_data is Dictionary:
 					square.texture = load(item_data.icon)
 					square.set_meta("turret_data", item_data)
-				
+
 			square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			square.custom_minimum_size = Vector2(114, 114)
 			background.add_child(square)
 			square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
 			add_child(background)
-			
-			index += 1
 
 func _on_gui_input(event: InputEvent, node: TextureRect):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
