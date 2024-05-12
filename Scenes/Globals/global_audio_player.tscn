@@ -23,6 +23,7 @@ stream = ExtResource("2_8csiv")
 volume_db = -23.423
 
 [node name="IdleThemeMusic" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = ExtResource("3_j1jh8")
 volume_db = -21.55
 

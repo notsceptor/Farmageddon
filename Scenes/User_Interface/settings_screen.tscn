@@ -1,0 +1,92 @@
+[gd_scene load_steps=10 format=3 uid="uid://bhbd6ny5afjof"]
+
+[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="1_awwbe"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/settings_screen.gd" id="1_ox0um"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_345dp"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_i2lug"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_tfxdu"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_wgaj6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3aeh5"]
+font = ExtResource("2_345dp")
+font_size = 72
+
+[sub_resource type="LabelSettings" id="LabelSettings_tk8iy"]
+font = ExtResource("2_345dp")
+font_size = 25
+
+[sub_resource type="LabelSettings" id="LabelSettings_kxkei"]
+font = ExtResource("2_345dp")
+font_size = 25
+
+[node name="SettingsScreen" type="CanvasLayer"]
+script = ExtResource("1_ox0um")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+process_mode = 2
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.0
+offset_top = -246.5
+offset_right = 197.0
+offset_bottom = 246.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("1_awwbe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="SettingsText" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_font_sizes/font_size = 52
+text = "SETTINGS"
+label_settings = SubResource("LabelSettings_3aeh5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="MusicVolText" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Music Vol:"
+label_settings = SubResource("LabelSettings_tk8iy")
+
+[node name="MusicVolSlider" type="HSlider" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 5.0
+value = 100.0
+
+[node name="MusicVolValue" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "100"
+label_settings = SubResource("LabelSettings_kxkei")
+
+[node name="BackButton" type="Button" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_345dp")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_i2lug")
+theme_override_styles/hover = ExtResource("4_tfxdu")
+theme_override_styles/pressed = ExtResource("5_wgaj6")
+text = "BACK"
+
+[connection signal="value_changed" from="MarginContainer/PanelContainer/VBoxContainer/HBoxContainer/MusicVolSlider" to="." method="_on_music_vol_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/BackButton" to="." method="_on_back_button_pressed"]

@@ -93,8 +93,8 @@ func _regenerate_new_map_layout():
 
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
-	$PauseScreen.visible = !$PauseScreen.visible
-	$UI.visible = !$UI.visible
+	$PauseScreen.visible = false
+	$UI.visible = true
 
 func _on_ui_place_turret(turret_scene, location):
 	var turret_to_add = turret_scene.instantiate()
@@ -110,7 +110,16 @@ func _on_ui_confirmed_rewards():
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()
 
-func _on_ui_open_settings_menu():
+func _on_ui_open_pause_menu():
 	get_tree().paused = true
-	$PauseScreen.visible = !$PauseScreen.visible
-	$UI.visible = !$UI.visible
+	$PauseScreen.visible = true
+	$UI.visible = false
+
+func _on_pause_screen_settings_button_pressed():
+	$PauseScreen.visible = false
+	$SettingsScreen.visible = true
+
+func _on_settings_screen_back_button_pressed():
+	$SettingsScreen.visible = false
+	$PauseScreen.visible = true
+	

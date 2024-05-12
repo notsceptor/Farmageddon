@@ -4,7 +4,7 @@ extends CanvasLayer
 @onready var next_wave_button: Button = $MarginContainer2/StartWaveButton
 @onready var inventory_button: Button = $MarginContainer3/InventoryButton
 @onready var upcoming_enemies_button: Button = $MarginContainer/VBoxContainer/UpcomingEnemiesButton
-@onready var settings_button: Button = $MarginContainer/VBoxContainer/SettingsButton
+@onready var pause_button: Button = $MarginContainer/VBoxContainer/SettingsButton
 
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer4/PanelContainer2/UpcomingEnemies
@@ -24,19 +24,19 @@ signal wave_ended_from_map_parent
 signal advert_finished
 signal confirmed_rewards
 
-signal open_settings_menu
+signal open_pause_menu
 
 func _ready():
 	next_wave_button.visible = false
 	inventory_button.visible = false
 	enemies_game_tracker.visible = false
 	upcoming_enemies_button.visible = false
-	settings_button.visible = false
+	pause_button.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
 	inventory_button.visible = true
 	upcoming_enemies_button.visible = true
-	settings_button.visible = true
+	pause_button.visible = true
 	get_upcoming_enemies()
 	
 func _process(_delta):
@@ -87,7 +87,7 @@ func _on_confirm_rewards_button_pressed():
 	next_wave_button.visible = true
 	inventory_button.visible = true
 	upcoming_enemies_button.visible = true
-	settings_button.visible = true
+	pause_button.visible = true
 	confirmed_rewards.emit()
 	
 func _on_reward_countdown_timer_timeout():
@@ -108,11 +108,11 @@ func _on_start_wave_button_pressed():
 	inventory_button.visible = false
 	upcoming_enemies_container.visible = false
 	upcoming_enemies_button.visible = false
-	settings_button.visible = false
+	pause_button.visible = false
 	enemies_game_tracker.visible = true
 
 func _on_upcoming_enemies_button_pressed():
 	upcoming_enemies_container.visible = !upcoming_enemies_container.visible
 
 func _on_settings_button_pressed():
-	open_settings_menu.emit()
+	open_pause_menu.emit()
