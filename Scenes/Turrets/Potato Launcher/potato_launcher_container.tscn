@@ -18,6 +18,7 @@ projectile_type = ExtResource("3_wy8qk")
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("5_m2y0g")
 volume_db = -6.559
+bus = &"SFX"
 
 [connection signal="area_entered" from="PotatoLauncher" to="." method="_on_potato_launcher_area_entered"]
 [connection signal="area_exited" from="PotatoLauncher" to="." method="_on_potato_launcher_area_exited"]

@@ -222,6 +222,7 @@ extra_large_projectile_type = ExtResource("5_1ou00")
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("5_r17kn")
 volume_db = -0.857
+bus = &"SFX"
 
 [connection signal="area_entered" from="FishLauncher" to="." method="_on_fish_launcher_area_entered"]
 [connection signal="area_exited" from="FishLauncher" to="." method="_on_fish_launcher_area_exited"]
