@@ -1,13 +1,38 @@
-[gd_scene load_steps=6 format=3 uid="uid://bue1piatwa0o"]
+[gd_scene load_steps=8 format=3 uid="uid://bue1piatwa0o"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_r825n"]
+[ext_resource type="VideoStream" path="res://Scenes/User_Interface/Intro.ogv" id="2_s8nlc"]
 [ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="3_4m4fk"]
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="4_qjcwd"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="5_fve6r"]
+[ext_resource type="Texture2D" uid="uid://dwl524yf8ex0a" path="res://Scenes/User_Interface/EXPORT_FR_02.png" id="7_ubaos"]
 
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+z_index = 100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("2_s8nlc")
+volume_db = -30.0
+autoplay = true
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+z_index = -100
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ubaos")
+expand_mode = 5
+stretch_mode = 6
 
 [node name="BackButtonContainer" type="MarginContainer" parent="."]
 offset_right = 40.0
@@ -33,24 +58,25 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -212.5
-offset_top = -219.5
-offset_right = 212.5
-offset_bottom = 219.5
+offset_left = -255.0
+offset_top = -332.0
+offset_right = 170.0
+offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(1.25, 1.25)
 theme_override_constants/margin_top = 50
 
 [node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 4
-theme_override_constants/separation = 75
+theme_override_constants/separation = 50
 
 [node name="GameTitle" type="Label" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 70
 text = "FARMAGEDDON 
 "
 horizontal_alignment = 1

@@ -8,6 +8,7 @@ extends CanvasLayer
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Play main menu music here probably
+	await $VideoStreamPlayer.finished
 	GlobalAudioPlayer.play_main_music()
 	$MarginContainer/LevelSelectContainer.visible = false
 	$BackButtonContainer.visible = false
