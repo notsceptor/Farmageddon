@@ -19,11 +19,6 @@ signal wave_ended
 @export var tile_empty:Array[PackedScene]
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Pause"):
-		get_tree().paused = true
-		$PauseScreen.visible = !$PauseScreen.visible
-		$UI.visible = !$UI.visible
-	
 	if WaveManager.wave_ongoing:
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
@@ -114,3 +109,8 @@ func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()
+
+func _on_ui_open_settings_menu():
+	get_tree().paused = true
+	$PauseScreen.visible = !$PauseScreen.visible
+	$UI.visible = !$UI.visible
