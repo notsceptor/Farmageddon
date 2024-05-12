@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2qc7bcn85yc2"]
+[gd_scene load_steps=3 format=3 uid="uid://dkhhvbuspbcwy"]
 
 [ext_resource type="PackedScene" uid="uid://c6jbfu5ak2dqi" path="res://Models/Environment/Tileset/tile_wood_pile.gltf" id="1_ni7kg"]
 
