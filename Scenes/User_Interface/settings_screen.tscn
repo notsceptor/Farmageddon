@@ -73,6 +73,7 @@ text = "Master Vol:"
 label_settings = SubResource("LabelSettings_tk8iy")
 
 [node name="MasterVolValue" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_kxkei")
@@ -100,6 +101,7 @@ text = "Music Vol:"
 label_settings = SubResource("LabelSettings_tk8iy")
 
 [node name="MusicVolValue" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_kxkei")
@@ -128,6 +130,7 @@ text = "SFx Vol:"
 label_settings = SubResource("LabelSettings_tk8iy")
 
 [node name="SfxVolValue" type="Label" parent="MarginContainer/PanelContainer/VBoxContainer/VBoxContainer3/HBoxContainer3"]
+custom_minimum_size = Vector2(36, 0)
 layout_mode = 2
 text = "100"
 label_settings = SubResource("LabelSettings_kxkei")
