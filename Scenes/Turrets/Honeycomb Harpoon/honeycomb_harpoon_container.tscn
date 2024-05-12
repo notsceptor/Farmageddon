@@ -19,6 +19,7 @@ projectile_type = ExtResource("3_3kmnc")
 stream = ExtResource("5_pimwu")
 volume_db = -13.196
 pitch_scale = 0.95
+bus = &"SFX"
 
 [connection signal="area_entered" from="HoneycombHarpoon" to="." method="_on_honeycomb_harpoon_area_entered"]
 [connection signal="area_exited" from="HoneycombHarpoon" to="." method="_on_honeycomb_harpoon_area_exited"]

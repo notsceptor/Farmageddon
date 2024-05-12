@@ -19,6 +19,7 @@ projectile_type = ExtResource("3_exqnj")
 stream = ExtResource("5_jor3w")
 volume_db = -11.323
 pitch_scale = 0.97
+bus = &"SFX"
 
 [connection signal="area_entered" from="RadishRocket" to="." method="_on_radish_rocket_area_entered"]
 [connection signal="area_exited" from="RadishRocket" to="." method="_on_radish_rocket_area_exited"]

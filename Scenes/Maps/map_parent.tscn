@@ -52,6 +52,7 @@ shadow_opacity = 0.75
 visible = false
 
 [node name="SettingsScreen" parent="." instance=ExtResource("5_cfn2s")]
+process_mode = 0
 visible = false
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

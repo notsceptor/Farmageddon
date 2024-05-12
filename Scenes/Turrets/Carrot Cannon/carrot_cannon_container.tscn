@@ -18,6 +18,7 @@ projectile_type = ExtResource("3_pw72c")
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
 stream = ExtResource("5_r2t2l")
 volume_db = -19.676
+bus = &"SFX"
 
 [connection signal="area_entered" from="CarrotCannon" to="." method="_on_carrot_cannon_area_entered"]
 [connection signal="area_exited" from="CarrotCannon" to="." method="_on_carrot_cannon_area_exited"]

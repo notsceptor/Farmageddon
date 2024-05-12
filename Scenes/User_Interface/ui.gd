@@ -87,7 +87,6 @@ func _on_confirm_rewards_button_pressed():
 	next_wave_button.visible = true
 	inventory_button.visible = true
 	upcoming_enemies_button.visible = true
-	pause_button.visible = true
 	confirmed_rewards.emit()
 	
 func _on_reward_countdown_timer_timeout():
@@ -108,7 +107,6 @@ func _on_start_wave_button_pressed():
 	inventory_button.visible = false
 	upcoming_enemies_container.visible = false
 	upcoming_enemies_button.visible = false
-	pause_button.visible = false
 	enemies_game_tracker.visible = true
 
 func _on_upcoming_enemies_button_pressed():

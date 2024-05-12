@@ -19,6 +19,7 @@ projectile_type = ExtResource("3_q12g4")
 stream = ExtResource("5_phgn1")
 volume_db = -16.007
 pitch_scale = 0.97
+bus = &"SFX"
 
 [connection signal="area_entered" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_entered"]
 [connection signal="area_exited" from="StrawberryArtillery" to="." method="_on_strawberry_artillery_area_exited"]
