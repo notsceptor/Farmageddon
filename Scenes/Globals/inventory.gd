@@ -48,8 +48,19 @@ func _load_items():
 func _save_items():
 	var file = FileAccess.open("res://Items/inventory.json", FileAccess.WRITE)
 	if file != null:
-		var items_data = {"turrets": items}
-		var json_string = JSON.stringify(items_data, " ")
+		var items_data = []
+		for item in items:
+			if item is Dictionary:
+				var item_data = {
+					"name": item.name,
+					"damage": item.damage,
+					"IV": item.IV,
+					"turret_level": item.turret_level
+				}
+				items_data.append(item_data)
+
+		var data = {"turrets": items_data}
+		var json_string = JSON.stringify(data, " ")
 		file.store_string(json_string)
 	else:
 		printerr("Failed to open inventory.json file for writing")

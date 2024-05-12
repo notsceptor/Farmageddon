@@ -24,6 +24,7 @@ WaveManager="*res://Scenes/Globals/wave_manager.gd"
 GlobalAudioPlayer="*res://Scenes/Globals/global_audio_player.tscn"
 CurrencyDistributor="*res://Scenes/User_Interface/currency_distributor.gd"
 Inventory="*res://Scenes/Globals/inventory.gd"
+Turrets="*res://Scenes/Globals/turrets.gd"
 
 [editor]
 

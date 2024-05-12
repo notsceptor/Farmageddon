@@ -1,0 +1,123 @@
+{
+	"common": [
+		{
+			"activity_draggable": "res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf",
+			"damage": 1,
+			"icon": "res://Models/Turrets/Pea Shooter/pea_shooter_cover.png",
+			"key": "Pea_Shooter",
+			"name": "Pea Shooter",
+			"description": "Fires a quad burst of peas to its target at long range, dealing high single target damage. Requires a little bit of time between firing to strip the peas from its pods.",
+			"rarity": "common",
+			"turret_to_instantiate": "res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf",
+			"damage": 2,
+			"icon": "res://Models/Turrets/Carrot Cannon/carrot_cannon_cover.png",
+			"key": "Carrot_Cannon",
+			"name": "Carrot Cannon",
+			"description": "Classic point defense turret. Fires large, moderate damage carrots intermittently at the first target it sees. Needless to say the enemy carrot recover.",
+			"rarity": "common",
+			"turret_to_instantiate": "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf",
+			"damage": 7,
+			"icon": "res://Models/Turrets/Potato Launcher/potato_launcher_cover.png",
+			"key": "Potato_Launcher",
+			"name": "Potato Launcher",
+			"description": "Quad tube potato launcher's pummel close enemies with a constant barrage of low damage potatoes. Small enemies will suffer greatly with its fast targeting technology, but beware of the larger units!",
+			"rarity": "common",
+			"turret_to_instantiate": "res://Scenes/Turrets/Potato Launcher/potato_launcher_container.tscn"
+		}
+	],
+	"uncommon": [
+		{
+			"activity_draggable": "res://Models/Turrets/Seed Sniper/Seed_Sniper.gltf",
+			"damage": 10,
+			"icon": "res://Models/Turrets/Seed Sniper/seed_sniper_cover.png",
+			"key": "Seed_Sniper",
+			"name": "Seed Sniper",
+			"description": "Fires a high calibre sunflower seed to an enemy target at any distance, dealing incredible damage. Takes a while to fire again though.",
+			"rarity": "uncommon",
+			"turret_to_instantiate": "res://Scenes/Turrets/Seed Sniper/seed_sniper_container.tscn"
+		}
+	],
+	"rare": [
+		{
+			"activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
+			"damage": 3,
+			"icon": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon_cover.png",
+			"key": "Honeycomb_Harpoon",
+			"name": "Honeycomb Harpoon",
+			"description": "Fires a long range, sticky harpoon at its unfortunate targets, slowing them down upon being hit for a few seconds. Enemies get thoroughly buzzed",
+			"rarity": "rare",
+			"turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Chiligun/Chiligun.gltf",
+			"damage": 4,
+			"icon": "res://Models/Turrets/Chiligun/chiligun_cover.png",
+			"key": "Chiligun",
+			"name": "Chiligun",
+			"description": "Utilising the heat power of Chilli's, bathes targets in a large cone of flames that will roast even the toughest of targets alive. Unfortunately, its range is quite short, to protect the garden of course.",
+			"rarity": "rare",
+			"turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chiligun_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf",
+			"damage": 6,
+			"icon": "res://Models/Turrets/Haybale Barrage/haybale_barrage_cover.png",
+			"key": "Haybale_Barrage",
+			"name": "Haybale Barrage",
+			"description": "Fires a large, unstoppable haybale that rolls in a target direction for a long distance, dealing high damage and squashing most enemies that come into contact with it, but taking a while to load another bale.",
+			"rarity": "rare",
+			"turret_to_instantiate": "res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn"
+		}
+	],
+	"epic": [
+		{
+			"activity_draggable": "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf",
+			"damage": 10,
+			"icon": "res://Models/Turrets/Strawberry Artillery/strawberry_artillery_cover.png",
+			"key": "Strawberry_Artillery",
+			"name": "Strawberry Artillery",
+			"description": "Fires a large strawberry high into the sky at long range, before rapidly falling and exploding in a large area on the target it fired at dealing high damage.",
+			"level": 1,
+			"rarity": "epic",
+			"turret_to_instantiate": "res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf",
+			"damage": 2,
+			"icon": "res://Models/Turrets/Radish Rocket/radish_rocket_cover.png",
+			"key": "Radish_Rocket",
+			"name": "Radish Rocket",
+			"description": "Fires a burst of six, high velocity radish rockets to its target(s), exploding in a small area and damaging enemies surrounding the poor soul that was aimed at. Great for dealing with clumps of enemies.",
+			"rarity": "epic",
+			"turret_to_instantiate": "res://Scenes/Turrets/Radish Rocket/radish_rocket_container.tscn"
+		}
+	],
+	"legendary": [
+		{
+			"activity_draggable": "res://Models/Turrets/Spore Sprayer/Spore_Sprayer.gltf",
+			"damage": 1,
+			"icon": "res://Models/Turrets/Spore Sprayer/spore_sprayer_cover.png",
+			"key": "Spore_Sprayer",
+			"name": "Spore Sprayer",
+			"description": "Using highly toxic mushrooms, sprays all enemies in a vicinity around it with rapid damage spores, great when placed at choke points or loops, less so anywhere pretty.",
+			"rarity": "legendary",
+			"turret_to_instantiate": "res://Scenes/Turrets/Spore Sprayer/spore_sprayer_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Fish Launcher/Fish_Launcher.gltf",
+			"damage": 5,
+			"icon": "res://Models/Turrets/Fish Launcher/fish_launcher_cover.png",
+			"key": "Fish_Launcher",
+			"name": "Fish Launcher",
+			"description": "A bundle of wood, bolts and fish. Lobs random fish at its enemies, alternating between goldfish, salmon and, surprisingly, a shark. How it fit in the tank, no-one knows. Best not to question it",
+			"rarity": "legendary",
+			"turret_to_instantiate": "res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn"
+		}
+	]
+}

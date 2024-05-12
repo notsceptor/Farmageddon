@@ -2,147 +2,75 @@
  "turrets": [
   {
    "IV": "99%",
-   "activity_draggable": "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf",
    "damage": 10,
-   "icon": "res://Models/Turrets/Strawberry Artillery/strawberry_artillery_cover.png",
-   "key": "xyzabcde",
    "name": "Strawberry Artillery",
-   "path": "legendary",
-   "quantity": 1,
-   "rarity": "legendary",
-   "turret_to_instantiate": "res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "98%",
-   "activity_draggable": "res://Models/Turrets/Spore Sprayer/Spore_Sprayer.gltf",
-   "damage": 9,
-   "icon": "res://Models/Turrets/Spore Sprayer/spore_sprayer_cover.png",
-   "key": "brrptupw",
+   "damage": 1,
    "name": "Spore Sprayer",
-   "path": "legendary",
-   "quantity": 1,
-   "rarity": "legendary",
-   "turret_to_instantiate": "res://Scenes/Turrets/Spore Sprayer/spore_sprayer_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "96%",
-   "activity_draggable": "res://Models/Turrets/Seed Sniper/Seed_Sniper.gltf",
-   "damage": 8,
-   "icon": "res://Models/Turrets/Seed Sniper/seed_sniper_cover.png",
-   "key": "nqvaqlsr",
+   "damage": 10,
    "name": "Seed Sniper",
-   "path": "legendary",
-   "quantity": 1,
-   "rarity": "legendary",
-   "turret_to_instantiate": "res://Scenes/Turrets/Seed Sniper/seed_sniper_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "77%",
-   "activity_draggable": "res://Models/Turrets/Radish Rocket/Radish_Rocket.gltf",
    "damage": 2,
-   "icon": "res://Models/Turrets/Radish Rocket/radish_rocket_cover.png",
-   "key": "raopbphq",
    "name": "Radish Rocket",
-   "path": "uncommon",
-   "quantity": 1,
-   "rarity": "uncommon",
-   "turret_to_instantiate": "res://Scenes/Turrets/Radish Rocket/radish_rocket_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "98%",
-   "activity_draggable": "res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf",
    "damage": 7,
-   "icon": "res://Models/Turrets/Potato Launcher/potato_launcher_cover.png",
-   "key": "poiuytrc",
    "name": "Potato Launcher",
-   "path": "legendary",
-   "quantity": 1,
-   "rarity": "legendary",
-   "turret_to_instantiate": "res://Scenes/Turrets/Potato Launcher/potato_launcher_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "95%",
-   "activity_draggable": "res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf",
    "damage": 6,
-   "icon": "res://Models/Turrets/Haybale Barrage/haybale_barrage_cover.png",
-   "key": "kjhgfdsa",
    "name": "Haybale Barrage",
-   "path": "epic",
-   "quantity": 1,
-   "rarity": "epic",
-   "turret_to_instantiate": "res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "92%",
-   "activity_draggable": "res://Models/Turrets/Fish Launcher/Fish_Launcher.gltf",
    "damage": 5,
-   "icon": "res://Models/Turrets/Fish Launcher/fish_launcher_cover.png",
-   "key": "zxcvbnml",
    "name": "Fish Launcher",
-   "path": "epic",
-   "quantity": 1,
-   "rarity": "epic",
-   "turret_to_instantiate": "res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "85%",
-   "activity_draggable": "res://Models/Turrets/Chiligun/Chiligun.gltf",
    "damage": 4,
-   "icon": "res://Models/Turrets/Chiligun/chiligun_cover.png",
-   "key": "lkjhgfds",
    "name": "Chiligun",
-   "path": "rare",
-   "quantity": 1,
-   "rarity": "rare",
-   "turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chiligun_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "90%",
-   "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
-   "damage": 3,
-   "icon": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon_cover.png",
-   "key": "asdfghjk",
+   "damage": 5,
    "name": "Honeycomb Harpoon",
-   "path": "rare",
-   "quantity": 2,
-   "rarity": "rare",
-   "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+   "turret_level": 2
   },
   {
    "IV": "75%",
-   "activity_draggable": "res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf",
    "damage": 2,
-   "icon": "res://Models/Turrets/Carrot Cannon/carrot_cannon_cover.png",
-   "key": "yzxcvbnm",
    "name": "Carrot Cannon",
-   "path": "uncommon",
-   "quantity": 2,
-   "rarity": "uncommon",
-   "turret_to_instantiate": "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn"
+   "turret_level": 1
   },
   {
    "IV": "50%",
-   "activity_draggable": "res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf",
-   "damage": 1,
-   "icon": "res://Models/Turrets/Pea Shooter/pea_shooter_cover.png",
-   "key": "qhxyjesw",
+   "damage": 2,
    "name": "Pea Shooter",
-   "path": "common",
-   "quantity": 3,
-   "rarity": "common",
-   "turret_to_instantiate": "res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn"
+   "turret_level": 2
   },
   {
    "IV": "80%",
-   "activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
    "damage": 3,
-   "icon": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon_cover.png",
-   "key": "ezxvatpz",
    "name": "Honeycomb Harpoon",
-   "path": "rare",
-   "quantity": 1,
-   "rarity": "rare",
-   "turret_to_instantiate": "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
+   "turret_level": 1
   }
  ]
 }

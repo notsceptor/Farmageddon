@@ -1,14 +1,12 @@
 extends GridContainer
 
-var dragged_item: Dictionary
-var dragged_node: TextureRect
-var drag_preview_node: TextureRect
-
 @onready var item_preview: Control = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretPreview")
 @onready var stat_change_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/StatChange")
 @onready var resources_to_upgrade_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded")
 @onready var turret_name_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName")
 @onready var upgrade_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton")
+
+var upgrade_levels: Dictionary = {}
 
 func _ready():
 	populate_grid()
@@ -28,109 +26,115 @@ func populate_grid():
 			if index < Inventory.items.size():
 				var item_data = Inventory.items[index]
 				if item_data is Dictionary:
-					square.texture = load(item_data.icon)
-					square.set_meta("turret_data", item_data)
+					var turret_data = Turrets.get_turret_data(item_data.name)
+					square.texture = load(turret_data.icon)
+					var turret_metadata = {
+						"description": turret_data.description,
+						"rarity": turret_data.rarity,
+						"turret_to_instantiate": turret_data.turret_to_instantiate,
+						"icon": turret_data.icon,
+						"damage": item_data.damage,
+						"IV": item_data.IV,
+						"name": item_data.name,
+						"turret_level": item_data.turret_level
+					}
+					square.set_meta("turret_data", turret_metadata)
 
 			square.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 			square.custom_minimum_size = Vector2(114, 114)
 			background.add_child(square)
 			square.connect("gui_input", Callable(self, "_on_gui_input").bind(square))
 			add_child(background)
-
+			
 func _on_gui_input(event: InputEvent, node: TextureRect):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		if !node.get_meta("turret_data"):
 			return
-			
+
 		if event.is_pressed():
 			var item_data = node.get_meta("turret_data")
 			display_item_preview(item_data)
-			
-		"""if event.is_pressed():
-			dragged_node = node
-			dragged_item = node.get_meta("turret_data")
-			create_drag_preview(dragged_item.icon)
-		else:
-			remove_drag_preview()
-			var mouse_position = get_global_mouse_position()
-			var drop_target = get_drop_target(mouse_position)
-			if drop_target and drop_target.get_parent() == hotbar_container:
-				var drop_target_index = drop_target.get_index()
-				hotbar_container.add_item_to_hotbar(dragged_item, drop_target_index)
-				clear_item_from_grid(dragged_node)
-			
-			dragged_node = null
-			dragged_item = {}"""
-			
-func display_item_preview(item_data: Dictionary):
+
+func display_item_preview(turret_metadata: Dictionary):
 	for child in item_preview.get_children():
 		child.queue_free()
 
 	var enlarged_icon = TextureRect.new()
-	enlarged_icon.texture = load(item_data.icon)
+	enlarged_icon.texture = load(turret_metadata.icon)
 	enlarged_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
 	enlarged_icon.custom_minimum_size = Vector2(256, 256)
 
 	item_preview.add_child(enlarged_icon)
 
-	turret_name_label.text = item_data.name
+	turret_name_label.text = turret_metadata.name
 
-	stat_change_label.text = "Damage: +%d" % item_data.damage
+	var base_turret_data = Turrets.get_turret_data(turret_metadata.name)
+	var base_damage = base_turret_data.damage
+	var current_damage = turret_metadata.damage
+	var damage_increase = calculate_damage_increase(base_damage, current_damage)
+	var new_damage = current_damage + damage_increase
 
-	var upgrade_cost = calculate_upgrade_cost(item_data.rarity)
-	resources_to_upgrade_label.text = "Upgrade Cost: %d Gems" % upgrade_cost
+	stat_change_label.text = "Damage: %d" % new_damage
+
+	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, turret_metadata.turret_level + 1)
+	resources_to_upgrade_label.text = "Upgrade Cost: %d Gold" % upgrade_cost
 
 	upgrade_button.text = "Upgrade"
-	upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(item_data))
-	
-func calculate_upgrade_cost(rarity: String) -> int:
+
+	upgrade_button.disconnect("pressed", Callable(self, "_on_upgrade_button_pressed"))
+	upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(turret_metadata))
+
+func calculate_damage_increase(base_damage: int, current_damage: int) -> int:
+	var damage_increase = (base_damage - current_damage) / 10 + 1
+	return damage_increase
+
+func calculate_upgrade_cost(rarity: String, upgrade_level: int) -> int:
+	var base_cost = 0
 	match rarity:
 		"common":
-			return 100
+			base_cost = 100
 		"uncommon":
-			return 200
+			base_cost = 200
 		"rare":
-			return 300
+			base_cost = 300
 		"epic":
-			return 400
+			base_cost = 400
 		"legendary":
-			return 500
-		_:
-			return 0
+			base_cost = 500
 
-"""func clear_item_from_grid(node: TextureRect):
-	node.texture = null
-	node.set_meta("turret_data", null)
+	var level_multiplier = 1.0
+	if upgrade_level > 1:
+		level_multiplier = pow(1.2, upgrade_level - 1)
 
-func create_drag_preview(icon_path: String):
-	drag_preview_node = TextureRect.new()
-	drag_preview_node.texture = load(icon_path)
-	drag_preview_node.modulate = Color(1, 1, 1, 0.5)
-	add_child(drag_preview_node)
-	set_process(true)
+	return int(base_cost * level_multiplier)
 
-func remove_drag_preview():
-	if drag_preview_node:
-		remove_child(drag_preview_node)
-		drag_preview_node.queue_free()
-		drag_preview_node = null
-		set_process(false)
+func _on_upgrade_button_pressed(turret_metadata: Dictionary):
+	var current_upgrade_level = turret_metadata.turret_level
+	var next_upgrade_level = current_upgrade_level + 1
+	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, next_upgrade_level)
 
-func _process(delta):
-	if drag_preview_node:
-		drag_preview_node.global_position = get_global_mouse_position()
-		
-func get_drop_target(mouse_position: Vector2) -> Control:
-	var drop_target = null
-	var hotbar_children = hotbar_container.get_children()
-	
-	for child in hotbar_children:
-		var child_rect = Rect2(child.get_global_position(), child.get_rect().size)
-		if child_rect.has_point(mouse_position):
-			drop_target = child
-			break
-	
-	return drop_target
+	Globals.gems += 10000
 
-func add_item_to_hotbar(item_data: Dictionary, index: int):
-	pass"""
+	if Globals.gems >= upgrade_cost:
+		Globals.gems -= upgrade_cost
+
+		var base_turret_data = Turrets.get_turret_data(turret_metadata.name)
+		var base_damage = base_turret_data.damage
+		var current_damage = turret_metadata.damage
+		var damage_increase = calculate_damage_increase(base_damage, current_damage)
+
+		turret_metadata.damage += damage_increase
+
+		for i in range(Inventory.items.size()):
+			var inventory_item = Inventory.items[i]
+			if inventory_item is Dictionary and inventory_item.name == turret_metadata.name:
+				Inventory.items[i].damage = turret_metadata.damage
+				Inventory.items[i].turret_level = next_upgrade_level
+				break
+
+		Inventory._save_items()
+
+		display_item_preview(turret_metadata)
+	else:
+		print("Not enough gems to upgrade")
+
