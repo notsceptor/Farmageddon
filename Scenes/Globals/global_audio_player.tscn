@@ -20,67 +20,81 @@ script = ExtResource("1_nq8wv")
 
 [node name="BattleThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_8csiv")
-volume_db = -23.423
+volume_db = -22.0
+bus = &"Music"
 
 [node name="IdleThemeMusic" type="AudioStreamPlayer" parent="."]
 process_mode = 3
 stream = ExtResource("3_j1jh8")
-volume_db = -21.55
+volume_db = -22.0
+bus = &"Music"
 
 [node name="TitleThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_nq2si")
-volume_db = -24.36
+volume_db = -22.0
+bus = &"Music"
 
 [node name="MainThemeMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_s3rg6")
-volume_db = -22.486
+volume_db = -22.0
+bus = &"Music"
 
 [node name="MenuClick" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_upd2m")
 volume_db = -9.369
 pitch_scale = 1.27
+bus = &"SFX"
 
 [node name="SnailDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
 volume_db = 0.307
 pitch_scale = 1.32
+bus = &"SFX"
 
 [node name="ScumbugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e5ug2")
 volume_db = -16.252
 pitch_scale = 4.0
+bus = &"SFX"
 
 [node name="BeetleDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
 volume_db = -4.76
 pitch_scale = 0.5
+bus = &"SFX"
 
 [node name="EarthquakeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_qipc3")
 volume_db = -22.486
 pitch_scale = 0.78
+bus = &"SFX"
 
 [node name="FailSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_haoe5")
 volume_db = -16.865
 pitch_scale = 0.91
+bus = &"SFX"
 
 [node name="Placement" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_i4h1g")
 volume_db = -9.369
 pitch_scale = 1.36
+bus = &"SFX"
 
 [node name="StrawberryProjectile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5ikom")
 volume_db = -10.636
 pitch_scale = 1.26
+bus = &"SFX"
 
 [node name="FishNom" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("10_0tnkj")
 volume_db = -18.131
 pitch_scale = 1.26
+bus = &"SFX"
 
 [node name="SharkChomp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_wd53o")
 volume_db = -16.257
 pitch_scale = 1.26
+bus = &"SFX"
