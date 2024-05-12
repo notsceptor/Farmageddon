@@ -19,6 +19,7 @@ projectile_type = ExtResource("3_oijqu")
 stream = ExtResource("5_7npoh")
 volume_db = -11.323
 pitch_scale = 0.97
+bus = &"SFX"
 
 [connection signal="area_entered" from="HaybaleBarrage" to="." method="_on_haybale_barrage_area_entered"]
 [connection signal="area_exited" from="HaybaleBarrage" to="." method="_on_haybale_barrage_area_exited"]

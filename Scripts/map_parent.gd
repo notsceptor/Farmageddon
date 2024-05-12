@@ -19,11 +19,6 @@ signal wave_ended
 @export var tile_empty:Array[PackedScene]
 
 func _process(_delta):
-	if Input.is_action_just_pressed("Pause"):
-		get_tree().paused = true
-		$PauseScreen.visible = !$PauseScreen.visible
-		$UI.visible = !$UI.visible
-	
 	if WaveManager.wave_ongoing:
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
@@ -98,8 +93,8 @@ func _regenerate_new_map_layout():
 
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
-	$PauseScreen.visible = !$PauseScreen.visible
-	$UI.visible = !$UI.visible
+	$PauseScreen.visible = false
+	$UI.visible = true
 
 func _on_ui_place_turret(turret_scene, location):
 	var turret_to_add = turret_scene.instantiate()
@@ -114,3 +109,17 @@ func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()
+
+func _on_ui_open_pause_menu():
+	get_tree().paused = true
+	$PauseScreen.visible = true
+	$UI.visible = false
+
+func _on_pause_screen_settings_button_pressed():
+	$PauseScreen.visible = false
+	$SettingsScreen.visible = true
+
+func _on_settings_screen_back_button_pressed():
+	$SettingsScreen.visible = false
+	$PauseScreen.visible = true
+	

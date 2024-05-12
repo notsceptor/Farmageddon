@@ -25,3 +25,9 @@ var medium_map_spawn_size: int = 6
 var hard_map_current_level: int = 1
 var hard_map_spawn_size: int = 10
 #endregion
+
+#region Music Decibals ranges
+const MUSIC_MIN_VALUE = -80
+const MUSIC_MAX_VALUE = -22
+const MUSIC_RANGE = MUSIC_MIN_VALUE - MUSIC_MAX_VALUE
+#endregion

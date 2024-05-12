@@ -16,6 +16,7 @@ func _on_play_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	$MarginContainer/MainScreenContainer.visible = false
 	$MarginContainer/LevelSelectContainer.visible = true
+	$Inventory.visible = false
 	$BackButtonContainer.visible = true
 
 func _on_easy_level_button_pressed():
@@ -39,6 +40,7 @@ func _on_hard_level_button_pressed():
 func _on_back_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	$MarginContainer/MainScreenContainer.visible = true
+	$Inventory.visible = true
 	$MarginContainer/LevelSelectContainer.visible = false
 	$BackButtonContainer.visible = false
 	
@@ -50,8 +52,8 @@ func _on_exit_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().quit()
 
-
 func _on_open_inventory_pressed():
+	$Inventory.visible = false
 	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(inventory_path)

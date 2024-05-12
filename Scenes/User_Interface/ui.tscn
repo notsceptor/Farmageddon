@@ -1,4 +1,4 @@
-[gd_scene load_steps=121 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=127 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -7,8 +7,10 @@
 [ext_resource type="PackedScene" uid="uid://dt1y8aj3utqpa" path="res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf" id="4_hdmtv"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="4_t7k0y"]
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
+[ext_resource type="Texture2D" uid="uid://c5jxwqwc4wp6r" path="res://Scenes/User_Interface/Assets/upcoming_wave_button.png" id="6_3snki"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
+[ext_resource type="Texture2D" uid="uid://c0kmq2h5kbb7v" path="res://Scenes/User_Interface/Assets/settings_button.png" id="7_58xsf"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/EnemiesTracker.gd" id="7_dhyih"]
 [ext_resource type="Texture2D" uid="uid://l683wkqms74d" path="res://Scenes/User_Interface/Assets/skull.png" id="7_rlnwh"]
 [ext_resource type="Texture2D" uid="uid://dst81esnk1h4x" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon_Cover.png" id="7_yww84"]
@@ -43,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
-[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
+[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
 [ext_resource type="Texture2D" uid="uid://bpmsipabv8uqt" path="res://Textures/GUI_Sprite_Sheet_2_yellow.png" id="44_mmxkb"]
 [ext_resource type="Texture2D" uid="uid://bk07g14kitysb" path="res://Scenes/User_Interface/Assets/start_wave_button.png" id="45_jdjb2"]
 [ext_resource type="Texture2D" uid="uid://deooa7kul0355" path="res://Scenes/User_Interface/Assets/inventory_button.png" id="46_4l8l3"]
@@ -64,26 +66,7 @@ expand_margin_right = 10.0
 expand_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_rlops"]
-font_size = 32
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al7k0"]
-bg_color = Color(1, 0.8, 0.317647, 0.784314)
-border_width_left = 6
-border_width_top = 6
-border_width_right = 6
-border_width_bottom = 6
-border_color = Color(1, 1, 1, 0.882353)
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_detail = 10
-expand_margin_left = 10.0
-expand_margin_top = 4.0
-expand_margin_right = 10.0
-expand_margin_bottom = 4.0
-
-[sub_resource type="LabelSettings" id="LabelSettings_jkol2"]
-font = ExtResource("4_t7k0y")
-font_size = 25
+font_size = 48
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qudkc"]
 content_margin_left = 45.0
@@ -104,6 +87,55 @@ expand_margin_bottom = 4.0
 [sub_resource type="LabelSettings" id="LabelSettings_1jdof"]
 font = ExtResource("4_t7k0y")
 font_size = 32
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ey6h"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("6_3snki")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6r1r"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("6_3snki")
+region_rect = Rect2(-32, -32, 864, 864)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_is4cy"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("7_58xsf")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f5j8i"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("7_58xsf")
+region_rect = Rect2(-32, -32, 864, 864)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al7k0"]
+bg_color = Color(1, 0.8, 0.317647, 0.784314)
+border_width_left = 6
+border_width_top = 6
+border_width_right = 6
+border_width_bottom = 6
+border_color = Color(1, 1, 1, 0.882353)
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_detail = 10
+expand_margin_left = 10.0
+expand_margin_top = 4.0
+expand_margin_right = 10.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_jkol2"]
+font = ExtResource("4_t7k0y")
+font_size = 25
 
 [sub_resource type="LabelSettings" id="LabelSettings_rja7r"]
 font = ExtResource("4_t7k0y")
@@ -1139,19 +1171,8 @@ text = "X
 "
 label_settings = SubResource("LabelSettings_rlops")
 
-[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_al7k0")
-
-[node name="UpcomingEnemies" type="Label" parent="MarginContainer/VBoxContainer/PanelContainer2"]
-layout_mode = 2
-size_flags_horizontal = 0
-theme_override_fonts/font = ExtResource("4_t7k0y")
-text = "Upcoming:"
-label_settings = SubResource("LabelSettings_jkol2")
-
 [node name="EnemiesTracker" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qudkc")
@@ -1189,6 +1210,45 @@ horizontal_alignment = 2
 position = Vector2(-27, 16)
 scale = Vector2(1.28125, 1.1875)
 texture = ExtResource("7_rlnwh")
+
+[node name="UpcomingEnemiesButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7ey6h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7ey6h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l6r1r")
+
+[node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_is4cy")
+theme_override_styles/hover = SubResource("StyleBoxTexture_is4cy")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f5j8i")
+
+[node name="MarginContainer4" type="MarginContainer" parent="."]
+offset_right = 139.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 230
+theme_override_constants/margin_top = 130
+
+[node name="PanelContainer2" type="PanelContainer" parent="MarginContainer4"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_al7k0")
+
+[node name="UpcomingEnemies" type="Label" parent="MarginContainer4/PanelContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("4_t7k0y")
+text = "Upcoming:"
+label_settings = SubResource("LabelSettings_jkol2")
 
 [node name="ReloadSceneText" type="Label" parent="."]
 visible = false
@@ -1448,6 +1508,8 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_3533h")
 [connection signal="confirmed_rewards" from="." to="RewardsContainer" method="_on_ui_confirmed_rewards"]
 [connection signal="wave_ended_from_map_parent" from="." to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/UpcomingEnemiesButton" to="." method="_on_upcoming_enemies_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]
