@@ -17,7 +17,7 @@ func _on_exit_button_pressed():
 	TransitionLayer.change_scene(main_menu_path)
 	
 func hide_menu_screen_for_transition() -> void:
-	$CanvasLayer/Turrets.visible = false
+	$CanvasLayer/GachaRoll/HBoxContainer.visible = false
 
 func _on_inv_button_pressed():
 	TransitionLayer.change_scene(main_menu_path)
