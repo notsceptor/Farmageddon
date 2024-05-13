@@ -7,14 +7,18 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$MarginContainer.visible = false
+	$MarginContainer/LevelSelectContainer.visible = false
+	$BackButtonContainer.visible = false
+	$Inventory.visible = false
 	# Play main menu music here probably
 	if not Globals.intro_played:
 		$VideoStreamPlayer.play()
 		await $VideoStreamPlayer.finished
 		Globals.intro_played = true
 	GlobalAudioPlayer.play_main_music()
-	$MarginContainer/LevelSelectContainer.visible = false
-	$BackButtonContainer.visible = false
+	$MarginContainer.visible = true
+	$Inventory.visible = true
 
 func _on_play_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
