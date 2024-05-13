@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dty7go6f8bor5"]
+[gd_scene load_steps=16 format=3 uid="uid://dty7go6f8bor5"]
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
@@ -12,6 +12,7 @@
 [ext_resource type="AudioStream" uid="uid://b51ytrsoahecx" path="res://audio/Main Theme (Farmageddon).mp3" id="5_s3rg6"]
 [ext_resource type="AudioStream" uid="uid://payegjc72x1l" path="res://audio/Menu Click 1.mp3" id="6_i4h1g"]
 [ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="7_5ikom"]
+[ext_resource type="AudioStream" uid="uid://dnlren4rh853a" path="res://audio/Monster Death 3.mp3" id="9_vuyg6"]
 [ext_resource type="AudioStream" uid="uid://bk4mm78b7iks6" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
 [ext_resource type="AudioStream" uid="uid://d4cmhd0n6ie37" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
 
@@ -51,20 +52,26 @@ bus = &"SFX"
 
 [node name="SnailDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
-volume_db = 0.307
+volume_db = -8.126
 pitch_scale = 1.32
 bus = &"SFX"
 
 [node name="ScumbugDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_e5ug2")
-volume_db = -16.252
+volume_db = -23.747
 pitch_scale = 4.0
 bus = &"SFX"
 
 [node name="BeetleDeathSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_w34n4")
-volume_db = -4.76
+volume_db = -9.445
 pitch_scale = 0.5
+bus = &"SFX"
+
+[node name="VultureDeathSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_vuyg6")
+volume_db = -15.928
+pitch_scale = 0.71
 bus = &"SFX"
 
 [node name="EarthquakeSound" type="AudioStreamPlayer" parent="."]
@@ -87,7 +94,7 @@ bus = &"SFX"
 
 [node name="StrawberryProjectile" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_5ikom")
-volume_db = -10.636
+volume_db = -23.753
 pitch_scale = 1.26
 bus = &"SFX"
 
