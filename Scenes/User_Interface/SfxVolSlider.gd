@@ -13,6 +13,7 @@ func _ready():
 
 func _on_value_changed(value: float):
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	Globals.sfx_volume_value = value
 	sfx_volume_value.text = str(value*100)
 
 func _on_drag_ended(value: int):
