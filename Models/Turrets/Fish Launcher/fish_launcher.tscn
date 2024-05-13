@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bgfvpb1o1ktn"]
 
-[ext_resource type="PackedScene" uid="uid://dvb5u5fhovtqv" path="res://Models/Turrets/Fish Launcher/Fish Launcher.gltf" id="1_32qcs"]
+[ext_resource type="PackedScene" uid="uid://dvb5u5fhovtqv" path="res://Models/Turrets/Fish Launcher/Fish_Launcher.gltf" id="1_32qcs"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_inqs7"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_vabjm"]

@@ -18,6 +18,10 @@ signal wave_ended
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
 
+func _ready():
+	print("TEST")
+	EventBus.connect("place_turret", Callable(self, "place_turret"))
+
 func _process(_delta):
 	if WaveManager.wave_ongoing:
 		WaveManager.check_win_loss_conditions()
@@ -90,6 +94,12 @@ func _regenerate_new_map_layout():
 		"hard":
 			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
+
+func place_turret(turret_scene, location):
+	print("Placing turret at location: ", location)
+	var turret_to_add = turret_scene.instantiate()
+	$Turrets.add_child(turret_to_add)
+	turret_to_add.global_position = location
 
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false

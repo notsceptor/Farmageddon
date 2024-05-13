@@ -113,10 +113,10 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 	var next_upgrade_level = current_upgrade_level + 1
 	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, next_upgrade_level)
 
-	Globals.gems += 10000
+	Globals.gold += 10000
 
-	if Globals.gems >= upgrade_cost:
-		Globals.gems -= upgrade_cost
+	if Globals.gold >= upgrade_cost:
+		Globals.gold -= upgrade_cost
 
 		var base_turret_data = Turrets.get_turret_data(turret_metadata.name)
 		var base_damage = base_turret_data.damage

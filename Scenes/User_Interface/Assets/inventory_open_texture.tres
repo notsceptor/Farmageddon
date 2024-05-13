@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://m150oyjdlycj"]
+
+[ext_resource type="Texture2D" uid="uid://cv8lm17j1jn0q" path="res://Scenes/User_Interface/Assets/inventory_button_open.png" id="1_5owaq"]
+
+[resource]
+texture = ExtResource("1_5owaq")
+region_rect = Rect2(-9, 237, 809, 562)

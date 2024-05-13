@@ -62,7 +62,7 @@
 			"name": "Chiligun",
 			"description": "Utilising the heat power of Chilli's, bathes targets in a large cone of flames that will roast even the toughest of targets alive. Unfortunately, its range is quite short, to protect the garden of course.",
 			"rarity": "rare",
-			"turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chiligun_container.tscn"
+			"turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chili_gun_container.tscn"
 		},
 		{
 			"activity_draggable": "res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf",
