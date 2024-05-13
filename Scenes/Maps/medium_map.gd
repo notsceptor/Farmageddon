@@ -6,6 +6,7 @@ func _init():
 	PathGenInstance.path_config = medium_map_config
 	
 func _ready():
+	super()
 	GlobalAudioPlayer.play_idle_music()
 	Globals.current_selected_map = "medium"
 	WaveManager.get_map_difficulty_data()

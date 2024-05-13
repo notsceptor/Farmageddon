@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://vv7y1y00eumv"]
 
-[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="1_expio"]
+[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chiligun.gltf" id="1_expio"]
 [ext_resource type="Script" path="res://Scripts/turret_radius_check.gd" id="2_v2an6"]
 [ext_resource type="PackedScene" uid="uid://befumbu5bw0kn" path="res://Scenes/Turrets/Chiligun/chiligun_projectile.tscn" id="3_iyvca"]
 

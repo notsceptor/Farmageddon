@@ -50,21 +50,21 @@
   },
   {
    "IV": "90%",
-   "damage": 10,
+   "damage": 13,
    "name": "Honeycomb Harpoon",
-   "turret_level": 2
+   "turret_level": 3
   },
   {
    "IV": "75%",
-   "damage": 2,
+   "damage": 12,
    "name": "Carrot Cannon",
-   "turret_level": 1
+   "turret_level": 2
   },
   {
    "IV": "50%",
-   "damage": 2,
+   "damage": 11,
    "name": "Pea Shooter",
-   "turret_level": 2
+   "turret_level": 3
   },
   {
    "IV": "80%",

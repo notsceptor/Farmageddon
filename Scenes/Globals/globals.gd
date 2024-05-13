@@ -26,7 +26,7 @@ var hard_map_current_level: int = 1
 var hard_map_spawn_size: int = 10
 #endregion
 
-var intro_played: bool = false
+var intro_played: bool = true
 
 #region Settings music save values
 var master_volume_value: float = 1.0

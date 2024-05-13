@@ -1,4 +1,4 @@
-[gd_scene load_steps=127 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=132 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
 [ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chiligun_Cover.png" id="10_cwaca"]
-[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chilligun.gltf" id="11_h0i5u"]
+[ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chiligun.gltf" id="11_h0i5u"]
 [ext_resource type="PackedScene" uid="uid://fq82522w7ugd" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf" id="12_2341g"]
 [ext_resource type="PackedScene" uid="uid://c1jg1al7s5a2p" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn" id="12_ejap6"]
 [ext_resource type="PackedScene" uid="uid://6b4oxkon5mjt" path="res://Scenes/Turrets/Chiligun/chili_gun_container.tscn" id="12_m2bfi"]
@@ -45,8 +45,12 @@
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
-[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
+[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/turret_grid_main.gd" id="42_sasc3"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/main_grid_scrollcontainer.gd" id="42_t8hfh"]
+[ext_resource type="StyleBox" uid="uid://mbtwq46kduyb" path="res://Scenes/User_Interface/Assets/inventory_close_texture.tres" id="43_n86qy"]
 [ext_resource type="Texture2D" uid="uid://bpmsipabv8uqt" path="res://Textures/GUI_Sprite_Sheet_2_yellow.png" id="44_mmxkb"]
+[ext_resource type="StyleBox" uid="uid://m150oyjdlycj" path="res://Scenes/User_Interface/Assets/inventory_open_texture.tres" id="44_vw52b"]
 [ext_resource type="Texture2D" uid="uid://bk07g14kitysb" path="res://Scenes/User_Interface/Assets/start_wave_button.png" id="45_jdjb2"]
 [ext_resource type="Texture2D" uid="uid://deooa7kul0355" path="res://Scenes/User_Interface/Assets/inventory_button.png" id="46_4l8l3"]
 
@@ -1088,6 +1092,8 @@ _bundled = {
 "version": 3
 }
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_duflf"]
+
 [sub_resource type="LabelSettings" id="LabelSettings_ijd30"]
 font = ExtResource("4_t7k0y")
 font_size = 64
@@ -1269,6 +1275,7 @@ label_settings = SubResource("LabelSettings_rja7r")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
@@ -1347,6 +1354,42 @@ layout_mode = 2
 activity_button_icon = ExtResource("34_5c844")
 activity_draggable = SubResource("PackedScene_d5rfl")
 turret_to_instantiate = ExtResource("35_nmxdp")
+
+[node name="Inventory" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1000, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -130.0
+offset_right = 232.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 0
+script = ExtResource("42_t8hfh")
+
+[node name="GridButton" type="Button" parent="Inventory"]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/normal = ExtResource("43_n86qy")
+theme_override_styles/hover = ExtResource("43_n86qy")
+theme_override_styles/pressed = ExtResource("43_n86qy")
+theme_override_styles/disabled = ExtResource("44_vw52b")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_duflf")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
+visible = false
+custom_minimum_size = Vector2(50, 200)
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
+layout_mode = 2
+columns = 9
+script = ExtResource("42_sasc3")
 
 [node name="Workshop" type="Button" parent="."]
 offset_right = 8.0
