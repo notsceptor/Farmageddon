@@ -24,6 +24,7 @@ font_size = 25
 
 [node name="SettingsScreen" type="CanvasLayer"]
 process_mode = 3
+process_priority = 1
 script = ExtResource("1_ox0um")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

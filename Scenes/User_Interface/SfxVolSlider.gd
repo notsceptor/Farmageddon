@@ -16,5 +16,5 @@ func _on_value_changed(value: float):
 	Globals.sfx_volume_value = value
 	sfx_volume_value.text = str(value*100)
 
-func _on_drag_ended(value: int):
+func _on_drag_ended(_value: int):
 	GlobalAudioPlayer.play_placement_sound()
