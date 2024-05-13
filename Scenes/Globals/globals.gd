@@ -28,8 +28,8 @@ var hard_map_spawn_size: int = 10
 
 var intro_played: bool = false
 
-#region Music Decibals ranges
-const MUSIC_MIN_VALUE = -80
-const MUSIC_MAX_VALUE = -22
-const MUSIC_RANGE = MUSIC_MIN_VALUE - MUSIC_MAX_VALUE
+#region Settings music save values
+var master_volume_value: float = 1.0
+var music_volume_value: float = 1.0
+var sfx_volume_value: float = 1.0
 #endregion

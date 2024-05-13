@@ -114,6 +114,7 @@ func _on_ui_open_pause_menu():
 	get_tree().paused = true
 	$PauseScreen.visible = true
 	$UI.visible = false
+	GlobalAudioPlayer.play_menu_click_sound()
 
 func _on_pause_screen_settings_button_pressed():
 	$PauseScreen.visible = false

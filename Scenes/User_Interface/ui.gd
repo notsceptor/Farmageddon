@@ -73,11 +73,13 @@ func show_rewards_screen():
 	advert_timer.start()
 	
 func _on_watch_advert_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	watch_ad_button.visible = false
 	advert_hint_label.text = "Enjoy double the rewards!"
 	advert_finished.emit()
 
 func _on_confirm_rewards_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	GlobalAudioPlayer.play_idle_music()
 	$RewardsContainer.visible = false
 	countdown_text.visible = true
@@ -102,6 +104,7 @@ func _on_show_advert_timer_timeout():
 	advert_hint_label.visible = true
 
 func _on_start_wave_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	next_wave_button_pressed.emit()
 	next_wave_button.visible = false
 	inventory_button.visible = false
@@ -110,6 +113,7 @@ func _on_start_wave_button_pressed():
 	enemies_game_tracker.visible = true
 
 func _on_upcoming_enemies_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	upcoming_enemies_container.visible = !upcoming_enemies_container.visible
 
 func _on_settings_button_pressed():

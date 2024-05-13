@@ -12,4 +12,5 @@ func _ready():
 
 func _on_value_changed(value: float):
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
+	Globals.music_volume_value = value
 	music_volume_value.text = str(value*100)
