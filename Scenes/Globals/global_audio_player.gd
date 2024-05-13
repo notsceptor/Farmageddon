@@ -37,12 +37,20 @@ func play_snail_death_sound():
 	$SnailDeathSound.play()
 
 func play_scumbug_death_sound():
-	$ScumbugDeathSound.pitch_scale = randf_range(3.4, 4.1)
+	$ScumbugDeathSound.pitch_scale = randf_range(4.1, 4.7)
 	$ScumbugDeathSound.play()
 	
 func play_beetle_death_sound():
 	$BeetleDeathSound.pitch_scale = randf_range(0.7, 1.0)
 	$BeetleDeathSound.play()
+	
+func play_vulture_death_sound():
+	$VultureDeathSound.pitch_scale = randf_range(0.9, 1.2)
+	$VultureDeathSound.play()
+	
+func play_boar_death_sound():
+	$VultureDeathSound.pitch_scale = randf_range(0.5, 0.7)
+	$VultureDeathSound.play()
 	
 func play_earthquake_sound():
 	$EarthquakeSound.play()
