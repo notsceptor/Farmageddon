@@ -79,6 +79,7 @@ func _on_watch_advert_button_pressed():
 	advert_finished.emit()
 
 func _on_confirm_rewards_button_pressed():
+	SaveLoad.save_game()
 	GlobalAudioPlayer.play_menu_click_sound()
 	GlobalAudioPlayer.play_idle_music()
 	$RewardsContainer.visible = false

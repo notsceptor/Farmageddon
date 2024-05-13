@@ -36,6 +36,7 @@ func _ready():
 	GlobalAudioPlayer.play_main_music()
 	$MarginContainer.visible = true
 	$Inventory.visible = true
+	SaveLoad.load_game()
 
 func _on_play_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
@@ -75,6 +76,7 @@ func hide_menu_screen_for_transition() -> void:
 	$MarginContainer.visible = false
 	
 func _on_exit_game_button_pressed():
+	SaveLoad.save_game()
 	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().quit()
 
