@@ -45,7 +45,7 @@
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
-[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
+[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/turret_grid_main.gd" id="42_sasc3"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_grid_scrollcontainer.gd" id="42_t8hfh"]
 [ext_resource type="StyleBox" uid="uid://mbtwq46kduyb" path="res://Scenes/User_Interface/Assets/inventory_close_texture.tres" id="43_n86qy"]
