@@ -33,11 +33,18 @@ var _cam: Camera3D
 var RAYCAST_LENGTH: float = 100
 
 var _last_valid_location: Vector3
+
+@onready var level_label: Label = $Level/LevelLabel
+@onready var damage_label: Label = $Damage/DamageLabel
 @onready var _error_mat: BaseMaterial3D = preload("res://Models/Turrets/red_transparent.material")
 
 func _ready():
 	_cam = get_viewport().get_camera_3d()
 	connect("gui_input", Callable(self, "_on_gui_input"))
+	
+	if item_data:
+		level_label.text = str(item_data.get("turret_level", 1))
+		damage_label.text = str(item_data.get("damage", 0))
 
 func _physics_process(_delta):
 	if _is_dragging and _draggable:
@@ -89,5 +96,4 @@ func configure_child_mesh(n: Node, material_to_set: Material):
 func configure_mesh(mesh_3d: MeshInstance3D, material_to_set: Material):
 	for si in range(mesh_3d.mesh.get_surface_count()):
 		mesh_3d.set_surface_override_material(si, material_to_set)
-		
 		

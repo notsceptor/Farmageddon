@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fw1dvsc648jj"
-path="res://.godot/imported/inventory_button_open.png-dc43cc413ceb599b9b0332a3961a057b.ctex"
+uid="uid://dp0pi3t5dut2o"
+path="res://.godot/imported/turret_damage_o.png-d78244fd71720a0d8bb4a3e77c35b67c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/User_Interface/Assets/inventory_button_open.png"
-dest_files=["res://.godot/imported/inventory_button_open.png-dc43cc413ceb599b9b0332a3961a057b.ctex"]
+source_file="res://Scenes/User_Interface/Assets/turret_damage_o.png"
+dest_files=["res://.godot/imported/turret_damage_o.png-d78244fd71720a0d8bb4a3e77c35b67c.ctex"]
 
 [params]
 

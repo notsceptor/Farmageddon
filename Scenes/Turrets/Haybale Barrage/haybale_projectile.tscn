@@ -52,7 +52,7 @@ height = 0.38868
 radius = 0.153591
 
 [node name="HaybaleProjectile" type="Area3D"]
-transform = Transform3D(1.5, 0, 0, 0, -1.5, -0.000890005, 0, 0.000890005, -1.5, 0, 0, 0)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, 0, 0, 0)
 collision_layer = 4
 collision_mask = 0
 script = ExtResource("1_wv8dc")
@@ -64,7 +64,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.150167, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 0)
 
 [node name="cylinder" type="MeshInstance3D" parent="Node/Haybale"]
-transform = Transform3D(0, -1, 0, -0.996483, 0, -0.0837996, 0.0837996, 0, -0.996483, -1.06752e-18, 0.13125, -6.40513e-18)
+transform = Transform3D(0, -1, 0, 1, 0, 0, 0, 0, 1, -1.06752e-18, 0.13125, -6.40513e-18)
 mesh = SubResource("ArrayMesh_sek34")
 skeleton = NodePath("")
 

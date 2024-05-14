@@ -55,16 +55,10 @@ func _on_roll_button_pressed():
 
 func _create_turret_data(rarity: String) -> Dictionary:
 	var turret_data = {
-		"key": _generate_unique_key(),
-		"icon": TURRET_DATA[rarity]["icon"],
-		"rarity": rarity,
-		"quantity": 1,
-		"name": _get_turret_name_by_rarity(rarity),
 		"IV": _get_random_iv(),
+		"name": _get_turret_name_by_rarity(rarity),
 		"damage": _get_damage_by_rarity(rarity),
-		"path": _get_path_by_rarity(rarity),
-		"activity_draggable": _get_activity_draggable_by_rarity(rarity),
-		"turret_to_instantiate": _get_turret_to_instantiate_by_rarity(rarity)
+		"turret_level": 1
 	}
 	return turret_data
 

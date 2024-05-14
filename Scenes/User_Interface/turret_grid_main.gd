@@ -1,11 +1,12 @@
 extends GridContainer
 
 @onready var scroll_container: ScrollContainer = get_parent()
+
 @export var activity_button_scene: PackedScene = preload("res://Scenes/User_Interface/activity_button.tscn")
 
 func _ready():
 	populate_grid()
-
+	
 func populate_grid():
 	var num_columns = columns
 	var num_rows = 0
@@ -15,7 +16,6 @@ func populate_grid():
 		if item_data:
 			var turret_data = Turrets.get_turret_data(item_data.name)
 			var item_button = activity_button_scene.instantiate()
-			print(turret_data.turret_to_instantiate)
 			item_button.activity_button_icon = load(turret_data.icon)
 			item_button.activity_draggable = load(turret_data.activity_draggable)
 			item_button.turret_to_instantiate = load(turret_data.turret_to_instantiate)
