@@ -26,7 +26,7 @@
   },
   {
    "IV": "98%",
-   "damage": 7,
+   "damage": 1,
    "name": "Potato Launcher",
    "turret_level": 1
   },
@@ -44,7 +44,7 @@
   },
   {
    "IV": "85%",
-   "damage": 4,
+   "damage": 2,
    "name": "Chiligun",
    "turret_level": 1
   },
