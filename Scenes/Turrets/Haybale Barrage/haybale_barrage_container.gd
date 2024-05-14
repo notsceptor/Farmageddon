@@ -31,15 +31,18 @@ func _on_haybale_barrage_area_exited(area):
 	enemies_in_range.erase(area)
 
 func _maybe_fire_turret_projectile():
+	var targeted_enemy = current_enemy
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
-		$HaybaleBarrage/AnimationPlayer.play("Shoot", -1, 1.5)
-		gunshot.pitch_scale = randf_range(1.3, 1.5)
-		gunshot.play()
-		var projectile: Projectile = projectile_type.instantiate()
-		projectile.starting_position = $HaybaleBarrage/Node/HaybaleBarrage/Aim/ProjectileSpawnMarker.global_position
-		projectile.target = current_enemy
-		projectile.speed = modified_projectile_speed
-		if damage != null:
-			projectile.damage = damage
-		add_child(projectile)
-		last_fire_time = Time.get_ticks_msec()
+		if current_enemy:
+			$HaybaleBarrage/AnimationPlayer.play("Shoot", -1, 1.5)
+			if $HaybaleBarrage/AnimationPlayer.current_animation_position >= 0.2 && current_enemy == targeted_enemy:
+				gunshot.pitch_scale = randf_range(1.3, 1.5)
+				gunshot.play()
+				var projectile: Projectile = projectile_type.instantiate()
+				projectile.starting_position = $HaybaleBarrage/Node/HaybaleBarrage/Aim/ProjectileSpawnMarker.global_position
+				projectile.target = current_enemy
+				projectile.speed = modified_projectile_speed
+				if damage != null:
+					projectile.damage = damage
+				add_child(projectile)
+				last_fire_time = Time.get_ticks_msec()
