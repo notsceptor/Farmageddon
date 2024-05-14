@@ -1,4 +1,4 @@
-[gd_scene load_steps=132 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=133 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="4_t7k0y"]
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
 [ext_resource type="Texture2D" uid="uid://c5jxwqwc4wp6r" path="res://Scenes/User_Interface/Assets/upcoming_wave_button.png" id="6_3snki"]
+[ext_resource type="Texture2D" uid="uid://cdswhy08m72p6" path="res://Scenes/User_Interface/Assets/turret_icon.png" id="6_olf4e"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
 [ext_resource type="Texture2D" uid="uid://c0kmq2h5kbb7v" path="res://Scenes/User_Interface/Assets/settings_button.png" id="7_58xsf"]
@@ -45,7 +46,7 @@
 [ext_resource type="PackedScene" uid="uid://d0mhua3nh6o1" path="res://Scenes/Turrets/Fish Launcher/fish_launcher_container.tscn" id="35_nmxdp"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="37_qj2va"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/RewardScreenManager.gd" id="38_xtwcu"]
-[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
+[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="40_vgos6"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/turret_grid_main.gd" id="42_sasc3"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_grid_scrollcontainer.gd" id="42_t8hfh"]
 [ext_resource type="StyleBox" uid="uid://mbtwq46kduyb" path="res://Scenes/User_Interface/Assets/inventory_close_texture.tres" id="43_n86qy"]
@@ -1178,7 +1179,6 @@ text = "X
 label_settings = SubResource("LabelSettings_rlops")
 
 [node name="EnemiesTracker" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qudkc")
@@ -1216,6 +1216,44 @@ horizontal_alignment = 2
 position = Vector2(-27, 16)
 scale = Vector2(1.28125, 1.1875)
 texture = ExtResource("7_rlnwh")
+
+[node name="TurretsTracker" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_qudkc")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TurretsTracker"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_constants/separation = 5
+alignment = 2
+
+[node name="TurretsPlaced" type="Label" parent="MarginContainer/VBoxContainer/TurretsTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/TurretsTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "/"
+label_settings = SubResource("LabelSettings_1jdof")
+vertical_alignment = 2
+
+[node name="MaxTurrets" type="Label" parent="MarginContainer/VBoxContainer/TurretsTracker/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "X"
+label_settings = SubResource("LabelSettings_1jdof")
+horizontal_alignment = 2
+
+[node name="TurretIcon" type="Sprite2D" parent="MarginContainer/VBoxContainer/TurretsTracker/HBoxContainer"]
+position = Vector2(-27, 15)
+scale = Vector2(1.28125, 1.1875)
+texture = ExtResource("6_olf4e")
 
 [node name="UpcomingEnemiesButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

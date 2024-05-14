@@ -96,6 +96,7 @@ func _on_reward_countdown_timer_timeout():
 	confirm_rewards_button.visible = true
 
 func _on_map_parent_node_wave_ended():
+	await get_tree().create_timer(0.5).timeout
 	show_rewards_screen()
 	wave_ended_from_map_parent.emit()
 
