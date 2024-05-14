@@ -15,7 +15,6 @@ var last_known_target_position: Vector3
 
 func _ready():
 	super._ready()
-	damage = 20
 	initial_position = global_position
 	if target != null:
 		target_position = target.global_position

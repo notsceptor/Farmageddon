@@ -13,6 +13,7 @@ var last_fire_time: int
 @onready var gunshot = $gunshot
 
 var modified_projectile_speed: float
+var damage = null
 
 
 func _ready():
@@ -33,6 +34,7 @@ func _on_fish_launcher_area_exited(area):
 
 func _maybe_fire_turret_projectile():
 	var targeted_enemy = current_enemy
+	var current_damage = null
 	if Time.get_ticks_msec() > (last_fire_time + fire_rate_ms):
 		if current_enemy:
 			fish_launcher_anim.play("Toss")
@@ -43,13 +45,17 @@ func _maybe_fire_turret_projectile():
 				var projectile_chance = randf()
 				if projectile_chance < 0.6:
 					projectile_type_to_use = projectile_type
+					current_damage = damage
 				elif projectile_chance < 0.9:
 					projectile_type_to_use = large_projectile_type
+					current_damage = damage * 2
 				else:
 					projectile_type_to_use = extra_large_projectile_type
+					current_damage = damage * 2
 				var projectile: Projectile = projectile_type_to_use.instantiate()
 				projectile.starting_position = $FishLauncher/Node/FishLauncher/Aim/CannonTop/BackEnd/Arm/Barrel/ProjectileSpawnMarker.global_position
 				projectile.target = current_enemy
 				projectile.speed = modified_projectile_speed
+				projectile.damage = current_damage
 				add_child(projectile)
 				last_fire_time = Time.get_ticks_msec()

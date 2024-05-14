@@ -1,8 +1,7 @@
 extends Area3D
 
-@onready var damage: int = 2
-
 var enemy_list: Array[Area3D]
+var damage = null
 
 func _ready():
 	Globals.turret_rid_list.append(get_rid())

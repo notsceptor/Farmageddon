@@ -95,21 +95,17 @@ func _regenerate_new_map_layout():
 			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
 
-func place_turret(turret_scene, location):
-	print("Placing turret at location: ", location)
+func place_turret(turret_scene, location, item_data):
 	var turret_to_add = turret_scene.instantiate()
+	turret_to_add.damage = item_data.damage
 	$Turrets.add_child(turret_to_add)
+	
 	turret_to_add.global_position = location
 
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
 	$PauseScreen.visible = false
 	$UI.visible = true
-
-func _on_ui_place_turret(turret_scene, location):
-	var turret_to_add = turret_scene.instantiate()
-	$Turrets.add_child(turret_to_add)
-	turret_to_add.global_position = location
 	
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false
