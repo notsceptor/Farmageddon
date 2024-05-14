@@ -18,8 +18,12 @@ extends Button
 @export var turret_to_instantiate: PackedScene:
 	set(value):
 		turret_to_instantiate = value
+		
+@export var item_data: Dictionary:
+	set(value):
+		item_data = value if value != null else {}
 
-signal place_turret(turret_scene, location)
+signal place_turret(turret_scene, location, item_data)
 
 var _is_dragging: bool = false
 var _draggable: Node
@@ -29,11 +33,18 @@ var _cam: Camera3D
 var RAYCAST_LENGTH: float = 100
 
 var _last_valid_location: Vector3
+
+@onready var level_label: Label = $Level/LevelLabel
+@onready var damage_label: Label = $Damage/DamageLabel
 @onready var _error_mat: BaseMaterial3D = preload("res://Models/Turrets/red_transparent.material")
 
 func _ready():
 	_cam = get_viewport().get_camera_3d()
 	connect("gui_input", Callable(self, "_on_gui_input"))
+	
+	if item_data:
+		level_label.text = str(item_data.get("turret_level", 1))
+		damage_label.text = str(item_data.get("damage", 0))
 
 func _physics_process(_delta):
 	if Globals.current_placed_turrets < Globals.current_max_turrets:
@@ -68,12 +79,10 @@ func _on_button_up():
 		if _draggable:
 			_draggable.visible = false
 
-		if _last_valid_location != Vector3.ZERO and _last_valid_location not in Globals.turret_locations_list:
-			if turret_to_instantiate:
-				EventBus.emit_signal("place_turret", turret_to_instantiate, _last_valid_location)
-				Globals.turret_locations_list.append(_last_valid_location)
-			else:
-				print("Cannot place turret: No turret to instantiate")
+	if _last_valid_location != Vector3.ZERO and _last_valid_location not in Globals.turret_locations_list:
+		if turret_to_instantiate:
+			EventBus.emit_signal("place_turret", turret_to_instantiate, _last_valid_location, item_data)
+			Globals.turret_locations_list.append(_last_valid_location)
 		else:
 			print("Cannot place turret")
 
@@ -87,5 +96,4 @@ func configure_child_mesh(n: Node, material_to_set: Material):
 func configure_mesh(mesh_3d: MeshInstance3D, material_to_set: Material):
 	for si in range(mesh_3d.mesh.get_surface_count()):
 		mesh_3d.set_surface_override_material(si, material_to_set)
-		
 		

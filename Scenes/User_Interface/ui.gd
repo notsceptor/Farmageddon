@@ -18,6 +18,7 @@ extends CanvasLayer
 @onready var confirm_rewards_button: Button = $RewardsContainer/VBoxContainer/ConfirmRewardsButton
 @onready var reward_timer: Timer = $RewardCountdownTimer
 @onready var advert_timer: Timer = $ShowAdvertTimer
+@onready var information_label: Label = $Information
 
 signal next_wave_button_pressed
 signal place_turret(turret_scene, location)
@@ -30,6 +31,7 @@ signal open_pause_menu
 signal pickup_turrets
 
 func _ready():
+	information_label.hide()
 	next_wave_button.visible = false
 	inventory_button.visible = false
 	enemies_game_tracker.visible = false
@@ -115,6 +117,11 @@ func _on_show_advert_timer_timeout():
 
 func _on_start_wave_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
+	if WaveManager.current_wave_is_boss_wave:
+		start_boss_wave_display()
+	else:
+		start_wave_display()
+	GlobalAudioPlayer.play_wave_smash()
 	next_wave_button_pressed.emit()
 	next_wave_button.visible = false
 	inventory_button.visible = false
@@ -133,3 +140,31 @@ func _on_settings_button_pressed():
 
 func _on_pickup_turrets_button_pressed():
 	pickup_turrets.emit()
+	
+func start_wave_display():
+	information_label.text = "WAVE INCOMING"
+	information_label.show()
+	information_label.modulate = Color(1, 1, 1, 0)
+	information_label.scale = Vector2(2, 2)
+	
+	var tween = create_tween()
+	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
+	tween.tween_interval(2.0)
+	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 0), 1.0)
+	tween.connect("finished", Callable(self, "_on_tween_completed"))
+
+func start_boss_wave_display():
+	information_label.text = "INCOMING BOSS WAVE"
+	information_label.show()
+	information_label.modulate = Color(1, 0, 0, 0)
+	information_label.scale = Vector2(2, 2)
+	
+	var tween = create_tween()
+	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
+	tween.tween_interval(2.0)
+	tween.tween_property(information_label, "modulate", Color(1, 0, 0, 0), 1.0)
+	tween.connect("finished", Callable(self, "_on_tween_completed"))
+
+func _on_tween_completed():
+	information_label.hide()
+

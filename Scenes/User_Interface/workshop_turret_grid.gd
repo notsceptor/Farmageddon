@@ -28,6 +28,7 @@ func populate_grid():
 				if item_data is Dictionary:
 					var turret_data = Turrets.get_turret_data(item_data.name)
 					square.texture = load(turret_data.icon)
+					print(item_data)
 					var turret_metadata = {
 						"description": turret_data.description,
 						"rarity": turret_data.rarity,

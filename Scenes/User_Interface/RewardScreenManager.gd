@@ -26,6 +26,9 @@ func _on_ui_wave_ended_from_map_parent():
 	wave_outcome_text.text = "WAVE WON" 
 	if !WaveManager.wave_won:
 		wave_outcome_text.text = "WAVE LOST"
+		GlobalAudioPlayer.play_fail_sound()
+	else:
+		GlobalAudioPlayer.play_win_sound()
 	calculate_and_show_currency_gain()
 
 func calculate_and_show_currency_gain():

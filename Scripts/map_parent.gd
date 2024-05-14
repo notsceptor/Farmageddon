@@ -109,11 +109,6 @@ func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
 	$PauseScreen.visible = false
 	$UI.visible = true
-
-#func _on_ui_place_turret(turret_scene, location):
-	#var turret_to_add = turret_scene.instantiate()
-	#$Turrets.add_child(turret_to_add)
-	#turret_to_add.global_position = location
 	
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false

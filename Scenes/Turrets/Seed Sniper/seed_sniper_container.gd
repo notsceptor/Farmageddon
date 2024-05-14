@@ -10,6 +10,7 @@ var last_fire_time: int
 @onready var gunshot = $gunshot
 
 var modified_projectile_speed: float
+var damage = null
 
 func _ready():
 	GlobalAudioPlayer.play_placement_sound()
@@ -38,5 +39,7 @@ func _maybe_fire_turret_projectile():
 		projectile.starting_position = $SeedSniper/Node/SeedSniper/Aim/ProjectileSpawnMarker.global_position
 		projectile.target = current_enemy
 		projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+		if damage != null:
+			projectile.damage = damage
 		add_child(projectile)
 		last_fire_time = Time.get_ticks_msec()

@@ -1,6 +1,6 @@
 extends Area3D
 
-@onready var damage: int = 1
+var damage = null
 
 var enemy_list: Array[Area3D]
 
