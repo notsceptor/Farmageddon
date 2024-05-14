@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dty7go6f8bor5"]
+[gd_scene load_steps=19 format=3 uid="uid://dty7go6f8bor5"]
 
 [ext_resource type="Script" path="res://Scenes/Globals/global_audio_player.gd" id="1_nq8wv"]
 [ext_resource type="AudioStream" uid="uid://cqxeu54c05ut5" path="res://audio/Monster Death 2.mp3" id="1_w34n4"]
@@ -8,13 +8,16 @@
 [ext_resource type="AudioStream" uid="uid://bib14xxnufcsn" path="res://audio/Idle Theme (Farmageddon).mp3" id="3_j1jh8"]
 [ext_resource type="AudioStream" uid="uid://dtfobtrg683gv" path="res://audio/Title Theme (Farmageddon).mp3" id="4_nq2si"]
 [ext_resource type="AudioStream" uid="uid://cndhtqp2qv3su" path="res://audio/Earthquake.mp3" id="4_qipc3"]
-[ext_resource type="AudioStream" uid="uid://bklxed7ea7g8y" path="res://audio/Fail State.mp3" id="5_haoe5"]
 [ext_resource type="AudioStream" uid="uid://b51ytrsoahecx" path="res://audio/Main Theme (Farmageddon).mp3" id="5_s3rg6"]
 [ext_resource type="AudioStream" uid="uid://payegjc72x1l" path="res://audio/Menu Click 1.mp3" id="6_i4h1g"]
 [ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="7_5ikom"]
 [ext_resource type="AudioStream" uid="uid://dnlren4rh853a" path="res://audio/Monster Death 3.mp3" id="9_vuyg6"]
 [ext_resource type="AudioStream" uid="uid://bk4mm78b7iks6" path="res://audio/Fish Splat.mp3" id="10_0tnkj"]
+[ext_resource type="AudioStream" uid="uid://bmff8qhdaenrp" path="res://audio/Wave Fail.mp3" id="11_ql3dl"]
 [ext_resource type="AudioStream" uid="uid://d4cmhd0n6ie37" path="res://audio/Shark Chomp.mp3" id="11_wd53o"]
+[ext_resource type="AudioStream" uid="uid://cao4buqi6tcni" path="res://audio/Wave Smash.mp3" id="16_gq5d2"]
+[ext_resource type="AudioStream" uid="uid://0h6p5bt7xa8r" path="res://audio/Rooster Crow.mp3" id="17_kvqdg"]
+[ext_resource type="AudioStream" uid="uid://jakeqwvf0flw" path="res://audio/Wave Success.mp3" id="18_qspkf"]
 
 [node name="GlobalAudioPlayer" type="Node"]
 script = ExtResource("1_nq8wv")
@@ -81,7 +84,7 @@ pitch_scale = 0.78
 bus = &"SFX"
 
 [node name="FailSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_haoe5")
+stream = ExtResource("11_ql3dl")
 volume_db = -16.865
 pitch_scale = 0.91
 bus = &"SFX"
@@ -106,6 +109,24 @@ bus = &"SFX"
 
 [node name="SharkChomp" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_wd53o")
+volume_db = -16.257
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="WaveSmash" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("16_gq5d2")
+volume_db = -16.257
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="Cockerel" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_kvqdg")
+volume_db = -16.257
+pitch_scale = 1.26
+bus = &"SFX"
+
+[node name="WinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_qspkf")
 volume_db = -16.257
 pitch_scale = 1.26
 bus = &"SFX"
