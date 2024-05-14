@@ -8,6 +8,7 @@ var last_fire_time: int
 @export var projectile_type: PackedScene
 
 var modified_projectile_speed: float
+var damage = null
 
 @onready var gunshot = $gunshot
 
@@ -53,6 +54,8 @@ func _spawn_projectiles(num: int):
 			projectile.starting_position = projectile_markers[projectile_marker_index].global_position
 			projectile.target = current_enemy
 			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+			if damage != null:
+				projectile.damage = damage
 			add_child(projectile)
 			projectile_marker_index += 1
 			await get_tree().create_timer(0.275).timeout

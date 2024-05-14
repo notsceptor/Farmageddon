@@ -18,8 +18,12 @@ extends Button
 @export var turret_to_instantiate: PackedScene:
 	set(value):
 		turret_to_instantiate = value
+		
+@export var item_data: Dictionary:
+	set(value):
+		item_data = value if value != null else {}
 
-signal place_turret(turret_scene, location)
+signal place_turret(turret_scene, location, item_data)
 
 var _is_dragging: bool = false
 var _draggable: Node
@@ -68,7 +72,7 @@ func _on_button_up():
 
 	if _last_valid_location != Vector3.ZERO and _last_valid_location not in Globals.turret_locations_list:
 		if turret_to_instantiate:
-			EventBus.emit_signal("place_turret", turret_to_instantiate, _last_valid_location)
+			EventBus.emit_signal("place_turret", turret_to_instantiate, _last_valid_location, item_data)
 			Globals.turret_locations_list.append(_last_valid_location)
 		else:
 			print("Cannot place turret: No turret to instantiate")

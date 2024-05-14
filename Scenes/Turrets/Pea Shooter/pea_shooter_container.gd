@@ -10,6 +10,7 @@ var last_fire_time: int
 @onready var gunshot = $gunshot
 
 var modified_projectile_speed: float
+var damage = null
 
 func _ready():
 	GlobalAudioPlayer.play_placement_sound()
@@ -43,6 +44,8 @@ func _spawn_projectiles(num: int):
 			var projectile: Projectile = projectile_type.instantiate()
 			projectile.starting_position = $PeaShooter/Node/PeaShooter/ShooterTop/ProjectileSpawnMarker.global_position
 			projectile.target = current_enemy
-			projectile.speed = modified_projectile_speed #set the new modified projectile speed down here
+			projectile.speed = modified_projectile_speed
+			if damage != null:
+				projectile.damage = damage
 			add_child(projectile)
 			await get_tree().create_timer(0.2).timeout

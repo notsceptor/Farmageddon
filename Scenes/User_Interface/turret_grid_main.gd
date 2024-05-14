@@ -15,10 +15,11 @@ func populate_grid():
 		if item_data:
 			var turret_data = Turrets.get_turret_data(item_data.name)
 			var item_button = activity_button_scene.instantiate()
+			print(turret_data.turret_to_instantiate)
 			item_button.activity_button_icon = load(turret_data.icon)
 			item_button.activity_draggable = load(turret_data.activity_draggable)
 			item_button.turret_to_instantiate = load(turret_data.turret_to_instantiate)
-			item_button.set_meta("item_data", item_data)
+			item_button.item_data = item_data
 			item_button.set_meta("turret_data", turret_data)
 			item_button.connect("pressed", Callable(self, "_on_item_button_pressed").bind(item_data, turret_data))
 			add_child(item_button)
