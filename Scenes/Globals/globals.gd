@@ -4,7 +4,8 @@ extends Node
 var turret_rid_list: Array = []
 var turret_locations_list: Array = []
 
-var max_turrets: int = 2
+const MAX_PLACEABLE_TURRETS = 7
+var current_max_turrets: int = 2
 var current_placed_turrets: int = 0
 
 #region Currencies
@@ -15,7 +16,7 @@ var gems = 0
 
 var current_selected_map: String
 #region Easy Map Section
-var easy_map_current_level: int = 1
+var easy_map_current_level: int = 9
 var easy_map_spawn_size: int = 3
 #endregion
 

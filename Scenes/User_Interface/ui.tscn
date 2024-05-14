@@ -95,21 +95,6 @@ expand_margin_bottom = 4.0
 font = ExtResource("4_t7k0y")
 font_size = 32
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ey6h"]
-content_margin_left = 80.0
-content_margin_top = 80.0
-content_margin_right = 80.0
-content_margin_bottom = 80.0
-texture = ExtResource("6_3snki")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6r1r"]
-content_margin_left = 80.0
-content_margin_top = 80.0
-content_margin_right = 80.0
-content_margin_bottom = 80.0
-texture = ExtResource("6_3snki")
-region_rect = Rect2(-32, -32, 864, 864)
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_is4cy"]
 content_margin_left = 80.0
 content_margin_top = 80.0
@@ -123,6 +108,21 @@ content_margin_top = 80.0
 content_margin_right = 80.0
 content_margin_bottom = 80.0
 texture = ExtResource("7_58xsf")
+region_rect = Rect2(-32, -32, 864, 864)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ey6h"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("6_3snki")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l6r1r"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("6_3snki")
 region_rect = Rect2(-32, -32, 864, 864)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmdko"]
@@ -1280,15 +1280,6 @@ position = Vector2(-26, 15)
 scale = Vector2(1.28125, 1.1875)
 texture = ExtResource("6_olf4e")
 
-[node name="UpcomingEnemiesButton" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-focus_mode = 0
-theme_override_styles/normal = SubResource("StyleBoxTexture_7ey6h")
-theme_override_styles/hover = SubResource("StyleBoxTexture_7ey6h")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_l6r1r")
-
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
@@ -1297,6 +1288,15 @@ focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_is4cy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_is4cy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f5j8i")
+
+[node name="UpcomingEnemiesButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_7ey6h")
+theme_override_styles/hover = SubResource("StyleBoxTexture_7ey6h")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_l6r1r")
 
 [node name="PickupTurretsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -1623,8 +1623,8 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_3533h")
 [connection signal="confirmed_rewards" from="." to="RewardsContainer" method="_on_ui_confirmed_rewards"]
 [connection signal="wave_ended_from_map_parent" from="." to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/UpcomingEnemiesButton" to="." method="_on_upcoming_enemies_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/UpcomingEnemiesButton" to="." method="_on_upcoming_enemies_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/PickupTurretsButton" to="." method="_on_pickup_turrets_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]

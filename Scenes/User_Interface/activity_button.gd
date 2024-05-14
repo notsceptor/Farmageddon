@@ -36,7 +36,7 @@ func _ready():
 	connect("gui_input", Callable(self, "_on_gui_input"))
 
 func _physics_process(_delta):
-	if Globals.current_placed_turrets < Globals.max_turrets:
+	if Globals.current_placed_turrets < Globals.current_max_turrets:
 		if _is_dragging and _draggable:
 			var space_state = _draggable.get_world_3d().direct_space_state
 			var mouse_pos: Vector2 = get_viewport().get_mouse_position()
@@ -64,7 +64,7 @@ func _on_button_down():
 
 func _on_button_up():
 	_is_dragging = false
-	if Globals.current_placed_turrets < Globals.max_turrets:
+	if Globals.current_placed_turrets < Globals.current_max_turrets:
 		if _draggable:
 			_draggable.visible = false
 

@@ -7,7 +7,6 @@ extends CanvasLayer
 @onready var pause_button: Button = $MarginContainer/VBoxContainer/SettingsButton
 @onready var pickup_turrets_button = $MarginContainer/VBoxContainer/PickupTurretsButton
 
-
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer4/PanelContainer2/UpcomingEnemies
 @onready var upcoming_enemies_container: PanelContainer = $MarginContainer4/PanelContainer2
@@ -122,6 +121,7 @@ func _on_start_wave_button_pressed():
 	upcoming_enemies_container.visible = false
 	upcoming_enemies_button.visible = false
 	turrets_tracker.visible = false
+	pickup_turrets_button.visible = false
 	enemies_game_tracker.visible = true
 
 func _on_upcoming_enemies_button_pressed():

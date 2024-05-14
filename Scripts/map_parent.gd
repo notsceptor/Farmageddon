@@ -96,7 +96,7 @@ func _regenerate_new_map_layout():
 	TransitionLayer.reload_level(scene_to_load)
 
 func place_turret(turret_scene, location):
-	if Globals.current_placed_turrets < Globals.max_turrets:
+	if Globals.current_placed_turrets < Globals.current_max_turrets:
 		Globals.current_placed_turrets += 1
 		print("Placing turret at location: ", location)
 		var turret_to_add = turret_scene.instantiate()
@@ -123,6 +123,7 @@ func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()
+		remove_turrets_from_map()
 
 func _on_ui_open_pause_menu():
 	get_tree().paused = true
@@ -139,6 +140,9 @@ func _on_settings_screen_back_button_pressed():
 	$PauseScreen.visible = true
 	
 func _on_ui_pickup_turrets(): 
+	remove_turrets_from_map()
+		
+func remove_turrets_from_map() -> void:
 	Globals.current_placed_turrets = 0
 	Globals.turret_locations_list = []
 	Globals.turret_rid_list = []

@@ -5,5 +5,5 @@ extends PanelContainer
 
 func _process(_delta):
 	if visible and !WaveManager.wave_ongoing:
-		max_turrets.text = str(Globals.max_turrets)
+		max_turrets.text = str(Globals.current_max_turrets)
 		turrets_placed.text = str(Globals.current_placed_turrets)
