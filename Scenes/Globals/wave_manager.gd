@@ -115,6 +115,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.easy_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 		"medium":
 			if Globals.medium_map_current_level % 5 == 0:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.20)
@@ -124,6 +126,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.medium_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 		"hard":
 			if Globals.hard_map_current_level % 5 == 0:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
@@ -133,7 +137,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.hard_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
-			
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 
 # Function that takes an array of enemies and wave size as parameter and ensures it returns an enemy that fits within the remaining wave size
 func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:
