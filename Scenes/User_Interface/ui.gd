@@ -74,6 +74,7 @@ func get_upcoming_enemies():
 	upcoming_enemies.text = upcoming_text
 	
 func show_rewards_screen():
+	$Inventory.close_container()
 	advert_hint_label.text = "Watch an ad to double rewards"
 	watch_ad_button.visible = false
 	advert_hint_label.visible = false
@@ -130,12 +131,14 @@ func _on_start_wave_button_pressed():
 	turrets_tracker.visible = false
 	pickup_turrets_button.visible = false
 	enemies_game_tracker.visible = true
+	$Inventory.close_container()
 
 func _on_upcoming_enemies_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	upcoming_enemies_container.visible = !upcoming_enemies_container.visible
 
 func _on_settings_button_pressed():
+	$Inventory.close_container()
 	open_pause_menu.emit()
 
 func _on_pickup_turrets_button_pressed():
