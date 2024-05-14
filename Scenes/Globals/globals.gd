@@ -4,6 +4,9 @@ extends Node
 var turret_rid_list: Array = []
 var turret_locations_list: Array = []
 
+var max_turrets: int = 2
+var current_placed_turrets: int = 0
+
 #region Currencies
 var gold = 0
 var scrap = 0

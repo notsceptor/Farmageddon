@@ -5,10 +5,13 @@ extends CanvasLayer
 @onready var inventory_button: Button = $MarginContainer3/InventoryButton
 @onready var upcoming_enemies_button: Button = $MarginContainer/VBoxContainer/UpcomingEnemiesButton
 @onready var pause_button: Button = $MarginContainer/VBoxContainer/SettingsButton
+@onready var pickup_turrets_button = $MarginContainer/VBoxContainer/PickupTurretsButton
+
 
 # Rewards screen section
 @onready var upcoming_enemies: Label = $MarginContainer4/PanelContainer2/UpcomingEnemies
 @onready var upcoming_enemies_container: PanelContainer = $MarginContainer4/PanelContainer2
+@onready var turrets_tracker = $MarginContainer/VBoxContainer/TurretsTracker
 @onready var enemies_game_tracker: PanelContainer = $MarginContainer/VBoxContainer/EnemiesTracker
 @onready var watch_ad_button: Button = $RewardsContainer/VBoxContainer/HBoxContainer/WatchAdvertButton
 @onready var advert_hint_label: Label = $RewardsContainer/VBoxContainer/AdvertHintLabel
@@ -25,6 +28,7 @@ signal advert_finished
 signal confirmed_rewards
 
 signal open_pause_menu
+signal pickup_turrets
 
 func _ready():
 	next_wave_button.visible = false
@@ -32,11 +36,15 @@ func _ready():
 	enemies_game_tracker.visible = false
 	upcoming_enemies_button.visible = false
 	pause_button.visible = false
+	pickup_turrets_button.visible = false
+	turrets_tracker.visible = false
 	await get_tree().create_timer(1).timeout
 	next_wave_button.visible = true
 	inventory_button.visible = true
 	upcoming_enemies_button.visible = true
 	pause_button.visible = true
+	pickup_turrets_button.visible = true
+	turrets_tracker.visible = true
 	get_upcoming_enemies()
 	
 func _process(_delta):
@@ -86,9 +94,11 @@ func _on_confirm_rewards_button_pressed():
 	confirm_rewards_button.visible = false
 	enemies_game_tracker.visible = false
 	get_upcoming_enemies()
+	turrets_tracker.visible = true
 	next_wave_button.visible = true
 	inventory_button.visible = true
 	upcoming_enemies_button.visible = true
+	pickup_turrets_button.visible = true
 	confirmed_rewards.emit()
 	
 func _on_reward_countdown_timer_timeout():
@@ -111,6 +121,7 @@ func _on_start_wave_button_pressed():
 	inventory_button.visible = false
 	upcoming_enemies_container.visible = false
 	upcoming_enemies_button.visible = false
+	turrets_tracker.visible = false
 	enemies_game_tracker.visible = true
 
 func _on_upcoming_enemies_button_pressed():
@@ -119,3 +130,6 @@ func _on_upcoming_enemies_button_pressed():
 
 func _on_settings_button_pressed():
 	open_pause_menu.emit()
+
+func _on_pickup_turrets_button_pressed():
+	pickup_turrets.emit()

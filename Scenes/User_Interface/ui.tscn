@@ -1,4 +1,4 @@
-[gd_scene load_steps=133 format=3 uid="uid://bci4uioop3f34"]
+[gd_scene load_steps=138 format=3 uid="uid://bci4uioop3f34"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/ui.gd" id="1_1o10m"]
 [ext_resource type="PackedScene" uid="uid://dcl252xvwdn8s" path="res://Scenes/User_Interface/activity_button.tscn" id="2_niyf1"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="4_t7k0y"]
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_q4g83"]
 [ext_resource type="Texture2D" uid="uid://c5jxwqwc4wp6r" path="res://Scenes/User_Interface/Assets/upcoming_wave_button.png" id="6_3snki"]
+[ext_resource type="Script" path="res://Scenes/User_Interface/TurretsTracker.gd" id="6_4bq03"]
 [ext_resource type="Texture2D" uid="uid://cdswhy08m72p6" path="res://Scenes/User_Interface/Assets/turret_icon.png" id="6_olf4e"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_ur5bi"]
 [ext_resource type="PackedScene" uid="uid://7sb3lkv4e57x" path="res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn" id="6_v143u"]
@@ -18,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dvs6f4tkjfx7v" path="res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf" id="8_3rowj"]
 [ext_resource type="PackedScene" uid="uid://r4rtkqn6nxjq" path="res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn" id="9_rkm73"]
 [ext_resource type="Texture2D" uid="uid://bdhnrdr6s2kti" path="res://Models/Turrets/Chiligun/Chiligun_Cover.png" id="10_cwaca"]
+[ext_resource type="Texture2D" uid="uid://de1x534w2gxyk" path="res://Scenes/User_Interface/Assets/pickup_button.png" id="10_i7wjg"]
 [ext_resource type="PackedScene" uid="uid://dv3a284eeams8" path="res://Models/Turrets/Chiligun/Chiligun.gltf" id="11_h0i5u"]
 [ext_resource type="PackedScene" uid="uid://fq82522w7ugd" path="res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf" id="12_2341g"]
 [ext_resource type="PackedScene" uid="uid://c1jg1al7s5a2p" path="res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn" id="12_ejap6"]
@@ -121,6 +123,28 @@ content_margin_top = 80.0
 content_margin_right = 80.0
 content_margin_bottom = 80.0
 texture = ExtResource("7_58xsf")
+region_rect = Rect2(-32, -32, 864, 864)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jmdko"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("10_i7wjg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xeh1m"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("10_i7wjg")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fw4v8"]
+content_margin_left = 80.0
+content_margin_top = 80.0
+content_margin_right = 80.0
+content_margin_bottom = 80.0
+texture = ExtResource("10_i7wjg")
 region_rect = Rect2(-32, -32, 864, 864)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al7k0"]
@@ -1221,6 +1245,7 @@ texture = ExtResource("7_rlnwh")
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_qudkc")
+script = ExtResource("6_4bq03")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/TurretsTracker"]
 layout_mode = 2
@@ -1251,7 +1276,7 @@ label_settings = SubResource("LabelSettings_1jdof")
 horizontal_alignment = 2
 
 [node name="TurretIcon" type="Sprite2D" parent="MarginContainer/VBoxContainer/TurretsTracker/HBoxContainer"]
-position = Vector2(-27, 15)
+position = Vector2(-26, 15)
 scale = Vector2(1.28125, 1.1875)
 texture = ExtResource("6_olf4e")
 
@@ -1267,11 +1292,20 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_l6r1r")
 [node name="SettingsButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
-size_flags_vertical = 0
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_styles/normal = SubResource("StyleBoxTexture_is4cy")
 theme_override_styles/hover = SubResource("StyleBoxTexture_is4cy")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_f5j8i")
+
+[node name="PickupTurretsButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_jmdko")
+theme_override_styles/hover = SubResource("StyleBoxTexture_xeh1m")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fw4v8")
 
 [node name="MarginContainer4" type="MarginContainer" parent="."]
 offset_right = 139.0
@@ -1591,6 +1625,7 @@ theme_override_styles/pressed = SubResource("StyleBoxTexture_3533h")
 [connection signal="wave_ended_from_map_parent" from="." to="RewardsContainer" method="_on_ui_wave_ended_from_map_parent"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/UpcomingEnemiesButton" to="." method="_on_upcoming_enemies_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/PickupTurretsButton" to="." method="_on_pickup_turrets_button_pressed"]
 [connection signal="place_turret" from="HBoxContainer/pea" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/carrot" to="." method="_on_activity_button_place_turret"]
 [connection signal="place_turret" from="HBoxContainer/chili" to="." method="_on_activity_button_place_turret"]

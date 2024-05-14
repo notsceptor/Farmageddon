@@ -96,20 +96,24 @@ func _regenerate_new_map_layout():
 	TransitionLayer.reload_level(scene_to_load)
 
 func place_turret(turret_scene, location):
-	print("Placing turret at location: ", location)
-	var turret_to_add = turret_scene.instantiate()
-	$Turrets.add_child(turret_to_add)
-	turret_to_add.global_position = location
+	if Globals.current_placed_turrets < Globals.max_turrets:
+		Globals.current_placed_turrets += 1
+		print("Placing turret at location: ", location)
+		var turret_to_add = turret_scene.instantiate()
+		$Turrets.add_child(turret_to_add)
+		turret_to_add.global_position = location
+	else:
+		print("AT MAX TURRET CAPACITY")
 
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
 	$PauseScreen.visible = false
 	$UI.visible = true
 
-func _on_ui_place_turret(turret_scene, location):
-	var turret_to_add = turret_scene.instantiate()
-	$Turrets.add_child(turret_to_add)
-	turret_to_add.global_position = location
+#func _on_ui_place_turret(turret_scene, location):
+	#var turret_to_add = turret_scene.instantiate()
+	#$Turrets.add_child(turret_to_add)
+	#turret_to_add.global_position = location
 	
 func _on_ui_next_wave_button_pressed():
 	next_wave_button.visible = false
@@ -134,3 +138,9 @@ func _on_settings_screen_back_button_pressed():
 	$SettingsScreen.visible = false
 	$PauseScreen.visible = true
 	
+func _on_ui_pickup_turrets(): 
+	Globals.current_placed_turrets = 0
+	Globals.turret_locations_list = []
+	Globals.turret_rid_list = []
+	for turret in $Turrets.get_children():
+		turret.queue_free()
