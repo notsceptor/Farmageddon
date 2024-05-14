@@ -95,13 +95,14 @@ func _regenerate_new_map_layout():
 			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
 
-func place_turret(turret_scene, location):
+func place_turret(turret_scene, location, item_data):
 	if Globals.current_placed_turrets < Globals.current_max_turrets:
 		Globals.current_placed_turrets += 1
 		print("Placing turret at location: ", location)
 		var turret_to_add = turret_scene.instantiate()
 		$Turrets.add_child(turret_to_add)
 		turret_to_add.global_position = location
+		turret_to_add.damage = item_data.damage
 	else:
 		print("AT MAX TURRET CAPACITY")
 
