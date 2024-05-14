@@ -107,7 +107,7 @@ func _on_show_advert_timer_timeout():
 
 func _on_start_wave_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
-	if WaveManager.current_level % 5 == 0:
+	if WaveManager.current_wave_is_boss_wave:
 		start_boss_wave_display()
 	else:
 		start_wave_display()
@@ -141,13 +141,13 @@ func start_wave_display():
 func start_boss_wave_display():
 	information_label.text = "INCOMING BOSS WAVE"
 	information_label.show()
-	information_label.modulate = Color(1, 1, 1, 0)
+	information_label.modulate = Color(1, 0, 0, 0)
 	information_label.scale = Vector2(2, 2)
 	
 	var tween = create_tween()
 	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
 	tween.tween_interval(2.0)
-	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 0), 1.0)
+	tween.tween_property(information_label, "modulate", Color(1, 0, 0, 0), 1.0)
 	tween.connect("finished", Callable(self, "_on_tween_completed"))
 
 func _on_tween_completed():
