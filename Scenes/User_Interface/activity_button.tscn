@@ -45,6 +45,7 @@ texture = ExtResource("3_loal0")
 expand_mode = 1
 
 [node name="LevelLabel" type="Label" parent="Level"]
+layout_mode = 0
 offset_left = 22.0
 offset_top = -3.0
 offset_right = 36.0

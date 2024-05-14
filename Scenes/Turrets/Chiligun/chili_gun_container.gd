@@ -13,26 +13,17 @@ func _ready():
 	turret_model = $Chiligun/Node # Assign the turret model node
 	shooter_node = $Chiligun/Node/Chilligun/Aim # Assign the shooter node
 	var turret_area_rid = $Chiligun/AreaRadius.get_rid()
-	chiligun_spray.damage = damage
 	Globals.turret_rid_list.append(turret_area_rid)
 	
-	
 func _on_chiligun_area_entered(area):
+	chiligun_spray.damage = damage
 	if current_enemy == null:
 		current_enemy = area
 	enemies_in_range.append(area)
 	
-
-	
-
 func _on_chiligun_area_exited(area):
 	enemies_in_range.erase(area)
 	
-	
-	
-	
 func _maybe_fire_turret_projectile():
 	$Chiligun/AnimationPlayer.play("Spray")
-	
-
 
