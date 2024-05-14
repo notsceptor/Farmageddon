@@ -3,22 +3,20 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c4gqcv0swcayd"
-path.s3tc="res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.s3tc.ctex"
-path.etc2="res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.etc2.ctex"
+path="res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc", "etc2_astc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={}
 
 [deps]
 
 source_file="res://Models/Turrets/Chiligun/Chiligun_0.png"
-dest_files=["res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.s3tc.ctex", "res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.etc2.ctex"]
+dest_files=["res://.godot/imported/Chiligun_0.png-70c93a67b4c976badb267ec780d88bb7.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
