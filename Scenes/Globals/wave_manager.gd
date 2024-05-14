@@ -84,6 +84,7 @@ func start_wave():
 	for key in debug_enemy_dictionary.keys(): # Iterate over keys
 		var value = debug_enemy_dictionary[key] # Access value using the key
 		print(key, ": ", value)
+	await get_tree().create_timer(2.0).timeout
 	spawn_enemy_array_slowly(remaining_enemies_to_spawn, current_level)
 
 # Function that will check win/loss conditions
