@@ -23,8 +23,6 @@ const ROLL_COST_GEMS: int = 100
 
 func _ready():
 	roll_button_gems.connect("pressed", Callable(self, "_on_gems_roll_button_pressed"))
-	CurrencyDistributor.addGems(1000)
-	CurrencyDistributor.addGold(2000)
 
 func _on_gems_roll_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()

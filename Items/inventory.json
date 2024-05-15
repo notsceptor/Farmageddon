@@ -2,10 +2,10 @@
  "turrets": [
   {
    "ID": "feuif",
-   "damage": 10,
+   "damage": 16,
    "name": "Strawberry Artillery",
    "placed": false,
-   "turret_level": 1
+   "turret_level": 3
   },
   {
    "ID": "zafew",
