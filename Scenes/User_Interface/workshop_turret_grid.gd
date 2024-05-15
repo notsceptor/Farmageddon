@@ -5,18 +5,25 @@ extends GridContainer
 @onready var resources_to_upgrade_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded")
 @onready var turret_name_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName")
 @onready var upgrade_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton")
+@onready var scrap_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ScrapButton")
+
 
 var upgrade_levels: Dictionary = {}
 
 var currently_selected_turret_rarity
 var currently_selected_turret_level
+var currently_selected_turret_id
 
 func _ready():
-	CurrencyDistributor.addGold(5000)
 	populate_grid()
+	upgrade_button.visible = false
+	scrap_button.visible = false
 
 func populate_grid():
 	self.columns = 7
+	
+	for child in get_children():
+		child.queue_free()
 
 	for row in range(7):
 		for col in range(7):
@@ -60,6 +67,8 @@ func _on_gui_input(event: InputEvent, node: TextureRect):
 			GlobalAudioPlayer.play_menu_click_sound()
 			var item_data = node.get_meta("turret_data")
 			display_item_preview(item_data)
+			upgrade_button.visible = true
+			scrap_button.visible = true
 
 func display_item_preview(turret_metadata: Dictionary):
 	for child in item_preview.get_children():
@@ -82,6 +91,7 @@ func display_item_preview(turret_metadata: Dictionary):
 	
 	currently_selected_turret_rarity = turret_metadata.rarity
 	currently_selected_turret_level = turret_metadata.turret_level
+	currently_selected_turret_id = turret_metadata.ID
 
 	stat_change_label.text = "Damage: %d" % new_damage
 
@@ -147,12 +157,10 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 	else:
 		print("Not enough gold to upgrade")
 
-
 @onready var upgrade_container = $"../../../../../UpgradeContainer"
 @onready var scrap_notification_container = $"../../../../../../ScrapNotification"
 @onready var scrap_title = $"../../../../../../ScrapNotification/VBoxContainer/ScrapTitle"
 @onready var scrap_confirmation = $"../../../../../../ScrapNotification/VBoxContainer/ScrapConfirmation"
-
 
 func _on_scrap_button_pressed():
 	var scrap_confirmation_text = "ARE YOU SURE YOU WANT TO SCRAP THIS\nTURRET FOR %d SCRAP?"
@@ -164,6 +172,13 @@ func _on_scrap_button_pressed():
 
 func _on_yes_scrap_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
+	CurrencyDistributor.addScrapMetal(_calculate_scrap_cost(currently_selected_turret_rarity, currently_selected_turret_level))
+	for i in range(Inventory.items.size()):
+		if Inventory.items[i]["ID"] == currently_selected_turret_id:
+			Inventory.remove_item(i)
+			_reset_turret_preview()
+			populate_grid()
+			break
 	scrap_notification_container.visible = false
 	upgrade_container.visible = true
 
@@ -173,7 +188,7 @@ func _on_no_scrap_button_pressed():
 	upgrade_container.visible = true
 
 func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
-	var scrap_amount
+	var scrap_amount = 0
 	match turret_rarity:
 		"common":
 			scrap_amount = 50
@@ -185,4 +200,16 @@ func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
 			scrap_amount = 200
 		"legendary":
 			scrap_amount = 300
-	return scrap_amount + ((ceilf(0.5*scrap_amount)) * turret_level) # To be updated 
+	if turret_level == 1:
+		return scrap_amount
+	else:
+		return scrap_amount + ((ceilf(0.5*scrap_amount)) * turret_level)
+		
+func _reset_turret_preview():
+	for child in item_preview.get_children():
+		child.queue_free()
+	upgrade_button.visible = false
+	scrap_button.visible = false
+	turret_name_label.text = "SELECT TURRET"
+	resources_to_upgrade_label.text = "SELECT A TURRET FROM THE LEFT TO VIEW"
+	stat_change_label.text = ""

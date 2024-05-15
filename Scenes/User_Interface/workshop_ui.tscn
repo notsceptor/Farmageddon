@@ -10,7 +10,7 @@
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_mtoua"]
 [ext_resource type="Texture2D" uid="uid://dgm8iaai8g61j" path="res://Textures/GUI_Sprite_Sheet_3.png" id="9_322qu"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="9_836y6"]
-[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="10_sdmhq"]
+[ext_resource type="StyleBox" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="10_sdmhq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlldh"]
 
@@ -279,6 +279,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="UpgradeButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -293,6 +294,7 @@ theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "UPGRADE"
 
 [node name="ScrapButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
