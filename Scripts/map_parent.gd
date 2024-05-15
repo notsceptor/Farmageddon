@@ -23,11 +23,14 @@ func _ready():
 
 func _process(_delta):
 	if WaveManager.wave_ongoing:
+		$UI/Inventory.visible = false
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				CurrencyDistributor.addGems(50)
+	else:
+		$UI/Inventory.visible = true
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):

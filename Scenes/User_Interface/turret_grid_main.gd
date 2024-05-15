@@ -23,8 +23,23 @@ func populate_grid():
 			item_button.activity_draggable = load(turret_data.activity_draggable)
 			item_button.turret_to_instantiate = load(turret_data.turret_to_instantiate)
 			item_button.item_data = item_data
-			item_button.get_child(0).visible = true
+			item_button.get_child(2).visible = true
 			item_button.get_child(1).visible = true
+			var rarity_label = item_button.get_child(0)
+			rarity_label.visible = true
+			var rarity = turret_data.rarity.to_lower()
+			match rarity:
+				"common":
+					rarity_label.modulate = Color("#A5CCC4")
+				"uncommon":
+					rarity_label.modulate = Color("#80E076")
+				"rare":
+					rarity_label.modulate = Color("#61B6DD")
+				"epic":
+					rarity_label.modulate = Color("#C461DD")
+				"legendary":
+					rarity_label.modulate = Color("#DDCD61")
+					
 			item_button.set_meta("turret_data", turret_data)
 			add_child(item_button)
 			row_items.append(item_button)

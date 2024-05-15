@@ -29,7 +29,6 @@ func _process(_delta):
 		remaining_enemies_to_spawn.clear()
 	if !wave_ongoing:
 		GlobalAudioPlayer.stop_battle_music()
-		
 
 # Function that will get map difficulty data
 func get_map_difficulty_data():
