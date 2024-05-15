@@ -23,7 +23,6 @@ func populate_grid():
 			item_button.get_child(0).visible = true
 			item_button.get_child(1).visible = true
 			item_button.set_meta("turret_data", turret_data)
-			item_button.connect("pressed", Callable(self, "_on_item_button_pressed").bind(item_data, turret_data))
 			add_child(item_button)
 			row_items.append(item_button)
 			
@@ -42,8 +41,3 @@ func populate_grid():
 			empty_button.turret_to_instantiate = null
 			add_child(empty_button)
 			row_items.append(empty_button)
-
-func _on_item_button_pressed(item_data: Dictionary):
-	# Handle item button press here
-	# You can emit a signal or call a function to place the turret
-	pass

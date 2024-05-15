@@ -57,6 +57,10 @@ visible = false
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n2iyb")
 
+[node name="BirdsEyeView" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7, 6.849, 6.475)
+visible = false
+
 [connection signal="wave_ended" from="." to="UI" method="_on_map_parent_node_wave_ended"]
 [connection signal="confirmed_rewards" from="UI" to="." method="_on_ui_confirmed_rewards"]
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
