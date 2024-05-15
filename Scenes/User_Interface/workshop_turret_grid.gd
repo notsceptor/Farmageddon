@@ -208,8 +208,6 @@ func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
 		
 func _reset_turret_preview():
 	item_preview.get_child(0).queue_free()
-	upgrade_button.visible = false
-	scrap_button.visible = false
 	turret_name_label.text = "SELECT TURRET"
 	resources_to_upgrade_label.text = "SELECT A TURRET FROM THE LEFT TO VIEW"
 	stat_change_label.text = ""
