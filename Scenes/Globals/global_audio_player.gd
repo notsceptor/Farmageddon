@@ -73,7 +73,7 @@ func play_fail_sound():
 	$FailSound.play()
 	
 func play_win_sound():
-	$WinSound.pitch_scale = randf_range(0.7, 1.0)
+	$WinSound.pitch_scale = randf_range(1.0,1.1)
 	$WinSound.play()
 	
 func play_placement_sound():

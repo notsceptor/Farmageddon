@@ -1,5 +1,7 @@
 extends Area3D
 
+@onready var burn = $burn
+
 var enemy_list: Array[Area3D]
 var damage = null
 
@@ -11,10 +13,14 @@ func _process(_delta):
 		$ChiliSpray.emitting = true
 		$ChiliSpray2.emitting = true
 		$ChiliSpray3.emitting = true
+		if not burn.playing:
+			burn.play()
 	else:
 		$ChiliSpray.emitting = false
 		$ChiliSpray2.emitting = false
 		$ChiliSpray3.emitting = false
+		if burn.playing:
+			burn.stop()
 
 func _on_area_entered(area):
 	enemy_list.append(area)

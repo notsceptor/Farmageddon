@@ -154,43 +154,53 @@ func _on_pickup_turrets_button_pressed():
 	
 	$Inventory/ScrollContainer/GridContainer.populate_grid()
 	pickup_turrets.emit()
+	GlobalAudioPlayer.play_menu_click_sound()
+
+var current_tween: Tween
 	
 func start_wave_display():
+	stop_current_tween()
 	information_label.text = "WAVE INCOMING"
 	information_label.show()
 	information_label.modulate = Color(1, 1, 1, 0)
 	information_label.scale = Vector2(2, 2)
 	
-	var tween = create_tween()
-	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
-	tween.tween_interval(2.0)
-	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 0), 1.0)
-	tween.connect("finished", Callable(self, "_on_tween_completed"))
+	current_tween = create_tween()
+	current_tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
+	current_tween.tween_interval(2.0)
+	current_tween.tween_property(information_label, "modulate", Color(1, 1, 1, 0), 1.0)
+	current_tween.connect("finished", Callable(self, "_on_tween_completed"))
 	
 func start_invalid_turret_amount_display():
+	stop_current_tween()
 	information_label.text = "PLACE MORE TURRETS"
 	information_label.show()
 	information_label.modulate = Color(1, 0.3, 0.3, 0)
 	information_label.scale = Vector2(2, 2)
 
-	var tween = create_tween()
-	tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 1), 0.5)
-	tween.tween_interval(1.0)
-	tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 0), 0.5)
-	tween.connect("finished", Callable(self, "_on_tween_completed"))
+	current_tween = create_tween()
+	current_tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 1), 0.5)
+	current_tween.tween_interval(1.0)
+	current_tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 0), 0.5)
+	current_tween.connect("finished", Callable(self, "_on_tween_completed"))
 
 func start_boss_wave_display():
+	stop_current_tween()
 	information_label.text = "INCOMING BOSS WAVE"
 	information_label.show()
 	information_label.modulate = Color(1, 0, 0, 0)
 	information_label.scale = Vector2(2, 2)
 	
-	var tween = create_tween()
-	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
-	tween.tween_interval(2.0)
-	tween.tween_property(information_label, "modulate", Color(1, 0, 0, 0), 1.0)
-	tween.connect("finished", Callable(self, "_on_tween_completed"))
-
+	current_tween = create_tween()
+	current_tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
+	current_tween.tween_interval(2.0)
+	current_tween.tween_property(information_label, "modulate", Color(1, 0, 0, 0), 1.0)
+	current_tween.connect("finished", Callable(self, "_on_tween_completed"))
+	
 func _on_tween_completed():
 	information_label.hide()
+
+func stop_current_tween():
+	if current_tween != null:
+		current_tween.stop()
 
