@@ -12,19 +12,26 @@ const RARITY_PROBABILITIES = {
 var last_rolled_rarity: String = ""
 var last_rolled_currency: Dictionary
 
-const ROLL_COST: int = 100
+const ROLL_COST_GOLD: int = 500
+const ROLL_COST_GEMS: int = 100
 
-@onready var turret_preview: TextureRect = $GachaRoll/HBoxContainer/TurretPreview
-@onready var roll_button: Button = $GachaRoll/HBoxContainer/RollButton
-@onready var rarity_display: Label = $GachaRoll/HBoxContainer/RarityDisplay
+@onready var turret_preview: TextureRect = $GachaRoll/GachaContainer/TurretPreview
+@onready var roll_button_gold: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGold
+@onready var roll_button_gems: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGems
+@onready var confirm_button = $GachaRoll/GachaContainer/HBoxContainer/ConfirmButton
+@onready var rarity_display: Label = $GachaRoll/GachaContainer/RarityDisplay
 
 func _ready():
-	roll_button.connect("pressed", Callable(self, "_on_roll_button_pressed"))
+	roll_button_gems.connect("pressed", Callable(self, "_on_gems_roll_button_pressed"))
 	CurrencyDistributor.addGems(1000)
+	CurrencyDistributor.addGold(2000)
 
-func _on_roll_button_pressed():
-	if ROLL_COST < Globals.gems:
-		CurrencyDistributor.subtractGems(ROLL_COST)
+func _on_gems_roll_button_pressed():
+	if ROLL_COST_GEMS <= Globals.gems:
+		roll_button_gems.visible = false
+		roll_button_gold.visible = false
+		rarity_display.visible = false
+		CurrencyDistributor.subtractGems(ROLL_COST_GEMS)
 		var roll_result = _roll_for_reward()
 		if roll_result is String:
 			last_rolled_rarity = roll_result
@@ -32,14 +39,14 @@ func _on_roll_button_pressed():
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
-
+				rarity_display.visible = true
 				var new_turret = _create_turret_data(last_rolled_rarity)
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)
 		else:
 			last_rolled_currency = roll_result
 			rarity_display.text = str(roll_result["amount"]) + " " + str(roll_result["currency"])
-			
+			rarity_display.visible = true
 			match roll_result["currency"]:
 				"gold":
 					turret_preview.texture = load("res://Textures/gold_piece.png")
@@ -50,9 +57,10 @@ func _on_roll_button_pressed():
 				"gems":
 					turret_preview.texture = load("res://Textures/gem.png")
 					Globals.gems += roll_result["amount"]
+		confirm_button.visible = true
 	else:
-		$GachaRoll/HBoxContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
-		
+		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
+
 func _roll_for_reward():
 	var random_value = randf()
 	var cumulative_probability = 0.0
@@ -137,3 +145,48 @@ func _start_spin_animation():
 		tween.play()
 		await tween.finished
 	return turret_icon
+
+
+func _on_roll_button_gold_pressed():
+	if ROLL_COST_GOLD <= Globals.gold:
+		roll_button_gems.visible = false
+		roll_button_gold.visible = false
+		rarity_display.visible = false
+		confirm_button.visible = false
+		CurrencyDistributor.subtractGold(ROLL_COST_GOLD)
+		var roll_result = _roll_for_reward()
+		if roll_result is String:
+			last_rolled_rarity = roll_result
+			var turret_icon = await _start_spin_animation()
+			if turret_icon:
+				turret_preview.texture = turret_icon
+				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.visible = true
+				var new_turret = _create_turret_data(last_rolled_rarity)
+				var available_slot = Inventory.items.size() - 1
+				Inventory.add_item(new_turret)
+		else:
+			last_rolled_currency = roll_result
+			rarity_display.text = str(roll_result["amount"]) + " " + str(roll_result["currency"])
+			rarity_display.visible = true
+			match roll_result["currency"]:
+				"gold":
+					turret_preview.texture = load("res://Textures/gold_piece.png")
+					Globals.gold += roll_result["amount"]
+				"scrap":
+					turret_preview.texture = load("res://Textures/scrap_piece.png")
+					Globals.scrap += roll_result["amount"]
+				"gems":
+					turret_preview.texture = load("res://Textures/gem.png")
+					Globals.gems += roll_result["amount"]
+		confirm_button.visible = true
+	else:
+		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gold to roll for a new turret."
+
+func _on_confirm_button_pressed():
+	_prepare_next_roll()
+	
+func _prepare_next_roll():
+	confirm_button.visible = false
+	roll_button_gems.visible = true
+	roll_button_gold.visible = true

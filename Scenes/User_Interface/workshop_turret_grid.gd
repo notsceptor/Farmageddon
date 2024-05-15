@@ -137,5 +137,5 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 
 		display_item_preview(turret_metadata)
 	else:
-		print("Not enough gems to upgrade")
+		print("Not enough gold to upgrade")
 

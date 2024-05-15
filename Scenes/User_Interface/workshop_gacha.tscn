@@ -1,9 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://by3pbbocf7kdl"]
+[gd_scene load_steps=10 format=3 uid="uid://by3pbbocf7kdl"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_gacha.gd" id="1_srsva"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="2_x5de5"]
 [ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="3_16tpx"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/GachaManager.gd" id="4_236cy"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="5_1prjo"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="6_mnni1"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="7_2laui"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="8_i25j3"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="11_xkstq"]
 
 [node name="WorkshopGacha" type="Node"]
@@ -43,29 +47,62 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="InvButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "Turrets"
 
 [node name="GachaButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "Gacha"
 
 [node name="ProfileButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Profile"
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
+text = "profile"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-size_flags_horizontal = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "Exit
 "
 script = ExtResource("2_x5de5")
@@ -83,18 +120,58 @@ offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HBoxContainer" type="Control" parent="CanvasLayer/GachaRoll"]
+[node name="GachaContainer" type="Control" parent="CanvasLayer/GachaRoll"]
 layout_mode = 2
 
-[node name="RollButton" type="Button" parent="CanvasLayer/GachaRoll/HBoxContainer"]
-layout_mode = 2
-offset_left = -105.5
-offset_top = 139.0
-offset_right = 107.5
-offset_bottom = 181.0
-text = "Roll"
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/GachaRoll/GachaContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = 140.0
+offset_right = 20.0
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
 
-[node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+[node name="RollButtonGold" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
+text = "roll
+500 gold"
+
+[node name="ConfirmButton" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
+text = "CONFIRM"
+
+[node name="RollButtonGems" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("5_1prjo")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = ExtResource("6_mnni1")
+theme_override_styles/hover = ExtResource("7_2laui")
+theme_override_styles/pressed = ExtResource("8_i25j3")
+text = "roll
+100 gems"
+
+[node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
 layout_mode = 0
 offset_left = -166.0
 offset_top = 88.0
@@ -103,7 +180,7 @@ offset_bottom = 121.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+[node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
 layout_mode = 0
 offset_left = -167.0
 offset_top = 97.0
@@ -112,7 +189,7 @@ offset_bottom = 130.0
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/HBoxContainer"]
+[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/GachaContainer"]
 layout_mode = 0
 offset_left = -124.5
 offset_top = -171.0
@@ -137,3 +214,5 @@ grow_vertical = 2
 
 [connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/InvButton" to="." method="_on_inv_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer/RollButtonGold" to="CanvasLayer" method="_on_roll_button_gold_pressed"]
+[connection signal="pressed" from="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer/ConfirmButton" to="CanvasLayer" method="_on_confirm_button_pressed"]
