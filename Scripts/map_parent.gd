@@ -19,7 +19,6 @@ signal wave_ended
 @export var tile_empty:Array[PackedScene]
 
 func _ready():
-	print("TEST")
 	EventBus.connect("place_turret", Callable(self, "place_turret"))
 
 func _process(_delta):
@@ -81,7 +80,6 @@ func _regenerate_new_map_layout():
 	GlobalAudioPlayer.play_earthquake_sound()
 	var scene_to_load: String
 	$UI/CurrencyDisplay.visible = false
-	$UI/HBoxContainer.visible = false
 	$UI/MarginContainer.visible = false
 	$UI/MarginContainer2.visible = false
 	$UI/MarginContainer3.visible = false

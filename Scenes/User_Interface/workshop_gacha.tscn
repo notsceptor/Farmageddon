@@ -76,9 +76,9 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -165.5
+offset_left = -500.0
 offset_top = -164.0
-offset_right = 165.5
+offset_right = 500.0
 offset_bottom = 164.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -118,6 +118,20 @@ offset_left = -124.5
 offset_top = -171.0
 offset_right = 125.5
 offset_bottom = 79.0
+expand_mode = 1
+
+[node name="SpinBar" type="HBoxContainer" parent="CanvasLayer"]
+clip_contents = true
+custom_minimum_size = Vector2(0, 100)
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -50.0
+offset_bottom = 50.0
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="CurrencyDisplay" parent="." instance=ExtResource("11_xkstq")]
 

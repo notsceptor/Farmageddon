@@ -71,6 +71,30 @@
    "damage": 6,
    "name": "Honeycomb Harpoon",
    "turret_level": 1
+  },
+  {
+   "IV": "86%",
+   "damage": 2,
+   "name": "Carrot Cannon",
+   "turret_level": 1
+  },
+  {
+   "IV": "79%",
+   "damage": 3,
+   "name": "Honeycomb Harpoon",
+   "turret_level": 1
+  },
+  {
+   "IV": "78%",
+   "damage": 1,
+   "name": "Pea Shooter",
+   "turret_level": 1
+  },
+  {
+   "IV": "99%",
+   "damage": 10,
+   "name": "Seed Sniper",
+   "turret_level": 1
   }
  ]
 }
