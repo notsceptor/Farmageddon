@@ -167,7 +167,8 @@ func _on_scrap_button_pressed():
 	scrap_title.text = "SCRAPPING " + turret_name_label.text
 	scrap_confirmation.text = scrap_confirmation_text % _calculate_scrap_cost(currently_selected_turret_rarity, currently_selected_turret_level)
 	GlobalAudioPlayer.play_menu_click_sound()
-	upgrade_container.visible = false
+	upgrade_button.visible = false
+	scrap_button.visible = false
 	scrap_notification_container.visible = true
 
 func _on_yes_scrap_button_pressed():
@@ -180,12 +181,12 @@ func _on_yes_scrap_button_pressed():
 			populate_grid()
 			break
 	scrap_notification_container.visible = false
-	upgrade_container.visible = true
 
 func _on_no_scrap_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	scrap_notification_container.visible = false
-	upgrade_container.visible = true
+	upgrade_button.visible = true
+	scrap_button.visible = true
 
 func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
 	var scrap_amount = 0
@@ -206,8 +207,7 @@ func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
 		return scrap_amount + ((ceilf(0.5*scrap_amount)) * turret_level)
 		
 func _reset_turret_preview():
-	for child in item_preview.get_children():
-		child.queue_free()
+	item_preview.get_child(0).queue_free()
 	upgrade_button.visible = false
 	scrap_button.visible = false
 	turret_name_label.text = "SELECT TURRET"
