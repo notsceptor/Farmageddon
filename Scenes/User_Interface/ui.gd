@@ -48,6 +48,9 @@ func _ready():
 	turrets_tracker.visible = true
 	get_upcoming_enemies()
 	
+	for item in Inventory.items:
+		item.placed = false
+	
 func _process(_delta):
 	if !reward_timer.is_stopped():
 		if reward_timer.time_left >= 4:
@@ -142,6 +145,10 @@ func _on_settings_button_pressed():
 	open_pause_menu.emit()
 
 func _on_pickup_turrets_button_pressed():
+	for item in Inventory.items:
+		item.placed = false
+	
+	$Inventory/ScrollContainer/GridContainer.populate_grid()
 	pickup_turrets.emit()
 	
 func start_wave_display():

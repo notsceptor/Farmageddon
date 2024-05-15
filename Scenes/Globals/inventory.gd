@@ -55,7 +55,8 @@ func _save_items():
 					"name": item.name,
 					"damage": item.damage,
 					"ID": item.ID,
-					"turret_level": item.get("turret_level", 1)
+					"turret_level": item.get("turret_level", 1),
+					"placed": item.placed
 				}
 				items_data.append(item_data)
 

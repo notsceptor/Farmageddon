@@ -89,7 +89,8 @@ func _create_turret_data(rarity: String) -> Dictionary:
 		"ID": _get_random_id(),
 		"name": turret_name,
 		"damage": turret_data["damage"],
-		"turret_level": 1
+		"turret_level": 1,
+		"placed": false
 	}
 	
 	return new_turret_data
