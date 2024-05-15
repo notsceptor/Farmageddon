@@ -140,3 +140,21 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 	else:
 		print("Not enough gold to upgrade")
 
+
+@onready var upgrade_container = $"../../../../../UpgradeContainer"
+@onready var scrap_notification_container = $"../../../../../../ScrapNotification"
+
+func _on_scrap_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	upgrade_container.visible = false
+	scrap_notification_container.visible = true
+
+func _on_yes_scrap_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	scrap_notification_container.visible = false
+	upgrade_container.visible = true
+
+func _on_no_scrap_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	scrap_notification_container.visible = false
+	upgrade_container.visible = true
