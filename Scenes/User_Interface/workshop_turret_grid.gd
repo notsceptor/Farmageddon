@@ -8,7 +8,11 @@ extends GridContainer
 
 var upgrade_levels: Dictionary = {}
 
+var currently_selected_turret_rarity
+var currently_selected_turret_level
+
 func _ready():
+	CurrencyDistributor.addGold(5000)
 	populate_grid()
 
 func populate_grid():
@@ -75,6 +79,9 @@ func display_item_preview(turret_metadata: Dictionary):
 	var current_damage = turret_metadata.damage
 	var damage_increase = calculate_damage_increase(base_damage, current_damage)
 	var new_damage = current_damage + damage_increase
+	
+	currently_selected_turret_rarity = turret_metadata.rarity
+	currently_selected_turret_level = turret_metadata.turret_level
 
 	stat_change_label.text = "Damage: %d" % new_damage
 
@@ -143,8 +150,14 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 
 @onready var upgrade_container = $"../../../../../UpgradeContainer"
 @onready var scrap_notification_container = $"../../../../../../ScrapNotification"
+@onready var scrap_title = $"../../../../../../ScrapNotification/VBoxContainer/ScrapTitle"
+@onready var scrap_confirmation = $"../../../../../../ScrapNotification/VBoxContainer/ScrapConfirmation"
+
 
 func _on_scrap_button_pressed():
+	var scrap_confirmation_text = "ARE YOU SURE YOU WANT TO SCRAP THIS\nTURRET FOR %d SCRAP?"
+	scrap_title.text = "SCRAPPING " + turret_name_label.text
+	scrap_confirmation.text = scrap_confirmation_text % _calculate_scrap_cost(currently_selected_turret_rarity, currently_selected_turret_level)
 	GlobalAudioPlayer.play_menu_click_sound()
 	upgrade_container.visible = false
 	scrap_notification_container.visible = true
@@ -158,3 +171,18 @@ func _on_no_scrap_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	scrap_notification_container.visible = false
 	upgrade_container.visible = true
+
+func _calculate_scrap_cost(turret_rarity: String, turret_level: int) -> int:
+	var scrap_amount
+	match turret_rarity:
+		"common":
+			scrap_amount = 50
+		"uncommon":
+			scrap_amount = 75
+		"rare":
+			scrap_amount = 125
+		"epic":
+			scrap_amount = 200
+		"legendary":
+			scrap_amount = 300
+	return scrap_amount + ((ceilf(0.5*scrap_amount)) * turret_level) # To be updated 
