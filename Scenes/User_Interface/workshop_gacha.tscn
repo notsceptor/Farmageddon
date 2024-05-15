@@ -58,6 +58,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 20
@@ -71,6 +72,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 20
@@ -84,6 +86,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 20
@@ -97,6 +100,7 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 20
@@ -140,6 +144,7 @@ theme_override_constants/separation = 20
 
 [node name="RollButtonGold" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 24
@@ -152,6 +157,7 @@ text = "roll
 [node name="ConfirmButton" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 24
@@ -162,6 +168,7 @@ text = "CONFIRM"
 
 [node name="RollButtonGems" type="Button" parent="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
 theme_override_font_sizes/font_size = 24
