@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dflh885wqgo0e"]
+
+[ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_p2k23"]
+[ext_resource type="Script" path="res://Scenes/Turrets/Blueberry Blaster/blueberry_blaster_container.gd" id="2_t10fg"]
+[ext_resource type="PackedScene" uid="uid://c0ro5qumwquap" path="res://Models/Turrets/Blueberry Blaster/blueberry_blaster.tscn" id="3_1ldsq"]
+[ext_resource type="PackedScene" uid="uid://dvp5vunhvwj3h" path="res://Scenes/Turrets/Blueberry Blaster/blueberry_projectile.tscn" id="3_lasun"]
+[ext_resource type="AudioStream" uid="uid://b4x2fido7imqc" path="res://audio/Gunshot 2.mp3" id="5_2pam6"]
+
+[node name="Blueberry_Blaster_Container" instance=ExtResource("1_p2k23")]
+script = ExtResource("2_t10fg")
+fire_rate_ms = 2000
+projectiles_to_shoot_at_a_time = 8
+projectile_speed = 6.0
+projectile_type = ExtResource("3_lasun")
+
+[node name="BlueberryBlaster" parent="." index="0" instance=ExtResource("3_1ldsq")]
+
+[node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
+stream = ExtResource("5_2pam6")
+volume_db = -19.676
+bus = &"SFX"
+
+[connection signal="area_entered" from="BlueberryBlaster" to="." method="_on_blueberry_blaster_area_entered"]
+[connection signal="area_exited" from="BlueberryBlaster" to="." method="_on_blueberry_blaster_area_exited"]
+[connection signal="state_processing" from="StateChart/CompoundState/Idle" to="." method="_on_idle_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_entered"]
+[connection signal="state_processing" from="StateChart/CompoundState/Acquiring" to="." method="_on_acquiring_state_processing"]
+[connection signal="state_entered" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_entered"]
+[connection signal="state_physics_processing" from="StateChart/CompoundState/Attacking" to="." method="_on_attacking_state_physics_processing"]
