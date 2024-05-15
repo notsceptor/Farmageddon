@@ -103,8 +103,19 @@ func _get_turret_name_by_rarity(rarity: String) -> String:
 func _get_random_id() -> String:
 	var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	var id = ""
-	for _i in range(5):
-		id += characters[randi() % characters.length()]
+	var existing_ids = []
+	
+	for item in Inventory.items:
+		existing_ids.append(item.get("ID", ""))
+	
+	while true:
+		id = ""
+		for _i in range(5):
+			id += characters[randi() % characters.length()]
+		
+		if not id in existing_ids:
+			break
+	
 	return id
 
 func _get_damage_by_rarity(rarity: String) -> int:
