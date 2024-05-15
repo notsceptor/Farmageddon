@@ -116,8 +116,6 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 	var next_upgrade_level = current_upgrade_level + 1
 	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, next_upgrade_level)
 
-	Globals.gold += 10000
-
 	if Globals.gold >= upgrade_cost:
 		Globals.gold -= upgrade_cost
 
