@@ -61,7 +61,7 @@ func update_sliced_enemy_array(wave_number: int):
 		sliced_enemy_array = full_enemy_array.slice(0, 4) # Four enemies from wave 10
 	elif wave_number > 5:
 		sliced_enemy_array = full_enemy_array.slice(0, 3) # Three enemies from wave 5
-	elif wave_number > 3:
+	elif wave_number > 2:
 		sliced_enemy_array = full_enemy_array.slice(0, 2) # Two enemies from wave 3
 
 # Function that will populate an array of enemies for the upcoming wave
