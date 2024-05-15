@@ -27,6 +27,7 @@ func _ready():
 	CurrencyDistributor.addGold(2000)
 
 func _on_gems_roll_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	if ROLL_COST_GEMS <= Globals.gems:
 		roll_button_gems.visible = false
 		roll_button_gold.visible = false
@@ -148,6 +149,7 @@ func _start_spin_animation():
 
 
 func _on_roll_button_gold_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	if ROLL_COST_GOLD <= Globals.gold:
 		roll_button_gems.visible = false
 		roll_button_gold.visible = false
@@ -184,6 +186,7 @@ func _on_roll_button_gold_pressed():
 		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gold to roll for a new turret."
 
 func _on_confirm_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	_prepare_next_roll()
 	
 func _prepare_next_roll():

@@ -53,6 +53,7 @@ func _on_gui_input(event: InputEvent, node: TextureRect):
 			return
 
 		if event.is_pressed():
+			GlobalAudioPlayer.play_menu_click_sound()
 			var item_data = node.get_meta("turret_data")
 			display_item_preview(item_data)
 

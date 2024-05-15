@@ -201,7 +201,8 @@ vertical_alignment = 1
 
 [node name="UpgradeButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("3_21cox")
