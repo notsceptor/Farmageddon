@@ -1454,13 +1454,13 @@ theme_override_styles/disabled = ExtResource("44_vw52b")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_duflf")
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Inventory"]
-visible = false
 custom_minimum_size = Vector2(50, 200)
 layout_mode = 2
+horizontal_scroll_mode = 0
 
 [node name="GridContainer" type="GridContainer" parent="Inventory/ScrollContainer"]
 layout_mode = 2
-columns = 9
+columns = 10
 script = ExtResource("42_sasc3")
 
 [node name="Workshop" type="Button" parent="."]

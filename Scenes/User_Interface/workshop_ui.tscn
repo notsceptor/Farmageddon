@@ -113,6 +113,11 @@ offset_bottom = 176.0
 grow_horizontal = 0
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Turrets/UpgradeContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+color = Color(0, 0, 0, 0.356863)
+
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/UpgradeContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
