@@ -35,7 +35,7 @@ func populate_grid():
 						"turret_to_instantiate": turret_data.turret_to_instantiate,
 						"icon": turret_data.icon,
 						"damage": item_data.damage,
-						"IV": item_data.IV,
+						"ID": item_data.ID,
 						"name": item_data.name,
 						"turret_level": item_data.turret_level
 					}
@@ -131,7 +131,7 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 
 		for i in range(Inventory.items.size()):
 			var inventory_item = Inventory.items[i]
-			if inventory_item is Dictionary and inventory_item.name == turret_metadata.name:
+			if inventory_item is Dictionary and inventory_item.name == turret_metadata.name and inventory_item.ID == turret_metadata.ID:
 				Inventory.items[i].damage = turret_metadata.damage
 				Inventory.items[i].turret_level = next_upgrade_level
 				break

@@ -1,97 +1,97 @@
 {
  "turrets": [
   {
-   "IV": "99%",
+   "ID": "feuif",
    "damage": 10,
    "name": "Strawberry Artillery",
    "turret_level": 1
   },
   {
-   "IV": "98%",
+   "ID": "zafew",
    "damage": 1,
    "name": "Spore Sprayer",
    "turret_level": 1
   },
   {
-   "IV": "96%",
+   "ID": "oaihe",
    "damage": 10,
    "name": "Seed Sniper",
    "turret_level": 1
   },
   {
-   "IV": "77%",
+   "ID": "hehie",
    "damage": 2,
    "name": "Radish Rocket",
    "turret_level": 1
   },
   {
-   "IV": "98%",
+   "ID": "gvw4d",
    "damage": 1,
    "name": "Potato Launcher",
    "turret_level": 1
   },
   {
-   "IV": "95%",
+   "ID": "huegr",
    "damage": 6,
    "name": "Haybale Barrage",
    "turret_level": 1
   },
   {
-   "IV": "92%",
+   "ID": "ihuaw",
    "damage": 5,
    "name": "Fish Launcher",
    "turret_level": 1
   },
   {
-   "IV": "85%",
+   "ID": "pwoig",
    "damage": 2,
    "name": "Chiligun",
    "turret_level": 1
   },
   {
-   "IV": "90%",
+   "ID": "yeoeq",
    "damage": 6,
    "name": "Honeycomb Harpoon",
    "turret_level": 1
   },
   {
-   "IV": "75%",
+   "ID": "lrpew",
    "damage": 2,
    "name": "Carrot Cannon",
    "turret_level": 1
   },
   {
-   "IV": "50%",
+   "ID": "puuee",
    "damage": 1,
    "name": "Pea Shooter",
    "turret_level": 1
   },
   {
-   "IV": "80%",
+   "ID": "aoige",
    "damage": 6,
    "name": "Honeycomb Harpoon",
    "turret_level": 1
   },
   {
-   "IV": "86%",
+   "ID": "aaowf",
    "damage": 2,
    "name": "Carrot Cannon",
    "turret_level": 1
   },
   {
-   "IV": "79%",
+   "ID": "qbjne",
    "damage": 3,
    "name": "Honeycomb Harpoon",
    "turret_level": 1
   },
   {
-   "IV": "78%",
+   "ID": "ljjrw",
    "damage": 1,
    "name": "Pea Shooter",
    "turret_level": 1
   },
   {
-   "IV": "99%",
+   "ID": "sffuh",
    "damage": 10,
    "name": "Seed Sniper",
    "turret_level": 1

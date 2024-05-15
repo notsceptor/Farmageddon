@@ -36,12 +36,12 @@ func _on_gems_roll_button_pressed():
 		var roll_result = _roll_for_reward()
 		if roll_result is String:
 			last_rolled_rarity = roll_result
-			var turret_icon = await _start_spin_animation()
+			var new_turret = _create_turret_data(last_rolled_rarity)
+			var turret_icon = await _start_spin_animation(new_turret)
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
 				rarity_display.visible = true
-				var new_turret = _create_turret_data(last_rolled_rarity)
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)
 		else:
@@ -86,7 +86,7 @@ func _create_turret_data(rarity: String) -> Dictionary:
 	var turret_data = Turrets.get_turret_data(turret_name)
 	
 	var new_turret_data = {
-		"IV": _get_random_iv(),
+		"ID": _get_random_id(),
 		"name": turret_name,
 		"damage": turret_data["damage"],
 		"turret_level": 1
@@ -100,9 +100,12 @@ func _get_turret_name_by_rarity(rarity: String) -> String:
 		turret_names.append(turret["name"])
 	return turret_names[randi() % turret_names.size()]
 
-func _get_random_iv() -> String:
-	var iv = randi_range(50, 100)
-	return str(iv) + "%"
+func _get_random_id() -> String:
+	var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var id = ""
+	for _i in range(5):
+		id += characters[randi() % characters.length()]
+	return id
 
 func _get_damage_by_rarity(rarity: String) -> int:
 	var turret_names = []
@@ -123,7 +126,7 @@ func _roll_for_turret() -> String:
 			return rarity
 	return "common"
 
-func _start_spin_animation():
+func _start_spin_animation(new_turret: Dictionary):
 	var turret_icons = []
 	for rarity in Turrets.turret_data.keys():
 		for turret in Turrets.turret_data[rarity]:
@@ -137,7 +140,10 @@ func _start_spin_animation():
 	tween.play()
 
 	await get_tree().create_timer(1.0).timeout
-	var turret_icon = load(Turrets.get_turret_data(_get_turret_name_by_rarity(last_rolled_rarity))["icon"])
+
+	var turret_data = Turrets.get_turret_data(new_turret["name"])
+	var turret_icon = load(turret_data["icon"])
+
 	if turret_icon:
 		tween = get_tree().create_tween()
 		tween.tween_property(turret_preview, "texture", turret_icon, 0.5) \
@@ -145,8 +151,8 @@ func _start_spin_animation():
 			 .set_ease(Tween.EASE_IN_OUT)
 		tween.play()
 		await tween.finished
-	return turret_icon
 
+	return turret_icon
 
 func _on_roll_button_gold_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
@@ -159,12 +165,12 @@ func _on_roll_button_gold_pressed():
 		var roll_result = _roll_for_reward()
 		if roll_result is String:
 			last_rolled_rarity = roll_result
-			var turret_icon = await _start_spin_animation()
+			var new_turret = _create_turret_data(last_rolled_rarity)
+			var turret_icon = await _start_spin_animation(new_turret)
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
 				rarity_display.visible = true
-				var new_turret = _create_turret_data(last_rolled_rarity)
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)
 		else:
