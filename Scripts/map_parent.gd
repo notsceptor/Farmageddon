@@ -23,6 +23,9 @@ func _ready():
 
 func _process(_delta):
 	if WaveManager.wave_ongoing:
+		if $UI/Inventory.is_open:
+			$UI/Inventory.close_container()
+			await $UI/Inventory.tween_finished
 		$UI/Inventory.visible = false
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
