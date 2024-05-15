@@ -4,7 +4,7 @@ extends Node
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	GlobalAudioPlayer.play_title_music()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -12,6 +12,8 @@ func _process(delta):
 	pass
 
 func _on_exit_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	GlobalAudioPlayer.stop_title_music()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(main_menu_path)
 	
@@ -19,5 +21,6 @@ func hide_menu_screen_for_transition() -> void:
 	$CanvasLayer/Turrets.visible = false
 	
 func _on_gacha_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(gacha_path)

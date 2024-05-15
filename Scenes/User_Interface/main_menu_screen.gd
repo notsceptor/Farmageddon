@@ -76,6 +76,7 @@ func _on_exit_game_button_pressed():
 
 func _on_open_inventory_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
+	GlobalAudioPlayer.stop_main_music()
 	hide_menu_screen_for_transition()
 	$FadePlayer.play("fade")
 	TransitionLayer.change_scene(inventory_path)

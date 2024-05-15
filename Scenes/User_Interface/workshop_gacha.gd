@@ -14,6 +14,8 @@ func _process(delta):
 	pass
 
 func _on_exit_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	GlobalAudioPlayer.stop_title_music()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(main_menu_path)
 	
@@ -21,5 +23,6 @@ func hide_menu_screen_for_transition() -> void:
 	$CanvasLayer.visible = false
 
 func _on_inv_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
 	hide_menu_screen_for_transition()
 	TransitionLayer.change_scene(inventory_path)

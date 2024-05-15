@@ -86,7 +86,7 @@ func display_item_preview(turret_metadata: Dictionary):
 	upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(turret_metadata))
 
 func calculate_damage_increase(base_damage: int, current_damage: int) -> int:
-	var damage_increase = (base_damage - current_damage) / 10 + 1
+	var damage_increase = (base_damage + current_damage) / 10 + 1
 	return damage_increase
 
 func calculate_upgrade_cost(rarity: String, upgrade_level: int) -> int:
@@ -110,6 +110,7 @@ func calculate_upgrade_cost(rarity: String, upgrade_level: int) -> int:
 	return int(base_cost * level_multiplier)
 
 func _on_upgrade_button_pressed(turret_metadata: Dictionary):
+	
 	var current_upgrade_level = turret_metadata.turret_level
 	var next_upgrade_level = current_upgrade_level + 1
 	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, next_upgrade_level)
@@ -125,6 +126,7 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 		var damage_increase = calculate_damage_increase(base_damage, current_damage)
 
 		turret_metadata.damage += damage_increase
+		turret_metadata.turret_level += 1
 
 		for i in range(Inventory.items.size()):
 			var inventory_item = Inventory.items[i]
