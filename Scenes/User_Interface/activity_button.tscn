@@ -51,10 +51,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_pcu8y")
 script = ExtResource("1_jal1f")
 
 [node name="Rarity" type="ColorRect" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 2.0
-offset_top = 88.0
+offset_top = 86.0
 offset_right = 94.0
 offset_bottom = 94.0
 

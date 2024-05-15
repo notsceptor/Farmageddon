@@ -113,8 +113,9 @@ func _on_pause_screen_continue_game_button_pressed():
 	$UI.visible = true
 	
 func _on_ui_next_wave_button_pressed():
-	next_wave_button.visible = false
-	WaveManager.start_wave()
+	if Globals.current_placed_turrets > 0:
+		next_wave_button.visible = false
+		WaveManager.start_wave()
 
 func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
