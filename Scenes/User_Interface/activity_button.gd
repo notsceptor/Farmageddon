@@ -83,6 +83,11 @@ func _on_button_up():
 		if turret_to_instantiate:
 			EventBus.emit_signal("place_turret", turret_to_instantiate, _last_valid_location, item_data)
 			Globals.turret_locations_list.append(_last_valid_location)
+			for item in Inventory.items:
+				if item == item_data:
+					item.placed = true
+					break
+			get_parent().populate_grid()
 		else:
 			print("Cannot place turret")
 

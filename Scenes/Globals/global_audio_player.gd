@@ -31,6 +31,9 @@ func stop_main_music():
 func play_menu_click_sound():
 	$MenuClick.pitch_scale = randf_range(1.2, 1.6)
 	$MenuClick.play()
+	
+func play_error_sound():
+	$Error.play()
 
 func play_snail_death_sound():
 	$SnailDeathSound.pitch_scale = randf_range(1.1, 1.3)

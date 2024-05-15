@@ -48,6 +48,9 @@ func _ready():
 	turrets_tracker.visible = true
 	get_upcoming_enemies()
 	
+	for item in Inventory.items:
+		item.placed = false
+	
 func _process(_delta):
 	if !reward_timer.is_stopped():
 		if reward_timer.time_left >= 4:
@@ -117,21 +120,25 @@ func _on_show_advert_timer_timeout():
 	advert_hint_label.visible = true
 
 func _on_start_wave_button_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
-	if WaveManager.current_wave_is_boss_wave:
-		start_boss_wave_display()
+	if Globals.current_placed_turrets > 0:
+		GlobalAudioPlayer.play_menu_click_sound()
+		if WaveManager.current_wave_is_boss_wave:
+			start_boss_wave_display()
+		else:
+			start_wave_display()
+		GlobalAudioPlayer.play_wave_smash()
+		next_wave_button_pressed.emit()
+		next_wave_button.visible = false
+		inventory_button.visible = false
+		upcoming_enemies_container.visible = false
+		upcoming_enemies_button.visible = false
+		turrets_tracker.visible = false
+		pickup_turrets_button.visible = false
+		enemies_game_tracker.visible = true
+		$Inventory.close_container()
 	else:
-		start_wave_display()
-	GlobalAudioPlayer.play_wave_smash()
-	next_wave_button_pressed.emit()
-	next_wave_button.visible = false
-	inventory_button.visible = false
-	upcoming_enemies_container.visible = false
-	upcoming_enemies_button.visible = false
-	turrets_tracker.visible = false
-	pickup_turrets_button.visible = false
-	enemies_game_tracker.visible = true
-	$Inventory.close_container()
+		start_invalid_turret_amount_display()
+		GlobalAudioPlayer.play_error_sound()
 
 func _on_upcoming_enemies_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
@@ -142,6 +149,10 @@ func _on_settings_button_pressed():
 	open_pause_menu.emit()
 
 func _on_pickup_turrets_button_pressed():
+	for item in Inventory.items:
+		item.placed = false
+	
+	$Inventory/ScrollContainer/GridContainer.populate_grid()
 	pickup_turrets.emit()
 	
 func start_wave_display():
@@ -154,6 +165,18 @@ func start_wave_display():
 	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 1), 1.0)
 	tween.tween_interval(2.0)
 	tween.tween_property(information_label, "modulate", Color(1, 1, 1, 0), 1.0)
+	tween.connect("finished", Callable(self, "_on_tween_completed"))
+	
+func start_invalid_turret_amount_display():
+	information_label.text = "PLACE MORE TURRETS"
+	information_label.show()
+	information_label.modulate = Color(1, 0.3, 0.3, 0)
+	information_label.scale = Vector2(2, 2)
+
+	var tween = create_tween()
+	tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 1), 0.5)
+	tween.tween_interval(1.0)
+	tween.tween_property(information_label, "modulate", Color(1, 0.3, 0.3, 0), 0.5)
 	tween.connect("finished", Callable(self, "_on_tween_completed"))
 
 func start_boss_wave_display():

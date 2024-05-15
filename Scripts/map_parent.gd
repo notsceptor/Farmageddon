@@ -23,11 +23,14 @@ func _ready():
 
 func _process(_delta):
 	if WaveManager.wave_ongoing:
+		$UI/Inventory.visible = false
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				CurrencyDistributor.addGems(50)
+	else:
+		$UI/Inventory.visible = true
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -110,8 +113,9 @@ func _on_pause_screen_continue_game_button_pressed():
 	$UI.visible = true
 	
 func _on_ui_next_wave_button_pressed():
-	next_wave_button.visible = false
-	WaveManager.start_wave()
+	if Globals.current_placed_turrets > 0:
+		next_wave_button.visible = false
+		WaveManager.start_wave()
 
 func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
