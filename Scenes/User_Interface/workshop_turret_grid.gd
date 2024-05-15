@@ -111,7 +111,7 @@ func calculate_upgrade_cost(rarity: String, upgrade_level: int) -> int:
 	return int(base_cost * level_multiplier)
 
 func _on_upgrade_button_pressed(turret_metadata: Dictionary):
-	
+	GlobalAudioPlayer.play_menu_click_sound()
 	var current_upgrade_level = turret_metadata.turret_level
 	var next_upgrade_level = current_upgrade_level + 1
 	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, next_upgrade_level)
