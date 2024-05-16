@@ -9,3 +9,4 @@ func _on_area_radius_area_entered(area):
 
 func _on_area_radius_area_exited(area):
 	area_exited.emit(area)
+

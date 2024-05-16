@@ -118,6 +118,13 @@
    "name": "Potato Launcher",
    "placed": false,
    "turret_level": 4
-  }
+  },
+  {
+   "ID": "puude",
+   "damage": 2,
+   "name": "Blueberry Blaster",
+   "placed": false,
+   "turret_level": 1
+  },
  ]
 }
