@@ -2,6 +2,7 @@ extends Node
 
 signal close_gacha
 signal open_inventory_screen
+signal new_turret_acquired
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -31,3 +32,6 @@ func _reset_gacha_turret_preview_area():
 	$CanvasLayer/GachaRoll/GachaContainer/TurretPreview.texture = null
 	$CanvasLayer/GachaRoll/GachaContainer/RarityDisplay.text = ""
 	$CanvasLayer/GachaRoll/GachaContainer/RarityDisplay.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
+
+func _on_canvas_layer_new_turret_acquired():
+	new_turret_acquired.emit()

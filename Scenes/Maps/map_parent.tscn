@@ -76,4 +76,5 @@ environment = SubResource("Environment_n2iyb")
 [connection signal="close_inventory" from="Workshop UI" to="." method="_on_workshop_ui_close_inventory"]
 [connection signal="open_gacha_screen" from="Workshop UI" to="WorkshopGacha" method="_on_workshop_ui_open_gacha_screen"]
 [connection signal="close_gacha" from="WorkshopGacha" to="." method="_on_workshop_gacha_close_gacha"]
+[connection signal="new_turret_acquired" from="WorkshopGacha" to="." method="_on_workshop_gacha_new_turret_acquired"]
 [connection signal="open_inventory_screen" from="WorkshopGacha" to="Workshop UI" method="_on_workshop_gacha_open_inventory_screen"]

@@ -15,6 +15,8 @@ var last_rolled_currency: Dictionary
 const ROLL_COST_GOLD: int = 500
 const ROLL_COST_GEMS: int = 100
 
+signal new_turret_acquired
+
 @onready var turret_preview: TextureRect = $GachaRoll/GachaContainer/TurretPreview
 @onready var roll_button_gold: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGold
 @onready var roll_button_gems: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGems
@@ -61,6 +63,7 @@ func _on_gems_roll_button_pressed():
 	else:
 		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
 	SaveLoad.save_game()
+	new_turret_acquired.emit()
 
 func _roll_for_reward():
 	var random_value = randf()
@@ -204,6 +207,7 @@ func _on_roll_button_gold_pressed():
 	else:
 		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gold to roll for a new turret."
 	SaveLoad.save_game()
+	new_turret_acquired.emit()
 
 func _on_confirm_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()

@@ -171,3 +171,6 @@ func _on_workshop_gacha_close_gacha():
 
 func _on_pause_screen_main_menu_button_pressed():
 	remove_turrets_from_map()
+	
+func _on_workshop_gacha_new_turret_acquired():
+	$"Workshop UI/CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer/GridContainer".populate_grid()

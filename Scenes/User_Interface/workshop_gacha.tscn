@@ -228,6 +228,7 @@ grow_vertical = 2
 
 [node name="CurrencyDisplay" parent="." instance=ExtResource("11_xkstq")]
 
+[connection signal="new_turret_acquired" from="CanvasLayer" to="." method="_on_canvas_layer_new_turret_acquired"]
 [connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/InvButton" to="." method="_on_inv_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/GachaRoll/GachaContainer/HBoxContainer/RollButtonGold" to="CanvasLayer" method="_on_roll_button_gold_pressed"]
