@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dflh885wqgo0e"]
+[gd_scene load_steps=7 format=3 uid="uid://dflh885wqgo0e"]
 
 [ext_resource type="PackedScene" uid="uid://ctj8a1spf6tn8" path="res://Scenes/Turrets/turret_container.tscn" id="1_p2k23"]
 [ext_resource type="Script" path="res://Scenes/Turrets/Blueberry Blaster/blueberry_blaster_container.gd" id="2_t10fg"]
 [ext_resource type="PackedScene" uid="uid://c0ro5qumwquap" path="res://Models/Turrets/Blueberry Blaster/blueberry_blaster.tscn" id="3_1ldsq"]
 [ext_resource type="PackedScene" uid="uid://dvp5vunhvwj3h" path="res://Scenes/Turrets/Blueberry Blaster/blueberry_projectile.tscn" id="3_lasun"]
-[ext_resource type="AudioStream" uid="uid://b4x2fido7imqc" path="res://audio/Gunshot 2.mp3" id="5_2pam6"]
+[ext_resource type="AudioStream" uid="uid://d280si48cjksc" path="res://audio/Explosion.mp3" id="5_gotc2"]
+[ext_resource type="AudioStream" uid="uid://8rx20qk6fob3" path="res://audio/Shotgun Rack.mp3" id="6_blvpb"]
 
 [node name="Blueberry_Blaster_Container" instance=ExtResource("1_p2k23")]
 script = ExtResource("2_t10fg")
@@ -16,8 +17,13 @@ projectile_type = ExtResource("3_lasun")
 [node name="BlueberryBlaster" parent="." index="0" instance=ExtResource("3_1ldsq")]
 
 [node name="gunshot" type="AudioStreamPlayer2D" parent="." index="1"]
-stream = ExtResource("5_2pam6")
-volume_db = -19.676
+stream = ExtResource("5_gotc2")
+volume_db = -3.829
+bus = &"SFX"
+
+[node name="reload" type="AudioStreamPlayer2D" parent="." index="2"]
+stream = ExtResource("6_blvpb")
+volume_db = -6.8
 bus = &"SFX"
 
 [connection signal="area_entered" from="BlueberryBlaster" to="." method="_on_blueberry_blaster_area_entered"]

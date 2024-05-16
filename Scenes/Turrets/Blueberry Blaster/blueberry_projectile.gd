@@ -1,16 +1,12 @@
 extends Projectile
 
 var initial_direction: Vector3
-var projectile_range: int = 2.5
-var max_lifetime: float = 1
+var projectile_range: int = 3
+var max_lifetime: float = 2
 
 func _ready():
 	super._ready()
-	if target != null:
-		initial_direction = (target.global_position - global_position).normalized()
-	else:
-		initial_direction = global_transform.basis.z.normalized()
-
+	# Initial direction is already set by the turret
 	look_at(global_position + initial_direction, Vector3.UP)
 
 	var projectile_spawn_point = get_node("../BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker1")

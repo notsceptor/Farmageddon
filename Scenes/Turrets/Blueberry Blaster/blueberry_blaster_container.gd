@@ -8,6 +8,7 @@ var last_fire_time: int
 @export var projectile_type: PackedScene
 
 @onready var gunshot = $gunshot
+@onready var reload = $reload
 
 var modified_projectile_speed: float
 var damage = null
@@ -33,53 +34,39 @@ func _on_blueberry_blaster_area_exited(area):
 func _maybe_fire_turret_projectile():
 	if Time.get_ticks_msec() > (last_fire_time+fire_rate_ms):
 		$BlueberryBlaster/AnimationPlayer.play("Fire")
-		gunshot.pitch_scale = randf_range(1.3, 1.5)
+		gunshot.pitch_scale = randf_range(0.8,1)
 		gunshot.play()
 		_spawn_projectiles(projectiles_to_shoot_at_a_time)
 		last_fire_time = Time.get_ticks_msec()
 
 func _spawn_projectiles(num: int):
-	var projectile_markers: Array[Marker3D] = [
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker1,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker2,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker3,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker4,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker5,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker6,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker7,
-		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker8]
+	var projectile_marker = $BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker1
 	
-	var min_spread_angle = 30.0
-	var max_spread_angle = 150.0
+	var total_spread_angle = 45.0  # Total spread angle in degrees
 	
-	var min_speed_multiplier = 0.5
-	var max_speed_multiplier = 1.5
+	# Ensure num is at least 2 to avoid division by zero
+	if num < 2:
+		return
 	
-	for _n in num:
+	var angle_step = total_spread_angle / float(num - 1)  # Calculate the angle step between projectiles
+	
+	for i in range(num):
 		if current_enemy != null:
 			var projectile: Projectile = projectile_type.instantiate()
 			
-			var direction_to_target = (current_enemy.global_position - projectile_markers[0].global_position).normalized()
+			var direction_to_target = (current_enemy.global_position - projectile_marker.global_position).normalized()
 			
-			var spread_angle = randf_range(min_spread_angle, max_spread_angle)
+			# Calculate the angle for the current projectile
+			var angle_offset = deg_to_rad(-total_spread_angle / 2 + angle_step * i)
+			var spread_vector = direction_to_target.rotated(Vector3.UP, angle_offset)
 			
-			var random_direction = Vector3(
-				direction_to_target.x + randf_range(-spread_angle / 2.0, spread_angle / 2.0),
-				direction_to_target.y,
-				direction_to_target.z + randf_range(-spread_angle / 2.0, spread_angle / 2.0)
-			).normalized()
+			var speed_multiplier = 1.0  # Use a fixed speed multiplier for uniform speed
 			
-			var offset_distance = randf_range(0.0, 1.0)
-			var offset_direction = random_direction.rotated(Vector3.UP, deg_to_rad(randf_range(-spread_angle / 2.0, spread_angle / 2.0)))
-			offset_direction = offset_direction.rotated(Vector3.RIGHT, deg_to_rad(randf_range(-spread_angle / 2.0, spread_angle / 2.0)))
-			var random_offset = offset_direction * offset_distance
-			
-			var speed_multiplier = randf_range(min_speed_multiplier, max_speed_multiplier)
-			
-			projectile.starting_position = projectile_markers[0].global_position + random_offset
+			projectile.starting_position = projectile_marker.global_position
 			projectile.target = current_enemy
 			projectile.speed = modified_projectile_speed * speed_multiplier
-			projectile.initial_direction = random_direction
+			projectile.initial_direction = spread_vector
 			if damage != null:
 				projectile.damage = damage
 			add_child(projectile)
+	reload.play()
