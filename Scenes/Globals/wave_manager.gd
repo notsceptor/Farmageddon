@@ -110,6 +110,7 @@ func wave_won_increase_level_and_size():
 		"easy":
 			if Globals.easy_map_current_level % 5 == 0:
 				Globals.easy_map_spawn_size = ceilf(Globals.easy_map_spawn_size * 1.20)
+				Globals.easy_map_speed_multiplier += 0.125
 			else:
 				Globals.easy_map_spawn_size = ceilf(Globals.easy_map_spawn_size * 1.07)
 			Globals.easy_map_current_level += 1
@@ -121,6 +122,7 @@ func wave_won_increase_level_and_size():
 		"medium":
 			if Globals.medium_map_current_level % 5 == 0:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.20)
+				Globals.medium_map_speed_multiplier += 0.15
 			else:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.07)
 			Globals.medium_map_current_level += 1
@@ -132,6 +134,7 @@ func wave_won_increase_level_and_size():
 		"hard":
 			if Globals.hard_map_current_level % 5 == 0:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
+				Globals.hard_map_speed_multiplier += 0.175
 			else:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
 			Globals.hard_map_current_level += 1
