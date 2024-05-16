@@ -204,6 +204,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
+visible = false
 layout_mode = 0
 offset_left = -167.0
 offset_top = 70.0

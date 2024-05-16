@@ -74,6 +74,11 @@ func display_item_preview(turret_metadata: Dictionary):
 	for child in item_preview.get_children():
 		child.queue_free()
 
+	var rarity_display = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/RarityDisplay"
+	rarity_display.text = turret_metadata.rarity.capitalize()
+	rarity_display.add_theme_stylebox_override("normal", _get_rarity_texture_banner(turret_metadata.rarity))
+	rarity_display.visible = true
+	
 	var enlarged_icon = TextureRect.new()
 	enlarged_icon.texture = load(turret_metadata.icon)
 	enlarged_icon.stretch_mode = TextureRect.STRETCH_KEEP_ASPECT_CENTERED
@@ -106,6 +111,21 @@ func display_item_preview(turret_metadata: Dictionary):
 func calculate_damage_increase(base_damage: int, current_damage: int) -> int:
 	var damage_increase = (base_damage + current_damage) / 10 + 1
 	return damage_increase
+
+func _get_rarity_texture_banner(rarity: String):
+	var turret_banner
+	match rarity:
+		"common":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/common_banner.tres")
+		"uncommon":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/uncommon_banner.tres")
+		"rare":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/rare_banner.tres")
+		"epic":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/epic_banner.tres")
+		"legendary":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/legendary_banner.tres")
+	return turret_banner
 
 func calculate_upgrade_cost(rarity: String, upgrade_level: int) -> int:
 	var base_cost = 0
