@@ -153,11 +153,16 @@ func _on_ui_open_inventory():
 	$"Workshop UI/CanvasLayer".visible = true
 
 func _on_workshop_ui_close_inventory():
+	$UI/Inventory/ScrollContainer/GridContainer.populate_grid()
 	$UI.visible = true
 	$"Workshop UI/Background Texture".visible = false
 	$"Workshop UI/CanvasLayer".visible = false
 
 func _on_workshop_gacha_close_gacha():
+	$UI/Inventory/ScrollContainer/GridContainer.populate_grid()
 	$UI.visible = true
 	$"WorkshopGacha/Background Texture".visible = false
 	$"WorkshopGacha/CanvasLayer".visible = false
+
+func _on_pause_screen_main_menu_button_pressed():
+	remove_turrets_from_map()

@@ -152,7 +152,6 @@ func _on_settings_button_pressed():
 func _on_pickup_turrets_button_pressed():
 	for item in Inventory.items:
 		item.placed = false
-	
 	$Inventory/ScrollContainer/GridContainer.populate_grid()
 	pickup_turrets.emit()
 	
