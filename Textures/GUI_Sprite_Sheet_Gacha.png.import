@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mny44f02400d"
-path="res://.godot/imported/inventory_button_close.png-74eda487aeef1484f8daae3672daacb2.ctex"
+uid="uid://cheb40pk54lxu"
+path="res://.godot/imported/GUI_Sprite_Sheet_Gacha.png-122ba41ebeb807c6a7978393f2695af9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/User_Interface/Assets/inventory_button_close.png"
-dest_files=["res://.godot/imported/inventory_button_close.png-74eda487aeef1484f8daae3672daacb2.ctex"]
+source_file="res://Textures/GUI_Sprite_Sheet_Gacha.png"
+dest_files=["res://.godot/imported/GUI_Sprite_Sheet_Gacha.png-122ba41ebeb807c6a7978393f2695af9.ctex"]
 
 [params]
 

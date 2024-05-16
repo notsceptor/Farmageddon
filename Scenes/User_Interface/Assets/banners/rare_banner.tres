@@ -1,0 +1,8 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://c8ih7x0ajf2s1"]
+
+[ext_resource type="Texture2D" uid="uid://cheb40pk54lxu" path="res://Textures/GUI_Sprite_Sheet_Gacha.png" id="1_5rc0d"]
+
+[resource]
+texture = ExtResource("1_5rc0d")
+expand_margin_bottom = 15.0
+region_rect = Rect2(0, 44, 64, 22)

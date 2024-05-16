@@ -19,10 +19,14 @@ signal wave_ended
 @export var tile_empty:Array[PackedScene]
 
 func _ready():
+	Globals.current_placed_turrets = 0	
 	EventBus.connect("place_turret", Callable(self, "place_turret"))
 
 func _process(_delta):
 	if WaveManager.wave_ongoing:
+		if $UI/Inventory.is_open:
+			$UI/Inventory.close_container()
+			await $UI/Inventory.tween_finished
 		$UI/Inventory.visible = false
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
@@ -146,3 +150,23 @@ func remove_turrets_from_map() -> void:
 	Globals.turret_rid_list = []
 	for turret in $Turrets.get_children():
 		turret.queue_free()
+
+func _on_ui_open_inventory():
+	$UI.visible = false
+	$"Workshop UI/Background Texture".visible = true
+	$"Workshop UI/CanvasLayer".visible = true
+
+func _on_workshop_ui_close_inventory():
+	$UI/Inventory/ScrollContainer/GridContainer.populate_grid()
+	$UI.visible = true
+	$"Workshop UI/Background Texture".visible = false
+	$"Workshop UI/CanvasLayer".visible = false
+
+func _on_workshop_gacha_close_gacha():
+	$UI/Inventory/ScrollContainer/GridContainer.populate_grid()
+	$UI.visible = true
+	$"WorkshopGacha/Background Texture".visible = false
+	$"WorkshopGacha/CanvasLayer".visible = false
+
+func _on_pause_screen_main_menu_button_pressed():
+	remove_turrets_from_map()

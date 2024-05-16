@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://8mey7y7vf3ol"]
+[gd_scene load_steps=9 format=3 uid="uid://8mey7y7vf3ol"]
 
 [ext_resource type="Script" path="res://Scripts/map_parent.gd" id="1_j0lmf"]
 [ext_resource type="PackedScene" uid="uid://baspdyae0jowr" path="res://Scenes/Maps/farm_background.tscn" id="2_a2b5f"]
 [ext_resource type="PackedScene" uid="uid://bci4uioop3f34" path="res://Scenes/User_Interface/ui.tscn" id="2_eqpxx"]
 [ext_resource type="PackedScene" uid="uid://fsuade0xgdev" path="res://Scenes/User_Interface/pause_screen.tscn" id="3_tla3e"]
 [ext_resource type="PackedScene" uid="uid://bhbd6ny5afjof" path="res://Scenes/User_Interface/settings_screen.tscn" id="5_cfn2s"]
+[ext_resource type="PackedScene" uid="uid://cwulolttkwmtq" path="res://Scenes/User_Interface/workshop_ui.tscn" id="6_7ko4f"]
+[ext_resource type="PackedScene" uid="uid://by3pbbocf7kdl" path="res://Scenes/User_Interface/workshop_gacha.tscn" id="7_ifexl"]
 
 [sub_resource type="Environment" id="Environment_n2iyb"]
 background_mode = 2
@@ -54,14 +56,24 @@ visible = false
 [node name="SettingsScreen" parent="." instance=ExtResource("5_cfn2s")]
 visible = false
 
+[node name="Workshop UI" parent="." instance=ExtResource("6_7ko4f")]
+
+[node name="WorkshopGacha" parent="." instance=ExtResource("7_ifexl")]
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_n2iyb")
 
 [connection signal="wave_ended" from="." to="UI" method="_on_map_parent_node_wave_ended"]
 [connection signal="confirmed_rewards" from="UI" to="." method="_on_ui_confirmed_rewards"]
 [connection signal="next_wave_button_pressed" from="UI" to="." method="_on_ui_next_wave_button_pressed"]
+[connection signal="open_inventory" from="UI" to="." method="_on_ui_open_inventory"]
 [connection signal="open_pause_menu" from="UI" to="." method="_on_ui_open_pause_menu"]
 [connection signal="pickup_turrets" from="UI" to="." method="_on_ui_pickup_turrets"]
 [connection signal="continue_game_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_continue_game_button_pressed"]
+[connection signal="main_menu_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_main_menu_button_pressed"]
 [connection signal="settings_button_pressed" from="PauseScreen" to="." method="_on_pause_screen_settings_button_pressed"]
 [connection signal="back_button_pressed" from="SettingsScreen" to="." method="_on_settings_screen_back_button_pressed"]
+[connection signal="close_inventory" from="Workshop UI" to="." method="_on_workshop_ui_close_inventory"]
+[connection signal="open_gacha_screen" from="Workshop UI" to="WorkshopGacha" method="_on_workshop_ui_open_gacha_screen"]
+[connection signal="close_gacha" from="WorkshopGacha" to="." method="_on_workshop_gacha_close_gacha"]
+[connection signal="open_inventory_screen" from="WorkshopGacha" to="Workshop UI" method="_on_workshop_gacha_open_inventory_screen"]

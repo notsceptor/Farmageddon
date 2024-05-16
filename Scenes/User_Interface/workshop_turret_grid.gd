@@ -1,11 +1,11 @@
 extends GridContainer
 
-@onready var item_preview: Control = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretPreview")
-@onready var stat_change_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/StatChange")
-@onready var resources_to_upgrade_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded")
-@onready var turret_name_label: Label = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName")
-@onready var upgrade_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton")
-@onready var scrap_button: Button = get_node("/root/Workshop UI/CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ScrapButton")
+@onready var item_preview: Control = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretPreview"
+@onready var stat_change_label: Label = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/StatChange"
+@onready var resources_to_upgrade_label: Label = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ResourcesNeeded"
+@onready var turret_name_label: Label = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName"
+@onready var upgrade_button: Button = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton"
+@onready var scrap_button: Button = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ScrapButton"
 
 
 var upgrade_levels: Dictionary = {}

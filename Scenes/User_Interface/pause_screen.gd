@@ -4,12 +4,14 @@ extends CanvasLayer
 
 signal continue_game_button_pressed
 signal settings_button_pressed
+signal main_menu_button_pressed
 
 func _on_continue_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	continue_game_button_pressed.emit()
 
 func _on_main_menu_button_pressed():
+	main_menu_button_pressed.emit()
 	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().paused = false
 	WaveManager.wave_won = false

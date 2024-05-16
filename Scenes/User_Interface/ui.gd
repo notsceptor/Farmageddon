@@ -28,6 +28,7 @@ signal advert_finished
 signal confirmed_rewards
 
 signal open_pause_menu
+signal open_inventory
 signal pickup_turrets
 
 func _ready():
@@ -47,9 +48,6 @@ func _ready():
 	pickup_turrets_button.visible = true
 	turrets_tracker.visible = true
 	get_upcoming_enemies()
-	
-	for item in Inventory.items:
-		item.placed = false
 	
 func _process(_delta):
 	if !reward_timer.is_stopped():
@@ -151,7 +149,6 @@ func _on_settings_button_pressed():
 func _on_pickup_turrets_button_pressed():
 	for item in Inventory.items:
 		item.placed = false
-	
 	$Inventory/ScrollContainer/GridContainer.populate_grid()
 	pickup_turrets.emit()
 	GlobalAudioPlayer.play_menu_click_sound()
@@ -200,6 +197,10 @@ func start_boss_wave_display():
 func _on_tween_completed():
 	information_label.hide()
 
+func _on_inventory_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	open_inventory.emit()
+  
 func stop_current_tween():
 	if current_tween != null:
 		current_tween.stop()
