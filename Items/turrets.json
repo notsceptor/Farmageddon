@@ -79,7 +79,7 @@
 		{
 			"activity_draggable": "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf",
 			"damage": 10,
-			"icon": "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_cover.png",
+			"icon": "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery_Cover.png",
 			"key": "Strawberry_Artillery",
 			"name": "Strawberry Artillery",
 			"description": "Fires a large strawberry high into the sky at long range, before rapidly falling and exploding in a large area on the target it fired at dealing high damage.",
