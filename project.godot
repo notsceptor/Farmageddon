@@ -26,6 +26,7 @@ CurrencyDistributor="*res://Scenes/User_Interface/currency_distributor.gd"
 Inventory="*res://Scenes/Globals/inventory.gd"
 Turrets="*res://Scenes/Globals/turrets.gd"
 EventBus="*res://Scenes/Globals/EventBus.gd"
+SaveLoad="*res://Scripts/save_and_load.gd"
 
 [editor]
 
