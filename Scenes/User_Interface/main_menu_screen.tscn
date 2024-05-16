@@ -153,21 +153,6 @@ theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "PLAY GAME"
 
-[node name="OpenInventory" type="Button" parent="MarginContainer/MainScreenContainer"]
-custom_minimum_size = Vector2(260, 0)
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-focus_mode = 0
-theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
-theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("3_4m4fk")
-theme_override_styles/hover = ExtResource("4_qjcwd")
-theme_override_styles/pressed = ExtResource("5_fve6r")
-text = "Inventory
-"
-
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainScreenContainer"]
 custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
@@ -407,7 +392,6 @@ libraries = {
 }
 
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
-[connection signal="pressed" from="MarginContainer/MainScreenContainer/OpenInventory" to="." method="_on_open_inventory_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/EasyLevelButton" to="." method="_on_easy_level_button_pressed"]

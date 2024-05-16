@@ -1664,3 +1664,4 @@ metadata/_edit_use_anchors_ = true
 [connection signal="pressed" from="MarginContainer2/StartWaveButton" to="." method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/StartWaveButton" to="MarginContainer/VBoxContainer/EnemiesTracker" method="_on_start_wave_button_pressed"]
 [connection signal="pressed" from="MarginContainer2/StartWaveButton" to="RewardsContainer" method="_on_start_wave_button_pressed"]
+[connection signal="pressed" from="MarginContainer3/InventoryButton" to="." method="_on_inventory_button_pressed"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://by3pbbocf7kdl"]
+[gd_scene load_steps=12 format=3 uid="uid://by3pbbocf7kdl"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_gacha.gd" id="1_srsva"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="2_x5de5"]
@@ -9,6 +9,14 @@
 [ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="7_2laui"]
 [ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="8_i25j3"]
 [ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="11_xkstq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ml4ys"]
+font = ExtResource("5_1prjo")
+font_size = 18
+
+[sub_resource type="LabelSettings" id="LabelSettings_yc1aa"]
+font = ExtResource("5_1prjo")
+font_size = 18
 
 [node name="WorkshopGacha" type="Node"]
 script = ExtResource("1_srsva")
@@ -107,8 +115,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("6_mnni1")
 theme_override_styles/hover = ExtResource("7_2laui")
 theme_override_styles/pressed = ExtResource("8_i25j3")
-text = "Exit
-"
+text = "Close"
 script = ExtResource("2_x5de5")
 
 [node name="GachaRoll" type="CenterContainer" parent="CanvasLayer"]
@@ -178,31 +185,33 @@ theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "roll
 100 gems"
 
+[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/GachaContainer"]
+layout_mode = 0
+offset_left = -124.5
+offset_top = -191.0
+offset_right = 125.5
+offset_bottom = 59.0
+expand_mode = 1
+
 [node name="ErrorMessage" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
 layout_mode = 0
 offset_left = -166.0
-offset_top = 88.0
+offset_top = 78.0
 offset_right = 174.0
-offset_bottom = 121.0
+offset_bottom = 111.0
+label_settings = SubResource("LabelSettings_ml4ys")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
 layout_mode = 0
 offset_left = -167.0
-offset_top = 97.0
+offset_top = 70.0
 offset_right = 173.0
-offset_bottom = 130.0
+offset_bottom = 103.0
+label_settings = SubResource("LabelSettings_yc1aa")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="TurretPreview" type="TextureRect" parent="CanvasLayer/GachaRoll/GachaContainer"]
-layout_mode = 0
-offset_left = -124.5
-offset_top = -171.0
-offset_right = 125.5
-offset_bottom = 79.0
-expand_mode = 1
 
 [node name="SpinBar" type="HBoxContainer" parent="CanvasLayer"]
 clip_contents = true

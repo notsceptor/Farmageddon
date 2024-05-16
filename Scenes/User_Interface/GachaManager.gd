@@ -39,6 +39,7 @@ func _on_gems_roll_button_pressed():
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.add_theme_stylebox_override("normal", _get_rarity_texture_banner(last_rolled_rarity))
 				rarity_display.visible = true
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)
@@ -180,6 +181,7 @@ func _on_roll_button_gold_pressed():
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.add_theme_stylebox_override("normal", _get_rarity_texture_banner(last_rolled_rarity))
 				rarity_display.visible = true
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)
@@ -209,3 +211,18 @@ func _prepare_next_roll():
 	confirm_button.visible = false
 	roll_button_gems.visible = true
 	roll_button_gold.visible = true
+	
+func _get_rarity_texture_banner(rarity: String):
+	var turret_banner
+	match rarity:
+		"common":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/common_banner.tres")
+		"uncommon":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/uncommon_banner.tres")
+		"rare":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/rare_banner.tres")
+		"epic":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/epic_banner.tres")
+		"legendary":
+			turret_banner = preload("res://Scenes/User_Interface/Assets/banners/legendary_banner.tres")
+	return turret_banner
