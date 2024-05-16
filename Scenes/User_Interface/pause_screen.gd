@@ -11,6 +11,7 @@ func _on_continue_game_button_pressed():
 	continue_game_button_pressed.emit()
 
 func _on_main_menu_button_pressed():
+	SaveLoad.save_game()
 	main_menu_button_pressed.emit()
 	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().paused = false

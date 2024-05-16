@@ -60,6 +60,7 @@ func _on_gems_roll_button_pressed():
 		confirm_button.visible = true
 	else:
 		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
+	SaveLoad.save_game()
 
 func _roll_for_reward():
 	var random_value = randf()
@@ -202,10 +203,12 @@ func _on_roll_button_gold_pressed():
 		confirm_button.visible = true
 	else:
 		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gold to roll for a new turret."
+	SaveLoad.save_game()
 
 func _on_confirm_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	_prepare_next_roll()
+	SaveLoad.save_game()
 	
 func _prepare_next_roll():
 	confirm_button.visible = false

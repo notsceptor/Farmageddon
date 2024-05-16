@@ -156,6 +156,7 @@ func _on_upgrade_button_pressed(turret_metadata: Dictionary):
 		display_item_preview(turret_metadata)
 	else:
 		print("Not enough gold to upgrade")
+	SaveLoad.save_game()
 
 @onready var upgrade_container = $"../../../../../UpgradeContainer"
 @onready var scrap_notification_container = $"../../../../../../ScrapNotification"
@@ -181,6 +182,7 @@ func _on_yes_scrap_button_pressed():
 			populate_grid()
 			break
 	scrap_notification_container.visible = false
+	SaveLoad.save_game()
 
 func _on_no_scrap_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()

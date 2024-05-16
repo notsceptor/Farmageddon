@@ -122,6 +122,7 @@ func _on_ui_next_wave_button_pressed():
 		WaveManager.start_wave()
 
 func _on_ui_confirmed_rewards():
+	SaveLoad.save_game()
 	current_level_wave_number_label.text = str(WaveManager.current_level)
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()

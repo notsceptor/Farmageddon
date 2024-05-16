@@ -14,6 +14,9 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	# Loading game save
+	SaveLoad.load_game()
+	
 	# Loading the sound values
 	master_volume_slider.value = Globals.master_volume_value
 	master_volume_value.text = str(Globals.master_volume_value*100)
