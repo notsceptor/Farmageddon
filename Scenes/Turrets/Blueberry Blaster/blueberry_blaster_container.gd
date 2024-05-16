@@ -48,14 +48,38 @@ func _spawn_projectiles(num: int):
 		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker6,
 		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker7,
 		$BlueberryBlaster/Node/BlueberryBlaster/Aim/ProjectileSpawnMarker8]
-	var projectile_marker_index: int = 0
-	for n in num:
+	
+	var min_spread_angle = 30.0
+	var max_spread_angle = 150.0
+	
+	var min_speed_multiplier = 0.5
+	var max_speed_multiplier = 1.5
+	
+	for _n in num:
 		if current_enemy != null:
 			var projectile: Projectile = projectile_type.instantiate()
-			projectile.starting_position = projectile_markers[projectile_marker_index].global_position
+			
+			var direction_to_target = (current_enemy.global_position - projectile_markers[0].global_position).normalized()
+			
+			var spread_angle = randf_range(min_spread_angle, max_spread_angle)
+			
+			var random_direction = Vector3(
+				direction_to_target.x + randf_range(-spread_angle / 2.0, spread_angle / 2.0),
+				direction_to_target.y,
+				direction_to_target.z + randf_range(-spread_angle / 2.0, spread_angle / 2.0)
+			).normalized()
+			
+			var offset_distance = randf_range(0.0, 1.0)
+			var offset_direction = random_direction.rotated(Vector3.UP, deg_to_rad(randf_range(-spread_angle / 2.0, spread_angle / 2.0)))
+			offset_direction = offset_direction.rotated(Vector3.RIGHT, deg_to_rad(randf_range(-spread_angle / 2.0, spread_angle / 2.0)))
+			var random_offset = offset_direction * offset_distance
+			
+			var speed_multiplier = randf_range(min_speed_multiplier, max_speed_multiplier)
+			
+			projectile.starting_position = projectile_markers[0].global_position + random_offset
 			projectile.target = current_enemy
-			projectile.speed = modified_projectile_speed
+			projectile.speed = modified_projectile_speed * speed_multiplier
+			projectile.initial_direction = random_direction
 			if damage != null:
 				projectile.damage = damage
 			add_child(projectile)
-			projectile_marker_index += 1
