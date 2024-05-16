@@ -1,9 +1,5 @@
 extends Node
 
-@onready var main_menu_path: String = "res://Scenes/User_Interface/main_menu_screen.tscn"
-@onready var inventory_path: String = "res://Scenes/User_Interface/workshop_ui.tscn"
-@onready var gacha_path: String = "res://Scenes/User_Interface/workshop_gacha.tscn"
-
 signal close_gacha
 signal open_inventory_screen
 

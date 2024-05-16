@@ -3,7 +3,6 @@ extends CanvasLayer
 @onready var easy_level_path: String = "res://Scenes/Maps/easy_map.tscn"
 @onready var medium_level_path: String = "res://Scenes/Maps/medium_map.tscn"
 @onready var hard_level_path: String = "res://Scenes/Maps/hard_map.tscn"
-@onready var inventory_path: String = "res://Scenes/User_Interface/workshop_ui.tscn"
 @onready var settings_path: String = "res://Scenes/User_Interface/settings_screen.tscn"
 
 @onready var master_volume_slider = $MarginContainer/SettingsMenu/VBoxContainer/VBoxContainer/MasterVolSlider
@@ -15,6 +14,9 @@ extends CanvasLayer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	CurrencyDistributor.addGems(1000)
+	CurrencyDistributor.addGold(10000)
+	
 	# Loading the sound values
 	master_volume_slider.value = Globals.master_volume_value
 	master_volume_value.text = str(Globals.master_volume_value*100)
@@ -73,13 +75,6 @@ func hide_menu_screen_for_transition() -> void:
 func _on_exit_game_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	get_tree().quit()
-
-func _on_open_inventory_pressed():
-	GlobalAudioPlayer.play_menu_click_sound()
-	GlobalAudioPlayer.stop_main_music()
-	hide_menu_screen_for_transition()
-	$FadePlayer.play("fade")
-	TransitionLayer.change_scene(inventory_path)
 
 func _on_settings_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()

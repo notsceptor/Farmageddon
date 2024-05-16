@@ -174,7 +174,7 @@ theme_override_font_sizes/font_size = 20
 theme_override_styles/normal = ExtResource("4_f3fin")
 theme_override_styles/hover = ExtResource("5_1afix")
 theme_override_styles/pressed = ExtResource("6_mtoua")
-text = "Exit
+text = "Close
 "
 script = ExtResource("3_kpt66")
 
