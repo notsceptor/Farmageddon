@@ -31,6 +31,6 @@ transparent_bg = true
 [node name="HealthBar3D" parent="SubViewport" index="0" instance=ExtResource("3_rawf3")]
 
 [node name="Sprite3D" type="Sprite3D" parent="." index="3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.519172, 0.1)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.61925, 0.1)
 billboard = 1
 texture = SubResource("ViewportTexture_0elhn")
