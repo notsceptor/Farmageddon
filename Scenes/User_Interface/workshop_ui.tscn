@@ -269,6 +269,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 4
 
+[node name="Level" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 21
+text = "
+"
+label_settings = SubResource("LabelSettings_i6awy")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="StatChange" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -278,6 +288,16 @@ text = "
 label_settings = SubResource("LabelSettings_i6awy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Description" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ResourcesNeeded" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

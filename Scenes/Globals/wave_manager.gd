@@ -205,7 +205,8 @@ func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
 	boss_enemy_scene_instantiated = boss_enemy_scene.instantiate()
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0].scale = Vector3(2,2,2)
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._speed *= 0.75
-	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health *= 5
+	var boss_health = boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health * 5
+	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health = ceil(boss_health + (boss_health*0.07*current_level))
 	add_child(boss_enemy_scene_instantiated)
 
 func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene],current_level):

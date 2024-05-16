@@ -6,6 +6,8 @@ extends GridContainer
 @onready var turret_name_label: Label = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/TurretName"
 @onready var upgrade_button: Button = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/UpgradeButton"
 @onready var scrap_button: Button = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ScrapButton"
+@onready var description = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/Description"
+@onready var level = $"../../../../../UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/Level"
 
 
 var upgrade_levels: Dictionary = {}
@@ -98,8 +100,11 @@ func display_item_preview(turret_metadata: Dictionary):
 	currently_selected_turret_level = turret_metadata.turret_level
 	currently_selected_turret_id = turret_metadata.ID
 
-	stat_change_label.text = "Damage: %d" % new_damage
-
+	stat_change_label.text = "Damage: %s -> %s" % [current_damage, new_damage]
+	level.text = "Level: %s" % turret_metadata.turret_level
+	
+	description.text = str(base_turret_data.description)
+	
 	var upgrade_cost = calculate_upgrade_cost(turret_metadata.rarity, turret_metadata.turret_level + 1)
 	resources_to_upgrade_label.text = "Upgrade Cost: %d Gold" % upgrade_cost
 
