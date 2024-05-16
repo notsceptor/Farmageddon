@@ -5,6 +5,9 @@ extends GridContainer
 @export var activity_button_scene: PackedScene = preload("res://Scenes/User_Interface/activity_button.tscn")
 
 func _ready():
+	for item in Inventory.items:
+		item.placed = false
+		
 	populate_grid()
 	
 func populate_grid():

@@ -19,6 +19,7 @@ signal wave_ended
 @export var tile_empty:Array[PackedScene]
 
 func _ready():
+	Globals.current_placed_turrets = 0	
 	EventBus.connect("place_turret", Callable(self, "place_turret"))
 
 func _process(_delta):
