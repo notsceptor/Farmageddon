@@ -64,7 +64,7 @@ func _process(_delta):
 
 func _on_activity_button_place_turret(turret_scene, location):
 	place_turret.emit(turret_scene, location)
-	
+
 func get_upcoming_enemies():
 	var upcoming_text = "Upcoming:\n"
 	for enemy in WaveManager.debug_enemy_dictionary.keys():
