@@ -28,6 +28,7 @@ signal advert_finished
 signal confirmed_rewards
 
 signal open_pause_menu
+signal open_inventory
 signal pickup_turrets
 
 func _ready():
@@ -194,3 +195,6 @@ func start_boss_wave_display():
 func _on_tween_completed():
 	information_label.hide()
 
+func _on_inventory_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	open_inventory.emit()

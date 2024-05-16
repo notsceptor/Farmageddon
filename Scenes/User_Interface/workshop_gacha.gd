@@ -4,25 +4,27 @@ extends Node
 @onready var inventory_path: String = "res://Scenes/User_Interface/workshop_ui.tscn"
 @onready var gacha_path: String = "res://Scenes/User_Interface/workshop_gacha.tscn"
 
+signal close_gacha
+signal open_inventory_screen
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$"Background Texture".visible = false
+	$CanvasLayer.visible = false
 
 func _on_exit_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
-	GlobalAudioPlayer.stop_title_music()
-	hide_menu_screen_for_transition()
-	TransitionLayer.change_scene(main_menu_path)
+	close_gacha.emit()
 	
 func hide_menu_screen_for_transition() -> void:
 	$CanvasLayer.visible = false
 
 func _on_inv_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
-	hide_menu_screen_for_transition()
-	TransitionLayer.change_scene(inventory_path)
+	$"Background Texture".visible = false
+	$CanvasLayer.visible = false
+	open_inventory_screen.emit()
+
+func _on_workshop_ui_open_gacha_screen():
+	$"Background Texture".visible = true
+	$CanvasLayer.visible = true
