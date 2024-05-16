@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkkhok6mrs8uu"]
+
+[sub_resource type="GDScript" id="GDScript_rfj7s"]
+script/source = "extends Control
+
+@onready var label: Label = $TooltipLabel
+
+func _process(_delta):
+	global_position = get_global_mouse_position() + Vector2(16, -100)
+
+func set_text(text: String):
+	label.text = text
+"
+
+[node name="TooltipContainer" type="Control"]
+clip_contents = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 400.0
+offset_bottom = 200.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = SubResource("GDScript_rfj7s")
+
+[node name="TooltipLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 200)
+offset_right = 40.0
+offset_bottom = 23.0
+text = "TEST"
+autowrap_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.156863)

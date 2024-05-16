@@ -5,141 +5,126 @@ const RARITY_PROBABILITIES = {
 	"uncommon": 0.3,
 	"rare": 0.1,
 	"epic": 0.05,
-	"legendary": 0.01
-}
-
-const TURRET_DATA = {
-	"common": {
-		"icon": "res://Models/Turrets/Pea Shooter/pea_shooter_cover.png",
-	},
-	"uncommon": {
-		"icon": "res://Models/Turrets/Carrot Cannon/carrot_cannon_cover.png",
-	},
-	"rare": {
-		"icon": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon_cover.png",
-	},
-	"epic": {
-		"icon": "res://Models/Turrets/Haybale Barrage/haybale_barrage_cover.png",
-	},
-	"legendary": {
-		"icon": "res://Models/Turrets/Strawberry Artillery/strawberry_artillery_cover.png",
-	}
+	"currency": 0.03,
+	"legendary": 0.01,
 }
 
 var last_rolled_rarity: String = ""
+var last_rolled_currency: Dictionary
 
-const ROLL_COST: int = 100
+const ROLL_COST_GOLD: int = 500
+const ROLL_COST_GEMS: int = 100
 
-@onready var turret_preview: TextureRect = $GachaRoll/HBoxContainer/TurretPreview
-@onready var roll_button: Button = $GachaRoll/HBoxContainer/RollButton
-@onready var rarity_display: Label = $GachaRoll/HBoxContainer/RarityDisplay
+@onready var turret_preview: TextureRect = $GachaRoll/GachaContainer/TurretPreview
+@onready var roll_button_gold: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGold
+@onready var roll_button_gems: Button = $GachaRoll/GachaContainer/HBoxContainer/RollButtonGems
+@onready var confirm_button = $GachaRoll/GachaContainer/HBoxContainer/ConfirmButton
+@onready var rarity_display: Label = $GachaRoll/GachaContainer/RarityDisplay
 
 func _ready():
-	roll_button.connect("pressed", Callable(self, "_on_roll_button_pressed"))
-	CurrencyDistributor.addGems(1000)
+	roll_button_gems.connect("pressed", Callable(self, "_on_gems_roll_button_pressed"))
 
-func _on_roll_button_pressed():
-	if ROLL_COST < Globals.gems:
-		CurrencyDistributor.subtractGems(ROLL_COST)
-		last_rolled_rarity = _roll_for_turret()
-		var turret_icon = await _start_spin_animation()
-		if turret_icon:
-			turret_preview.texture = turret_icon
-			rarity_display.text = last_rolled_rarity.capitalize()
-			
+func _on_gems_roll_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	if ROLL_COST_GEMS <= Globals.gems:
+		roll_button_gems.visible = false
+		roll_button_gold.visible = false
+		rarity_display.visible = false
+		CurrencyDistributor.subtractGems(ROLL_COST_GEMS)
+		var roll_result = _roll_for_reward()
+		if roll_result is String:
+			last_rolled_rarity = roll_result
 			var new_turret = _create_turret_data(last_rolled_rarity)
-			var available_slot = Inventory.items.size()-1
-			Inventory.add_item(new_turret)
+			var turret_icon = await _start_spin_animation(new_turret)
+			if turret_icon:
+				turret_preview.texture = turret_icon
+				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.visible = true
+				var available_slot = Inventory.items.size() - 1
+				Inventory.add_item(new_turret)
+		else:
+			last_rolled_currency = roll_result
+			rarity_display.text = str(roll_result["amount"]) + " " + str(roll_result["currency"])
+			rarity_display.visible = true
+			match roll_result["currency"]:
+				"gold":
+					turret_preview.texture = load("res://Textures/gold_piece.png")
+					Globals.gold += roll_result["amount"]
+				"scrap":
+					turret_preview.texture = load("res://Textures/scrap_piece.png")
+					Globals.scrap += roll_result["amount"]
+				"gems":
+					turret_preview.texture = load("res://Textures/gem.png")
+					Globals.gems += roll_result["amount"]
+		confirm_button.visible = true
 	else:
-		$GachaRoll/HBoxContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
+		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gems to roll for a new turret."
+
+func _roll_for_reward():
+	var random_value = randf()
+	var cumulative_probability = 0.0
+	var rewards = RARITY_PROBABILITIES.keys()
+	for reward in rewards:
+		cumulative_probability += RARITY_PROBABILITIES[reward]
+		if random_value <= cumulative_probability:
+			if reward == "currency":
+				return _get_random_currency()
+			else:
+				return reward
+	return "common"
+
+func _get_random_currency() -> Dictionary:
+	var currencies = ["gems", "gold", "scrap"]
+	var currency = currencies[randi() % currencies.size()]
+	var amount = randi_range(10, 100)  # Adjust the range as needed
+	return {"currency": currency, "amount": amount}
 
 func _create_turret_data(rarity: String) -> Dictionary:
-	var turret_data = {
-		"key": _generate_unique_key(),
-		"icon": TURRET_DATA[rarity]["icon"],
-		"rarity": rarity,
-		"quantity": 1,
-		"name": _get_turret_name_by_rarity(rarity),
-		"IV": _get_random_iv(),
-		"damage": _get_damage_by_rarity(rarity),
-		"path": _get_path_by_rarity(rarity),
-		"activity_draggable": _get_activity_draggable_by_rarity(rarity),
-		"turret_to_instantiate": _get_turret_to_instantiate_by_rarity(rarity)
+	var turret_name = _get_turret_name_by_rarity(rarity)
+	var turret_data = Turrets.get_turret_data(turret_name)
+	
+	var new_turret_data = {
+		"ID": _get_random_id(),
+		"name": turret_name,
+		"damage": turret_data["damage"],
+		"turret_level": 1,
+		"placed": false
 	}
-	return turret_data
+	
+	return new_turret_data
 
 func _get_turret_name_by_rarity(rarity: String) -> String:
-	match rarity:
-		"common":
-			return "Pea Shooter"
-		"uncommon":
-			return "Carrot Cannon"
-		"rare":
-			return "Honeycomb Harpoon"
-		"epic":
-			return "Haybale Barrage"
-		"legendary":
-			return "Strawberry Artillery"
-		_:
-			return ""
+	var turret_names = []
+	for turret in Turrets.turret_data[rarity]:
+		turret_names.append(turret["name"])
+	return turret_names[randi() % turret_names.size()]
 
-func _get_random_iv() -> String:
-	var iv = randi_range(50, 100)
-	return str(iv) + "%"
+func _get_random_id() -> String:
+	var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	var id = ""
+	var existing_ids = []
+	
+	for item in Inventory.items:
+		existing_ids.append(item.get("ID", ""))
+	
+	while true:
+		id = ""
+		for _i in range(5):
+			id += characters[randi() % characters.length()]
+		
+		if not id in existing_ids:
+			break
+	
+	return id
 
 func _get_damage_by_rarity(rarity: String) -> int:
-	match rarity:
-		"common":
-			return 1
-		"uncommon":
-			return 2
-		"rare":
-			return 3
-		"epic":
-			return 4
-		"legendary":
-			return 5
-		_:
-			return 0
-
-func _get_path_by_rarity(rarity: String) -> String:
-	return rarity.to_lower()
-
-func _get_activity_draggable_by_rarity(rarity: String) -> String:
-	match rarity:
-		"common":
-			return "res://Models/Turrets/Pea Shooter/Pea_Shooter.gltf"
-		"uncommon":
-			return "res://Models/Turrets/Carrot Cannon/Carrot_Cannon.gltf"
-		"rare":
-			return "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf"
-		"epic":
-			return "res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf"
-		"legendary":
-			return "res://Models/Turrets/Strawberry Artillery/Strawberry_Artillery.gltf"
-		_:
-			return ""
-
-func _get_turret_to_instantiate_by_rarity(rarity: String) -> String:
-	match rarity:
-		"common":
-			return "res://Scenes/Turrets/Pea Shooter/pea_shooter_container.tscn"
-		"uncommon":
-			return "res://Scenes/Turrets/Carrot Cannon/carrot_cannon_container.tscn"
-		"rare":
-			return "res://Scenes/Turrets/Honeycomb Harpoon/honeycomb_harpoon_container.tscn"
-		"epic":
-			return "res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn"
-		"legendary":
-			return "res://Scenes/Turrets/Strawberry Artillery/strawberry_artillery_container.tscn"
-		_:
-			return ""
-
-func _generate_unique_key() -> String:
-	var key = ""
-	for i in range(8):
-		key += char(randi() % 26 + 97)
-	return key
+	var turret_names = []
+	for turret in Turrets.turret_data[rarity]:
+		turret_names.append(turret["name"])
+	
+	var turret_name = turret_names[randi() % turret_names.size()]
+	var turret_data = Turrets.get_turret_data(turret_name)
+	return turret_data["damage"]
 
 func _roll_for_turret() -> String:
 	var random_value = randf()
@@ -151,10 +136,11 @@ func _roll_for_turret() -> String:
 			return rarity
 	return "common"
 
-func _start_spin_animation():
+func _start_spin_animation(new_turret: Dictionary):
 	var turret_icons = []
-	for rarity in TURRET_DATA.keys():
-		turret_icons.append(load(TURRET_DATA[rarity]["icon"]))
+	for rarity in Turrets.turret_data.keys():
+		for turret in Turrets.turret_data[rarity]:
+			turret_icons.append(load(turret["icon"]))
 
 	var tween = get_tree().create_tween()
 	for i in range(10):
@@ -164,7 +150,10 @@ func _start_spin_animation():
 	tween.play()
 
 	await get_tree().create_timer(1.0).timeout
-	var turret_icon = _get_turret_by_rarity(last_rolled_rarity)
+
+	var turret_data = Turrets.get_turret_data(new_turret["name"])
+	var turret_icon = load(turret_data["icon"])
+
 	if turret_icon:
 		tween = get_tree().create_tween()
 		tween.tween_property(turret_preview, "texture", turret_icon, 0.5) \
@@ -172,10 +161,51 @@ func _start_spin_animation():
 			 .set_ease(Tween.EASE_IN_OUT)
 		tween.play()
 		await tween.finished
+
 	return turret_icon
-	
-func _get_turret_by_rarity(rarity: String):
-	if TURRET_DATA.has(rarity):
-		return load(TURRET_DATA[rarity]["icon"])
+
+func _on_roll_button_gold_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	if ROLL_COST_GOLD <= Globals.gold:
+		roll_button_gems.visible = false
+		roll_button_gold.visible = false
+		rarity_display.visible = false
+		confirm_button.visible = false
+		CurrencyDistributor.subtractGold(ROLL_COST_GOLD)
+		var roll_result = _roll_for_reward()
+		if roll_result is String:
+			last_rolled_rarity = roll_result
+			var new_turret = _create_turret_data(last_rolled_rarity)
+			var turret_icon = await _start_spin_animation(new_turret)
+			if turret_icon:
+				turret_preview.texture = turret_icon
+				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.visible = true
+				var available_slot = Inventory.items.size() - 1
+				Inventory.add_item(new_turret)
+		else:
+			last_rolled_currency = roll_result
+			rarity_display.text = str(roll_result["amount"]) + " " + str(roll_result["currency"])
+			rarity_display.visible = true
+			match roll_result["currency"]:
+				"gold":
+					turret_preview.texture = load("res://Textures/gold_piece.png")
+					Globals.gold += roll_result["amount"]
+				"scrap":
+					turret_preview.texture = load("res://Textures/scrap_piece.png")
+					Globals.scrap += roll_result["amount"]
+				"gems":
+					turret_preview.texture = load("res://Textures/gem.png")
+					Globals.gems += roll_result["amount"]
+		confirm_button.visible = true
 	else:
-		return null
+		$GachaRoll/GachaContainer/ErrorMessage.text = "Insufficient gold to roll for a new turret."
+
+func _on_confirm_button_pressed():
+	GlobalAudioPlayer.play_menu_click_sound()
+	_prepare_next_roll()
+	
+func _prepare_next_roll():
+	confirm_button.visible = false
+	roll_button_gems.visible = true
+	roll_button_gold.visible = true

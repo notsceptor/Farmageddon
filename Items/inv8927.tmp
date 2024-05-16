@@ -1,0 +1,76 @@
+{
+ "turrets": [
+  {
+   "IV": "99%",
+   "damage": 10,
+   "name": "Strawberry Artillery",
+   "turret_level": 1
+  },
+  {
+   "IV": "98%",
+   "damage": 1,
+   "name": "Spore Sprayer",
+   "turret_level": 1
+  },
+  {
+   "IV": "96%",
+   "damage": 10,
+   "name": "Seed Sniper",
+   "turret_level": 1
+  },
+  {
+   "IV": "77%",
+   "damage": 2,
+   "name": "Radish Rocket",
+   "turret_level": 1
+  },
+  {
+   "IV": "98%",
+   "damage": 7,
+   "name": "Potato Launcher",
+   "turret_level": 1
+  },
+  {
+   "IV": "95%",
+   "damage": 6,
+   "name": "Haybale Barrage",
+   "turret_level": 1
+  },
+  {
+   "IV": "92%",
+   "damage": 5,
+   "name": "Fish Launcher",
+   "turret_level": 1
+  },
+  {
+   "IV": "85%",
+   "damage": 4,
+   "name": "Chiligun",
+   "turret_level": 1
+  },
+  {
+   "IV": "90%",
+   "damage": 13,
+   "name": "Honeycomb Harpoon",
+   "turret_level": 3
+  },
+  {
+   "IV": "75%",
+   "damage": 1,
+   "name": "Carrot Cannon",
+   "turret_level": 2
+  },
+  {
+   "IV": "50%",
+   "damage": 11,
+   "name": "Pea Shooter",
+   "turret_level": 3
+  },
+  {
+   "IV": "80%",
+   "damage": 3,
+   "name": "Honeycomb Harpoon",
+   "turret_level": 1
+  }
+ ]
+}

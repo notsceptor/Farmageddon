@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://jakeqwvf0flw"
+path="res://.godot/imported/Wave Success.mp3-3cb0cd5ff743da66e4f113b52edd5961.mp3str"
+
+[deps]
+
+source_file="res://audio/Wave Success.mp3"
+dest_files=["res://.godot/imported/Wave Success.mp3-3cb0cd5ff743da66e4f113b52edd5961.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

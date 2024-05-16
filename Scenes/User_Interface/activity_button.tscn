@@ -1,6 +1,35 @@
-[gd_scene load_steps=2 format=3 uid="uid://dcl252xvwdn8s"]
+[gd_scene load_steps=13 format=3 uid="uid://dcl252xvwdn8s"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/activity_button.gd" id="1_jal1f"]
+[ext_resource type="Texture2D" uid="uid://bf4l5mdwc7wmu" path="res://Scenes/User_Interface/Assets/inventory_slot.png" id="1_nxb2n"]
+[ext_resource type="Texture2D" uid="uid://10hcgdopwkmu" path="res://Scenes/User_Interface/Assets/turret_damage.png" id="2_k3nb7"]
+[ext_resource type="Texture2D" uid="uid://bb5bwtdjwc0pp" path="res://Scenes/User_Interface/Assets/inventory_hover.png" id="2_xwbbw"]
+[ext_resource type="Texture2D" uid="uid://bnhkocd1iaeue" path="res://Scenes/User_Interface/Assets/turret_level.png" id="3_loal0"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n41gu"]
+texture = ExtResource("1_nxb2n")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8ftfx"]
+texture = ExtResource("2_xwbbw")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3abce"]
+texture = ExtResource("1_nxb2n")
+modulate_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fk02p"]
+texture = ExtResource("1_nxb2n")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_pcu8y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sxw32"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dpdaf"]
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
 
 [node name="ActivityButton" type="Button"]
 custom_minimum_size = Vector2(96, 96)
@@ -14,7 +43,57 @@ offset_top = -96.0
 offset_right = 48.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/normal = SubResource("StyleBoxTexture_n41gu")
+theme_override_styles/hover = SubResource("StyleBoxTexture_8ftfx")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_3abce")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_fk02p")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_pcu8y")
 script = ExtResource("1_jal1f")
+
+[node name="Rarity" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 86.0
+offset_right = 94.0
+offset_bottom = 94.0
+
+[node name="Damage" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 37.0
+offset_top = 77.0
+offset_right = 59.0
+offset_bottom = 99.0
+texture = ExtResource("2_k3nb7")
+expand_mode = 1
+
+[node name="DamageLabel" type="Label" parent="Damage"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -1.0
+offset_right = 36.0
+offset_bottom = 22.0
+text = "6"
+label_settings = SubResource("LabelSettings_sxw32")
+
+[node name="Level" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 79.0
+offset_right = 22.0
+offset_bottom = 98.0
+texture = ExtResource("3_loal0")
+expand_mode = 1
+
+[node name="LevelLabel" type="Label" parent="Level"]
+layout_mode = 0
+offset_left = 22.0
+offset_top = -3.0
+offset_right = 36.0
+offset_bottom = 20.0
+text = "2"
+label_settings = SubResource("LabelSettings_dpdaf")
 
 [connection signal="button_down" from="." to="." method="_on_button_down"]
 [connection signal="button_up" from="." to="." method="_on_button_up"]

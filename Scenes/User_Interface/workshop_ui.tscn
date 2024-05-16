@@ -1,11 +1,86 @@
-[gd_scene load_steps=6 format=3 uid="uid://cwulolttkwmtq"]
+[gd_scene load_steps=23 format=3 uid="uid://cwulolttkwmtq"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_ui.gd" id="1_gwo4e"]
 [ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="2_2j7m4"]
+[ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="3_21cox"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/ExitButton.gd" id="3_kpt66"]
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_turret_grid.gd" id="4_bcs8p"]
+[ext_resource type="StyleBox" uid="uid://bm0pqvcmneeo8" path="res://Scenes/User_Interface/Assets/large_button_normal.tres" id="4_f3fin"]
+[ext_resource type="StyleBox" uid="uid://cvl1ljoole1y1" path="res://Scenes/User_Interface/Assets/large_button_hover.tres" id="5_1afix"]
+[ext_resource type="StyleBox" uid="uid://dilydepx8qv76" path="res://Scenes/User_Interface/Assets/large_button_clicked.tres" id="6_mtoua"]
+[ext_resource type="Texture2D" uid="uid://dgm8iaai8g61j" path="res://Textures/GUI_Sprite_Sheet_3.png" id="9_322qu"]
+[ext_resource type="PackedScene" uid="uid://b0i56pjhm2jnk" path="res://Scenes/User_Interface/currency_display.tscn" id="9_836y6"]
+[ext_resource type="StyleBox" uid="uid://6o8m6j1wx7y1" path="res://Scenes/User_Interface/Assets/basic_panel_container.tres" id="10_sdmhq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nlldh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_d0es2"]
+font = ExtResource("3_21cox")
+font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_i6awy"]
+font = ExtResource("3_21cox")
+font_size = 24
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oyk3s"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(0, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m6lqg"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(0, 0, 32, 16)
+modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_fktjs"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 5.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(32, 0, 32, 16)
+modulate_color = Color(0.691357, 0.691357, 0.691357, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_5unjy"]
+font = ExtResource("3_21cox")
+font_size = 64
+
+[sub_resource type="LabelSettings" id="LabelSettings_5h81e"]
+font = ExtResource("3_21cox")
+font_size = 36
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_giwby"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(0, 0, 32, 16)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_smigi"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 15.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(0, 0, 32, 16)
+modulate_color = Color(0.690196, 0.690196, 0.690196, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f6ej5"]
+content_margin_left = 30.0
+content_margin_top = 10.0
+content_margin_right = 30.0
+content_margin_bottom = 5.0
+texture = ExtResource("9_322qu")
+region_rect = Rect2(32, 0, 32, 16)
+modulate_color = Color(0.691357, 0.691357, 0.691357, 1)
 
 [node name="Workshop UI" type="Node"]
 script = ExtResource("1_gwo4e")
@@ -43,29 +118,62 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
+theme_override_constants/margin_top = 10
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="InvButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "Turrets"
 
 [node name="GachaButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "Gacha"
 
 [node name="ProfileButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "Profile"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 20
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "Exit
 "
 script = ExtResource("3_kpt66")
@@ -112,6 +220,13 @@ offset_top = -176.0
 offset_bottom = 176.0
 grow_horizontal = 0
 grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Turrets/UpgradeContainer"]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Turrets/UpgradeContainer"]
 custom_minimum_size = Vector2(250, 0)
@@ -129,22 +244,26 @@ theme_override_constants/separation = 15
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 36
-text = "TURRET NAME"
+text = "Select turret
+"
+label_settings = SubResource("LabelSettings_d0es2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TurretPreview" type="TextureRect" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 256)
+custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
-size_flags_vertical = 3
+size_flags_horizontal = 4
+size_flags_vertical = 4
 expand_mode = 4
 
 [node name="StatChange" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 21
-text = "New stats
+text = "
 "
+label_settings = SubResource("LabelSettings_i6awy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -152,17 +271,111 @@ vertical_alignment = 1
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 21
-text = "Resources Required
-"
+text = "
+select a turret from the left to view"
+label_settings = SubResource("LabelSettings_i6awy")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="UpgradeButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/font_size = 26
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
 text = "UPGRADE"
+
+[node name="ScrapButton" type="Button" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.733333, 0, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_oyk3s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_m6lqg")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_fktjs")
+text = "SCRAP"
+
+[node name="ScrapNotification" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -414.0
+offset_top = -147.5
+offset_right = 414.0
+offset_bottom = 147.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_styles/panel = ExtResource("10_sdmhq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ScrapNotification"]
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="ScrapTitle" type="Label" parent="CanvasLayer/ScrapNotification/VBoxContainer"]
+layout_mode = 2
+text = "SCRAPPING [TURRET NAME]"
+label_settings = SubResource("LabelSettings_5unjy")
+horizontal_alignment = 1
+
+[node name="ScrapConfirmation" type="Label" parent="CanvasLayer/ScrapNotification/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Are you sure you want to scrap this turret for X scrap?"
+label_settings = SubResource("LabelSettings_5h81e")
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ScrapNotification/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 20
+
+[node name="YesScrapButton" type="Button" parent="CanvasLayer/ScrapNotification/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = ExtResource("4_f3fin")
+theme_override_styles/hover = ExtResource("5_1afix")
+theme_override_styles/pressed = ExtResource("6_mtoua")
+text = "YES"
+
+[node name="NoScrapButton" type="Button" parent="CanvasLayer/ScrapNotification/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.733333, 0, 0.0117647, 1)
+theme_override_fonts/font = ExtResource("3_21cox")
+theme_override_font_sizes/font_size = 56
+theme_override_styles/normal = SubResource("StyleBoxTexture_giwby")
+theme_override_styles/hover = SubResource("StyleBoxTexture_smigi")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_f6ej5")
+text = "NO"
+
+[node name="CurrencyDisplay" parent="." instance=ExtResource("9_836y6")]
 
 [connection signal="pressed" from="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/InvButton" to="." method="_on_inv_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/GachaButton" to="." method="_on_gacha_button_pressed"]
 [connection signal="pressed" from="CanvasLayer/Turrets/TabsContainer/PanelContainer/MarginContainer/HBoxContainer/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer/ScrapButton" to="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer/GridContainer" method="_on_scrap_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScrapNotification/VBoxContainer/HBoxContainer/YesScrapButton" to="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer/GridContainer" method="_on_yes_scrap_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ScrapNotification/VBoxContainer/HBoxContainer/NoScrapButton" to="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer/GridContainer" method="_on_no_scrap_button_pressed"]

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cao4buqi6tcni"
+path="res://.godot/imported/Wave Smash.mp3-a0e830ee1a6b63280e307e14abd240d0.mp3str"
+
+[deps]
+
+source_file="res://audio/Wave Smash.mp3"
+dest_files=["res://.godot/imported/Wave Smash.mp3-a0e830ee1a6b63280e307e14abd240d0.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

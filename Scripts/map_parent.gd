@@ -18,13 +18,23 @@ signal wave_ended
 @export var tile_crossroads:PackedScene
 @export var tile_empty:Array[PackedScene]
 
+func _ready():
+	Globals.current_placed_turrets = 0	
+	EventBus.connect("place_turret", Callable(self, "place_turret"))
+
 func _process(_delta):
 	if WaveManager.wave_ongoing:
+		if $UI/Inventory.is_open:
+			$UI/Inventory.close_container()
+			await $UI/Inventory.tween_finished
+		$UI/Inventory.visible = false
 		WaveManager.check_win_loss_conditions()
 		if WaveManager.enemies_on_map == 0 and !WaveManager.wave_ongoing:
 			wave_ended.emit()
 			if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 				CurrencyDistributor.addGems(50)
+	else:
+		$UI/Inventory.visible = true
 
 func _complete_grid():
 	for x in range(PathGenInstance.path_config.map_length):
@@ -77,7 +87,6 @@ func _regenerate_new_map_layout():
 	GlobalAudioPlayer.play_earthquake_sound()
 	var scene_to_load: String
 	$UI/CurrencyDisplay.visible = false
-	$UI/HBoxContainer.visible = false
 	$UI/MarginContainer.visible = false
 	$UI/MarginContainer2.visible = false
 	$UI/MarginContainer3.visible = false
@@ -91,24 +100,32 @@ func _regenerate_new_map_layout():
 			scene_to_load = "res://Scenes/Maps/hard_map.tscn"
 	TransitionLayer.reload_level(scene_to_load)
 
+func place_turret(turret_scene, location, item_data):
+	if Globals.current_placed_turrets < Globals.current_max_turrets:
+		Globals.current_placed_turrets += 1
+		print("Placing turret at location: ", location)
+		var turret_to_add = turret_scene.instantiate()
+		$Turrets.add_child(turret_to_add)
+		turret_to_add.global_position = location
+		turret_to_add.damage = item_data.damage
+	else:
+		print("AT MAX TURRET CAPACITY")
+
 func _on_pause_screen_continue_game_button_pressed():
 	get_tree().paused = false
 	$PauseScreen.visible = false
 	$UI.visible = true
-
-func _on_ui_place_turret(turret_scene, location):
-	var turret_to_add = turret_scene.instantiate()
-	$Turrets.add_child(turret_to_add)
-	turret_to_add.global_position = location
 	
 func _on_ui_next_wave_button_pressed():
-	next_wave_button.visible = false
-	WaveManager.start_wave()
+	if Globals.current_placed_turrets > 0:
+		next_wave_button.visible = false
+		WaveManager.start_wave()
 
 func _on_ui_confirmed_rewards():
 	current_level_wave_number_label.text = str(WaveManager.current_level)
 	if WaveManager.current_level != 1 and (WaveManager.current_level - 1) % 5 == 0 and WaveManager.wave_won:
 		_regenerate_new_map_layout()
+		remove_turrets_from_map()
 
 func _on_ui_open_pause_menu():
 	get_tree().paused = true
@@ -124,3 +141,12 @@ func _on_settings_screen_back_button_pressed():
 	$SettingsScreen.visible = false
 	$PauseScreen.visible = true
 	
+func _on_ui_pickup_turrets(): 
+	remove_turrets_from_map()
+		
+func remove_turrets_from_map() -> void:
+	Globals.current_placed_turrets = 0
+	Globals.turret_locations_list = []
+	Globals.turret_rid_list = []
+	for turret in $Turrets.get_children():
+		turret.queue_free()

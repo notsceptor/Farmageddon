@@ -4,6 +4,10 @@ extends Node
 var turret_rid_list: Array = []
 var turret_locations_list: Array = []
 
+const MAX_PLACEABLE_TURRETS = 7
+var current_max_turrets: int = 2
+var current_placed_turrets: int = 0
+
 #region Currencies
 var gold = 0
 var scrap = 0
@@ -26,7 +30,7 @@ var hard_map_current_level: int = 1
 var hard_map_spawn_size: int = 10
 #endregion
 
-var intro_played: bool = false
+var intro_played: bool = true
 
 #region Settings music save values
 var master_volume_value: float = 1.0

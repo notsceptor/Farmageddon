@@ -31,6 +31,9 @@ func stop_main_music():
 func play_menu_click_sound():
 	$MenuClick.pitch_scale = randf_range(1.2, 1.6)
 	$MenuClick.play()
+	
+func play_error_sound():
+	$Error.play()
 
 func play_snail_death_sound():
 	$SnailDeathSound.pitch_scale = randf_range(1.1, 1.3)
@@ -66,7 +69,12 @@ func play_shark_chomp_sound():
 	
 
 func play_fail_sound():
+	$FailSound.pitch_scale = randf_range(0.7, 1.0)
 	$FailSound.play()
+	
+func play_win_sound():
+	$WinSound.pitch_scale = randf_range(1.0,1.1)
+	$WinSound.play()
 	
 func play_placement_sound():
 	$Placement.pitch_scale = randf_range(1.2, 1.3)
@@ -75,3 +83,9 @@ func play_placement_sound():
 func play_strawberry_projectile_sound():
 	$StrawberryProjectile.pitch_scale = randf_range(1.2, 1.5)
 	$StrawberryProjectile.play()
+	
+func play_wave_smash():
+	$Cockerel.pitch_scale = randf_range(1.2, 1.5)
+	$WaveSmash.pitch_scale = randf_range(1.2, 1.5)
+	$WaveSmash.play()
+	$Cockerel.play()

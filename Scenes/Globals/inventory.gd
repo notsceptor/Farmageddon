@@ -54,8 +54,9 @@ func _save_items():
 				var item_data = {
 					"name": item.name,
 					"damage": item.damage,
-					"IV": item.IV,
-					"turret_level": item.turret_level
+					"ID": item.ID,
+					"turret_level": item.get("turret_level", 1),
+					"placed": item.placed
 				}
 				items_data.append(item_data)
 

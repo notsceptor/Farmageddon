@@ -4,7 +4,7 @@ extends Node
 
 # General enemy array logic
 var full_enemy_array: Array[String] = ["Scumbug", "Giant Zombie Snail", "Brasher Beetle", "Trundle Boar", "Vulture", "Grub"]
-var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 6) # Defaults to just one enemy to begin with
+var sliced_enemy_array: Array[String] = full_enemy_array.slice(0, 1) # Defaults to just one enemy to begin with
 
 # Enemy array for the current wave (to be populated BEFORE wave start and shown to user before pressing start wave)
 # Enemies inside the array will be populated at random however
@@ -29,7 +29,6 @@ func _process(_delta):
 		remaining_enemies_to_spawn.clear()
 	if !wave_ongoing:
 		GlobalAudioPlayer.stop_battle_music()
-		
 
 # Function that will get map difficulty data
 func get_map_difficulty_data():
@@ -52,22 +51,24 @@ func get_map_difficulty_data():
 
 # Function that wil update sliced enemy array to add more enemies at certain wave thresholds
 func update_sliced_enemy_array(wave_number: int):
-	sliced_enemy_array = full_enemy_array.slice(0, 1)  # Include the first three enemies initially
+	sliced_enemy_array = full_enemy_array.slice(0, 1)  # Only have first enemy initially
 	if wave_number > 20:
-		sliced_enemy_array = full_enemy_array.slice(0, 6)  # Include the first three enemies initially
-	elif wave_number > 12:
-		sliced_enemy_array = full_enemy_array.slice(0, 5)  # Include the first three enemies initially
-	elif wave_number > 8:
-		sliced_enemy_array = full_enemy_array.slice(0, 4)
-	elif wave_number > 3:
-		sliced_enemy_array = full_enemy_array.slice(0, 2)  # Include the first three enemies initially
+		sliced_enemy_array = full_enemy_array.slice(0, 6) # Six enemies from wave 20
+	elif wave_number > 15:
+		sliced_enemy_array = full_enemy_array.slice(0, 5) # Five enemies from wave 15
+	elif wave_number > 10:
+		sliced_enemy_array = full_enemy_array.slice(0, 4) # Four enemies from wave 10
+	elif wave_number > 5:
+		sliced_enemy_array = full_enemy_array.slice(0, 3) # Three enemies from wave 5
+	elif wave_number > 2:
+		sliced_enemy_array = full_enemy_array.slice(0, 2) # Two enemies from wave 3
 
 # Function that will populate an array of enemies for the upcoming wave
 func repopulate_current_wave_enemy_array(wave_size: int):
 	current_wave_enemy_array.clear()
 	remaining_enemies_to_spawn.clear()
 	debug_enemy_dictionary.clear()
-	update_sliced_enemy_array(current_level_wave_spawn_size)
+	update_sliced_enemy_array(current_level)
 	while wave_size > 0:
 		var randomly_chosen_enemy_and_size: Array = _choose_random_enemy(sliced_enemy_array, wave_size)
 		current_wave_enemy_array.append(randomly_chosen_enemy_and_size[0])
@@ -84,6 +85,7 @@ func start_wave():
 	for key in debug_enemy_dictionary.keys(): # Iterate over keys
 		var value = debug_enemy_dictionary[key] # Access value using the key
 		print(key, ": ", value)
+	await get_tree().create_timer(2.0).timeout
 	spawn_enemy_array_slowly(remaining_enemies_to_spawn, current_level)
 
 # Function that will check win/loss conditions
@@ -114,6 +116,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.easy_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 		"medium":
 			if Globals.medium_map_current_level % 5 == 0:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.20)
@@ -123,6 +127,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.medium_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 		"hard":
 			if Globals.hard_map_current_level % 5 == 0:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
@@ -132,7 +138,8 @@ func wave_won_increase_level_and_size():
 			current_level = Globals.hard_map_current_level
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
-			
+			if (current_level-1) % 10 == 0 and Globals.current_max_turrets < Globals.MAX_PLACEABLE_TURRETS:
+				Globals.current_max_turrets += 1
 
 # Function that takes an array of enemies and wave size as parameter and ensures it returns an enemy that fits within the remaining wave size
 func _choose_random_enemy(enemy_array: Array, wave_size: int) -> Array:

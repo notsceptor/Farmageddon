@@ -22,7 +22,7 @@
 		},
 		{
 			"activity_draggable": "res://Models/Turrets/Potato Launcher/Potato_Launcher.gltf",
-			"damage": 7,
+			"damage": 1,
 			"icon": "res://Models/Turrets/Potato Launcher/potato_launcher_cover.png",
 			"key": "Potato_Launcher",
 			"name": "Potato Launcher",
@@ -46,7 +46,7 @@
 	"rare": [
 		{
 			"activity_draggable": "res://Models/Turrets/Honeycomb Harpoon/Honeycomb_Harpoon.gltf",
-			"damage": 3,
+			"damage": 6,
 			"icon": "res://Models/Turrets/Honeycomb Harpoon/honeycomb_harpoon_cover.png",
 			"key": "Honeycomb_Harpoon",
 			"name": "Honeycomb Harpoon",
@@ -56,13 +56,13 @@
 		},
 		{
 			"activity_draggable": "res://Models/Turrets/Chiligun/Chiligun.gltf",
-			"damage": 4,
+			"damage": 2,
 			"icon": "res://Models/Turrets/Chiligun/chiligun_cover.png",
 			"key": "Chiligun",
 			"name": "Chiligun",
 			"description": "Utilising the heat power of Chilli's, bathes targets in a large cone of flames that will roast even the toughest of targets alive. Unfortunately, its range is quite short, to protect the garden of course.",
 			"rarity": "rare",
-			"turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chiligun_container.tscn"
+			"turret_to_instantiate": "res://Scenes/Turrets/Chiligun/chili_gun_container.tscn"
 		},
 		{
 			"activity_draggable": "res://Models/Turrets/Haybale Barrage/Haybale_Barrage.gltf",

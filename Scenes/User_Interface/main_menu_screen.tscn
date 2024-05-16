@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bue1piatwa0o"]
+[gd_scene load_steps=17 format=3 uid="uid://bue1piatwa0o"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/main_menu_screen.gd" id="1_fa3bd"]
 [ext_resource type="FontFile" uid="uid://n2hi7q5233s6" path="res://Scenes/User_Interface/Assets/upheavtt.ttf" id="2_r825n"]
@@ -22,6 +22,66 @@ font_size = 25
 [sub_resource type="LabelSettings" id="LabelSettings_ywhao"]
 font = ExtResource("2_r825n")
 font_size = 25
+
+[sub_resource type="Animation" id="Animation_p025a"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_x616o"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iajw5"]
+_data = {
+"RESET": SubResource("Animation_p025a"),
+"fade": SubResource("Animation_x616o")
+}
 
 [node name="MainMenuScreen" type="CanvasLayer"]
 script = ExtResource("1_fa3bd")
@@ -48,43 +108,26 @@ texture = ExtResource("7_ubaos")
 expand_mode = 5
 stretch_mode = 6
 
-[node name="BackButtonContainer" type="MarginContainer" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-theme_override_constants/margin_left = 100
-theme_override_constants/margin_top = 100
-
-[node name="BackButton" type="Button" parent="BackButtonContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-focus_mode = 0
-theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
-theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 48
-theme_override_styles/normal = ExtResource("3_4m4fk")
-theme_override_styles/hover = ExtResource("4_qjcwd")
-theme_override_styles/pressed = ExtResource("5_fve6r")
-text = "BACK"
-
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -255.0
-offset_top = -332.0
-offset_right = 170.0
-offset_bottom = 175.0
+offset_left = -234.5
+offset_top = -258.0
+offset_right = 234.5
+offset_bottom = 258.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.25, 1.25)
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_bottom = 30
 
 [node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 50
+theme_override_constants/separation = 40
 
 [node name="GameTitle" type="Label" parent="MarginContainer/MainScreenContainer"]
 layout_mode = 2
@@ -98,6 +141,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -109,7 +153,23 @@ theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "PLAY GAME"
 
+[node name="OpenInventory" type="Button" parent="MarginContainer/MainScreenContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_r825n")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_4m4fk")
+theme_override_styles/hover = ExtResource("4_qjcwd")
+theme_override_styles/pressed = ExtResource("5_fve6r")
+text = "Inventory
+"
+
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainScreenContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -123,6 +183,7 @@ text = "SETTINGS
 "
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -137,21 +198,27 @@ text = "EXIT GAME"
 [node name="LevelSelectContainer" type="VBoxContainer" parent="MarginContainer"]
 visible = false
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_constants/separation = 75
+theme_override_constants/separation = 100
 
 [node name="GameTitle" type="Label" parent="MarginContainer/LevelSelectContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 70
 text = "FARMAGEDDON 
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="EasyLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/LevelSelectContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="EasyLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -164,7 +231,8 @@ theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "EASY MAP"
 
-[node name="MediumLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+[node name="MediumLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
@@ -178,7 +246,8 @@ theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "MEDIUM MAP
 "
 
-[node name="HardLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+[node name="HardLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
+custom_minimum_size = Vector2(260, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -189,6 +258,19 @@ theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "HARD MAP"
+
+[node name="BackButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
+custom_minimum_size = Vector2(260, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
+theme_override_fonts/font = ExtResource("2_r825n")
+theme_override_font_sizes/font_size = 36
+theme_override_styles/normal = ExtResource("3_4m4fk")
+theme_override_styles/hover = ExtResource("4_qjcwd")
+theme_override_styles/pressed = ExtResource("5_fve6r")
+text = "BACK"
 
 [node name="SettingsMenu" type="Control" parent="MarginContainer"]
 visible = false
@@ -319,37 +401,17 @@ theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "BACK"
 
-[node name="Inventory" type="CenterContainer" parent="."]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -83.0
-offset_top = -20.0
-offset_bottom = 20.0
-grow_horizontal = 0
-grow_vertical = 2
-size_flags_horizontal = 8
+[node name="FadePlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_iajw5")
+}
 
-[node name="OpenInventory" type="Button" parent="Inventory"]
-layout_mode = 2
-focus_mode = 0
-theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
-theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
-theme_override_styles/normal = ExtResource("3_4m4fk")
-theme_override_styles/hover = ExtResource("4_qjcwd")
-theme_override_styles/pressed = ExtResource("5_fve6r")
-text = "Inventory
-"
-
-[connection signal="pressed" from="BackButtonContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/PlayGameButton" to="." method="_on_play_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer/MainScreenContainer/OpenInventory" to="." method="_on_open_inventory_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
 [connection signal="pressed" from="MarginContainer/MainScreenContainer/ExitGameButton" to="." method="_on_exit_game_button_pressed"]
-[connection signal="pressed" from="MarginContainer/LevelSelectContainer/EasyLevelButton" to="." method="_on_easy_level_button_pressed"]
-[connection signal="pressed" from="MarginContainer/LevelSelectContainer/MediumLevelButton" to="." method="_on_medium_level_button_pressed"]
-[connection signal="pressed" from="MarginContainer/LevelSelectContainer/HardLevelButton" to="." method="_on_hard_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/EasyLevelButton" to="." method="_on_easy_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/MediumLevelButton" to="." method="_on_medium_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/HardLevelButton" to="." method="_on_hard_level_button_pressed"]
+[connection signal="pressed" from="MarginContainer/LevelSelectContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="MarginContainer/SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="Inventory/OpenInventory" to="." method="_on_open_inventory_pressed"]

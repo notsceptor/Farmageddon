@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://befumbu5bw0kn"]
+[gd_scene load_steps=9 format=3 uid="uid://befumbu5bw0kn"]
 
 [ext_resource type="Script" path="res://Scenes/Turrets/Chiligun/chiligun_projectile.gd" id="1_e41ex"]
+[ext_resource type="AudioStream" uid="uid://dqjdg3xucegv8" path="res://audio/Flamethrower.mp3" id="2_k273s"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cdm4g"]
 transparency = 2
@@ -94,6 +95,12 @@ draw_pass_1 = SubResource("SphereMesh_ejotp")
 [node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
 transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, -0.110581, 0)
 polygon = PackedVector2Array(-0.141195, -0.147387, -0.148946, 0.172823, 1.35643, 1.2065, 1.69766, 0.00241192, 1.35533, -1.20173)
+
+[node name="burn" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_k273s")
+volume_db = -11.054
+pitch_scale = 0.97
+bus = &"SFX"
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="area_exited" from="." to="." method="_on_area_exited"]

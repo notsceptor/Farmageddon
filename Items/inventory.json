@@ -1,76 +1,123 @@
 {
  "turrets": [
   {
-   "IV": "99%",
-   "damage": 10,
+   "ID": "feuif",
+   "damage": 16,
    "name": "Strawberry Artillery",
-   "turret_level": 1
+   "placed": false,
+   "turret_level": 3
   },
   {
-   "IV": "98%",
+   "ID": "zafew",
    "damage": 1,
    "name": "Spore Sprayer",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "96%",
+   "ID": "oaihe",
    "damage": 10,
    "name": "Seed Sniper",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "77%",
+   "ID": "hehie",
    "damage": 2,
    "name": "Radish Rocket",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "98%",
-   "damage": 7,
+   "ID": "gvw4d",
+   "damage": 1,
    "name": "Potato Launcher",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "95%",
+   "ID": "huegr",
    "damage": 6,
    "name": "Haybale Barrage",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "92%",
+   "ID": "ihuaw",
    "damage": 5,
    "name": "Fish Launcher",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "85%",
-   "damage": 4,
+   "ID": "pwoig",
+   "damage": 2,
    "name": "Chiligun",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "90%",
-   "damage": 10,
+   "ID": "yeoeq",
+   "damage": 6,
    "name": "Honeycomb Harpoon",
-   "turret_level": 2
+   "placed": false,
+   "turret_level": 1
   },
   {
-   "IV": "75%",
+   "ID": "lrpew",
    "damage": 2,
    "name": "Carrot Cannon",
+   "placed": false,
    "turret_level": 1
   },
   {
-   "IV": "50%",
-   "damage": 2,
+   "ID": "puuee",
+   "damage": 1,
    "name": "Pea Shooter",
-   "turret_level": 2
+   "placed": false,
+   "turret_level": 1
   },
   {
-   "IV": "80%",
+   "ID": "aoige",
+   "damage": 6,
+   "name": "Honeycomb Harpoon",
+   "placed": false,
+   "turret_level": 1
+  },
+  {
+   "ID": "aaowf",
+   "damage": 2,
+   "name": "Carrot Cannon",
+   "placed": false,
+   "turret_level": 1
+  },
+  {
+   "ID": "qbjne",
    "damage": 3,
    "name": "Honeycomb Harpoon",
+   "placed": false,
    "turret_level": 1
+  },
+  {
+   "ID": "ljjrw",
+   "damage": 1,
+   "name": "Pea Shooter",
+   "placed": false,
+   "turret_level": 1
+  },
+  {
+   "ID": "sffuh",
+   "damage": 10,
+   "name": "Seed Sniper",
+   "placed": false,
+   "turret_level": 1
+  },
+  {
+   "ID": "LQRYC",
+   "damage": 4,
+   "name": "Potato Launcher",
+   "placed": false,
+   "turret_level": 4
   }
  ]
 }

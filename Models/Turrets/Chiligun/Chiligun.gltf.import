@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dv3a284eeams8"
-path="res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"
+path="res://.godot/imported/Chiligun.gltf-a25422ecaa938bcbeda48c2070a37144.scn"
 
 [deps]
 
-source_file="res://Models/Turrets/Chiligun/Chilligun.gltf"
-dest_files=["res://.godot/imported/Chilligun.gltf-cbcf27eadac09892cc1df95444f7ec58.scn"]
+source_file="res://Models/Turrets/Chiligun/Chiligun.gltf"
+dest_files=["res://.godot/imported/Chiligun.gltf-a25422ecaa938bcbeda48c2070a37144.scn"]
 
 [params]
 
