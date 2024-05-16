@@ -39,6 +39,7 @@ func _on_gems_roll_button_pressed():
 			if turret_icon:
 				turret_preview.texture = turret_icon
 				rarity_display.text = last_rolled_rarity.capitalize()
+				rarity_display.add_theme_stylebox_override("normal", _get_rarity_texture_banner(last_rolled_rarity))
 				rarity_display.visible = true
 				var available_slot = Inventory.items.size() - 1
 				Inventory.add_item(new_turret)

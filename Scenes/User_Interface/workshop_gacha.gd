@@ -22,5 +22,12 @@ func _on_inv_button_pressed():
 	open_inventory_screen.emit()
 
 func _on_workshop_ui_open_gacha_screen():
+	if $CanvasLayer/GachaRoll/GachaContainer/TurretPreview.texture != null:
+		_reset_gacha_turret_preview_area()
 	$"Background Texture".visible = true
 	$CanvasLayer.visible = true
+	
+func _reset_gacha_turret_preview_area():
+	$CanvasLayer/GachaRoll/GachaContainer/TurretPreview.texture = null
+	$CanvasLayer/GachaRoll/GachaContainer/RarityDisplay.text = ""
+	$CanvasLayer/GachaRoll/GachaContainer/RarityDisplay.add_theme_stylebox_override("normal", StyleBoxEmpty.new())
