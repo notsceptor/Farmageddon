@@ -1,65 +1,9 @@
 {
  "turrets": [
   {
-   "ID": "feuif",
-   "damage": 16,
-   "name": "Strawberry Artillery",
-   "placed": false,
-   "turret_level": 3
-  },
-  {
-   "ID": "zafew",
-   "damage": 1,
-   "name": "Spore Sprayer",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "oaihe",
-   "damage": 10,
-   "name": "Seed Sniper",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "hehie",
-   "damage": 2,
-   "name": "Radish Rocket",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
    "ID": "gvw4d",
    "damage": 1,
    "name": "Potato Launcher",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "huegr",
-   "damage": 6,
-   "name": "Haybale Barrage",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "ihuaw",
-   "damage": 5,
-   "name": "Fish Launcher",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "pwoig",
-   "damage": 2,
-   "name": "Chiligun",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "yeoeq",
-   "damage": 6,
-   "name": "Honeycomb Harpoon",
    "placed": false,
    "turret_level": 1
   },
@@ -76,48 +20,6 @@
    "name": "Pea Shooter",
    "placed": false,
    "turret_level": 1
-  },
-  {
-   "ID": "aoige",
-   "damage": 6,
-   "name": "Honeycomb Harpoon",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "aaowf",
-   "damage": 2,
-   "name": "Carrot Cannon",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "qbjne",
-   "damage": 3,
-   "name": "Honeycomb Harpoon",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "ljjrw",
-   "damage": 1,
-   "name": "Pea Shooter",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "sffuh",
-   "damage": 10,
-   "name": "Seed Sniper",
-   "placed": false,
-   "turret_level": 1
-  },
-  {
-   "ID": "LQRYC",
-   "damage": 4,
-   "name": "Potato Launcher",
-   "placed": false,
-   "turret_level": 4
   }
  ]
 }
