@@ -110,7 +110,7 @@ func display_item_preview(turret_metadata: Dictionary):
 
 	upgrade_button.text = "Upgrade"
 
-	upgrade_button.disconnect("pressed", Callable(self, "_on_upgrade_button_pressed"))
+	#upgrade_button.disconnect("pressed", Callable(self, "_on_upgrade_button_pressed"))
 	upgrade_button.connect("pressed", Callable(self, "_on_upgrade_button_pressed").bind(turret_metadata))
 
 func calculate_damage_increase(base_damage: int, current_damage: int) -> int:

@@ -100,6 +100,7 @@ func check_win_loss_conditions():
 			get_map_difficulty_data()
 		else:
 			print("WAVE LOST TRY AGAIN")
+			GlobalAudioPlayer.play_fail_sound()
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
 			for enemy in current_wave_enemy_array:

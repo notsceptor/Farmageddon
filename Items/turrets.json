@@ -80,7 +80,7 @@
 			"icon": "res://Models/Turrets/Blueberry Blaster/Blueberry_Blaster_Cover.png",
 			"key": "Blueberry_Blaster",
 			"name": "Blueberry Blaster",
-			"description": "Don't underestimate the power of super compressed blueberries. Fires a double barrel shotgun load of blueberries at close range to it's target, dealing high damage.",
+			"description": "Don't underestimate the power of super compressed blueberries. Fires a double barrel shotgun load in a fan-shape to it's target. Best placed close.",
 			"rarity": "rare",
 			"turret_to_instantiate": "res://Scenes/Turrets/Blueberry Blaster/blueberry_blaster_container.tscn"
 		}
