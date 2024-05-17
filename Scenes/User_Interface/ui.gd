@@ -198,6 +198,10 @@ func _on_tween_completed():
 	information_label.hide()
 
 func _on_inventory_button_pressed():
+	for item in Inventory.items:
+		item.placed = false
+	$Inventory/ScrollContainer/GridContainer.populate_grid()
+	pickup_turrets.emit()
 	GlobalAudioPlayer.play_menu_click_sound()
 	open_inventory.emit()
   

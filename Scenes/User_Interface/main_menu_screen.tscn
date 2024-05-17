@@ -124,6 +124,7 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -133,7 +134,7 @@ theme_override_constants/separation = 40
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 120
 text = "FARMAGEDDON 
 "
 horizontal_alignment = 1
@@ -147,7 +148,7 @@ size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
@@ -160,7 +161,7 @@ size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
@@ -174,7 +175,7 @@ size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
@@ -191,7 +192,7 @@ theme_override_constants/separation = 100
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 70
+theme_override_font_sizes/font_size = 120
 text = "FARMAGEDDON 
 "
 horizontal_alignment = 1
@@ -203,28 +204,28 @@ layout_mode = 2
 theme_override_constants/separation = 20
 
 [node name="EasyLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "EASY MAP"
 
 [node name="MediumLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
@@ -232,33 +233,32 @@ text = "MEDIUM MAP
 "
 
 [node name="HardLevelButton" type="Button" parent="MarginContainer/LevelSelectContainer/HBoxContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "HARD MAP"
 
 [node name="BackButton" type="Button" parent="MarginContainer/LevelSelectContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "BACK"
 
 [node name="SettingsMenu" type="Control" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 
 [node name="SettingsText" type="Label" parent="MarginContainer/SettingsMenu"]
@@ -369,18 +369,15 @@ value = 1.0
 script = ExtResource("10_mr6md")
 bus_name = "SFX"
 
-[node name="BackButton" type="Button" parent="MarginContainer/SettingsMenu"]
+[node name="BackButton" type="Button" parent="MarginContainer/SettingsMenu/VBoxContainer"]
+custom_minimum_size = Vector2(370, 100)
 layout_mode = 2
-offset_left = 160.0
-offset_top = 399.0
-offset_right = 309.0
-offset_bottom = 457.0
 size_flags_horizontal = 4
 size_flags_vertical = 8
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("2_r825n")
-theme_override_font_sizes/font_size = 36
+theme_override_font_sizes/font_size = 50
 theme_override_styles/normal = ExtResource("3_4m4fk")
 theme_override_styles/hover = ExtResource("4_qjcwd")
 theme_override_styles/pressed = ExtResource("5_fve6r")
@@ -398,4 +395,4 @@ libraries = {
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/MediumLevelButton" to="." method="_on_medium_level_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/HBoxContainer/HardLevelButton" to="." method="_on_hard_level_button_pressed"]
 [connection signal="pressed" from="MarginContainer/LevelSelectContainer/BackButton" to="." method="_on_back_button_pressed"]
-[connection signal="pressed" from="MarginContainer/SettingsMenu/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="MarginContainer/SettingsMenu/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

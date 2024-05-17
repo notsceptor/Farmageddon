@@ -29,6 +29,7 @@ func _ready():
 func _on_gems_roll_button_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	if ROLL_COST_GEMS <= Globals.gems:
+		$GachaRoll/GachaContainer/ErrorMessage.visible = false
 		roll_button_gems.visible = false
 		roll_button_gold.visible = false
 		rarity_display.visible = false
@@ -172,6 +173,7 @@ func _start_spin_animation(new_turret: Dictionary):
 func _on_roll_button_gold_pressed():
 	GlobalAudioPlayer.play_menu_click_sound()
 	if ROLL_COST_GOLD <= Globals.gold:
+		$GachaRoll/GachaContainer/ErrorMessage.visible = false
 		roll_button_gems.visible = false
 		roll_button_gold.visible = false
 		rarity_display.visible = false

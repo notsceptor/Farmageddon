@@ -55,63 +55,63 @@ layout_mode = 2
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 0
-theme_override_constants/margin_top = 10
+theme_override_constants/margin_top = 40
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
 [node name="InvButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("6_mnni1")
 theme_override_styles/hover = ExtResource("7_2laui")
 theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "Turrets"
 
 [node name="GachaButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("6_mnni1")
 theme_override_styles/hover = ExtResource("7_2laui")
 theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "Gacha"
 
 [node name="ProfileButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("6_mnni1")
 theme_override_styles/hover = ExtResource("7_2laui")
 theme_override_styles/pressed = ExtResource("8_i25j3")
 text = "profile"
 
 [node name="ExitButton" type="Button" parent="CanvasLayer/Header/TabsContainer/PanelContainer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
 theme_override_fonts/font = ExtResource("5_1prjo")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = ExtResource("6_mnni1")
 theme_override_styles/hover = ExtResource("7_2laui")
 theme_override_styles/pressed = ExtResource("8_i25j3")
