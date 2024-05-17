@@ -100,6 +100,7 @@ func check_win_loss_conditions():
 			get_map_difficulty_data()
 		else:
 			print("WAVE LOST TRY AGAIN")
+			GlobalAudioPlayer.play_fail_sound()
 			if current_level % 5 == 0:
 				current_wave_is_boss_wave = true
 			for enemy in current_wave_enemy_array:
@@ -110,6 +111,7 @@ func wave_won_increase_level_and_size():
 		"easy":
 			if Globals.easy_map_current_level % 5 == 0:
 				Globals.easy_map_spawn_size = ceilf(Globals.easy_map_spawn_size * 1.20)
+				Globals.easy_map_speed_multiplier += 0.125
 			else:
 				Globals.easy_map_spawn_size = ceilf(Globals.easy_map_spawn_size * 1.07)
 			Globals.easy_map_current_level += 1
@@ -121,6 +123,7 @@ func wave_won_increase_level_and_size():
 		"medium":
 			if Globals.medium_map_current_level % 5 == 0:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.20)
+				Globals.medium_map_speed_multiplier += 0.15
 			else:
 				Globals.medium_map_spawn_size = ceilf(Globals.medium_map_spawn_size * 1.07)
 			Globals.medium_map_current_level += 1
@@ -132,6 +135,7 @@ func wave_won_increase_level_and_size():
 		"hard":
 			if Globals.hard_map_current_level % 5 == 0:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.20)
+				Globals.hard_map_speed_multiplier += 0.175
 			else:
 				Globals.hard_map_spawn_size = ceilf(Globals.hard_map_spawn_size * 1.07)
 			Globals.hard_map_current_level += 1
@@ -202,7 +206,8 @@ func _choose_random_boss_enemy_and_spawn(enemy_array: Array):
 	boss_enemy_scene_instantiated = boss_enemy_scene.instantiate()
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0].scale = Vector3(2,2,2)
 	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._speed *= 0.75
-	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health *= 5
+	var boss_health = boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health * 5
+	boss_enemy_scene_instantiated.get_node("Path3D/PathFollow3D").get_children()[0]._health = ceil(boss_health + (boss_health*0.07*current_level))
 	add_child(boss_enemy_scene_instantiated)
 
 func spawn_enemy_array_slowly(wave_enemy_array: Array[PackedScene],current_level):

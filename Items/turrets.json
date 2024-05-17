@@ -73,6 +73,16 @@
 			"description": "Fires a large, unstoppable haybale that rolls in a target direction for a long distance, dealing high damage and squashing most enemies that come into contact with it, but taking a while to load another bale.",
 			"rarity": "rare",
 			"turret_to_instantiate": "res://Scenes/Turrets/Haybale Barrage/haybale_barrage_container.tscn"
+		},
+		{
+			"activity_draggable": "res://Models/Turrets/Blueberry Blaster/Blueberry_Blaster.gltf",
+			"damage": 2,
+			"icon": "res://Models/Turrets/Blueberry Blaster/Blueberry_Blaster_Cover.png",
+			"key": "Blueberry_Blaster",
+			"name": "Blueberry Blaster",
+			"description": "Don't underestimate the power of super compressed blueberries. Fires a double barrel shotgun load in a fan-shape to it's target. Best placed close.",
+			"rarity": "rare",
+			"turret_to_instantiate": "res://Scenes/Turrets/Blueberry Blaster/blueberry_blaster_container.tscn"
 		}
 	],
 	"epic": [

@@ -202,8 +202,10 @@ offset_bottom = 111.0
 label_settings = SubResource("LabelSettings_ml4ys")
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="RarityDisplay" type="Label" parent="CanvasLayer/GachaRoll/GachaContainer"]
+visible = false
 layout_mode = 0
 offset_left = -167.0
 offset_top = 70.0

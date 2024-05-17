@@ -18,16 +18,19 @@ var current_selected_map: String
 #region Easy Map Section
 var easy_map_current_level: int = 1
 var easy_map_spawn_size: int = 3
+var easy_map_speed_multiplier: int = 1
 #endregion
 
 #region Medium Map Section
 var medium_map_current_level: int = 1
 var medium_map_spawn_size: int = 6
+var medium_map_speed_multiplier: int = 1
 #endregion
 
 #region Hard Map Section
 var hard_map_current_level: int = 1
 var hard_map_spawn_size: int = 10
+var hard_map_speed_multiplier: int = 1
 #endregion
 
 var intro_played: bool = false

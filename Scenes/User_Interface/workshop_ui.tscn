@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cwulolttkwmtq"]
+[gd_scene load_steps=24 format=3 uid="uid://cwulolttkwmtq"]
 
 [ext_resource type="Script" path="res://Scenes/User_Interface/workshop_ui.gd" id="1_gwo4e"]
 [ext_resource type="Texture2D" uid="uid://bd3nx0xolp5r3" path="res://Textures/workshop texture.png" id="2_2j7m4"]
@@ -17,6 +17,10 @@
 [sub_resource type="LabelSettings" id="LabelSettings_d0es2"]
 font = ExtResource("3_21cox")
 font_size = 48
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5kpl"]
+font = ExtResource("3_21cox")
+font_size = 18
 
 [sub_resource type="LabelSettings" id="LabelSettings_i6awy"]
 font = ExtResource("3_21cox")
@@ -196,7 +200,7 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_nlldh")
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
-theme_override_constants/margin_left = 25
+theme_override_constants/margin_left = 250
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer"]
 clip_contents = false
@@ -206,6 +210,8 @@ size_flags_horizontal = 0
 
 [node name="GridContainer" type="GridContainer" parent="CanvasLayer/Turrets/TurretsContainer/PanelContainer/MarginContainer/ScrollContainer"]
 layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
 script = ExtResource("4_bcs8p")
 
 [node name="UpgradeContainer" type="CenterContainer" parent="CanvasLayer/Turrets"]
@@ -250,12 +256,28 @@ label_settings = SubResource("LabelSettings_d0es2")
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RarityDisplay" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+label_settings = SubResource("LabelSettings_t5kpl")
+horizontal_alignment = 1
+
 [node name="TurretPreview" type="TextureRect" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 expand_mode = 4
+
+[node name="Level" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 21
+text = "
+"
+label_settings = SubResource("LabelSettings_i6awy")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="StatChange" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -266,6 +288,16 @@ text = "
 label_settings = SubResource("LabelSettings_i6awy")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Description" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 16
+text = "
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
 
 [node name="ResourcesNeeded" type="Label" parent="CanvasLayer/Turrets/UpgradeContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

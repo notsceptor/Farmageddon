@@ -14,8 +14,15 @@ var _deathsound = false
 var original_speed
 var slow_timer
 
+var speed_multipliers = {
+	"easy": Globals.easy_map_speed_multiplier,
+	"medium": Globals.medium_map_current_level,
+	"hard": Globals.hard_map_speed_multiplier
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	_speed *= speed_multipliers.get(Globals.current_selected_map, 1.0)
 	original_speed = _speed
 	health_bar.max_value = _health
 	health_bar.value = _health
