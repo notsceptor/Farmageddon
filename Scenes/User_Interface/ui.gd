@@ -201,6 +201,8 @@ func _on_inventory_button_pressed():
 	for item in Inventory.items:
 		item.placed = false
 	$Inventory/ScrollContainer/GridContainer.populate_grid()
+	if $Inventory.is_open:
+		$Inventory.close_container()
 	pickup_turrets.emit()
 	GlobalAudioPlayer.play_menu_click_sound()
 	open_inventory.emit()

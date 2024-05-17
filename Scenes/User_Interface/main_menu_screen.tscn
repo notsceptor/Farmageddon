@@ -13,15 +13,15 @@
 
 [sub_resource type="LabelSettings" id="LabelSettings_3gfel"]
 font = ExtResource("2_r825n")
-font_size = 72
+font_size = 110
 
 [sub_resource type="LabelSettings" id="LabelSettings_nv5uf"]
 font = ExtResource("2_r825n")
-font_size = 25
+font_size = 40
 
 [sub_resource type="LabelSettings" id="LabelSettings_ywhao"]
 font = ExtResource("2_r825n")
-font_size = 25
+font_size = 40
 
 [sub_resource type="Animation" id="Animation_p025a"]
 length = 0.001
@@ -124,7 +124,6 @@ theme_override_constants/margin_top = 30
 theme_override_constants/margin_bottom = 30
 
 [node name="MainScreenContainer" type="VBoxContainer" parent="MarginContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -142,7 +141,7 @@ vertical_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="PlayGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(440, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -155,7 +154,7 @@ theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "PLAY GAME"
 
 [node name="SettingsButton" type="Button" parent="MarginContainer/MainScreenContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(440, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -169,7 +168,7 @@ text = "SETTINGS
 "
 
 [node name="ExitGameButton" type="Button" parent="MarginContainer/MainScreenContainer"]
-custom_minimum_size = Vector2(260, 0)
+custom_minimum_size = Vector2(440, 110)
 layout_mode = 2
 size_flags_horizontal = 4
 focus_mode = 0
@@ -259,29 +258,34 @@ theme_override_styles/pressed = ExtResource("5_fve6r")
 text = "BACK"
 
 [node name="SettingsMenu" type="Control" parent="MarginContainer"]
+visible = false
 layout_mode = 2
 
-[node name="SettingsText" type="Label" parent="MarginContainer/SettingsMenu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SettingsMenu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -256.5
+offset_top = -285.5
+offset_right = 256.5
+offset_bottom = 285.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 50
+
+[node name="SettingsText" type="Label" parent="MarginContainer/SettingsMenu/VBoxContainer"]
 layout_mode = 2
-offset_left = 67.0
-offset_right = 402.0
-offset_bottom = 65.0
 size_flags_horizontal = 4
 size_flags_vertical = 0
 theme_override_colors/font_color = Color(0.658824, 0.458824, 0, 1)
-theme_override_font_sizes/font_size = 52
 text = "SETTINGS"
 label_settings = SubResource("LabelSettings_3gfel")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SettingsMenu"]
-layout_mode = 2
-offset_top = 93.0
-offset_right = 469.0
-offset_bottom = 364.0
-size_flags_vertical = 4
-theme_override_constants/separation = 50
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SettingsMenu/VBoxContainer"]
 layout_mode = 2
